@@ -1,0 +1,988 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Qwen ViT Runner &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/multimodal/qwenViTRunner';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plugins Module" href="../plugins/index.html" />
+    <link rel="prev" title="Phi4mm ViT Runner" href="phi4mmViTRunner.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Multimodal Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Multimodal Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Qwen ViT Runner</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="qwen-vit-runner">
+<h1>Qwen ViT Runner<a class="headerlink" href="#qwen-vit-runner" title="Link to this heading">#</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunnerE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunnerE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunnerE"></span><span id="trt_edgellm::rt::QwenViTRunner"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QwenViTRunner</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunnerE" title="trt_edgellm::rt::MultimodalRunner"><span class="n"><span class="pre">MultimodalRunner</span></span></a><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunnerE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Runner for Qwen-VL vision encoder. </p>
+<p>This class handles the preprocessing and inference of Qwen-VL vision encoder, </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner13QwenViTRunnerERKNSt6stringE7int32_t7int32_t12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner13QwenViTRunnerERKNSt6stringE7int32_t7int32_t12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner13QwenViTRunnerERKNSt6stringE7int32_t7int32_t12cudaStream_t"></span><span id="trt_edgellm::rt::QwenViTRunner::QwenViTRunner__ssCR.int32_t.int32_t.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1a313d4a7925a60f393b64aa19e69c33b0"></span><span class="sig-name descname"><span class="n"><span class="pre">QwenViTRunner</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">engineDir</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">llmMaxBatchSize</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">llmMaxSequenceLength</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner13QwenViTRunnerERKNSt6stringE7int32_t7int32_t12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructor for <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1QwenViTRunner"><span class="std std-ref">QwenViTRunner</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>engineDir</strong> – <strong>[in]</strong> Directory containing the TensorRT engine files </p></li>
+<li><p><strong>llmMaxBatchSize</strong> – <strong>[in]</strong> Maximum batch size from LLM engine </p></li>
+<li><p><strong>llmMaxSequenceLength</strong> – <strong>[in]</strong> Maximum sequence length from LLM engine </p></li>
+<li><p><strong>stream</strong> – <strong>[in]</strong> CUDA stream for execution </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunnerD0Ev">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunnerD0Ev"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunnerD0Ev"></span><span id="trt_edgellm::rt::QwenViTRunner::~QwenViTRunner"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1a952389cf638737f093e8580c18203577"></span><span class="sig-name descname"><span class="n"><span class="pre">~QwenViTRunner</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunnerD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::QwenViTRunner::preprocess__rt::LLMGenerationRequestCR.std::vector:std::vector:int32_t::R.tokenizer::TokenizerP.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1ade2999f3192ef1efb53a5c676b71d8a5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preprocess</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE" title="trt_edgellm::rt::LLMGenerationRequest"><span class="n"><span class="pre">LLMGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">batchedInputIds</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t" title="trt_edgellm::rt::QwenViTRunner::preprocess::tokenizer"><span class="n"><span class="pre">tokenizer</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Tokenizer</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">tokenizer</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ropeRotaryCosSinDevice</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Preprocess multimodal input including images and text. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – <strong>[in]</strong> LLM generation request containing images and text </p></li>
+<li><p><strong>batchedInputIds</strong> – <strong>[inout]</strong> Batched input token IDs after preprocessing </p></li>
+<li><p><strong>tokenizer</strong> – <strong>[in]</strong> Tokenizer for text processing </p></li>
+<li><p><strong>ropeRotaryCosSinDevice</strong> – <strong>[inout]</strong> RoPE rotary position encoding cache </p></li>
+<li><p><strong>stream</strong> – <strong>[in]</strong> CUDA stream for execution </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if preprocessing succeeded, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::QwenViTRunner::preprocessSystemPrompt__ssCR.tokenizer::TokenizerP.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1a775c6ee92c80c9a2c7d6271d582883d1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preprocessSystemPrompt</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">systemPrompt</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t" title="trt_edgellm::rt::QwenViTRunner::preprocessSystemPrompt::tokenizer"><span class="n"><span class="pre">tokenizer</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Tokenizer</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">tokenizer</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ropeRotaryCosSinDevice</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Encode the system prompt and generate ND-RoPE parameters for the system prompt for KVCache saving. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>systemPrompt</strong> – <strong>[in]</strong> System prompt string </p></li>
+<li><p><strong>tokenizer</strong> – <strong>[in]</strong> Tokenizer for text processing </p></li>
+<li><p><strong>ropeRotaryCosSinDevice</strong> – <strong>[inout]</strong> RoPE rotary position encoding cache </p></li>
+<li><p><strong>stream</strong> – <strong>[in]</strong> CUDA stream for execution </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if preprocessing succeeded, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t"></span><span id="trt_edgellm::rt::QwenViTRunner::infer__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1add70009ad4af043c4f8211c7739ccf1f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">infer</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Run inference on the vision encoder. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – <strong>[in]</strong> CUDA stream for execution </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if inference succeeded, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner21validateAndFillConfigERKNSt6stringE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner21validateAndFillConfigERKNSt6stringE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner21validateAndFillConfigERKNSt6stringE"></span><span id="trt_edgellm::rt::QwenViTRunner::validateAndFillConfig__ssCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1a7320ce30e7b3a23f25bf46932b2206f0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">validateAndFillConfig</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">engineDir</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner21validateAndFillConfigERKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Validate and load configuration from JSON file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>engineDir</strong> – <strong>[in]</strong> Path to engine directory </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if configuration is valid and loaded successfully, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner14allocateBufferE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner14allocateBufferE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner14allocateBufferE12cudaStream_t"></span><span id="trt_edgellm::rt::QwenViTRunner::allocateBuffer__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1a9461ef91b446ad3f7843d94b157117d6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allocateBuffer</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner14allocateBufferE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Allocate buffers for inference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if allocation succeeded, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTRunner22getExtraVisualFeaturesEv">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTRunner22getExtraVisualFeaturesEv"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTRunner22getExtraVisualFeaturesEv"></span><span id="trt_edgellm::rt::QwenViTRunner::getExtraVisualFeatures"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1QwenViTRunner_1a111e792f3dbad379a30a4c02746e1a79"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalInputTensors</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getExtraVisualFeatures</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner22getExtraVisualFeaturesEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get extra visual features. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional input tensors vector (e.g. deepstack features for Qwen3-VL) </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfigE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfigE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfigE"></span><span id="trt_edgellm::rt::QwenViTConfig"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QwenViTConfig</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfigE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configuration for Qwen-VL vision encoder. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig5maxHWE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig5maxHWE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig5maxHWE"></span><span id="trt_edgellm::rt::QwenViTConfig::maxHW__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1ae45eed063ca950e5517cbd9af253e617"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxHW</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig5maxHWE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum height * width. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig5minHWE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig5minHWE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig5minHWE"></span><span id="trt_edgellm::rt::QwenViTConfig::minHW__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a5e67ab9a0450e00880dc457dac74d7b4"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">minHW</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig5minHWE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Minimum height * width. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig8inputDimE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig8inputDimE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig8inputDimE"></span><span id="trt_edgellm::rt::QwenViTConfig::inputDim__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1acd67258239416cd48ba32c514f840911"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inputDim</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig8inputDimE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Input dimension. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig12vitPosEmbDimE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig12vitPosEmbDimE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig12vitPosEmbDimE"></span><span id="trt_edgellm::rt::QwenViTConfig::vitPosEmbDim__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1ac90dac6385127a36cbfa28843c77eb5e"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vitPosEmbDim</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12vitPosEmbDimE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Vision transformer position embedding dimension. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig13outHiddenSizeE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig13outHiddenSizeE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig13outHiddenSizeE"></span><span id="trt_edgellm::rt::QwenViTConfig::outHiddenSize__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a750141be3718f46dbb0ab12fc5f9dda2"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">outHiddenSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig13outHiddenSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Output hidden dimension size. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig9vocabSizeE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig9vocabSizeE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig9vocabSizeE"></span><span id="trt_edgellm::rt::QwenViTConfig::vocabSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1ab4484f235fe4ad9b24e9f3c2b499ad46"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vocabSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9vocabSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Vocabulary size. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig18visionStartTokenIdE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig18visionStartTokenIdE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig18visionStartTokenIdE"></span><span id="trt_edgellm::rt::QwenViTConfig::visionStartTokenId__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1ade96af94262c7078d1c85b24fc7ee424"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visionStartTokenId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig18visionStartTokenIdE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Token ID for vision start. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig12imageTokenIdE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig12imageTokenIdE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig12imageTokenIdE"></span><span id="trt_edgellm::rt::QwenViTConfig::imageTokenId__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a78c4f196d7dc7cf4dd47e1ad94105460"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">imageTokenId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12imageTokenIdE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Token ID for image placeholder. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig12videoTokenIdE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig12videoTokenIdE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig12videoTokenIdE"></span><span id="trt_edgellm::rt::QwenViTConfig::videoTokenId__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a24c4433efb8abc4ae307f638381c8426"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">videoTokenId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12videoTokenIdE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Token ID for video placeholder. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig10mropeThetaE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig10mropeThetaE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig10mropeThetaE"></span><span id="trt_edgellm::rt::QwenViTConfig::mropeTheta__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a989ecb403870e1f241c040174a9345de"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mropeTheta</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig10mropeThetaE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Multi-dimensional RoPE theta parameter. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig9patchSizeE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig9patchSizeE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig9patchSizeE"></span><span id="trt_edgellm::rt::QwenViTConfig::patchSize__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a60d07e1eecf60d9e7bd1fc8ba1284894"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">patchSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9patchSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Patch size in pixels. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig17temporalPatchSizeE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig17temporalPatchSizeE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig17temporalPatchSizeE"></span><span id="trt_edgellm::rt::QwenViTConfig::temporalPatchSize__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a6e3b625b41115fa2b4301675b16bc024"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">temporalPatchSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig17temporalPatchSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Temporal patch size for video. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig9mergeSizeE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig9mergeSizeE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig9mergeSizeE"></span><span id="trt_edgellm::rt::QwenViTConfig::mergeSize__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a929ed30185430b951e0f7d999b46460e"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mergeSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9mergeSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Merge size for patches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig10windowSizeE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig10windowSizeE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig10windowSizeE"></span><span id="trt_edgellm::rt::QwenViTConfig::windowSize__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a9f1652f6ccb100c812d60d4f189ed6f2"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">windowSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig10windowSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Window attention size used by Qwen2.5-VL. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig14numGridPerSideE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig14numGridPerSideE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig14numGridPerSideE"></span><span id="trt_edgellm::rt::QwenViTConfig::numGridPerSide__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a13b260c7b4618749d2b242b5e3e2eb6e"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numGridPerSide</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig14numGridPerSideE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of grid per side for fast position embedding used by Qwen3-VL. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig20numDeepstackFeaturesE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig20numDeepstackFeaturesE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig20numDeepstackFeaturesE"></span><span id="trt_edgellm::rt::QwenViTConfig::numDeepstackFeatures__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1ae9e3490a50ab3d78b922ee4c24186070"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numDeepstackFeatures</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig20numDeepstackFeaturesE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of deepstack features for Qwen3-VL. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig22minImageTokensPerImageE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig22minImageTokensPerImageE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig22minImageTokensPerImageE"></span><span id="trt_edgellm::rt::QwenViTConfig::minImageTokensPerImage__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a861d11103cb970c562e28325e463b499"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">minImageTokensPerImage</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig22minImageTokensPerImageE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Minimum image tokens generated by each image. Used for resizing. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig22maxImageTokensPerImageE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig22maxImageTokensPerImageE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig22maxImageTokensPerImageE"></span><span id="trt_edgellm::rt::QwenViTConfig::maxImageTokensPerImage__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1af8ad0f4fe0d2742675f518d61c459cf0"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxImageTokensPerImage</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig22maxImageTokensPerImageE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum image tokens generated by each image. Used for resizing. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig12maxNumImagesE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig12maxNumImagesE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig12maxNumImagesE"></span><span id="trt_edgellm::rt::QwenViTConfig::maxNumImages__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1a983344005e257c73e8677fd98891f4b7"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxNumImages</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12maxNumImagesE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum number of images per request. Used for pre-allocation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig9imageMeanE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig9imageMeanE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig9imageMeanE"></span><span id="trt_edgellm::rt::QwenViTConfig::imageMean__std::vector:float:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1abd6beb0de812f9a21617422e077317f3"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">imageMean</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9imageMeanE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Image normalization mean values (RGB) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt13QwenViTConfig8imageStdE">
+<span id="_CPPv3N11trt_edgellm2rt13QwenViTConfig8imageStdE"></span><span id="_CPPv2N11trt_edgellm2rt13QwenViTConfig8imageStdE"></span><span id="trt_edgellm::rt::QwenViTConfig::imageStd__std::vector:float:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1QwenViTConfig_1aa270da7367d0fce0b67fe8a499a0eefd"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">imageStd</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig8imageStdE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Image normalization standard deviation values (RGB) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="phi4mmViTRunner.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Phi4mm ViT Runner</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../plugins/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Plugins Module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunnerE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::QwenViTRunner</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner13QwenViTRunnerERKNSt6stringE7int32_t7int32_t12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">QwenViTRunner()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunnerD0Ev"><code class="docutils literal notranslate"><span class="pre">~QwenViTRunner()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">preprocess()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">preprocessSystemPrompt()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">infer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner21validateAndFillConfigERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">validateAndFillConfig()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner14allocateBufferE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">allocateBuffer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTRunner22getExtraVisualFeaturesEv"><code class="docutils literal notranslate"><span class="pre">getExtraVisualFeatures()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfigE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::QwenViTConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig5maxHWE"><code class="docutils literal notranslate"><span class="pre">maxHW</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig5minHWE"><code class="docutils literal notranslate"><span class="pre">minHW</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig8inputDimE"><code class="docutils literal notranslate"><span class="pre">inputDim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12vitPosEmbDimE"><code class="docutils literal notranslate"><span class="pre">vitPosEmbDim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig13outHiddenSizeE"><code class="docutils literal notranslate"><span class="pre">outHiddenSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9vocabSizeE"><code class="docutils literal notranslate"><span class="pre">vocabSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig18visionStartTokenIdE"><code class="docutils literal notranslate"><span class="pre">visionStartTokenId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12imageTokenIdE"><code class="docutils literal notranslate"><span class="pre">imageTokenId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12videoTokenIdE"><code class="docutils literal notranslate"><span class="pre">videoTokenId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig10mropeThetaE"><code class="docutils literal notranslate"><span class="pre">mropeTheta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9patchSizeE"><code class="docutils literal notranslate"><span class="pre">patchSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig17temporalPatchSizeE"><code class="docutils literal notranslate"><span class="pre">temporalPatchSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9mergeSizeE"><code class="docutils literal notranslate"><span class="pre">mergeSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig10windowSizeE"><code class="docutils literal notranslate"><span class="pre">windowSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig14numGridPerSideE"><code class="docutils literal notranslate"><span class="pre">numGridPerSide</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig20numDeepstackFeaturesE"><code class="docutils literal notranslate"><span class="pre">numDeepstackFeatures</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig22minImageTokensPerImageE"><code class="docutils literal notranslate"><span class="pre">minImageTokensPerImage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig22maxImageTokensPerImageE"><code class="docutils literal notranslate"><span class="pre">maxImageTokensPerImage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig12maxNumImagesE"><code class="docutils literal notranslate"><span class="pre">maxNumImages</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig9imageMeanE"><code class="docutils literal notranslate"><span class="pre">imageMean</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt13QwenViTConfig8imageStdE"><code class="docutils literal notranslate"><span class="pre">imageStd</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

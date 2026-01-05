@@ -1,0 +1,1074 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LLM Runtime Utils &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/runtime/llmRuntimeUtils';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sampler Module" href="../sampler/index.html" />
+    <link rel="prev" title="LLM Inference Spec Decode Runtime" href="llmInferenceSpecDecodeRuntime.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Runtime Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Runtime Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">LLM Runtime Utils</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="llm-runtime-utils">
+<h1>LLM Runtime Utils<a class="headerlink" href="#llm-runtime-utils" title="Link to this heading">#</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt7MessageE">
+<span id="_CPPv3N11trt_edgellm2rt7MessageE"></span><span id="_CPPv2N11trt_edgellm2rt7MessageE"></span><span id="trt_edgellm::rt::Message"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Message"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Message</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt7MessageE" title="Link to this definition">#</a><br /></dt>
+<dd><p><a class="reference internal" href="#structtrt__edgellm_1_1rt_1_1Message"><span class="std std-ref">Message</span></a> with role and contents. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt7Message4roleE">
+<span id="_CPPv3N11trt_edgellm2rt7Message4roleE"></span><span id="_CPPv2N11trt_edgellm2rt7Message4roleE"></span><span id="trt_edgellm::rt::Message::role__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1aeecfe24f8afa3618f4ef456ca6f0d596"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">role</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt7Message4roleE" title="Link to this definition">#</a><br /></dt>
+<dd><p><a class="reference internal" href="#structtrt__edgellm_1_1rt_1_1Message"><span class="std std-ref">Message</span></a> role (system, user, assistant) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt7Message8contentsE">
+<span id="_CPPv3N11trt_edgellm2rt7Message8contentsE"></span><span id="_CPPv2N11trt_edgellm2rt7Message8contentsE"></span><span id="trt_edgellm::rt::Message::contents__std::vector:MessageContent:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1af417afb42c939376c5ea6813e9921ce0"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContentE" title="trt_edgellm::rt::Message::MessageContent"><span class="n"><span class="pre">MessageContent</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contents</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt7Message8contentsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Contents of the message. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt7Message14MessageContentE">
+<span id="_CPPv3N11trt_edgellm2rt7Message14MessageContentE"></span><span id="_CPPv2N11trt_edgellm2rt7Message14MessageContentE"></span><span id="trt_edgellm::rt::Message::MessageContent"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1_1MessageContent"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MessageContent</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContentE" title="Link to this definition">#</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt7Message14MessageContent4typeE">
+<span id="_CPPv3N11trt_edgellm2rt7Message14MessageContent4typeE"></span><span id="_CPPv2N11trt_edgellm2rt7Message14MessageContent4typeE"></span><span id="trt_edgellm::rt::Message::MessageContent::type__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1_1MessageContent_1affe26e3afbdeecd6c5a1a7dab70dd352"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContent4typeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Content type (text, image) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt7Message14MessageContent7contentE">
+<span id="_CPPv3N11trt_edgellm2rt7Message14MessageContent7contentE"></span><span id="_CPPv2N11trt_edgellm2rt7Message14MessageContent7contentE"></span><span id="trt_edgellm::rt::Message::MessageContent::content__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1_1MessageContent_1a1a4061d8e597860e9486d306104795ef"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">content</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContent7contentE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Text content when content type is text. Image data will be stored in corresponding imageBuffers. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1_1MessageContent"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MessageContent</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1_1MessageContent_1affe26e3afbdeecd6c5a1a7dab70dd352"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><br /></dt>
+<dd><p>Content type (text, image) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Message_1_1MessageContent_1a1a4061d8e597860e9486d306104795ef"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">content</span></span></span><br /></dt>
+<dd><p>Text content when content type is text. Image data will be stored in corresponding imageBuffers. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequestE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequestE"></span><span id="trt_edgellm::rt::LLMGenerationRequest"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LLMGenerationRequest</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE" title="Link to this definition">#</a><br /></dt>
+<dd><p>LLM Generation Request structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest8requestsE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest8requestsE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest8requestsE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::requests__std::vector:Request:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a6d18b92b9dc2207d4ccab201156262a4"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">Request</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">requests</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest8requestsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Vector of requests for a batch. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17formattedRequestsE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest17formattedRequestsE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest17formattedRequestsE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::formattedRequests__std::vector:FormattedRequest:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a83029fc107f7c251368dc5fc2922a030"></span><span class="k"><span class="pre">mutable</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">FormattedRequest</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">formattedRequests</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17formattedRequestsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Formatted requests (mutable to allow runtime modification) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest11temperatureE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest11temperatureE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest11temperatureE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::temperature__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a2225fbc7c37229d6a164ca76712bd8e3"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">temperature</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest11temperatureE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Temperature parameter for sampling. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest4topPE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest4topPE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest4topPE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::topP__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a2f91991e3ee21dc325eabe9e69f07faa"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">topP</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest4topPE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Top-p (nucleus) sampling parameter. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest4topKE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest4topKE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest4topKE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::topK__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1aa78eba7be1a47e00b603a24999abb713"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">topK</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest4topKE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Top-k sampling parameter. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17maxGenerateLengthE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest17maxGenerateLengthE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest17maxGenerateLengthE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::maxGenerateLength__int64_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1aaae46b7dad89957cd971b836f468da30"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxGenerateLength</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17maxGenerateLengthE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Max length of the generated tokens. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest15loraWeightsNameE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest15loraWeightsNameE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest15loraWeightsNameE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::loraWeightsName__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a345eaa1cdd75f33289bc731ecde81324"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">loraWeightsName</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="s"><span class="pre">&quot;&quot;</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest15loraWeightsNameE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Name of the LoRA weights. Default to empty string for no LoRA weights. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest23saveSystemPromptKVCacheE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest23saveSystemPromptKVCacheE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest23saveSystemPromptKVCacheE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::saveSystemPromptKVCache__b"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a1922e5e8c4d53c7c7e8124dac0a21684"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveSystemPromptKVCache</span></span></span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest23saveSystemPromptKVCacheE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Whether to save system prompt KV cache of this request to be used by later requests. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::applyChatTemplate__b"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a7bc4f51322db36b677f61a65b0f4f811"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">applyChatTemplate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">true</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Whether to apply chat template formatting. If false, raw messages will be concatenated without special tokens. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::addGenerationPrompt__b"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1ae65eac3961843ad926abd89b02704efa"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addGenerationPrompt</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">true</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Whether to add generation prompt (e.g., assistant header) at the end. Only effective when applyChatTemplate=true </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt20LLMGenerationRequest14enableThinkingE">
+<span id="_CPPv3N11trt_edgellm2rt20LLMGenerationRequest14enableThinkingE"></span><span id="_CPPv2N11trt_edgellm2rt20LLMGenerationRequest14enableThinkingE"></span><span id="trt_edgellm::rt::LLMGenerationRequest::enableThinking__b"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1aeadeef41a7fd5c8170a1dcd7f3c32e4a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enableThinking</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest14enableThinkingE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Whether to enable thinking mode for models that support it. Default is disabled. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE">
+<span id="_CPPv3N11trt_edgellm2rt21LLMGenerationResponseE"></span><span id="_CPPv2N11trt_edgellm2rt21LLMGenerationResponseE"></span><span id="trt_edgellm::rt::LLMGenerationResponse"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationResponse"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LLMGenerationResponse</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE" title="Link to this definition">#</a><br /></dt>
+<dd><p>LLM Generation Response structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt21LLMGenerationResponse9outputIdsE">
+<span id="_CPPv3N11trt_edgellm2rt21LLMGenerationResponse9outputIdsE"></span><span id="_CPPv2N11trt_edgellm2rt21LLMGenerationResponse9outputIdsE"></span><span id="trt_edgellm::rt::LLMGenerationResponse::outputIds__std::vector:std::vector:int32_t::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationResponse_1ab9013ab97ea5ba8cdb7bb8113602e571"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">outputIds</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse9outputIdsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generated token IDs for each request in the batch. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt21LLMGenerationResponse11outputTextsE">
+<span id="_CPPv3N11trt_edgellm2rt21LLMGenerationResponse11outputTextsE"></span><span id="_CPPv2N11trt_edgellm2rt21LLMGenerationResponse11outputTextsE"></span><span id="trt_edgellm::rt::LLMGenerationResponse::outputTexts__std::vector:ss:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LLMGenerationResponse_1ae0dbd373648e2eb2c77d63c2c2157e1d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">outputTexts</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse11outputTextsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generated text strings for each request in the batch. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt14LongRopeParamsE">
+<span id="_CPPv3N11trt_edgellm2rt14LongRopeParamsE"></span><span id="_CPPv2N11trt_edgellm2rt14LongRopeParamsE"></span><span id="trt_edgellm::rt::LongRopeParams"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LongRopeParams"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LongRopeParams</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt14LongRopeParamsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Long-Rope specific parameters. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt14LongRopeParams29originalMaxPositionEmbeddingsE">
+<span id="_CPPv3N11trt_edgellm2rt14LongRopeParams29originalMaxPositionEmbeddingsE"></span><span id="_CPPv2N11trt_edgellm2rt14LongRopeParams29originalMaxPositionEmbeddingsE"></span><span id="trt_edgellm::rt::LongRopeParams::originalMaxPositionEmbeddings__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LongRopeParams_1ae93acea943aaf48ad34138896a661050"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">originalMaxPositionEmbeddings</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt14LongRopeParams29originalMaxPositionEmbeddingsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Original maximum position embeddings from training. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt14LongRopeParams10longFactorE">
+<span id="_CPPv3N11trt_edgellm2rt14LongRopeParams10longFactorE"></span><span id="_CPPv2N11trt_edgellm2rt14LongRopeParams10longFactorE"></span><span id="trt_edgellm::rt::LongRopeParams::longFactor__std::vector:float:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LongRopeParams_1a90fca9d3ef5300f5df6a8e0c100870a9"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">longFactor</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt14LongRopeParams10longFactorE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Long factor array for each rotary dimension. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt14LongRopeParams11shortFactorE">
+<span id="_CPPv3N11trt_edgellm2rt14LongRopeParams11shortFactorE"></span><span id="_CPPv2N11trt_edgellm2rt14LongRopeParams11shortFactorE"></span><span id="trt_edgellm::rt::LongRopeParams::shortFactor__std::vector:float:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1LongRopeParams_1ae62a05e465467382b3efdf22c8c4410a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">shortFactor</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt14LongRopeParams11shortFactorE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Short factor array for each rotary dimension. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt10RopeConfigE">
+<span id="_CPPv3N11trt_edgellm2rt10RopeConfigE"></span><span id="_CPPv2N11trt_edgellm2rt10RopeConfigE"></span><span id="trt_edgellm::rt::RopeConfig"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1RopeConfig"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RopeConfig</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt10RopeConfigE" title="Link to this definition">#</a><br /></dt>
+<dd><p>RoPE configuration structure with optional Long-Rope parameters. </p>
+<p>Contains common RoPE fields and (optionally) Long-Rope specific parameters when type==kLongRope. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt10RopeConfig4typeE">
+<span id="_CPPv3N11trt_edgellm2rt10RopeConfig4typeE"></span><span id="_CPPv2N11trt_edgellm2rt10RopeConfig4typeE"></span><span id="trt_edgellm::rt::RopeConfig::type__RopeType"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1RopeConfig_1a7f33477cbeb78596c8a9e4d556ad2d05"></span><span class="n"><span class="pre">RopeType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="n"><span class="pre">RopeType</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">kDefault</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt10RopeConfig4typeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Type of RoPE to use. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt10RopeConfig11rotaryScaleE">
+<span id="_CPPv3N11trt_edgellm2rt10RopeConfig11rotaryScaleE"></span><span id="_CPPv2N11trt_edgellm2rt10RopeConfig11rotaryScaleE"></span><span id="trt_edgellm::rt::RopeConfig::rotaryScale__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1RopeConfig_1adab59ae7af1e0a52dd307ec35f9d1572"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotaryScale</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">1.0F</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt10RopeConfig11rotaryScaleE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Scaling factor for rotary embeddings. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt10RopeConfig11rotaryThetaE">
+<span id="_CPPv3N11trt_edgellm2rt10RopeConfig11rotaryThetaE"></span><span id="_CPPv2N11trt_edgellm2rt10RopeConfig11rotaryThetaE"></span><span id="trt_edgellm::rt::RopeConfig::rotaryTheta__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1RopeConfig_1a2858c617010c7db20776bb82da8850b9"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotaryTheta</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">100000.0F</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt10RopeConfig11rotaryThetaE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Base frequency for rotary embeddings. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt10RopeConfig21maxPositionEmbeddingsE">
+<span id="_CPPv3N11trt_edgellm2rt10RopeConfig21maxPositionEmbeddingsE"></span><span id="_CPPv2N11trt_edgellm2rt10RopeConfig21maxPositionEmbeddingsE"></span><span id="trt_edgellm::rt::RopeConfig::maxPositionEmbeddings__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1RopeConfig_1abddb7c18b71a7d6830987267e490b02e"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxPositionEmbeddings</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">32768</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt10RopeConfig21maxPositionEmbeddingsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum position embeddings supported. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt10RopeConfig8longRopeE">
+<span id="_CPPv3N11trt_edgellm2rt10RopeConfig8longRopeE"></span><span id="_CPPv2N11trt_edgellm2rt10RopeConfig8longRopeE"></span><span id="trt_edgellm::rt::RopeConfig::longRope__std::optional:LongRopeParams:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1RopeConfig_1a6ce925ca9feb3b7b890bfae1a4ea9044"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt14LongRopeParamsE" title="trt_edgellm::rt::LongRopeParams"><span class="n"><span class="pre">LongRopeParams</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">longRope</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt10RopeConfig8longRopeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Long-Rope specific parameters. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt16formatRopeConfigERK10RopeConfig">
+<span id="_CPPv3N11trt_edgellm2rt16formatRopeConfigERK10RopeConfig"></span><span id="_CPPv2N11trt_edgellm2rt16formatRopeConfigERK10RopeConfig"></span><span id="trt_edgellm::rt::formatRopeConfig__RopeConfigCR"></span><span class="target" id="llmRuntimeUtils_8cpp_1aa4077b2889a409a5a0acad2da6d43760"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">formatRopeConfig</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt10RopeConfigE" title="trt_edgellm::rt::RopeConfig"><span class="n"><span class="pre">RopeConfig</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">config</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt16formatRopeConfigERK10RopeConfig" title="Link to this definition">#</a><br /></dt>
+<dd><p>Format rope configuration into string. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt17collectRopeConfigERKN8nlohmann4jsonE">
+<span id="_CPPv3N11trt_edgellm2rt17collectRopeConfigERKN8nlohmann4jsonE"></span><span id="_CPPv2N11trt_edgellm2rt17collectRopeConfigERKN8nlohmann4jsonE"></span><span id="trt_edgellm::rt::collectRopeConfig__nlohmann::jsonCR"></span><span class="target" id="llmRuntimeUtils_8cpp_1a1160149d2cc2bef65ab7e2f6150be0f7"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt10RopeConfigE" title="trt_edgellm::rt::RopeConfig"><span class="n"><span class="pre">RopeConfig</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">collectRopeConfig</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">json</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">config</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt17collectRopeConfigERKN8nlohmann4jsonE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Collect rope configuration from the model config. </p>
+<p>Parses the common RoPE fields as well as LongRoPE-specific parameters when the model requests the longrope variant. Default values are used if certain fields are not specified in the model config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – [JSON] The model config file supplied with the model </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parsed rope configuration </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt25initializeRopeCosSinCacheERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt25initializeRopeCosSinCacheERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt25initializeRopeCosSinCacheERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t"></span><span id="trt_edgellm::rt::initializeRopeCosSinCache__rt::TensorR.RopeConfigCR.nlohmann::jsonCR.cudaStream_t"></span><span class="target" id="llmRuntimeUtils_8cpp_1ae1bc5cb3ac695c30d74a61152f731cea"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">initializeRopeCosSinCache</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cosSinCache</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt10RopeConfigE" title="trt_edgellm::rt::RopeConfig"><span class="n"><span class="pre">RopeConfig</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">config</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">json</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">modelConfig</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt25initializeRopeCosSinCacheERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Initialize the rope cos/sin cache tensor for persistent type of RoPE (default, longrope) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cosSinCache</strong> – [GPU] The tensor to store the rope cos/sin cache </p></li>
+<li><p><strong>config</strong> – [<a class="reference internal" href="#structtrt__edgellm_1_1rt_1_1RopeConfig"><span class="std std-ref">RopeConfig</span></a>] The basic rope configuration </p></li>
+<li><p><strong>modelConfig</strong> – [JSON] Model config json that can supply additional information for the rope initialization </p></li>
+<li><p><strong>stream</strong> – [CUDA stream] The stream to execute the initialization </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the initialization is successful, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29initializeLongRopeCosSinCacheERN2rt6TensorERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt29initializeLongRopeCosSinCacheERN2rt6TensorERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt29initializeLongRopeCosSinCacheERN2rt6TensorERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t"></span><span id="trt_edgellm::rt::initializeLongRopeCosSinCache__rt::TensorR.rt::TensorR.RopeConfigCR.nlohmann::jsonCR.cudaStream_t"></span><span class="target" id="llmRuntimeUtils_8cpp_1adf52d2b1b90230f954aab58db980cfbc"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">initializeLongRopeCosSinCache</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shortCosSinCache</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">longCosSinCache</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt10RopeConfigE" title="trt_edgellm::rt::RopeConfig"><span class="n"><span class="pre">RopeConfig</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">config</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">json</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">modelConfig</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29initializeLongRopeCosSinCacheERN2rt6TensorERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Initialize the rope cos/sin cache tensor for long rope type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortCosSinCache</strong> – [GPU] The tensor to store the short rope cos/sin cache </p></li>
+<li><p><strong>longCosSinCache</strong> – [GPU] The tensor to store the long rope cos/sin cache </p></li>
+<li><p><strong>config</strong> – [<a class="reference internal" href="#structtrt__edgellm_1_1rt_1_1RopeConfig"><span class="std std-ref">RopeConfig</span></a>] The rope configuration </p></li>
+<li><p><strong>modelConfig</strong> – [JSON] Model config json that can supply additional information for the rope initialization </p></li>
+<li><p><strong>stream</strong> – [CUDA stream] The stream to execute the initialization </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the initialization is successful, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN11trt_edgellm2rt13compactVectorEvRKNSt6vectorI7int32_tEERNSt6vectorI1TEE">
+<span id="_CPPv3I0EN11trt_edgellm2rt13compactVectorERKNSt6vectorI7int32_tEERNSt6vectorI1TEE"></span><span id="_CPPv2I0EN11trt_edgellm2rt13compactVectorERKNSt6vectorI7int32_tEERNSt6vectorI1TEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname sig-name-template"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="llmRuntimeUtils_8cpp_1a73ea85064193e3729e7930a686fcead0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">compactVector</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">batchMapping</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN11trt_edgellm2rt13compactVectorEvRKNSt6vectorI7int32_tEERNSt6vectorI1TEE" title="trt_edgellm::rt::compactVector::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN11trt_edgellm2rt13compactVectorEvRKNSt6vectorI7int32_tEERNSt6vectorI1TEE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Compact CPU vector by removing evicted batches. </p>
+<p>This utility function compacts a std::vector by removing elements at evicted batch indices. Used for batch eviction to remove finished sequences from CPU context vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Element type </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>batchMapping</strong> – [oldActiveBatch] CPU vector (const input), mapping[i] = newBatchIdx or -1 (evict) </p></li>
+<li><p><strong>vec</strong> – Vector to compact (output, modified in-place) </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt17buildBatchMappingERKNSt6vectorI6int8_tEE">
+<span id="_CPPv3N11trt_edgellm2rt17buildBatchMappingERKNSt6vectorI6int8_tEE"></span><span id="_CPPv2N11trt_edgellm2rt17buildBatchMappingERKNSt6vectorI6int8_tEE"></span><span id="trt_edgellm::rt::buildBatchMapping__std::vector:int8_t:CR"></span><span class="target" id="llmRuntimeUtils_8cpp_1a80e8ae6dcd6d06c79b18328dc3b601a7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">buildBatchMapping</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">finishedStates</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt17buildBatchMappingERKNSt6vectorI6int8_tEE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Build batch mapping from finished states. </p>
+<p>Creates a mapping vector that maps old batch indices to new batch indices. Finished batches are marked with -1 for eviction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>finishedStates</strong> – [oldActiveBatch] CPU vector indicating which batches are finished (0=not finished, 1=finished) </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Vector mapping old batch indices to new indices (-1 for evicted batches) </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="llmInferenceSpecDecodeRuntime.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLM Inference Spec Decode Runtime</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../sampler/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sampler Module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt7MessageE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Message</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt7Message4roleE"><code class="docutils literal notranslate"><span class="pre">role</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt7Message8contentsE"><code class="docutils literal notranslate"><span class="pre">contents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContentE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Message::MessageContent</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContent4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt7Message14MessageContent7contentE"><code class="docutils literal notranslate"><span class="pre">content</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::LLMGenerationRequest</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest8requestsE"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17formattedRequestsE"><code class="docutils literal notranslate"><span class="pre">formattedRequests</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest11temperatureE"><code class="docutils literal notranslate"><span class="pre">temperature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest4topPE"><code class="docutils literal notranslate"><span class="pre">topP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest4topKE"><code class="docutils literal notranslate"><span class="pre">topK</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17maxGenerateLengthE"><code class="docutils literal notranslate"><span class="pre">maxGenerateLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest15loraWeightsNameE"><code class="docutils literal notranslate"><span class="pre">loraWeightsName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest23saveSystemPromptKVCacheE"><code class="docutils literal notranslate"><span class="pre">saveSystemPromptKVCache</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE"><code class="docutils literal notranslate"><span class="pre">applyChatTemplate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE"><code class="docutils literal notranslate"><span class="pre">addGenerationPrompt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest14enableThinkingE"><code class="docutils literal notranslate"><span class="pre">enableThinking</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::LLMGenerationResponse</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse9outputIdsE"><code class="docutils literal notranslate"><span class="pre">outputIds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse11outputTextsE"><code class="docutils literal notranslate"><span class="pre">outputTexts</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt14LongRopeParamsE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::LongRopeParams</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt14LongRopeParams29originalMaxPositionEmbeddingsE"><code class="docutils literal notranslate"><span class="pre">originalMaxPositionEmbeddings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt14LongRopeParams10longFactorE"><code class="docutils literal notranslate"><span class="pre">longFactor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt14LongRopeParams11shortFactorE"><code class="docutils literal notranslate"><span class="pre">shortFactor</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt10RopeConfigE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::RopeConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt10RopeConfig4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt10RopeConfig11rotaryScaleE"><code class="docutils literal notranslate"><span class="pre">rotaryScale</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt10RopeConfig11rotaryThetaE"><code class="docutils literal notranslate"><span class="pre">rotaryTheta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt10RopeConfig21maxPositionEmbeddingsE"><code class="docutils literal notranslate"><span class="pre">maxPositionEmbeddings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt10RopeConfig8longRopeE"><code class="docutils literal notranslate"><span class="pre">longRope</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16formatRopeConfigERK10RopeConfig"><code class="docutils literal notranslate"><span class="pre">formatRopeConfig()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt17collectRopeConfigERKN8nlohmann4jsonE"><code class="docutils literal notranslate"><span class="pre">collectRopeConfig()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt25initializeRopeCosSinCacheERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">initializeRopeCosSinCache()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29initializeLongRopeCosSinCacheERN2rt6TensorERN2rt6TensorERK10RopeConfigRKN8nlohmann4jsonE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">initializeLongRopeCosSinCache()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN11trt_edgellm2rt13compactVectorEvRKNSt6vectorI7int32_tEERNSt6vectorI1TEE"><code class="docutils literal notranslate"><span class="pre">compactVector()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt17buildBatchMappingERKNSt6vectorI6int8_tEE"><code class="docutils literal notranslate"><span class="pre">buildBatchMapping()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

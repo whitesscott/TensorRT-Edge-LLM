@@ -1,0 +1,23 @@
+Kernels Module
+==============
+
+API documentation for the kernels module.
+
+.. toctree::
+   :maxdepth: 1
+
+   applyRopeWriteKV
+   batchEvictKernels
+   contextFMHARunner
+   decoderXQARunner
+   dequantize
+   eagleAcceptKernels
+   eagleUtilKernels
+   embeddingKernels
+   fmhaParams_v2
+   imageUtilKernels
+   initializeCosSinCache
+   int4GroupwiseGemm
+   kvCacheUtilsKernels
+   utilKernels
+   vectorizedTypes

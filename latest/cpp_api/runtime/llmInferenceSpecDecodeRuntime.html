@@ -1,0 +1,1047 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LLM Inference Spec Decode Runtime &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/runtime/llmInferenceSpecDecodeRuntime';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LLM Runtime Utils" href="llmRuntimeUtils.html" />
+    <link rel="prev" title="LLM Inference Runtime" href="llmInferenceRuntime.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Runtime Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Runtime Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">LLM Inference Spec Decode Runtime</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="llm-inference-spec-decode-runtime">
+<h1>LLM Inference Spec Decode Runtime<a class="headerlink" href="#llm-inference-spec-decode-runtime" title="Link to this heading">#</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LLMInferenceSpecDecodeRuntime</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>LLM inference runtime with Eagle speculative decoding. </p>
+<p>Manages inference pipeline using Eagle speculative decoding for improved throughput. Coordinates base model, draft model, and multimodal processing. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERK19EagleDraftingConfig12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERK19EagleDraftingConfig12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERK19EagleDraftingConfig12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::LLMInferenceSpecDecodeRuntime__ssCR.ssCR.EagleDraftingConfigCR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1abea4b05d60e9a81f2f9c58e8dd08839a"></span><span class="sig-name descname"><span class="n"><span class="pre">LLMInferenceSpecDecodeRuntime</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">engineDir</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">multimodalEngineDir</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfigE" title="trt_edgellm::rt::EagleDraftingConfig"><span class="n"><span class="pre">EagleDraftingConfig</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftingConfig</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERK19EagleDraftingConfig12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct speculative decode runtime. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>engineDir</strong> – Directory containing engine files </p></li>
+<li><p><strong>multimodalEngineDir</strong> – Directory containing multimodal engine files </p></li>
+<li><p><strong>draftingConfig</strong> – Eagle drafting configuration </p></li>
+<li><p><strong>stream</strong> – CUDA stream for operations </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeD0Ev">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeD0Ev"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeD0Ev"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::~LLMInferenceSpecDecodeRuntime"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1a41fac5df05a139a55dd7a687905ae3f0"></span><span class="sig-name descname"><span class="n"><span class="pre">~LLMInferenceSpecDecodeRuntime</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29captureDraftProposalCudaGraphE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29captureDraftProposalCudaGraphE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29captureDraftProposalCudaGraphE12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureDraftProposalCudaGraph__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1aada2a89ef1d11943ff090d47c011c5e1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureDraftProposalCudaGraph</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29captureDraftProposalCudaGraphE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Capture CUDA graph for draft proposal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – CUDA stream </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime38captureDraftAcceptDecodeTokenCudaGraphE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime38captureDraftAcceptDecodeTokenCudaGraphE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime38captureDraftAcceptDecodeTokenCudaGraphE12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureDraftAcceptDecodeTokenCudaGraph__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1afdc9c75fcf19397f50249aa0dc23f13d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureDraftAcceptDecodeTokenCudaGraph</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime38captureDraftAcceptDecodeTokenCudaGraphE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Capture CUDA graph for draft accept decode token. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – CUDA stream </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime32captureBaseVerificationCudaGraphE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime32captureBaseVerificationCudaGraphE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime32captureBaseVerificationCudaGraphE12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureBaseVerificationCudaGraph__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1a22fbe5ba2ee36e31690c6a4474473c36"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureBaseVerificationCudaGraph</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime32captureBaseVerificationCudaGraphE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Capture CUDA graph for base verification. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – CUDA stream </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::handleRequest__LLMGenerationRequestCR.LLMGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1a7babcd8c89e630979d5eaa2859b2ac14"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleRequest</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE" title="trt_edgellm::rt::LLMGenerationRequest"><span class="n"><span class="pre">LLMGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE" title="trt_edgellm::rt::LLMGenerationResponse"><span class="n"><span class="pre">LLMGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">response</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Handle generation request. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Generation request with prompts and parameters </p></li>
+<li><p><strong>response</strong> – Output response with generated tokens and text </p></li>
+<li><p><strong>stream</strong> – CUDA stream </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getPrefillMetricsEv">
+<span id="_CPPv3NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getPrefillMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getPrefillMetricsEv"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getPrefillMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1ab0a77f3125ef3f299bd154846965ad03"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17LLMPrefillMetricsE" title="trt_edgellm::metrics::LLMPrefillMetrics"><span class="n"><span class="pre">LLMPrefillMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPrefillMetrics</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getPrefillMetricsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get LLM prefill stage metrics. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv">
+<span id="_CPPv3NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getEagleGenerationMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1a2f28062de2cde03f8d4a43945585706a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics22EagleGenerationMetricsE" title="trt_edgellm::metrics::EagleGenerationMetrics"><span class="n"><span class="pre">EagleGenerationMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getEagleGenerationMetrics</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get Eagle generation stage metrics. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime20getMultimodalMetricsEv">
+<span id="_CPPv3NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime20getMultimodalMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime20getMultimodalMetricsEv"></span><span id="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getMultimodalMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1aca4803a4198cfc429565993bef2fe712"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17MultimodalMetricsE" title="trt_edgellm::metrics::MultimodalMetrics"><span class="n"><span class="pre">MultimodalMetrics</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getMultimodalMetrics</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime20getMultimodalMetricsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get multimodal metrics (returns empty metrics if no multimodal runner) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContextE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContextE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContextE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SpecDecodeInferenceContext</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContextE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Execution context for speculative decode runtime. </p>
+<p>Holds execution information and intermediate metadata during inference. Supports multi-batch inference with independent sequence tracking. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext10initializeE7int32_t7int32_tRKN2rt19OptionalInputTensorERKN2rt20OptionalInputTensorsE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext10initializeE7int32_t7int32_tRKN2rt19OptionalInputTensorERKN2rt20OptionalInputTensorsE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext10initializeE7int32_t7int32_tRKN2rt19OptionalInputTensorERKN2rt20OptionalInputTensorsE12cudaStream_t"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::initialize__int32_t.int32_t.rt::OptionalInputTensorCR.rt::OptionalInputTensorsCR.cudaStream_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a8c5615f3e6c8f5089157d07e3e221f07"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">batchSize</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxGenLength</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalInputTensor</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">multimodal</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalInputTensors</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">extraInputTensors</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cudaStream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext10initializeE7int32_t7int32_tRKN2rt19OptionalInputTensorERKN2rt20OptionalInputTensorsE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Initialize the context with given parameters. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batchSize</strong> – Active batch size </p></li>
+<li><p><strong>maxGenLength</strong> – Maximum generation length </p></li>
+<li><p><strong>multimodal</strong> – Optional multimodal embeddings </p></li>
+<li><p><strong>extraInputTensors</strong> – Extra input tensors (e.g., deepstack features) </p></li>
+<li><p><strong>cudaStream</strong> – CUDA stream for operations </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13systemPromptsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext13systemPromptsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext13systemPromptsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::systemPrompts__std::vector:ss:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a0c8a7a061b1273bc4cfb57e0c8ebe373"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">systemPrompts</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13systemPromptsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>System prompts for each sequence in batch. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::rawBatchedInputIds__std::vector:std::vector:int32_t::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1ae999c9a238e30bf6b87c7dc449daae19"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rawBatchedInputIds</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Original token IDs before preprocessing (includes padding and removal of reused system IDs) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext8tokenIdsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext8tokenIdsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext8tokenIdsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::tokenIds__std::vector:std::vector:int32_t::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a1fcbbb7c88828c06c88a0fc3ef547fb8"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tokenIds</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext8tokenIdsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Token IDs for each sequence: [batch_size][seq_length]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22currentGenerateLengthsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext22currentGenerateLengthsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext22currentGenerateLengthsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::currentGenerateLengths__std::vector:int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a2c0fbcb44723a5ff9f7f003ec2239449"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">currentGenerateLengths</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22currentGenerateLengthsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Current generation length for each sequence: [batch_size]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13promptLengthsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext13promptLengthsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext13promptLengthsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::promptLengths__std::vector:int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1ac881890218861181fe7ba5eab85374ec"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">promptLengths</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13promptLengthsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Prompt length (after reuse) for each sequence: [batch_size]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext14finishedStatesE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext14finishedStatesE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext14finishedStatesE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::finishedStates__std::vector:int8_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a46b54b1e7b04fb105d004f7b4d109af1"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">finishedStates</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext14finishedStatesE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Finished state for each sequence: [batch_size] (0=not finished, 1=finished) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext16actualIterationsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext16actualIterationsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext16actualIterationsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::actualIterations__std::vector:int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a67a37c695aa2d512cbf922570b2a3d2f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">actualIterations</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext16actualIterationsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Actual iterations run for each sequence: [batch_size]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17packedInputLengthE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext17packedInputLengthE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext17packedInputLengthE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::packedInputLength__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a3e962fd5c03a1ab4b6072229677110e5"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">packedInputLength</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17packedInputLengthE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Packed input length for batch processing (max of all sequences, considering engine constraints) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15evictedTokenIdsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext15evictedTokenIdsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext15evictedTokenIdsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::evictedTokenIds__std::unordered_map:int32_t.std::vector:int32_t::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1ae489807d04e528068b4435f95915ede8"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evictedTokenIds</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15evictedTokenIdsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Token IDs of evicted batches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22evictedGenerateLengthsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext22evictedGenerateLengthsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext22evictedGenerateLengthsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::evictedGenerateLengths__std::unordered_map:int32_t.int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a0a29734f9a4295c864119e22d4b4d301"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evictedGenerateLengths</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22evictedGenerateLengthsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generation lengths of evicted batches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext23evictedActualIterationsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext23evictedActualIterationsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext23evictedActualIterationsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::evictedActualIterations__std::unordered_map:int32_t.int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a97b11119f4d8103d73f8d7aab2f845f8"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evictedActualIterations</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext23evictedActualIterationsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Iterations of evicted batches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedSystemPromptsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedSystemPromptsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedSystemPromptsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::evictedSystemPrompts__std::unordered_map:int32_t.ss:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a004ae4f02a214fe9d742180a4e9f5f9a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evictedSystemPrompts</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedSystemPromptsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>System prompts of evicted batches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext25evictedRawBatchedInputIdsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext25evictedRawBatchedInputIdsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext25evictedRawBatchedInputIdsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::evictedRawBatchedInputIds__std::unordered_map:int32_t.std::vector:int32_t::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1ae603d478904e2461a0c0ab8865457e3f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evictedRawBatchedInputIds</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext25evictedRawBatchedInputIdsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Raw input IDs of evicted batches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedPromptLengthsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedPromptLengthsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedPromptLengthsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::evictedPromptLengths__std::unordered_map:int32_t.int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a1d10bcb6a74720505a177d1ec900b7cf"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evictedPromptLengths</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedPromptLengthsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Prompt lengths of evicted batches. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17batchIndexMappingE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext17batchIndexMappingE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext17batchIndexMappingE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::batchIndexMapping__std::vector:int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a4403b9bf7a4cdc4d868d2cbaf15faa66"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">batchIndexMapping</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17batchIndexMappingE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maps current batch index to original index. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20multimodalEmbeddingsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext20multimodalEmbeddingsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext20multimodalEmbeddingsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::multimodalEmbeddings__rt::OptionalInputTensor"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1abaccbc307b49f96eea03142b73adabe1"></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalInputTensor</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">multimodalEmbeddings</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20multimodalEmbeddingsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Optional multimodal embeddings. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17extraInputTensorsE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext17extraInputTensorsE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext17extraInputTensorsE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::extraInputTensors__rt::OptionalInputTensors"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a5e76e77259150d6d4ec4f07c3d386861"></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalInputTensors</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">extraInputTensors</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17extraInputTensorsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Extra input tensors (e.g., deepstack features) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15generationRoundE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext15generationRoundE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext15generationRoundE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::generationRound__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1addb80ce163e240c39b29d38f88352704"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">generationRound</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15generationRoundE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Current generation round (shared across all batches) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::maxGenerateLength__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a2aa8171b263eb2cb2d574c15452818df"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxGenerateLength</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum generation length. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15activeBatchSizeE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext15activeBatchSizeE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext15activeBatchSizeE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::activeBatchSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1afecf2b754bafbc882ef24ba7a93ea6bd"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activeBatchSize</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15activeBatchSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Current active batch size. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17originalBatchSizeE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext17originalBatchSizeE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext17originalBatchSizeE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::originalBatchSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1aec6d70f6975e65698d42de417317512e"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">originalBatchSize</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17originalBatchSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Original batch size (before any eviction) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext26genAndSaveSystemCacheIndexE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext26genAndSaveSystemCacheIndexE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext26genAndSaveSystemCacheIndexE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::genAndSaveSystemCacheIndex__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1ab728f3b4b51f30e61c0cb65ec7818c82"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">genAndSaveSystemCacheIndex</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext26genAndSaveSystemCacheIndexE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Batch index being processed for generating and saving system prompt KVCache. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext6streamE">
+<span id="_CPPv3N11trt_edgellm2rt26SpecDecodeInferenceContext6streamE"></span><span id="_CPPv2N11trt_edgellm2rt26SpecDecodeInferenceContext6streamE"></span><span id="trt_edgellm::rt::SpecDecodeInferenceContext::stream__cudaStream_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SpecDecodeInferenceContext_1a53489e84ede4c90be408abc6aa8d55ec"></span><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stream</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext6streamE" title="Link to this definition">#</a><br /></dt>
+<dd><p>CUDA stream. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19EagleDraftingConfigE">
+<span id="_CPPv3N11trt_edgellm2rt19EagleDraftingConfigE"></span><span id="_CPPv2N11trt_edgellm2rt19EagleDraftingConfigE"></span><span id="trt_edgellm::rt::EagleDraftingConfig"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftingConfig"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EagleDraftingConfig</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfigE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Drafting configuration for Eagle speculative decoding. </p>
+<p>Configuration parameters to drive Eagle spec-decoding. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19EagleDraftingConfig12draftingTopKE">
+<span id="_CPPv3N11trt_edgellm2rt19EagleDraftingConfig12draftingTopKE"></span><span id="_CPPv2N11trt_edgellm2rt19EagleDraftingConfig12draftingTopKE"></span><span id="trt_edgellm::rt::EagleDraftingConfig::draftingTopK__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftingConfig_1a12cd860c7e05e6b19d6f24bd59a469d9"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">draftingTopK</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfig12draftingTopKE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Tokens to select from one predecessor for next draft tree level. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19EagleDraftingConfig12draftingStepE">
+<span id="_CPPv3N11trt_edgellm2rt19EagleDraftingConfig12draftingStepE"></span><span id="_CPPv2N11trt_edgellm2rt19EagleDraftingConfig12draftingStepE"></span><span id="trt_edgellm::rt::EagleDraftingConfig::draftingStep__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftingConfig_1a6233cab374bbf9b1dd6c425d972ade8d"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">draftingStep</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfig12draftingStepE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of drafting steps with draft model. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19EagleDraftingConfig14verifyTreeSizeE">
+<span id="_CPPv3N11trt_edgellm2rt19EagleDraftingConfig14verifyTreeSizeE"></span><span id="_CPPv2N11trt_edgellm2rt19EagleDraftingConfig14verifyTreeSizeE"></span><span id="trt_edgellm::rt::EagleDraftingConfig::verifyTreeSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftingConfig_1a10d980b67773813a6b8b79b8353d0fbb"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">verifyTreeSize</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfig14verifyTreeSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of tokens for base model verification. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="llmInferenceRuntime.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLM Inference Runtime</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="llmRuntimeUtils.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LLM Runtime Utils</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERK19EagleDraftingConfig12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">LLMInferenceSpecDecodeRuntime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeD0Ev"><code class="docutils literal notranslate"><span class="pre">~LLMInferenceSpecDecodeRuntime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29captureDraftProposalCudaGraphE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureDraftProposalCudaGraph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime38captureDraftAcceptDecodeTokenCudaGraphE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureDraftAcceptDecodeTokenCudaGraph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime32captureBaseVerificationCudaGraphE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureBaseVerificationCudaGraph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleRequest()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getPrefillMetricsEv"><code class="docutils literal notranslate"><span class="pre">getPrefillMetrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv"><code class="docutils literal notranslate"><span class="pre">getEagleGenerationMetrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime20getMultimodalMetricsEv"><code class="docutils literal notranslate"><span class="pre">getMultimodalMetrics()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContextE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::SpecDecodeInferenceContext</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext10initializeE7int32_t7int32_tRKN2rt19OptionalInputTensorERKN2rt20OptionalInputTensorsE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13systemPromptsE"><code class="docutils literal notranslate"><span class="pre">systemPrompts</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE"><code class="docutils literal notranslate"><span class="pre">rawBatchedInputIds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext8tokenIdsE"><code class="docutils literal notranslate"><span class="pre">tokenIds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22currentGenerateLengthsE"><code class="docutils literal notranslate"><span class="pre">currentGenerateLengths</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13promptLengthsE"><code class="docutils literal notranslate"><span class="pre">promptLengths</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext14finishedStatesE"><code class="docutils literal notranslate"><span class="pre">finishedStates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext16actualIterationsE"><code class="docutils literal notranslate"><span class="pre">actualIterations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17packedInputLengthE"><code class="docutils literal notranslate"><span class="pre">packedInputLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15evictedTokenIdsE"><code class="docutils literal notranslate"><span class="pre">evictedTokenIds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22evictedGenerateLengthsE"><code class="docutils literal notranslate"><span class="pre">evictedGenerateLengths</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext23evictedActualIterationsE"><code class="docutils literal notranslate"><span class="pre">evictedActualIterations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedSystemPromptsE"><code class="docutils literal notranslate"><span class="pre">evictedSystemPrompts</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext25evictedRawBatchedInputIdsE"><code class="docutils literal notranslate"><span class="pre">evictedRawBatchedInputIds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedPromptLengthsE"><code class="docutils literal notranslate"><span class="pre">evictedPromptLengths</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17batchIndexMappingE"><code class="docutils literal notranslate"><span class="pre">batchIndexMapping</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20multimodalEmbeddingsE"><code class="docutils literal notranslate"><span class="pre">multimodalEmbeddings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17extraInputTensorsE"><code class="docutils literal notranslate"><span class="pre">extraInputTensors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15generationRoundE"><code class="docutils literal notranslate"><span class="pre">generationRound</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE"><code class="docutils literal notranslate"><span class="pre">maxGenerateLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15activeBatchSizeE"><code class="docutils literal notranslate"><span class="pre">activeBatchSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17originalBatchSizeE"><code class="docutils literal notranslate"><span class="pre">originalBatchSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext26genAndSaveSystemCacheIndexE"><code class="docutils literal notranslate"><span class="pre">genAndSaveSystemCacheIndex</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext6streamE"><code class="docutils literal notranslate"><span class="pre">stream</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfigE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::EagleDraftingConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfig12draftingTopKE"><code class="docutils literal notranslate"><span class="pre">draftingTopK</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfig12draftingStepE"><code class="docutils literal notranslate"><span class="pre">draftingStep</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19EagleDraftingConfig14verifyTreeSizeE"><code class="docutils literal notranslate"><span class="pre">verifyTreeSize</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+Python API Reference
+====================
+
+This section provides documentation for the TensorRT Edge-LLM Python package.
+
+The ``tensorrt_edgellm`` package provides utilities for quantizing large language models 
+and exporting them to ONNX format for efficient inference on edge devices.
+
+Main Module
+-----------
+
+.. automodule:: tensorrt_edgellm
+   :members:
+   :undoc-members:
+   :show-inheritance:

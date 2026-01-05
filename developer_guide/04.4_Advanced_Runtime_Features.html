@@ -1,0 +1,987 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advanced Runtime Features &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/04.4_Advanced_Runtime_Features';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="05_Examples.html" />
+    <link rel="prev" title="LLM Inference SpecDecode Runtime" href="04.3_LLM_Inference_SpecDecode_Runtime.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cpp_api.html">C++ API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cpp_api/tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cpp_api/tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Advanced Runtime Features</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-runtime-features">
+<h1>Advanced Runtime Features<a class="headerlink" href="#advanced-runtime-features" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>The TensorRT Edge-LLM C++ Runtime provides several advanced features that enable sophisticated inference capabilities, from CUDA graph optimization to dynamic LoRA adapter switching. These features are designed to maximize performance, flexibility, and efficiency in production deployments.</p>
+</section>
+<hr class="docutils" />
+<section id="cuda-graph-optimization">
+<h2>CUDA Graph Optimization<a class="headerlink" href="#cuda-graph-optimization" title="Link to this heading">#</a></h2>
+<p>The runtime provides sophisticated CUDA graph capture and execution for the generation phase (standard mode only):</p>
+<p><strong>Graph Capture Process</strong>:</p>
+<ul class="simple">
+<li><p><strong>Pre-execution</strong>: TensorRT engine is executed once before graph capture to avoid errors</p></li>
+<li><p><strong>State Simulation</strong>: KV-Cache state is simulated to match post-prefill conditions</p></li>
+<li><p><strong>Input Validation</strong>: Tensor shapes and configurations are validated before capture</p></li>
+<li><p><strong>Graph Creation</strong>: CUDA stream capture records the entire generation step execution</p></li>
+<li><p><strong>Hash-based Storage</strong>: Graphs are stored with hash keys based on input shapes and LoRA configurations</p></li>
+</ul>
+<p><strong>Graph Execution</strong>:</p>
+<ul class="simple">
+<li><p><strong>Hash Lookup</strong>: Input configurations are hashed to find matching pre-captured graphs</p></li>
+<li><p><strong>Direct Launch</strong>: Matching graphs are launched directly via <code class="docutils literal notranslate"><span class="pre">cudaGraphLaunch</span></code></p></li>
+<li><p><strong>Fallback Execution</strong>: Non-matching configurations fall back to standard TensorRT execution</p></li>
+<li><p><strong>Multi-configuration Support</strong>: Separate graphs captured for different batch sizes and LoRA adapters</p></li>
+</ul>
+<p><strong>Performance Benefits</strong>:</p>
+<ul class="simple">
+<li><p><strong>Reduced Kernel Launch Overhead</strong>: CUDA graphs can reduce kernel launch overhead by 10-30%</p></li>
+<li><p><strong>Consistent Latency</strong>: Graph execution provides more predictable per-token latency</p></li>
+<li><p><strong>Optimized Memory Access</strong>: Graph replay optimizes GPU memory access patterns</p></li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul class="simple">
+<li><p><strong>Standard Runtime Only</strong>: CUDA graphs are not supported in EAGLE SpecDecode mode</p></li>
+<li><p><strong>Configuration-Specific</strong>: Separate graphs required for different batch sizes and LoRA configurations</p></li>
+<li><p><strong>Memory Overhead</strong>: Each captured graph requires additional GPU memory</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="lora-low-rank-adaptation-support">
+<h2>LoRA (Low-Rank Adaptation) Support<a class="headerlink" href="#lora-low-rank-adaptation-support" title="Link to this heading">#</a></h2>
+<p><strong>LoRA (Low-Rank Adaptation)</strong> is a parameter-efficient fine-tuning technique that adapts large language models by learning low-rank decomposition matrices rather than updating all model weights. Instead of modifying the original model parameters, LoRA adds small trainable rank decomposition matrices to existing layers, enabling task-specific customization with minimal memory overhead and computational cost.</p>
+<p>The runtime provides comprehensive dynamic LoRA adapter management:</p>
+<p><strong>Adapter Management</strong>:</p>
+<ul class="simple">
+<li><p><strong>SafeTensors Loading</strong>: LoRA weights loaded from industry-standard SafeTensors format</p></li>
+<li><p><strong>Dynamic Registry</strong>: Multiple adapters managed with name-based identification</p></li>
+<li><p><strong>Rank Validation</strong>: Adapter ranks validated against engine’s maximum supported rank</p></li>
+<li><p><strong>GPU Memory Storage</strong>: Efficient GPU memory allocation for adapter weights</p></li>
+</ul>
+<p><strong>Runtime Switching</strong>:</p>
+<ul class="simple">
+<li><p><strong>Zero-Rank Fallback</strong>: Adapters disabled by setting rank dimensions to 0</p></li>
+<li><p><strong>Tensor Binding</strong>: LoRA tensors bound to both prefill and generation execution contexts</p></li>
+<li><p><strong>CUDA Graph Integration</strong>: Separate graph capture for each LoRA configuration</p></li>
+<li><p><strong>State Preservation</strong>: KV-cache and model state maintained during adapter switches</p></li>
+</ul>
+<p><strong>API Interface</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">addLoraWeights(name,</span> <span class="pre">filePath)</span></code></strong>: Loads LoRA weights from SafeTensors files</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">switchLoraWeights(name)</span></code></strong>: Switches active adapter or disables with empty name</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">getAvailableLoraWeights()</span></code></strong>: Returns list of loaded adapters</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">getActiveLoraWeightsName()</span></code></strong>: Returns currently active adapter name</p></li>
+</ul>
+<p><strong>Use Cases</strong>:</p>
+<ul class="simple">
+<li><p><strong>Domain Adaptation</strong>: Switch between medical, legal, technical, or other specialized domains</p></li>
+<li><p><strong>Multi-tenant Serving</strong>: Serve different customized models to different users/customers</p></li>
+<li><p><strong>A/B Testing</strong>: Compare performance of different fine-tuned variants</p></li>
+<li><p><strong>Task-Specific Optimization</strong>: Use specialized adapters for different task types</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="batch-processing">
+<h2>Batch Processing<a class="headerlink" href="#batch-processing" title="Link to this heading">#</a></h2>
+<p>The runtime supports efficient batch processing throughout the inference pipeline:</p>
+<p><strong>Memory Management</strong>:</p>
+<ul class="simple">
+<li><p><strong>Unified Allocation</strong>: Batch-aware memory allocation reserves space for maximum batch size</p></li>
+<li><p><strong>Tensor Layouts</strong>: Consistent tensor layouts support concurrent sequence processing</p></li>
+<li><p><strong>Dynamic Padding</strong>: Input sequences padded to batch maximum length for parallel processing</p></li>
+</ul>
+<p><strong>Execution Flow</strong>:</p>
+<ul class="simple">
+<li><p><strong>Parallel Prefill</strong>: All batch sequences processed simultaneously during prefill</p></li>
+<li><p><strong>Concurrent Generation</strong>: Tokens generated for all active sequences in each iteration</p></li>
+<li><p><strong>Individual Tracking</strong>: Each sequence maintains independent completion state</p></li>
+<li><p><strong>Dynamic Removal</strong>: Completed sequences removed from batch as they finish</p></li>
+</ul>
+<p><strong>Performance Benefits</strong>:</p>
+<ul class="simple">
+<li><p><strong>Increased Throughput</strong>: Process multiple requests simultaneously</p></li>
+<li><p><strong>GPU Utilization</strong>: Better GPU utilization through parallel processing</p></li>
+<li><p><strong>Amortized Overhead</strong>: Fixed costs amortized across multiple sequences</p></li>
+</ul>
+<p><strong>Considerations</strong>:</p>
+<ul class="simple">
+<li><p><strong>Memory Usage</strong>: Batch size limited by available GPU memory</p></li>
+<li><p><strong>Latency Trade-off</strong>: Higher batch sizes may increase per-request latency</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="system-prompt-kv-cache-optimization">
+<h2>System Prompt KV-Cache Optimization<a class="headerlink" href="#system-prompt-kv-cache-optimization" title="Link to this heading">#</a></h2>
+<p>The runtime implements intelligent caching for repeated system prompts:</p>
+<p><strong>Cache Management</strong>:</p>
+<ul class="simple">
+<li><p><strong>Hash-based Storage</strong>: System prompts cached using combined hash of prompt and LoRA adapter</p></li>
+<li><p><strong>KV-Cache Persistence</strong>: Key-value cache content saved and reused for identical system prompts</p></li>
+<li><p><strong>Memory Efficiency</strong>: Avoids recomputing prefill for repeated system prompt patterns</p></li>
+<li><p><strong>Automatic Reuse</strong>: Cache automatically detected and loaded for matching prompts</p></li>
+</ul>
+<p><strong>Performance Benefits</strong>:</p>
+<ul class="simple">
+<li><p><strong>Reduced Latency</strong>: Eliminates prefill computation for cached system prompts</p></li>
+<li><p><strong>Memory Optimization</strong>: Efficient storage of frequently used prompt states</p></li>
+<li><p><strong>Batch Compatibility</strong>: Cache reuse works seamlessly with batch processing</p></li>
+</ul>
+<p><strong>Use Cases</strong>:</p>
+<ul class="simple">
+<li><p><strong>Chatbots with Fixed Instructions</strong>: Cache common system instructions</p></li>
+<li><p><strong>API Services</strong>: Reuse system prompts across multiple user requests</p></li>
+<li><p><strong>Multi-turn Conversations</strong>: Cache conversation context across turns</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vocabulary-reduction">
+<h2>Vocabulary Reduction<a class="headerlink" href="#vocabulary-reduction" title="Link to this heading">#</a></h2>
+<p>Vocabulary reduction optimizes model size and inference performance by selecting a subset of the most relevant tokens for domain-specific deployments.</p>
+<p><strong>Overview</strong>:</p>
+<ul class="simple">
+<li><p><strong>Token Selection</strong>: Users create a vocabulary mapping using <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-reduce-vocab</span></code> (see <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/vocab_reduction/vocab_reduction.py</span></code> for implementation)</p></li>
+<li><p><strong>Automatic Runtime Support</strong>: Runtime transparently uses <code class="docutils literal notranslate"><span class="pre">vocab_map.safetensors</span></code> when present in the engine directory</p></li>
+<li><p><strong>Performance Gains</strong>: Smaller LM head layers, faster inference, reduced memory footprint</p></li>
+</ul>
+<p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">input_aware</span></code> (recommended, analyzes usage patterns) or <code class="docutils literal notranslate"><span class="pre">frequency</span></code> (token frequency-based)</p>
+<p><strong>Note</strong>: Vocabulary reduction is task-dependent, so these provided methods are only reference methods. Users should create the token map with their appropriate methods and sample data to ensure proper coverage of expected tokens</p>
+</section>
+<hr class="docutils" />
+<section id="multimodal-processing">
+<h2>Multimodal Processing<a class="headerlink" href="#multimodal-processing" title="Link to this heading">#</a></h2>
+<p>The runtime provides comprehensive support for Vision Language Models (VLMs):</p>
+<p><strong>Vision Processing Pipeline</strong>:</p>
+<ul class="simple">
+<li><p><strong>Image Preprocessing</strong>: Normalization, resizing, and tensor conversion for vision inputs</p></li>
+<li><p><strong>ViT Execution</strong>: Vision Transformer models process images to generate embeddings</p></li>
+<li><p><strong>Token Integration</strong>: Vision embeddings integrated with text tokens before LLM processing</p></li>
+<li><p><strong>Dynamic Resolution</strong>: Support for variable image resolutions and patch counts</p></li>
+</ul>
+<p><strong>Supported Architectures</strong>:</p>
+<ul class="simple">
+<li><p><strong>Qwen-VL Series</strong>: Qwen2-VL, Qwen2.5-VL, and Qwen3-VL with dynamic image patches and window attention</p></li>
+<li><p><strong>InternVL Series</strong>: InternVL3 with 0.5 downsampling ratio and fixed image size processing</p></li>
+<li><p><strong>Phi-4-Multimodal</strong>: LoRA based vision-language model support</p></li>
+<li><p><strong>Rotary Position Encoding</strong>: Advanced positional encoding for multimodal sequences</p></li>
+</ul>
+<p><strong>Processing Flow</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Image Loading</strong>: Images loaded from file paths specified in request</p></li>
+<li><p><strong>Vision Encoding</strong>: Images processed through ViT to generate vision embeddings</p></li>
+<li><p><strong>Token Merging</strong>: Vision embeddings merged with text token embeddings</p></li>
+<li><p><strong>LLM Processing</strong>: Combined embeddings processed through language model</p></li>
+<li><p><strong>Text Generation</strong>: Output text generated based on multimodal context</p></li>
+</ol>
+<p><strong>Performance Characteristics</strong>:</p>
+<ul class="simple">
+<li><p><strong>Prefill Impact</strong>: Vision processing adds to prefill phase latency</p></li>
+<li><p><strong>Memory Usage</strong>: Vision embeddings increase KV-cache memory requirements</p></li>
+<li><p><strong>Batch Processing</strong>: Multiple images can be processed in batch mode</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading">#</a></h2>
+<section id="using-cuda-graphs">
+<h3>Using CUDA Graphs<a class="headerlink" href="#using-cuda-graphs" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// CUDA graphs are automatically enabled for standard runtime</span>
+<span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="nf">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">);</span>
+
+<span class="c1">// First inference captures the graph</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+
+<span class="c1">// Subsequent inferences with same configuration use captured graph</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">response2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="dynamic-lora-switching">
+<h3>Dynamic LoRA Switching<a class="headerlink" href="#dynamic-lora-switching" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Load multiple LoRA adapters</span>
+<span class="n">runtime</span><span class="p">.</span><span class="n">addLoraWeights</span><span class="p">(</span><span class="s">&quot;medical&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lora_weights/medical_adapter.safetensors&quot;</span><span class="p">);</span>
+<span class="n">runtime</span><span class="p">.</span><span class="n">addLoraWeights</span><span class="p">(</span><span class="s">&quot;legal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lora_weights/legal_adapter.safetensors&quot;</span><span class="p">);</span>
+
+<span class="c1">// Switch between adapters dynamically</span>
+<span class="n">runtime</span><span class="p">.</span><span class="n">switchLoraWeights</span><span class="p">(</span><span class="s">&quot;medical&quot;</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">medical_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">medical_request</span><span class="p">);</span>
+
+<span class="n">runtime</span><span class="p">.</span><span class="n">switchLoraWeights</span><span class="p">(</span><span class="s">&quot;legal&quot;</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">legal_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">legal_request</span><span class="p">);</span>
+
+<span class="c1">// Disable LoRA to use base model</span>
+<span class="n">runtime</span><span class="p">.</span><span class="n">switchLoraWeights</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">base_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">base_request</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Batch Processing<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Prepare multiple requests</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">InferenceRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">batch_requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Question 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Question 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Question 3&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Process batch (implementation depends on your integration)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">batch_requests</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Process response...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="system-prompt-caching">
+<h3>System Prompt Caching<a class="headerlink" href="#system-prompt-caching" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// First request with system prompt - triggers cache creation</span>
+<span class="n">InferenceRequest</span><span class="w"> </span><span class="n">request1</span><span class="p">;</span>
+<span class="n">request1</span><span class="p">.</span><span class="n">systemPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;You are a helpful medical assistant.&quot;</span><span class="p">;</span>
+<span class="n">request1</span><span class="p">.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;What is aspirin?&quot;</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request1</span><span class="p">);</span>
+
+<span class="c1">// Second request with same system prompt - reuses cache</span>
+<span class="n">InferenceRequest</span><span class="w"> </span><span class="n">request2</span><span class="p">;</span>
+<span class="n">request2</span><span class="p">.</span><span class="n">systemPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;You are a helpful medical assistant.&quot;</span><span class="p">;</span>
+<span class="n">request2</span><span class="p">.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;What is ibuprofen?&quot;</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">response2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request2</span><span class="p">);</span><span class="w">  </span><span class="c1">// Faster prefill!</span>
+</pre></div>
+</div>
+</section>
+<section id="multimodal-vlm-inference">
+<h3>Multimodal VLM Inference<a class="headerlink" href="#multimodal-vlm-inference" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Initialize runtime with visual engine</span>
+<span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="nf">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="n">visualEngineDir</span><span class="p">);</span>
+
+<span class="c1">// Single image inference</span>
+<span class="n">InferenceRequest</span><span class="w"> </span><span class="n">request1</span><span class="p">;</span>
+<span class="n">request1</span><span class="p">.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Describe this image in detail.&quot;</span><span class="p">;</span>
+<span class="n">request1</span><span class="p">.</span><span class="n">imagePaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;photo.jpg&quot;</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request1</span><span class="p">);</span>
+
+<span class="c1">// Multiple images</span>
+<span class="n">InferenceRequest</span><span class="w"> </span><span class="n">request2</span><span class="p">;</span>
+<span class="n">request2</span><span class="p">.</span><span class="n">inputText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Compare these two images.&quot;</span><span class="p">;</span>
+<span class="n">request2</span><span class="p">.</span><span class="n">imagePaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;image1.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;image2.jpg&quot;</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">response2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request2</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Vocabulary Reduction<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Reduce vocabulary using input-aware analysis</span>
+tensorrt-edgellm-reduce-vocab<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model_dir<span class="w"> </span>Qwen/Qwen3-4B-Instruct-2507<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output_dir<span class="w"> </span>reduced_vocab<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--reduced_vocab_size<span class="w"> </span><span class="m">16384</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--method<span class="w"> </span>input_aware<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--max_samples<span class="w"> </span><span class="m">100000</span>
+<span class="w">  </span><span class="c1"># Optional: Add --d2t_path for EAGLE speculative decoding models</span>
+<span class="w">  </span><span class="c1"># --d2t_path onnx_models/qwen3-4b_eagle_draft/d2t.safetensors</span>
+
+<span class="c1"># Step 2: Export model with reduced vocabulary</span>
+tensorrt-edgellm-export-llm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model_dir<span class="w"> </span>quantized/qwen3-4b<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output_dir<span class="w"> </span>llm_onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--reduced_vocab_dir<span class="w"> </span>reduced_vocab/
+
+<span class="c1"># Step 3: Build TensorRT engine (same as standard workflow)</span>
+./build/examples/llm/llm_build<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--onnxDir<span class="w"> </span>llm_onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engineDir<span class="w"> </span>engines/qwen3-4b<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--maxBatchSize<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># Step 4: Run inference (same as standard workflow)</span>
+<span class="c1"># Runtime automatically uses vocab_map.safetensors when present</span>
+./build/examples/llm/llm_inference<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engineDir<span class="w"> </span>engines/qwen3-4b<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--inputFile<span class="w"> </span>input.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--outputFile<span class="w"> </span>output.json
+</pre></div>
+</div>
+<p><strong>Output</strong>: The <code class="docutils literal notranslate"><span class="pre">reduced_vocab/</span></code> directory will contain <code class="docutils literal notranslate"><span class="pre">vocab_map.safetensors</span></code> with the vocabulary mapping, which the runtime automatically applies during inference.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Try Examples</strong>: Run the <a class="reference internal" href="05_Examples.html"><span class="std std-doc">Examples</span></a> to see advanced features in action</p></li>
+<li><p><strong>Benchmark Performance</strong>: Measure the impact of CUDA graphs, LoRA, and batch processing</p></li>
+<li><p><strong>Integrate into Application</strong>: Use advanced features to optimize your deployment</p></li>
+<li><p><strong>Review API Documentation</strong>: Refer to detailed API docs in <code class="docutils literal notranslate"><span class="pre">cpp/runtime/</span></code> headers</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Runtime API</strong>: Refer to the <code class="docutils literal notranslate"><span class="pre">cpp/runtime/</span></code> directory</p></li>
+<li><p><strong>Example Applications</strong>: Refer to <code class="docutils literal notranslate"><span class="pre">examples/llm/</span></code> and <code class="docutils literal notranslate"><span class="pre">examples/multimodal/</span></code></p></li>
+<li><p><strong>Architecture Overview</strong>: Refer to <a class="reference internal" href="01.1_Overview.html"><span class="std std-doc">Overview</span></a></p></li>
+<li><p><strong>LoRA Support</strong>: Refer to LoRA documentation in Python Export Pipeline</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04.3_LLM_Inference_SpecDecode_Runtime.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLM Inference SpecDecode Runtime</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_Examples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-graph-optimization">CUDA Graph Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lora-low-rank-adaptation-support">LoRA (Low-Rank Adaptation) Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">Batch Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-prompt-kv-cache-optimization">System Prompt KV-Cache Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vocabulary-reduction">Vocabulary Reduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-processing">Multimodal Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-examples">Usage Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cuda-graphs">Using CUDA Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-lora-switching">Dynamic LoRA Switching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Batch Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-prompt-caching">System Prompt Caching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-vlm-inference">Multimodal VLM Inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Vocabulary Reduction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

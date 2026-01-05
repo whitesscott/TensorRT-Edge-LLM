@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tokenizer Utils &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/tokenizer/tokenizerUtils';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Unicode Data" href="unicodeData.html" />
+    <link rel="prev" title="Tokenizer" href="tokenizer.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Tokenizer Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tokenizer Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Tokenizer Utils</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tokenizer-utils">
+<h1>Tokenizer Utils<a class="headerlink" href="#tokenizer-utils" title="Link to this heading">#</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlagsE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlagsE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlagsE"></span><span id="trt_edgellm::tokenizer::codepointFlags"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">codepointFlags</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlagsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Unicode codepoint flags. </p>
+<p>Bitfield structure for Unicode codepoint properties. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlagsE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlagsE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlagsE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CategoryFlags</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlagsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Category flag constants. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9UNDEFINEDE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9UNDEFINEDE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9UNDEFINEDE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fa8abbb02ec19758afa83c0446d63a23ac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UNDEFINED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0001</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9UNDEFINEDE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Undefined category. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6NUMBERE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6NUMBERE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6NUMBERE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fa9ce50460fcf440913680daab88606d03"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NUMBER</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0002</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6NUMBERE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number category (\p{N}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6LETTERE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6LETTERE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6LETTERE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13faa89baa5058f398790644ddd795c762e1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LETTER</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0004</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6LETTERE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Letter category (\p{L}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9SEPARATORE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9SEPARATORE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9SEPARATORE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fab374ecc68953ab036aa1ea81766a7cb3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SEPARATOR</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0008</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9SEPARATORE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Separator category (\p{Z}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11ACCENT_MARKE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11ACCENT_MARKE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11ACCENT_MARKE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13faa6b85378ad90ceac845f831e12f83518"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ACCENT_MARK</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0010</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11ACCENT_MARKE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Accent mark category (\p{M}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11PUNCTUATIONE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11PUNCTUATIONE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11PUNCTUATIONE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fa47266689ec4d4badfb7697d96a50aa0f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PUNCTUATION</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0020</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11PUNCTUATIONE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Punctuation category (\p{P}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6SYMBOLE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6SYMBOLE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6SYMBOLE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fad90fc4df470c62e21fa8a81fad5d60b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SYMBOL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0040</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6SYMBOLE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Symbol category (\p{S}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags7CONTROLE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags7CONTROLE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags7CONTROLE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fa59aa40b32ddf31cc2733761374754f70"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CONTROL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x0080</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags7CONTROLE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Control character category (\p{C}) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags15MASK_CATEGORIESE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags15MASK_CATEGORIESE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags15MASK_CATEGORIESE"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a5bad6d8b9d6c58bd5e5d3673cedcf13fac65b0de611eeefb466e88ff7046b07cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MASK_CATEGORIES</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00FF</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags15MASK_CATEGORIESE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Mask for category flags. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags14codepointFlagsEK8uint16_t">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags14codepointFlagsEK8uint16_t"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags14codepointFlagsEK8uint16_t"></span><span id="trt_edgellm::tokenizer::codepointFlags::codepointFlags__uint16_tC"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a05d1ce4d11178d6f5c95b758f95d0e34"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">codepointFlags</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags14codepointFlagsEK8uint16_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from uint16 flags. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flags</strong> – Flag value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm9tokenizer14codepointFlags6asUintEv">
+<span id="_CPPv3NK11trt_edgellm9tokenizer14codepointFlags6asUintEv"></span><span id="_CPPv2NK11trt_edgellm9tokenizer14codepointFlags6asUintEv"></span><span id="trt_edgellm::tokenizer::codepointFlags::asUintC"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1ada562454bbc52261baeddaace36502b0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asUint</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm9tokenizer14codepointFlags6asUintEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convert to uint16. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Flags as uint16 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm9tokenizer14codepointFlags12categoryFlagEv">
+<span id="_CPPv3NK11trt_edgellm9tokenizer14codepointFlags12categoryFlagEv"></span><span id="_CPPv2NK11trt_edgellm9tokenizer14codepointFlags12categoryFlagEv"></span><span id="trt_edgellm::tokenizer::codepointFlags::categoryFlagC"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1af1da43d7c4c872257847151bbde1c9f9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">categoryFlag</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm9tokenizer14codepointFlags12categoryFlagEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get category flag. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Category flag value </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isUndefinedE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags11isUndefinedE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags11isUndefinedE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isUndefined__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a8b8cfe0c1ff3d2804c6140a42ebf5ca0"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUndefined</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isUndefinedE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is undefined. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isNumberE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags8isNumberE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags8isNumberE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isNumber__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1adfc96e34f954d3dd418f88adf4b56477"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNumber</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isNumberE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is number (\p{N}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isLetterE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags8isLetterE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags8isLetterE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isLetter__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a0b6a41e72fea6e2fea682e4bc016a594"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLetter</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isLetterE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is letter (\p{L}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isSeparatorE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags11isSeparatorE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags11isSeparatorE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isSeparator__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1acfe205494a4361278cd2c7d59a064baf"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSeparator</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isSeparatorE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is separator (\p{Z}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags12isAccentMarkE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags12isAccentMarkE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags12isAccentMarkE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isAccentMark__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1ab74fedb96f44fa0300957469e192ee27"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isAccentMark</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags12isAccentMarkE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is accent mark (\p{M}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags13isPunctuationE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags13isPunctuationE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags13isPunctuationE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isPunctuation__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a3745c790d3ff96074e5574f615f482e9"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPunctuation</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13isPunctuationE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is punctuation (\p{P}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isSymbolE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags8isSymbolE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags8isSymbolE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isSymbol__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a7731159030cb7b65812e89ded367541b"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSymbol</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isSymbolE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is symbol (\p{S}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags9isControlE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags9isControlE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags9isControlE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isControl__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a8f06cc04cf5e9bed3892a32220520d40"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isControl</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags9isControlE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is control character (\p{C}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags12isWhitespaceE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags12isWhitespaceE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags12isWhitespaceE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isWhitespace__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a8ff4486dd89b3f823ac6f9e27b971e4e"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isWhitespace</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags12isWhitespaceE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is whitespace (\s) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isLowercaseE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags11isLowercaseE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags11isLowercaseE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isLowercase__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1ad2a0420f32e16e2caccf78d4b5247f0a"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLowercase</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isLowercaseE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is lowercase. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isUppercaseE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags11isUppercaseE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags11isUppercaseE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isUppercase__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1a0758238ce315f9f62c7566a8cb6d777c"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUppercase</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isUppercaseE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Is uppercase. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer14codepointFlags5isNfdE">
+<span id="_CPPv3N11trt_edgellm9tokenizer14codepointFlags5isNfdE"></span><span id="_CPPv2N11trt_edgellm9tokenizer14codepointFlags5isNfdE"></span><span id="trt_edgellm::tokenizer::codepointFlags::isNfd__uint16_t"></span><span class="target" id="structtrt__edgellm_1_1tokenizer_1_1codepointFlags_1ae2485bcaa2858439fdf30b92ae803c6c"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNfd</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags5isNfdE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Has NFD form. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm9tokenizer16validateFileSizeERKNSt10filesystem4pathE6size_t">
+<span id="_CPPv3N11trt_edgellm9tokenizer16validateFileSizeERKNSt10filesystem4pathE6size_t"></span><span id="_CPPv2N11trt_edgellm9tokenizer16validateFileSizeERKNSt10filesystem4pathE6size_t"></span><span id="trt_edgellm::tokenizer::validateFileSize__std::filesystem::pathCR.s"></span><span class="target" id="tokenizerUtils_8cpp_1a54f3f5435a9b8c627cf178bd7279fd12"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">validateFileSize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filePath</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxSizeBytes</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm9tokenizer16validateFileSizeERKNSt10filesystem4pathE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Validate file size before reading. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filePath</strong> – Path to the file to check </p></li>
+<li><p><strong>maxSizeBytes</strong> – Maximum allowed file size in bytes </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if file exists, size can be determined, and is within limit; false if file doesn’t exist, size cannot be determined, or exceeds limit </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tokenizer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tokenizer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="unicodeData.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unicode Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlagsE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::tokenizer::codepointFlags</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlagsE"><code class="docutils literal notranslate"><span class="pre">CategoryFlags</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9UNDEFINEDE"><code class="docutils literal notranslate"><span class="pre">UNDEFINED</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6NUMBERE"><code class="docutils literal notranslate"><span class="pre">NUMBER</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6LETTERE"><code class="docutils literal notranslate"><span class="pre">LETTER</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags9SEPARATORE"><code class="docutils literal notranslate"><span class="pre">SEPARATOR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11ACCENT_MARKE"><code class="docutils literal notranslate"><span class="pre">ACCENT_MARK</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags11PUNCTUATIONE"><code class="docutils literal notranslate"><span class="pre">PUNCTUATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags6SYMBOLE"><code class="docutils literal notranslate"><span class="pre">SYMBOL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags7CONTROLE"><code class="docutils literal notranslate"><span class="pre">CONTROL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13CategoryFlags15MASK_CATEGORIESE"><code class="docutils literal notranslate"><span class="pre">MASK_CATEGORIES</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags14codepointFlagsEK8uint16_t"><code class="docutils literal notranslate"><span class="pre">codepointFlags()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm9tokenizer14codepointFlags6asUintEv"><code class="docutils literal notranslate"><span class="pre">asUint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm9tokenizer14codepointFlags12categoryFlagEv"><code class="docutils literal notranslate"><span class="pre">categoryFlag()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isUndefinedE"><code class="docutils literal notranslate"><span class="pre">isUndefined</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isNumberE"><code class="docutils literal notranslate"><span class="pre">isNumber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isLetterE"><code class="docutils literal notranslate"><span class="pre">isLetter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isSeparatorE"><code class="docutils literal notranslate"><span class="pre">isSeparator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags12isAccentMarkE"><code class="docutils literal notranslate"><span class="pre">isAccentMark</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags13isPunctuationE"><code class="docutils literal notranslate"><span class="pre">isPunctuation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags8isSymbolE"><code class="docutils literal notranslate"><span class="pre">isSymbol</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags9isControlE"><code class="docutils literal notranslate"><span class="pre">isControl</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags12isWhitespaceE"><code class="docutils literal notranslate"><span class="pre">isWhitespace</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isLowercaseE"><code class="docutils literal notranslate"><span class="pre">isLowercase</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags11isUppercaseE"><code class="docutils literal notranslate"><span class="pre">isUppercase</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer14codepointFlags5isNfdE"><code class="docutils literal notranslate"><span class="pre">isNfd</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm9tokenizer16validateFileSizeERKNSt10filesystem4pathE6size_t"><code class="docutils literal notranslate"><span class="pre">validateFileSize()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+Plugins Module
+==============
+
+API documentation for the plugins module.
+
+.. toctree::
+   :maxdepth: 1
+
+   attentionPlugin
+   int4GroupwiseGemmPlugin
+   pluginUtils

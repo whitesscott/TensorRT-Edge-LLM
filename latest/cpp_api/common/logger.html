@@ -1,0 +1,965 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logger &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/common/logger';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MMAP Reader" href="mmapReader.html" />
+    <link rel="prev" title="Hash Utils" href="hashUtils.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Common Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Common Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Logger</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logger">
+<h1>Logger<a class="headerlink" href="#logger" title="Link to this heading">#</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerE">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLoggerE"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLoggerE"></span><span id="trt_edgellm::logger::EdgeLLMLogger"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EdgeLLMLogger</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ILogger</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Enhanced Logger with automatic location tracking and nvinfer1 compatibility. </p>
+<p>Features:<ul class="simple">
+<li><p>Automatic source location tracking (<a class="reference external" href="file:line:function">file:line:function</a>)</p></li>
+<li><p>Configurable formatting (timestamps, location info)</p></li>
+<li><p>nvinfer1::ILogger interface for TensorRT integration</p></li>
+<li><p>Multiple log levels with performance optimizations </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger13EdgeLLMLoggerEv">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger13EdgeLLMLoggerEv"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger13EdgeLLMLoggerEv"></span><span id="trt_edgellm::logger::EdgeLLMLogger::EdgeLLMLogger"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a23eba9f8f0b5ea172bd7b39bc66583f5"></span><span class="sig-name descname"><span class="n"><span class="pre">EdgeLLMLogger</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger13EdgeLLMLoggerEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerD0Ev">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLoggerD0Ev"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLoggerD0Ev"></span><span id="trt_edgellm::logger::EdgeLLMLogger::~EdgeLLMLogger"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1ac948e017df7e84cfda27472ea32058b1"></span><span class="sig-name descname"><span class="n"><span class="pre">~EdgeLLMLogger</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger3logEN8nvinfer17ILogger8SeverityEPKc">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger3logEN8nvinfer17ILogger8SeverityEPKc"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger3logEN8nvinfer17ILogger8SeverityEPKc"></span><span id="trt_edgellm::logger::EdgeLLMLogger::log__nvinfer1::ILogger::Severity.cCP"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a7bdcb2875ba07fa27f1bc93e47b223b4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">log</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ILogger</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Severity</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">severity</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">msg</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger3logEN8nvinfer17ILogger8SeverityEPKc" title="Link to this definition">#</a><br /></dt>
+<dd><p>nvinfer1::ILogger interface implementation for TensorRT integration </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>severity</strong> – Log severity level </p></li>
+<li><p><strong>msg</strong> – Log message </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15logWithLocationEN8nvinfer17ILogger8SeverityERKNSt6stringERK14SourceLocation">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger15logWithLocationEN8nvinfer17ILogger8SeverityERKNSt6stringERK14SourceLocation"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger15logWithLocationEN8nvinfer17ILogger8SeverityERKNSt6stringERK14SourceLocation"></span><span id="trt_edgellm::logger::EdgeLLMLogger::logWithLocation__nvinfer1::ILogger::Severity.ssCR.SourceLocationCR"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a2b6ac96e7f4dca4405744af1a628d6e5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">logWithLocation</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ILogger</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Severity</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="trt_edgellm::logger::SourceLocation"><span class="n"><span class="pre">SourceLocation</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15logWithLocationEN8nvinfer17ILogger8SeverityERKNSt6stringERK14SourceLocation" title="Link to this definition">#</a><br /></dt>
+<dd><p>Core logging function with automatic location tracking and formatting. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – Log severity level </p></li>
+<li><p><strong>msg</strong> – Log message </p></li>
+<li><p><strong>loc</strong> – Source location information </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger5debugERKNSt6stringERK14SourceLocation">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger5debugERKNSt6stringERK14SourceLocation"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger5debugERKNSt6stringERK14SourceLocation"></span><span id="trt_edgellm::logger::EdgeLLMLogger::debug__ssCR.SourceLocationCR"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a0bffee48d0968bf1128f1109317a6074"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">debug</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span></em>, <em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="trt_edgellm::logger::SourceLocation"><span class="n"><span class="pre">SourceLocation</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger5debugERKNSt6stringERK14SourceLocation" title="Link to this definition">#</a><br /></dt>
+<dd><p>Log debug message with location tracking. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – Log message </p></li>
+<li><p><strong>loc</strong> – Source location information </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger4infoERKNSt6stringERK14SourceLocation">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger4infoERKNSt6stringERK14SourceLocation"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger4infoERKNSt6stringERK14SourceLocation"></span><span id="trt_edgellm::logger::EdgeLLMLogger::info__ssCR.SourceLocationCR"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a88cc1ed543cff52d1e0be47a0f7f524a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">info</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span></em>, <em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="trt_edgellm::logger::SourceLocation"><span class="n"><span class="pre">SourceLocation</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger4infoERKNSt6stringERK14SourceLocation" title="Link to this definition">#</a><br /></dt>
+<dd><p>Log info message with location tracking. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – Log message </p></li>
+<li><p><strong>loc</strong> – Source location information </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger7warningERKNSt6stringERK14SourceLocation">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger7warningERKNSt6stringERK14SourceLocation"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger7warningERKNSt6stringERK14SourceLocation"></span><span id="trt_edgellm::logger::EdgeLLMLogger::warning__ssCR.SourceLocationCR"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a524eee2f9be6ea90be8b04b7403c4423"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">warning</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="trt_edgellm::logger::SourceLocation"><span class="n"><span class="pre">SourceLocation</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger7warningERKNSt6stringERK14SourceLocation" title="Link to this definition">#</a><br /></dt>
+<dd><p>Log warning message with location tracking. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – Log message </p></li>
+<li><p><strong>loc</strong> – Source location information </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger5errorERKNSt6stringERK14SourceLocation">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger5errorERKNSt6stringERK14SourceLocation"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger5errorERKNSt6stringERK14SourceLocation"></span><span id="trt_edgellm::logger::EdgeLLMLogger::error__ssCR.SourceLocationCR"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a51523f858ebf15f2d3a34fac3e673d9e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">error</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span></em>, <em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="trt_edgellm::logger::SourceLocation"><span class="n"><span class="pre">SourceLocation</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger5errorERKNSt6stringERK14SourceLocation" title="Link to this definition">#</a><br /></dt>
+<dd><p>Log error message with location tracking. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – Log message </p></li>
+<li><p><strong>loc</strong> – Source location information </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger8setLevelEN8nvinfer17ILogger8SeverityE">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger8setLevelEN8nvinfer17ILogger8SeverityE"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger8setLevelEN8nvinfer17ILogger8SeverityE"></span><span id="trt_edgellm::logger::EdgeLLMLogger::setLevel__nvinfer1::ILogger::Severity"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a496c40f793cf1699ec2c1214ecebc138"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLevel</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ILogger</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Severity</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger8setLevelEN8nvinfer17ILogger8SeverityE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Set minimum logging level. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – Minimum severity level to log </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm6logger13EdgeLLMLogger8getLevelEv">
+<span id="_CPPv3NK11trt_edgellm6logger13EdgeLLMLogger8getLevelEv"></span><span id="_CPPv2NK11trt_edgellm6logger13EdgeLLMLogger8getLevelEv"></span><span id="trt_edgellm::logger::EdgeLLMLogger::getLevelC"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1af27788632fe491a65e61eda4c0cf9a18"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ILogger</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Severity</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getLevel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm6logger13EdgeLLMLogger8getLevelEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get current logging level. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Current minimum severity level </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger16setShowTimestampEb">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger16setShowTimestampEb"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger16setShowTimestampEb"></span><span id="trt_edgellm::logger::EdgeLLMLogger::setShowTimestamp__b"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1ae65dcc9513881ca46d6420217fce3524"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setShowTimestamp</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">show</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger16setShowTimestampEb" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configure whether to show timestamps in log output. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>show</strong> – true to show timestamps, false to hide </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15setShowLocationEb">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger15setShowLocationEb"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger15setShowLocationEb"></span><span id="trt_edgellm::logger::EdgeLLMLogger::setShowLocation__b"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a66dfaee455a903ed97145e4c9f0fb5cc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setShowLocation</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">show</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15setShowLocationEb" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configure whether to show location info in log output. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>show</strong> – true to show location, false to hide </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15setShowFunctionEb">
+<span id="_CPPv3N11trt_edgellm6logger13EdgeLLMLogger15setShowFunctionEb"></span><span id="_CPPv2N11trt_edgellm6logger13EdgeLLMLogger15setShowFunctionEb"></span><span id="trt_edgellm::logger::EdgeLLMLogger::setShowFunction__b"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1EdgeLLMLogger_1a4a79c1e0991ddc854d3d90936b403917"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setShowFunction</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">show</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15setShowFunctionEb" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configure whether to show function names in log output. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>show</strong> – true to show function names, false to hide </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger20ScopedFunctionTracerE">
+<span id="_CPPv3N11trt_edgellm6logger20ScopedFunctionTracerE"></span><span id="_CPPv2N11trt_edgellm6logger20ScopedFunctionTracerE"></span><span id="trt_edgellm::logger::ScopedFunctionTracer"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1ScopedFunctionTracer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ScopedFunctionTracer</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger20ScopedFunctionTracerE" title="Link to this definition">#</a><br /></dt>
+<dd><p>RAII-based function tracer for automatic entry/exit logging. </p>
+<p>Creates automatic log messages when entering and exiting a scope. Useful for tracing function execution flow. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger20ScopedFunctionTracer20ScopedFunctionTracerER13EdgeLLMLoggerPKcRK14SourceLocation">
+<span id="_CPPv3N11trt_edgellm6logger20ScopedFunctionTracer20ScopedFunctionTracerER13EdgeLLMLoggerPKcRK14SourceLocation"></span><span id="_CPPv2N11trt_edgellm6logger20ScopedFunctionTracer20ScopedFunctionTracerER13EdgeLLMLoggerPKcRK14SourceLocation"></span><span id="trt_edgellm::logger::ScopedFunctionTracer::ScopedFunctionTracer__EdgeLLMLoggerR.cCP.SourceLocationCR"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1ScopedFunctionTracer_1aa25193a56110f7e87fd110619691534d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ScopedFunctionTracer</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerE" title="trt_edgellm::logger::EdgeLLMLogger"><span class="n"><span class="pre">EdgeLLMLogger</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">logger</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">funcName</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="trt_edgellm::logger::SourceLocation"><span class="n"><span class="pre">SourceLocation</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger20ScopedFunctionTracer20ScopedFunctionTracerER13EdgeLLMLoggerPKcRK14SourceLocation" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructor that logs function entry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> – Logger instance to use </p></li>
+<li><p><strong>funcName</strong> – Name of the function being traced </p></li>
+<li><p><strong>loc</strong> – Source location information </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger20ScopedFunctionTracerD0Ev">
+<span id="_CPPv3N11trt_edgellm6logger20ScopedFunctionTracerD0Ev"></span><span id="_CPPv2N11trt_edgellm6logger20ScopedFunctionTracerD0Ev"></span><span id="trt_edgellm::logger::ScopedFunctionTracer::~ScopedFunctionTracer"></span><span class="target" id="classtrt__edgellm_1_1logger_1_1ScopedFunctionTracer_1a70183c07eda2afd2e06e1b0b4d888a04"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ScopedFunctionTracer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger20ScopedFunctionTracerD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destructor that logs function exit. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger14SourceLocationE">
+<span id="_CPPv3N11trt_edgellm6logger14SourceLocationE"></span><span id="_CPPv2N11trt_edgellm6logger14SourceLocationE"></span><span id="trt_edgellm::logger::SourceLocation"></span><span class="target" id="structtrt__edgellm_1_1logger_1_1SourceLocation"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SourceLocation</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Source code location information for automatic tracking. </p>
+<p>Captures file, function, and line number information for logging. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger14SourceLocation14SourceLocationEPKcPKc7int32_t">
+<span id="_CPPv3N11trt_edgellm6logger14SourceLocation14SourceLocationEPKcPKc7int32_t"></span><span id="_CPPv2N11trt_edgellm6logger14SourceLocation14SourceLocationEPKcPKc7int32_t"></span><span id="trt_edgellm::logger::SourceLocation::SourceLocation__cCP.cCP.int32_t"></span><span class="target" id="structtrt__edgellm_1_1logger_1_1SourceLocation_1a0c28eb5fe334388153ee7ae73d69b568"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SourceLocation</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger14SourceLocation14SourceLocationEPKcPKc7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructor with manual location capture. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – Source file path </p></li>
+<li><p><strong>func</strong> – Function name </p></li>
+<li><p><strong>l</strong> – Line number </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger14SourceLocation4fileE">
+<span id="_CPPv3N11trt_edgellm6logger14SourceLocation4fileE"></span><span id="_CPPv2N11trt_edgellm6logger14SourceLocation4fileE"></span><span id="trt_edgellm::logger::SourceLocation::file__cCP"></span><span class="target" id="structtrt__edgellm_1_1logger_1_1SourceLocation_1a6e202b3e5aa2a727dd490a81a2cf5c32"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">file</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger14SourceLocation4fileE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Source file path. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger14SourceLocation8functionE">
+<span id="_CPPv3N11trt_edgellm6logger14SourceLocation8functionE"></span><span id="_CPPv2N11trt_edgellm6logger14SourceLocation8functionE"></span><span id="trt_edgellm::logger::SourceLocation::function__cCP"></span><span class="target" id="structtrt__edgellm_1_1logger_1_1SourceLocation_1aa76bac0231a68cb2c4be7fc222ae8898"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">function</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger14SourceLocation8functionE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Function name. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6logger14SourceLocation10lineNumberE">
+<span id="_CPPv3N11trt_edgellm6logger14SourceLocation10lineNumberE"></span><span id="_CPPv2N11trt_edgellm6logger14SourceLocation10lineNumberE"></span><span id="trt_edgellm::logger::SourceLocation::lineNumber__int32_t"></span><span class="target" id="structtrt__edgellm_1_1logger_1_1SourceLocation_1a56cd6e492b571012413319a291bd2d56"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lineNumber</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6logger14SourceLocation10lineNumberE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Line number. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hashUtils.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hash Utils</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mmapReader.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MMAP Reader</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::logger::EdgeLLMLogger</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger13EdgeLLMLoggerEv"><code class="docutils literal notranslate"><span class="pre">EdgeLLMLogger()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerD0Ev"><code class="docutils literal notranslate"><span class="pre">~EdgeLLMLogger()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger3logEN8nvinfer17ILogger8SeverityEPKc"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15logWithLocationEN8nvinfer17ILogger8SeverityERKNSt6stringERK14SourceLocation"><code class="docutils literal notranslate"><span class="pre">logWithLocation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger5debugERKNSt6stringERK14SourceLocation"><code class="docutils literal notranslate"><span class="pre">debug()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger4infoERKNSt6stringERK14SourceLocation"><code class="docutils literal notranslate"><span class="pre">info()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger7warningERKNSt6stringERK14SourceLocation"><code class="docutils literal notranslate"><span class="pre">warning()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger5errorERKNSt6stringERK14SourceLocation"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger8setLevelEN8nvinfer17ILogger8SeverityE"><code class="docutils literal notranslate"><span class="pre">setLevel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm6logger13EdgeLLMLogger8getLevelEv"><code class="docutils literal notranslate"><span class="pre">getLevel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger16setShowTimestampEb"><code class="docutils literal notranslate"><span class="pre">setShowTimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15setShowLocationEb"><code class="docutils literal notranslate"><span class="pre">setShowLocation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger13EdgeLLMLogger15setShowFunctionEb"><code class="docutils literal notranslate"><span class="pre">setShowFunction()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger20ScopedFunctionTracerE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::logger::ScopedFunctionTracer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger20ScopedFunctionTracer20ScopedFunctionTracerER13EdgeLLMLoggerPKcRK14SourceLocation"><code class="docutils literal notranslate"><span class="pre">ScopedFunctionTracer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger20ScopedFunctionTracerD0Ev"><code class="docutils literal notranslate"><span class="pre">~ScopedFunctionTracer()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger14SourceLocationE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::logger::SourceLocation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger14SourceLocation14SourceLocationEPKcPKc7int32_t"><code class="docutils literal notranslate"><span class="pre">SourceLocation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger14SourceLocation4fileE"><code class="docutils literal notranslate"><span class="pre">file</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger14SourceLocation8functionE"><code class="docutils literal notranslate"><span class="pre">function</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6logger14SourceLocation10lineNumberE"><code class="docutils literal notranslate"><span class="pre">lineNumber</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

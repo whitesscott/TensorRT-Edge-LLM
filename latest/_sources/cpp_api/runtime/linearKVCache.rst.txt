@@ -1,0 +1,8 @@
+Linear KV Cache
+===============
+
+.. doxygenclass:: trt_edgellm::rt::LinearKVCache
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+

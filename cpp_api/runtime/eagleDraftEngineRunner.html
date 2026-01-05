@@ -1,0 +1,1041 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EAGLE Draft Engine Runner &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/runtime/eagleDraftEngineRunner';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Image Utils" href="imageUtils.html" />
+    <link rel="prev" title="Runtime Module" href="index.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Runtime Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Runtime Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">EAGLE Draft Engine Runner</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="eagle-draft-engine-runner">
+<h1>EAGLE Draft Engine Runner<a class="headerlink" href="#eagle-draft-engine-runner" title="Link to this heading">#</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerE">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunnerE"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunnerE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EagleDraftEngineRunner</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Eagle Draft Engine Runner class for speculative decoding. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner22EagleDraftEngineRunnerERKNSt10filesystem4pathERKNSt10filesystem4pathE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner22EagleDraftEngineRunnerERKNSt10filesystem4pathERKNSt10filesystem4pathE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner22EagleDraftEngineRunnerERKNSt10filesystem4pathERKNSt10filesystem4pathE12cudaStream_t"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::EagleDraftEngineRunner__std::filesystem::pathCR.std::filesystem::pathCR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a474d059df6120644ca5482192fa3049b"></span><span class="sig-name descname"><span class="n"><span class="pre">EagleDraftEngineRunner</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">enginePath</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">configPath</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner22EagleDraftEngineRunnerERKNSt10filesystem4pathERKNSt10filesystem4pathE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct an Eagle Draft Engine Runner. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>enginePath</strong> – Path to the TensorRT engine file </p></li>
+<li><p><strong>configPath</strong> – Path to the configuration JSON file </p></li>
+<li><p><strong>stream</strong> – CUDA stream for initialization </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerD0Ev">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunnerD0Ev"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunnerD0Ev"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::~EagleDraftEngineRunner"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a22180a117d995f964a12faed86606135"></span><span class="sig-name descname"><span class="n"><span class="pre">~EagleDraftEngineRunner</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner24getRopeCosSinCacheTensorEv">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner24getRopeCosSinCacheTensorEv"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner24getRopeCosSinCacheTensorEv"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::getRopeCosSinCacheTensor"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a674cc8221a68935631511b2c2eb4e12e"></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getRopeCosSinCacheTensor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner24getRopeCosSinCacheTensorEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get internal RoPE cosine/sine cache tensor for the eagle draft engine. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reference to the RoPE cosine/sine cache tensor </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner16getLinearKVCacheEv">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner16getLinearKVCacheEv"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner16getLinearKVCacheEv"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::getLinearKVCache"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a5184dcff475520e34dcfb0ca21b368c9"></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCacheE" title="trt_edgellm::rt::LinearKVCache"><span class="n"><span class="pre">LinearKVCache</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getLinearKVCache</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner16getLinearKVCacheEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get internal linear KV cache for the eagle draft engine. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reference to the linear KV cache </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt22EagleDraftEngineRunner20getDraftEngineConfigEv">
+<span id="_CPPv3NK11trt_edgellm2rt22EagleDraftEngineRunner20getDraftEngineConfigEv"></span><span id="_CPPv2NK11trt_edgellm2rt22EagleDraftEngineRunner20getDraftEngineConfigEv"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::getDraftEngineConfigC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1abaac243b8793ac7f583f6a49053c9523"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfigE" title="trt_edgellm::rt::EagleDraftEngineRunnerConfig"><span class="n"><span class="pre">EagleDraftEngineRunnerConfig</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDraftEngineConfig</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt22EagleDraftEngineRunner20getDraftEngineConfigEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the draft engine configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The draft engine configuration structure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::executeEaglePrefillStep__rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::OptionalInputTensor.rt::TensorR.rt::TensorR.rt::TensorCR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1aa595572c2a88ac80c1ec8ac273634e55"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">executeEaglePrefillStep</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">inputIds</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">baseModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">contextLengths</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalInputTensor</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">multimodalEmbeddings</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputLogits</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">baseRopeCosSinCache</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>API entry to execute prefill step for the eagle draft engine. </p>
+<p>By definition, eagle operates on feature level with formulation of f_n = F_proj(f_{n}, token_{n+1}). The API will takes hidden states input from base model and token_ids of [1 ~ N] as input, output logits and (draft) hidden states for the “last entry” to be used in following draft proposal step. Multi-batch is supported - each batch can have different actual sequence length (with padding).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputIds</strong> – [GPU, Int32] Input token_ids for the draft model with shape [batch_size, N_padded] denoting the token_ids of [1 ~N] </p></li>
+<li><p><strong>baseModelHiddenStates</strong> – [GPU, Float16] Hidden states input from base model with shape [batch_size, N_padded, base-Hidden-dim], denote hidden states corresponding to token_ids of [1 ~ N-1] </p></li>
+<li><p><strong>draftModelHiddenStates</strong> – [GPU, Float16] The input [batch_size, N_padded, draft-Hidden-input-dim] is unused in the prefill step, but it is required by the engine execution. The input shall be set to all zeros to ensure correctness </p></li>
+<li><p><strong>contextLengths</strong> – [CPU, Int32] The actual sequence length for each batch with shape [batch_size] (including the +1 token from base prefill) </p></li>
+<li><p><strong>multimodalEmbeddings</strong> – [GPU] Optional. The multimodal embeddings </p></li>
+<li><p><strong>outputLogits</strong> – [GPU, Float16] The output logits with shape [batch_size, draft-Vocab-Size] </p></li>
+<li><p><strong>outputHiddenStates</strong> – [GPU] The output hidden states with shape [batch_size, draft-hidden-dim] </p></li>
+<li><p><strong>stream</strong> – The CUDA stream to execute the prefill step </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if execution was successful, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner29executeEagleDraftProposalStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner29executeEagleDraftProposalStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner29executeEagleDraftProposalStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::executeEagleDraftProposalStep__rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorR.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a9eb3ee8343a747f395da7f0cd2606b10"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">executeEagleDraftProposalStep</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftTreeInputIds</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">baseModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftTreeLength</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftTreeMask</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputLogits</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner29executeEagleDraftProposalStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>API entry to execute the draft proposal step for the eagle draft engine. </p>
+<p>The API will takes a draft tree of input_token_ids and hidden-states from the draft model. DraftTreeMask denote the relationship between the draft tree nodes, draft tree length denote the “real” length of the draft tree. To efficiently use cuda graph and reduce implementation complexity, the input length will be padded to accommodate the maximum draft tree size.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The API will automatically collect the “last” topK logits and hidden-states counting from the tail of “real” draft tree size. Caller shall specify the topK parameter through tensor dimension. Also this API will NOT “commit” the KVCache during execution. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>draftTreeInputIds</strong> – [GPU, Int32] Input token_ids for the draft model with shape [1, padded-draft-Tree-Size] </p></li>
+<li><p><strong>baseModelHiddenStates</strong> – [GPU, Float16] The input [1, padded-draft-Tree-Size, base-Hidden-Dim] is unused in the draft proposal step, but it is required by the engine execution. The input shall be set to all zeros to ensure correctness </p></li>
+<li><p><strong>draftModelHiddenStates</strong> – [GPU, Float16] Hidden states input from draft model with shape [1, padded-draft-Tree-Size, draft-Hidden-Dim], denote hidden states corresponding to token_ids of [1 ~ draft-Tree-Size] </p></li>
+<li><p><strong>draftTreeLength</strong> – [GPU, Int32] Denote the “real” length of the draft tree with shape [1] </p></li>
+<li><p><strong>draftTreeMask</strong> – [GPU, Int32] Denote the relationship between the draft tree nodes with shape [1, padded-draft-Tree-Size, padded-draft-Tree-Size] </p></li>
+<li><p><strong>outputLogits</strong> – [GPU, Float16] The output logits with shape [topK, draft-Vocab-Size] </p></li>
+<li><p><strong>outputHiddenStates</strong> – [GPU] The output hidden states with shape [topK, draft-hidden-dim] </p></li>
+<li><p><strong>stream</strong> – The CUDA stream to execute the draft proposal step </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if execution was successful, false otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner33executeEagleAcceptDecodeTokenStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner33executeEagleAcceptDecodeTokenStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner33executeEagleAcceptDecodeTokenStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::executeEagleAcceptDecodeTokenStep__rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorR.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a05bca6670fef7c78b38a01cc55a9825d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">executeEagleAcceptDecodeTokenStep</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">acceptedTokens</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">baseModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">acceptedTokenNums</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputLogits</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner33executeEagleAcceptDecodeTokenStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>API entry for the eagle draft model to accept the “committed” token from the base model. </p>
+<p>The functionality is similar to the prefill step where this API will operates based on the previous committed KVCache. Output logits and hidden-states will be collected from the last accepted token.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This API will “commit” the KVCache for the accepted tokens. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>acceptedTokens</strong> – [GPU, Int32] The accepted tokens with shape [batch_size, N_accepted_padded] where N_accepted_padded is the maximum accepted length across all batches </p></li>
+<li><p><strong>baseModelHiddenStates</strong> – [GPU, Float16] Hidden states input from base model with shape [batch_size, N_accepted_padded, base-Hidden-Dim] </p></li>
+<li><p><strong>draftModelHiddenStates</strong> – [GPU, Float16] The input [batch_size, N_accepted_padded, draft-Hidden-Dim] is unused in the accept decode token step, but it is required by the engine execution. The input shall be set to all zeros to ensure correctness </p></li>
+<li><p><strong>acceptedTokenNums</strong> – [GPU, Int32] The actual number of accepted tokens for each batch with shape [batch_size], used to handle variable-length acceptance per sequence </p></li>
+<li><p><strong>outputLogits</strong> – [GPU, Float16] The output logits with shape [batch_size, draft-Vocab-Size] </p></li>
+<li><p><strong>outputHiddenStates</strong> – [GPU] The output hidden states with shape [batch_size, draft-hidden-dim] </p></li>
+<li><p><strong>stream</strong> – The CUDA stream to execute the accept decode token step </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if execution was successful, false otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner34captureEagleDraftProposalCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner34captureEagleDraftProposalCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner34captureEagleDraftProposalCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::captureEagleDraftProposalCudaGraph__rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorR.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1a5b6db04b35877ca42ab526b756ec5770"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureEagleDraftProposalCudaGraph</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftTreeInputIds</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">baseModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftTreeLength</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftTreeMask</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputLogits</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner34captureEagleDraftProposalCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>API entry to capture the CUDA graph for the draft proposal step. </p>
+<p>The API will capture the CUDA graph for the draft proposal step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>draftTreeInputIds</strong> – [GPU, Int32] Input token_ids for the draft model with shape [1, padded-draft-Tree-Size] </p></li>
+<li><p><strong>baseModelHiddenStates</strong> – [GPU, Float16] The input [1, padded-draft-Tree-Size, base-Hidden-Dim] is unused in the draft proposal step, but it is required by the engine execution. The input shall be set to all zeros to ensure correctness </p></li>
+<li><p><strong>draftModelHiddenStates</strong> – [GPU, Float16] Hidden states input from draft model with shape [1, padded-draft-Tree-Size, draft-Hidden-Dim], denote hidden states corresponding to token_ids of [1 ~ draft-Tree-Size] </p></li>
+<li><p><strong>draftTreeLength</strong> – [GPU, Int32] Denote the “real” length of the draft tree with shape [1] </p></li>
+<li><p><strong>draftTreeMask</strong> – [GPU, Int32] Denote the relationship between the draft tree nodes with shape [1, padded-draft-Tree-Size, padded-draft-Tree-Size] </p></li>
+<li><p><strong>outputLogits</strong> – [GPU, Float16] The output logits with shape [topK, draft-Vocab-Size] </p></li>
+<li><p><strong>outputHiddenStates</strong> – [GPU] The output hidden states with shape [topK, draft-hidden-dim] </p></li>
+<li><p><strong>stream</strong> – The CUDA stream to capture the CUDA graph. The API will capture the CUDA graph for the draft proposal step </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the CUDA graph is captured successfully, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner38captureEagleAcceptDecodeTokenCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt22EagleDraftEngineRunner38captureEagleAcceptDecodeTokenCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt22EagleDraftEngineRunner38captureEagleAcceptDecodeTokenCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::EagleDraftEngineRunner::captureEagleAcceptDecodeTokenCudaGraph__rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorCR.rt::TensorR.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1EagleDraftEngineRunner_1ac6a26651fbb5f106011e07eef1b3beaf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureEagleAcceptDecodeTokenCudaGraph</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">acceptedTokens</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">baseModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">draftModelHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">acceptedTokenNums</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputLogits</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">outputHiddenStates</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner38captureEagleAcceptDecodeTokenCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>API entry for capturing the CUDA graph for the accept decode token step. </p>
+<p>The functionality is similar to the draft proposal step where this API will operates based on the previous committed KVCache. Output logits and hidden-states will be collected from the last accepted token.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>acceptedTokens</strong> – [GPU, Int32] The accepted tokens with shape [batch_size, N_accepted_padded] where N_accepted_padded is the maximum accepted length across all batches </p></li>
+<li><p><strong>baseModelHiddenStates</strong> – [GPU, Float16] Hidden states input from base model with shape [batch_size, N_accepted_padded, base-Hidden-Dim] </p></li>
+<li><p><strong>draftModelHiddenStates</strong> – [GPU, Float16] The input [batch_size, N_accepted_padded, draft-Hidden-Dim] is unused in the accept decode token step, but it is required by the engine execution. The input shall be set to all zeros to ensure correctness </p></li>
+<li><p><strong>acceptedTokenNums</strong> – [GPU, Int32] The actual number of accepted tokens for each batch with shape [batch_size], used to handle variable-length acceptance per sequence </p></li>
+<li><p><strong>outputLogits</strong> – [GPU, Float16] The output logits with shape [batch_size, draft-Vocab-Size] </p></li>
+<li><p><strong>outputHiddenStates</strong> – [GPU] The output hidden states with shape [batch_size, draft-hidden-dim] </p></li>
+<li><p><strong>stream</strong> – The CUDA stream to capture the CUDA graph. The API will capture the CUDA graph for the accept decode token step </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the CUDA graph is captured successfully, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfigE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfigE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfigE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EagleDraftEngineRunnerConfig</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfigE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configuration structure for the Eagle Draft Engine Runner. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10ropeConfigE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10ropeConfigE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10ropeConfigE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::ropeConfig__RopeConfig"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1a897d3909af2c0b6aa60b2d7a2e17a39a"></span><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt10RopeConfigE" title="trt_edgellm::rt::RopeConfig"><span class="n"><span class="pre">RopeConfig</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ropeConfig</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10ropeConfigE" title="Link to this definition">#</a><br /></dt>
+<dd><p>RoPE configuration. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16numDecoderLayersE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16numDecoderLayersE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16numDecoderLayersE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::numDecoderLayers__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1abd9da5cd135cdf090d5192904d2b4259"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numDecoderLayers</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16numDecoderLayersE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of decoder layers in the draft model. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10numKVHeadsE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10numKVHeadsE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10numKVHeadsE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::numKVHeads__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1af1cb9309bc00839a000c424863425f28"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numKVHeads</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10numKVHeadsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of key-value heads. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig7headDimE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig7headDimE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig7headDimE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::headDim__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1a009b3264c26880075ab0cecf3509eed4"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">headDim</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig7headDimE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Dimension of each attention head. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig9rotaryDimE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig9rotaryDimE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig9rotaryDimE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::rotaryDim__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1a22a65c8ca0ed3d136dc00cae93beb4db"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotaryDim</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig9rotaryDimE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Dimension of rotary positional encoding. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig21maxSupportedBatchSizeE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig21maxSupportedBatchSizeE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig21maxSupportedBatchSizeE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::maxSupportedBatchSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1ac8a2d781872b5434d42c421469a5b4d4"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxSupportedBatchSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig21maxSupportedBatchSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum supported batch size. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig23maxSupportedInputLengthE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig23maxSupportedInputLengthE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig23maxSupportedInputLengthE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::maxSupportedInputLength__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1af61c52506721e8f3d16a7ba98c44a468"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxSupportedInputLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig23maxSupportedInputLengthE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum supported input length. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18maxKVCacheCapacityE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18maxKVCacheCapacityE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18maxKVCacheCapacityE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::maxKVCacheCapacity__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1ae80652093ac173acc9dcb8abab5fad78"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxKVCacheCapacity</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18maxKVCacheCapacityE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum KV cache capacity. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelVocabSizeE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelVocabSizeE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelVocabSizeE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::draftModelVocabSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1a68496f44ac52701c968f32dec191ae16"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">draftModelVocabSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelVocabSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Vocabulary size of the draft model. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16maxDraftTreeSizeE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16maxDraftTreeSizeE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16maxDraftTreeSizeE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::maxDraftTreeSize__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1a6d1e555e1010dc20ee9f173f881dc9e3"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxDraftTreeSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16maxDraftTreeSizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Maximum size of the draft tree. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18baseModelHiddenDimE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18baseModelHiddenDimE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18baseModelHiddenDimE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::baseModelHiddenDim__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1a974466cd17fb15c2247ca92060429445"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">baseModelHiddenDim</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18baseModelHiddenDimE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Hidden dimension of the base model. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelHiddenDimE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelHiddenDimE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelHiddenDimE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::draftModelHiddenDim__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1aadd8bc92d3d0709e39e525fd65bba091"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">draftModelHiddenDim</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelHiddenDimE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Hidden dimension of the draft model. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig5isVlmE">
+<span id="_CPPv3N11trt_edgellm2rt28EagleDraftEngineRunnerConfig5isVlmE"></span><span id="_CPPv2N11trt_edgellm2rt28EagleDraftEngineRunnerConfig5isVlmE"></span><span id="trt_edgellm::rt::EagleDraftEngineRunnerConfig::isVlm__b"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1EagleDraftEngineRunnerConfig_1adc4db6903f5faecd5efae07b7cc34cda"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isVlm</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig5isVlmE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Flag indicating if this is a vision-language model. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Runtime Module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="imageUtils.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Image Utils</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::EagleDraftEngineRunner</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner22EagleDraftEngineRunnerERKNSt10filesystem4pathERKNSt10filesystem4pathE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">EagleDraftEngineRunner()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerD0Ev"><code class="docutils literal notranslate"><span class="pre">~EagleDraftEngineRunner()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner24getRopeCosSinCacheTensorEv"><code class="docutils literal notranslate"><span class="pre">getRopeCosSinCacheTensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner16getLinearKVCacheEv"><code class="docutils literal notranslate"><span class="pre">getLinearKVCache()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt22EagleDraftEngineRunner20getDraftEngineConfigEv"><code class="docutils literal notranslate"><span class="pre">getDraftEngineConfig()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">executeEaglePrefillStep()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner29executeEagleDraftProposalStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">executeEagleDraftProposalStep()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner33executeEagleAcceptDecodeTokenStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">executeEagleAcceptDecodeTokenStep()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner34captureEagleDraftProposalCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureEagleDraftProposalCudaGraph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner38captureEagleAcceptDecodeTokenCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureEagleAcceptDecodeTokenCudaGraph()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfigE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::EagleDraftEngineRunnerConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10ropeConfigE"><code class="docutils literal notranslate"><span class="pre">ropeConfig</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16numDecoderLayersE"><code class="docutils literal notranslate"><span class="pre">numDecoderLayers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig10numKVHeadsE"><code class="docutils literal notranslate"><span class="pre">numKVHeads</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig7headDimE"><code class="docutils literal notranslate"><span class="pre">headDim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig9rotaryDimE"><code class="docutils literal notranslate"><span class="pre">rotaryDim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig21maxSupportedBatchSizeE"><code class="docutils literal notranslate"><span class="pre">maxSupportedBatchSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig23maxSupportedInputLengthE"><code class="docutils literal notranslate"><span class="pre">maxSupportedInputLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18maxKVCacheCapacityE"><code class="docutils literal notranslate"><span class="pre">maxKVCacheCapacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelVocabSizeE"><code class="docutils literal notranslate"><span class="pre">draftModelVocabSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16maxDraftTreeSizeE"><code class="docutils literal notranslate"><span class="pre">maxDraftTreeSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig18baseModelHiddenDimE"><code class="docutils literal notranslate"><span class="pre">baseModelHiddenDim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelHiddenDimE"><code class="docutils literal notranslate"><span class="pre">draftModelHiddenDim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig5isVlmE"><code class="docutils literal notranslate"><span class="pre">isVlm</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+Hash Utils
+==========
+
+.. doxygenfile:: common/hashUtils.h
+   :project: TensorRT Edge-LLM
+

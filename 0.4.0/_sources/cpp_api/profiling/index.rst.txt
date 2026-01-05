@@ -1,0 +1,10 @@
+Profiling Module
+================
+
+API documentation for the profiling module.
+
+.. toctree::
+   :maxdepth: 1
+
+   metrics
+   timer

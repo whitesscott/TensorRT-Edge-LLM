@@ -1,0 +1,1310 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tensor &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/common/tensor';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TRT Utils" href="trtUtils.html" />
+    <link rel="prev" title="String Utils" href="stringUtils.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builder.html">Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Common Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stringUtils.html">String Utils</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Common Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Tensor</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tensor">
+<h1>Tensor<a class="headerlink" href="#tensor" title="Link to this heading">#</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6CoordsE">
+<span id="_CPPv3N11trt_edgellm2rt6CoordsE"></span><span id="_CPPv2N11trt_edgellm2rt6CoordsE"></span><span id="trt_edgellm::rt::Coords"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Array of dimensions that used to store the shape of a tensor. Support up to 8 dimensions with all dimensions are non-negative. Default constructor create empty coords with 0 dimensions and 0 volumes. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Coords6CoordsEv">
+<span id="_CPPv3N11trt_edgellm2rt6Coords6CoordsEv"></span><span id="_CPPv2N11trt_edgellm2rt6Coords6CoordsEv"></span><span id="trt_edgellm::rt::Coords::Coords"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1ae7fedfd20ac81d2e1c1fe5fbd6431421"></span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Coords6CoordsERK6Coords">
+<span id="_CPPv3N11trt_edgellm2rt6Coords6CoordsERK6Coords"></span><span id="_CPPv2N11trt_edgellm2rt6Coords6CoordsERK6Coords"></span><span id="trt_edgellm::rt::Coords::Coords__CoordsCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a2d35094558601bbac6f6712ca376d1fc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERK6Coords" title="trt_edgellm::rt::Coords::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERK6Coords" title="Link to this definition">#</a><br /></dt>
+<dd><p>Copy constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> – Coordinates to copy </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Coords6CoordsERR6Coords">
+<span id="_CPPv3N11trt_edgellm2rt6Coords6CoordsERR6Coords"></span><span id="_CPPv2N11trt_edgellm2rt6Coords6CoordsERR6Coords"></span><span id="trt_edgellm::rt::Coords::Coords__CoordsRR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1ab7d5904c0370ec4f15455b1fba02465f"></span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERR6Coords" title="trt_edgellm::rt::Coords::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERR6Coords" title="Link to this definition">#</a><br /></dt>
+<dd><p>Move constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6CoordsaSERK6Coords">
+<span id="_CPPv3N11trt_edgellm2rt6CoordsaSERK6Coords"></span><span id="_CPPv2N11trt_edgellm2rt6CoordsaSERK6Coords"></span><span id="trt_edgellm::rt::Coords::assign-operator__CoordsCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a03088af9d10cb0fd218de14f18b2e992"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6CoordsaSERK6Coords" title="Link to this definition">#</a><br /></dt>
+<dd><p>Copy assignment operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> – Coordinates to copy </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to this </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6CoordsaSERR6Coords">
+<span id="_CPPv3N11trt_edgellm2rt6CoordsaSERR6Coords"></span><span id="_CPPv2N11trt_edgellm2rt6CoordsaSERR6Coords"></span><span id="trt_edgellm::rt::Coords::assign-operator__CoordsRR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1aa0959f40e8cfe5b539d0d0079c69b7cf"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6CoordsaSERR6Coords" title="Link to this definition">#</a><br /></dt>
+<dd><p>Move assignment operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> – Coordinates to move </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to this </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Coords6CoordsERKN8nvinfer14DimsE">
+<span id="_CPPv3N11trt_edgellm2rt6Coords6CoordsERKN8nvinfer14DimsE"></span><span id="_CPPv2N11trt_edgellm2rt6Coords6CoordsERKN8nvinfer14DimsE"></span><span id="trt_edgellm::rt::Coords::Coords__nvinfer1::DimsCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a27e6a7f39755818138638d96a9b49d0a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Dims</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dims</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERKN8nvinfer14DimsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from TensorRT Dims. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dims</strong> – TensorRT dimensions </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT">
+<span id="_CPPv3I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT"></span><span id="_CPPv2I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname sig-name-template"><span class="n"><span class="pre">IT</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a0b3ad8029fc6cf01270d5ba5e1416829"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT" title="trt_edgellm::rt::Coords::Coords::IT"><span class="n"><span class="pre">IT</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">begin</span></span></em>, <em class="sig-param"><a class="reference internal" href="#_CPPv4I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT" title="trt_edgellm::rt::Coords::Coords::IT"><span class="n"><span class="pre">IT</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from iterator range. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>IT</strong> – Iterator type </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>begin</strong> – Beginning of range </p></li>
+<li><p><strong>end</strong> – End of range </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if number of dimensions exceeds kMAX_DIMS </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Coords6CoordsENSt16initializer_listI7int64_tEE">
+<span id="_CPPv3N11trt_edgellm2rt6Coords6CoordsENSt16initializer_listI7int64_tEE"></span><span id="_CPPv2N11trt_edgellm2rt6Coords6CoordsENSt16initializer_listI7int64_tEE"></span><span id="trt_edgellm::rt::Coords::Coords__std::initializer_list:int64_t:"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a0426b4d4cb71233276a2dfbe1c856a3e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsENSt16initializer_listI7int64_tEE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from initializer list. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Initializer list of dimensions </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Coords6CoordsERKNSt6vectorI7int64_tEE">
+<span id="_CPPv3N11trt_edgellm2rt6Coords6CoordsERKNSt6vectorI7int64_tEE"></span><span id="_CPPv2N11trt_edgellm2rt6Coords6CoordsERKNSt6vectorI7int64_tEE"></span><span id="trt_edgellm::rt::Coords::Coords__std::vector:int64_t:CR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1ac7566157a61d6aec86d3edd2fd1ba673"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coords</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERKNSt6vectorI7int64_tEE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> – Vector of dimensions </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Coords10getNumDimsEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Coords10getNumDimsEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Coords10getNumDimsEv"></span><span id="trt_edgellm::rt::Coords::getNumDimsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1ad502449a20567f4fc298919ce59263d0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumDims</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Coords10getNumDimsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get number of dimensions. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of dimensions </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6CoordsixE7int32_t">
+<span id="_CPPv3N11trt_edgellm2rt6CoordsixE7int32_t"></span><span id="_CPPv2N11trt_edgellm2rt6CoordsixE7int32_t"></span><span id="trt_edgellm::rt::Coords::subscript-operator__int32_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a8e7dc622465076efba97ff87383986c6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6CoordsixE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Array subscript operator (mutable) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> – Index to access </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – if index is out of bounds </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reference to dimension at index </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6CoordsixE7int32_t">
+<span id="_CPPv3NK11trt_edgellm2rt6CoordsixE7int32_t"></span><span id="_CPPv2NK11trt_edgellm2rt6CoordsixE7int32_t"></span><span id="trt_edgellm::rt::Coords::subscript-operator__int32_tC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1ab91d83fd40ec6ac844b6de14d6902b1f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6CoordsixE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Array subscript operator (const) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> – Index to access </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – if index is out of bounds </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dimension value at index </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Coords6volumeEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Coords6volumeEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Coords6volumeEv"></span><span id="trt_edgellm::rt::Coords::volumeC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a9066484de24e84c26a10fee2de436bc2"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">volume</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Coords6volumeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Calculate total volume (product of all dimensions) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume of the coordinates </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Coords10getTRTDimsEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Coords10getTRTDimsEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Coords10getTRTDimsEv"></span><span id="trt_edgellm::rt::Coords::getTRTDimsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1aadc82424d3b2b6dbc036cce7889d75e6"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Dims</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTRTDims</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Coords10getTRTDimsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convert to TensorRT Dims. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TensorRT dimensions </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Coords12formatStringEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Coords12formatStringEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Coords12formatStringEv"></span><span id="trt_edgellm::rt::Coords::formatStringC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Coords_1a3d1f7d71e116f2a0e14fe083b4748928"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">formatString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Coords12formatStringEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Format coordinates as string. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of coordinates </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6TensorE">
+<span id="_CPPv3N11trt_edgellm2rt6TensorE"></span><span id="_CPPv2N11trt_edgellm2rt6TensorE"></span><span id="trt_edgellm::rt::Tensor"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6TensorE" title="Link to this definition">#</a><br /></dt>
+<dd><p><a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> class that wrap linear layout tensor. The underlying memory can either be owned by the tensor object or be reused from another allocation. The <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> Object support reshapes when memory is owned by the object and has sufficient capacity. The default constructor creates an empty tensor object with zero volume with no underlying memory. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor6TensorEv">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor6TensorEv"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor6TensorEv"></span><span id="trt_edgellm::rt::Tensor::Tensor"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a0c58f4096d8457fc6f60ff351d3ef5a3"></span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Tensor">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor6TensorERK6Tensor"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor6TensorERK6Tensor"></span><span id="trt_edgellm::rt::Tensor::Tensor__TensorCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1abda21d7463962599cdbd8720d707e99f"></span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Tensor" title="trt_edgellm::rt::Tensor::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Disable copy constructor to enforce explicit memory ownership transfer. </p>
+<p>Non-owned tensor object can be constructed explicitly to workaround the limitation of deleted copy constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6TensoraSERK6Tensor">
+<span id="_CPPv3N11trt_edgellm2rt6TensoraSERK6Tensor"></span><span id="_CPPv2N11trt_edgellm2rt6TensoraSERK6Tensor"></span><span id="trt_edgellm::rt::Tensor::assign-operator__TensorCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a736aa1e4ca88baed542333c76eb9c819"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6TensoraSERK6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Disable copy assignment operator to enforce explicit memory ownership transfer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reference to this </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor6TensorERR6Tensor">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor6TensorERR6Tensor"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor6TensorERR6Tensor"></span><span id="trt_edgellm::rt::Tensor::Tensor__TensorRR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a7b5ff9d487d4e97b935797ac1119c557"></span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERR6Tensor" title="trt_edgellm::rt::Tensor::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERR6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Move constructor allows transfer of memory ownership. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> to move from </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6TensoraSERR6Tensor">
+<span id="_CPPv3N11trt_edgellm2rt6TensoraSERR6Tensor"></span><span id="_CPPv2N11trt_edgellm2rt6TensoraSERR6Tensor"></span><span id="trt_edgellm::rt::Tensor::assign-operator__TensorRR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a839a692f684f5d402a09b6f82f08b213"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6TensoraSERR6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Move assignment operator allows transfer of memory ownership. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> to move from </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to this </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6TensorD0Ev">
+<span id="_CPPv3N11trt_edgellm2rt6TensorD0Ev"></span><span id="_CPPv2N11trt_edgellm2rt6TensorD0Ev"></span><span id="trt_edgellm::rt::Tensor::~Tensor"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a8dfe5fcbccd525c09da44458bcaedfb7"></span><span class="sig-name descname"><span class="n"><span class="pre">~Tensor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6TensorD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor6TensorERK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor6TensorERK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE"></span><span id="trt_edgellm::rt::Tensor::Tensor__CoordsCR.DeviceType.nvinfer1::DataType.ssCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1aeae903553c108ba004fcc4c40975c86c"></span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">extent</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">DeviceType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">deviceType</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dataType</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;&quot;</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructor that allocates memory on the specified device. </p>
+<p>The memory is owned by the tensor object and will be freed when the tensor object is destroyed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extent</strong> – The shape of the tensor (must have non-zero volume) </p></li>
+<li><p><strong>deviceType</strong> – The device type to allocate memory on </p></li>
+<li><p><strong>dataType</strong> – The data type of the tensor (sub-types like kInt4 or kE2M1 are not supported) </p></li>
+<li><p><strong>name</strong> – Optional name for the tensor </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor6TensorEPvRK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor6TensorEPvRK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor6TensorEPvRK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE"></span><span id="trt_edgellm::rt::Tensor::Tensor__voidP.CoordsCR.DeviceType.nvinfer1::DataType.ssCR"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a8cf666e3129e5c19541cb022ed33848f"></span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">extent</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">DeviceType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">deviceType</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dataType</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;&quot;</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorEPvRK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructor that reuses external memory. </p>
+<p>Memory is not owned by the tensor object. The caller must ensure the lifecycle of the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Pointer to existing memory </p></li>
+<li><p><strong>extent</strong> – The shape of the tensor </p></li>
+<li><p><strong>deviceType</strong> – The device type of the memory </p></li>
+<li><p><strong>dataType</strong> – The data type of the tensor </p></li>
+<li><p><strong>name</strong> – Optional name for the tensor </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor8getShapeEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor8getShapeEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor8getShapeEv"></span><span id="trt_edgellm::rt::Tensor::getShapeC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a219ad13766f6a6aee52c68b4db3d1039"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getShape</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor8getShapeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the shape of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Coordinates representing the tensor shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor13getDeviceTypeEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor13getDeviceTypeEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor13getDeviceTypeEv"></span><span id="trt_edgellm::rt::Tensor::getDeviceTypeC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a256e67b80d346e02e5d18b331c7be566"></span><span class="n"><span class="pre">DeviceType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDeviceType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor13getDeviceTypeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the device type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Device type (CPU or GPU) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor11getDataTypeEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor11getDataTypeEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor11getDataTypeEv"></span><span id="trt_edgellm::rt::Tensor::getDataTypeC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a7ba143808b74feaa24d71eb1f07d4ac7"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDataType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor11getDataTypeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the data type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TensorRT data type </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor10getTRTDimsEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor10getTRTDimsEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor10getTRTDimsEv"></span><span id="trt_edgellm::rt::Tensor::getTRTDimsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a5a402295a2d62d534029de17f5efff68"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Dims</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTRTDims</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor10getTRTDimsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get TensorRT dimensions. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TensorRT Dims object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor12getOwnMemoryEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor12getOwnMemoryEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor12getOwnMemoryEv"></span><span id="trt_edgellm::rt::Tensor::getOwnMemoryC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a2eeb12240bf98ffacf0d8877ad4c523c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOwnMemory</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor12getOwnMemoryEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Check if tensor owns its memory. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if memory is owned, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor7isEmptyEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor7isEmptyEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor7isEmptyEv"></span><span id="trt_edgellm::rt::Tensor::isEmptyC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a73a53d323557319660a5c6d2104f752e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEmpty</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor7isEmptyEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Check if tensor is empty. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if tensor is empty, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor7getNameEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor7getNameEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor7getNameEv"></span><span id="trt_edgellm::rt::Tensor::getNameC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1ad342a0e3e147a070b4c6d16cdc7e12b2"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor7getNameEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the name of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor17getMemoryCapacityEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor17getMemoryCapacityEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor17getMemoryCapacityEv"></span><span id="trt_edgellm::rt::Tensor::getMemoryCapacityC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1aae9b3d71b47500f27c88d250fa5165c4"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getMemoryCapacity</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor17getMemoryCapacityEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get memory capacity of the underlying buffer. </p>
+<p>Returns the memory capacity when the instance was constructed. The value can differ from <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor_1a219ad13766f6a6aee52c68b4db3d1039"><span class="std std-ref">getShape()</span></a>.volume() * sizeof(dataType) when the tensor is reshaped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Memory capacity in bytes </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor9getStrideE7int32_t">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor9getStrideE7int32_t"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor9getStrideE7int32_t"></span><span id="trt_edgellm::rt::Tensor::getStride__int32_tC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1aba8b0e0c2cc032c9253f179f362f440d"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getStride</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor9getStrideE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get stride of the tensor at given dimension. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> – Dimension index </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Stride value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt6Tensor10rawPointerEv">
+<span id="_CPPv3NK11trt_edgellm2rt6Tensor10rawPointerEv"></span><span id="_CPPv2NK11trt_edgellm2rt6Tensor10rawPointerEv"></span><span id="trt_edgellm::rt::Tensor::rawPointerC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1ac26aee9993dd022d1f8090572c6481a7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">rawPointer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt6Tensor10rawPointerEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get raw data pointer (const) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Const pointer to tensor data </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor10rawPointerEv">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor10rawPointerEv"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor10rawPointerEv"></span><span id="trt_edgellm::rt::Tensor::rawPointer"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a3dc319e26a1151c0d4a02c17e40b7ca7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">rawPointer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor10rawPointerEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get raw data pointer (mutable) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pointer to tensor data </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN11trt_edgellm2rt6Tensor11dataPointerEP1Tv">
+<span id="_CPPv3I0EN11trt_edgellm2rt6Tensor11dataPointerEv"></span><span id="_CPPv2I0EN11trt_edgellm2rt6Tensor11dataPointerEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname sig-name-template"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a3bfc86a33a32d9e15f1d44bd43ce920f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN11trt_edgellm2rt6Tensor11dataPointerEP1Tv" title="trt_edgellm::rt::Tensor::dataPointer::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataPointer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4I0EN11trt_edgellm2rt6Tensor11dataPointerEP1Tv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get typed data pointer (mutable) </p>
+<p>Mismatching data type will lead to undefined behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type to cast to </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Typed pointer to tensor data </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0ENK11trt_edgellm2rt6Tensor11dataPointerEPK1Tv">
+<span id="_CPPv3I0ENK11trt_edgellm2rt6Tensor11dataPointerEv"></span><span id="_CPPv2I0ENK11trt_edgellm2rt6Tensor11dataPointerEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname sig-name-template"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1a7a27f827c66a816901cbcc5e619649c3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0ENK11trt_edgellm2rt6Tensor11dataPointerEPK1Tv" title="trt_edgellm::rt::Tensor::dataPointer::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataPointer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4I0ENK11trt_edgellm2rt6Tensor11dataPointerEPK1Tv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get typed data pointer (const) </p>
+<p>Mismatching data type will lead to undefined behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type to cast to </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Const typed pointer to tensor data </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt6Tensor7reshapeE6Coords">
+<span id="_CPPv3N11trt_edgellm2rt6Tensor7reshapeE6Coords"></span><span id="_CPPv2N11trt_edgellm2rt6Tensor7reshapeE6Coords"></span><span id="trt_edgellm::rt::Tensor::reshape__Coords"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Tensor_1aaa5f126e0a8c21fbd5dbaaecb575b842"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reshape</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">extent</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt6Tensor7reshapeE6Coords" title="Link to this definition">#</a><br /></dt>
+<dd><p>Reshape the tensor. </p>
+<p>Explicitly disallows reshape when the memory is not owned by the tensor object to avoid misuse. Reshape will not happen when memory capacity is insufficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>extent</strong> – New shape </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if reshape succeeded, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN11trt_edgellm2rt17is_arithmetic_extE">
+<span id="_CPPv3I0EN11trt_edgellm2rt17is_arithmetic_extE"></span><span id="_CPPv2I0EN11trt_edgellm2rt17is_arithmetic_extE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname sig-name-template"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structtrt__edgellm_1_1rt_1_1is__arithmetic__ext"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_arithmetic_ext</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN11trt_edgellm2rt17is_arithmetic_extE" title="trt_edgellm::rt::is_arithmetic_ext::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN11trt_edgellm2rt17is_arithmetic_extE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Extended arithmetic type trait. </p>
+<p>Extends std::is_arithmetic to support fp16 and bfloat16 types for convenience.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Type to check </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI4halfEE">
+<span id="_CPPv3IEN11trt_edgellm2rt17is_arithmetic_extI4halfEE"></span><span id="_CPPv2IEN11trt_edgellm2rt17is_arithmetic_extI4halfEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structtrt__edgellm_1_1rt_1_1is__arithmetic__ext_3_01half_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_arithmetic_ext</span></span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">half</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">half</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">true_type</span></span><a class="headerlink" href="#_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI4halfEE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Specialization for half precision floating point. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI13__nv_bfloat16EE">
+<span id="_CPPv3IEN11trt_edgellm2rt17is_arithmetic_extI13__nv_bfloat16EE"></span><span id="_CPPv2IEN11trt_edgellm2rt17is_arithmetic_extI13__nv_bfloat16EE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structtrt__edgellm_1_1rt_1_1is__arithmetic__ext_3_01____nv__bfloat16_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_arithmetic_ext</span></span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">__nv_bfloat16</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">__nv_bfloat16</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">true_type</span></span><a class="headerlink" href="#_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI13__nv_bfloat16EE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Specialization for bfloat16 precision floating point. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt5utils14computeStridesERK6Coords">
+<span id="_CPPv3N11trt_edgellm2rt5utils14computeStridesERK6Coords"></span><span id="_CPPv2N11trt_edgellm2rt5utils14computeStridesERK6Coords"></span><span id="trt_edgellm::rt::utils::computeStrides__CoordsCR"></span><span class="target" id="tensor_8cpp_1a0cab395d967cfb5f0972ad65dc59283d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int64_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">kMAX_DIMS</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">utils</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">computeStrides</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6CoordsE" title="trt_edgellm::rt::Coords"><span class="n"><span class="pre">Coords</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt5utils14computeStridesERK6Coords" title="Link to this definition">#</a><br /></dt>
+<dd><p>Compute strides for given shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> – <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> shape </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of strides </p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Unable to resolve function “trt_edgellm::rt::utils::getTypeSize” with arguments None in doxygen xml output for project “TensorRT Edge-LLM” from directory: ../cpp_docs/xml.
+Potential matches:
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">size_t</span> <span class="n">getTypeSize</span><span class="p">(</span><span class="n">DataType</span> <span class="n">dataType</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">size_t</span> <span class="n">getTypeSize</span><span class="p">(</span><span class="n">nvinfer1</span><span class="p">::</span><span class="n">DataType</span> <span class="n">dataType</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt5utils12formatStringERK6Tensor">
+<span id="_CPPv3N11trt_edgellm2rt5utils12formatStringERK6Tensor"></span><span id="_CPPv2N11trt_edgellm2rt5utils12formatStringERK6Tensor"></span><span id="trt_edgellm::rt::utils::formatString__TensorCR"></span><span class="target" id="tensor_8h_1ab5991cedc7d5872f8df1f18c44023e02"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">utils</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">formatString</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt5utils12formatStringERK6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Format tensor as string for debugging. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tensor</strong> – <a class="reference internal" href="#classtrt__edgellm_1_1rt_1_1Tensor"><span class="std std-ref">Tensor</span></a> to format </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>String representation of tensor </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt5utils4toKBE6size_t">
+<span id="_CPPv3N11trt_edgellm2rt5utils4toKBE6size_t"></span><span id="_CPPv2N11trt_edgellm2rt5utils4toKBE6size_t"></span><span id="trt_edgellm::rt::utils::toKB__s"></span><span class="target" id="tensor_8h_1a5a39416ed904a45b935a8cf0246ef712"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">utils</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">toKB</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt5utils4toKBE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convert bytes to kilobytes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bytes</strong> – Size in bytes </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Size in kilobytes </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt5utils4toMBE6size_t">
+<span id="_CPPv3N11trt_edgellm2rt5utils4toMBE6size_t"></span><span id="_CPPv2N11trt_edgellm2rt5utils4toMBE6size_t"></span><span id="trt_edgellm::rt::utils::toMB__s"></span><span class="target" id="tensor_8h_1a563a6f8ea8bda9c96b29a8a760b101d6"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">utils</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">toMB</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt5utils4toMBE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convert bytes to megabytes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bytes</strong> – Size in bytes </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Size in megabytes </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt5utils4toGBE6size_t">
+<span id="_CPPv3N11trt_edgellm2rt5utils4toGBE6size_t"></span><span id="_CPPv2N11trt_edgellm2rt5utils4toGBE6size_t"></span><span id="trt_edgellm::rt::utils::toGB__s"></span><span class="target" id="tensor_8h_1aeff66b79061f28b800503117b6896c1a"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">utils</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">toGB</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt5utils4toGBE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convert bytes to gigabytes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bytes</strong> – Size in bytes </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Size in gigabytes </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="stringUtils.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">String Utils</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="trtUtils.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TRT Utils</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6CoordsE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Coords</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsEv"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERK6Coords"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERR6Coords"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6CoordsaSERK6Coords"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6CoordsaSERR6Coords"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERKN8nvinfer14DimsE"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN11trt_edgellm2rt6Coords6CoordsE2IT2IT"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsENSt16initializer_listI7int64_tEE"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Coords6CoordsERKNSt6vectorI7int64_tEE"><code class="docutils literal notranslate"><span class="pre">Coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Coords10getNumDimsEv"><code class="docutils literal notranslate"><span class="pre">getNumDims()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6CoordsixE7int32_t"><code class="docutils literal notranslate"><span class="pre">operator[]()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6CoordsixE7int32_t"><code class="docutils literal notranslate"><span class="pre">operator[]()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Coords6volumeEv"><code class="docutils literal notranslate"><span class="pre">volume()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Coords10getTRTDimsEv"><code class="docutils literal notranslate"><span class="pre">getTRTDims()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Coords12formatStringEv"><code class="docutils literal notranslate"><span class="pre">formatString()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6TensorE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Tensor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorEv"><code class="docutils literal notranslate"><span class="pre">Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Tensor"><code class="docutils literal notranslate"><span class="pre">Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6TensoraSERK6Tensor"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERR6Tensor"><code class="docutils literal notranslate"><span class="pre">Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6TensoraSERR6Tensor"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6TensorD0Ev"><code class="docutils literal notranslate"><span class="pre">~Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor6TensorEPvRK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor8getShapeEv"><code class="docutils literal notranslate"><span class="pre">getShape()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor13getDeviceTypeEv"><code class="docutils literal notranslate"><span class="pre">getDeviceType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor11getDataTypeEv"><code class="docutils literal notranslate"><span class="pre">getDataType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor10getTRTDimsEv"><code class="docutils literal notranslate"><span class="pre">getTRTDims()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor12getOwnMemoryEv"><code class="docutils literal notranslate"><span class="pre">getOwnMemory()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor7isEmptyEv"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor7getNameEv"><code class="docutils literal notranslate"><span class="pre">getName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor17getMemoryCapacityEv"><code class="docutils literal notranslate"><span class="pre">getMemoryCapacity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor9getStrideE7int32_t"><code class="docutils literal notranslate"><span class="pre">getStride()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt6Tensor10rawPointerEv"><code class="docutils literal notranslate"><span class="pre">rawPointer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor10rawPointerEv"><code class="docutils literal notranslate"><span class="pre">rawPointer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN11trt_edgellm2rt6Tensor11dataPointerEP1Tv"><code class="docutils literal notranslate"><span class="pre">dataPointer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0ENK11trt_edgellm2rt6Tensor11dataPointerEPK1Tv"><code class="docutils literal notranslate"><span class="pre">dataPointer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt6Tensor7reshapeE6Coords"><code class="docutils literal notranslate"><span class="pre">reshape()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN11trt_edgellm2rt17is_arithmetic_extE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::is_arithmetic_ext</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI4halfEE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::is_arithmetic_ext&lt;</span> <span class="pre">half</span> <span class="pre">&gt;</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI13__nv_bfloat16EE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::is_arithmetic_ext&lt;</span> <span class="pre">__nv_bfloat16</span> <span class="pre">&gt;</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt5utils14computeStridesERK6Coords"><code class="docutils literal notranslate"><span class="pre">computeStrides()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt5utils12formatStringERK6Tensor"><code class="docutils literal notranslate"><span class="pre">formatString()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt5utils4toKBE6size_t"><code class="docutils literal notranslate"><span class="pre">toKB()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt5utils4toMBE6size_t"><code class="docutils literal notranslate"><span class="pre">toMB()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt5utils4toGBE6size_t"><code class="docutils literal notranslate"><span class="pre">toGB()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on January 05, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>
