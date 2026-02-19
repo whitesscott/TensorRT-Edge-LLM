@@ -424,7 +424,7 @@ window.addEventListener("load", load);
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -437,7 +437,7 @@ window.addEventListener("load", load);
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -683,41 +683,33 @@ window.addEventListener("load", load);
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="nav bd-sidenav">
@@ -730,9 +722,11 @@ window.addEventListener("load", load);
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../cpp_api/common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/bindingNames.html">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/safetensorsUtils.html">Safetensors Utils</a></li>
@@ -777,6 +771,7 @@ window.addEventListener("load", load);
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../cpp_api/profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -880,14 +875,23 @@ window.addEventListener("load", load);
 <span class="sd">with custom attention plugin integration. It supports standard models and EAGLE models.</span>
 
 <span class="sd">ONNX Input Naming Conventions:</span>
-<span class="sd">- input_ids: Input token IDs for all models (standard and prompt tuning)</span>
-<span class="sd">- image_embeds: Image embeddings for prompt tuning models only</span>
+<span class="sd">- inputs_embeds: Input embeddings for all models (replaces input_ids + image_embeds)</span>
+<span class="sd">- deepstack_embeds: Deepstack visual embeddings for Qwen3VL and Qwen3Omni models (list of 3 tensors, each with shape (batch_size, seq_len, hidden_size))</span>
 <span class="sd">- hidden_states_input: Renamed from hidden_states_from_base for ONNX export</span>
 <span class="sd">- attention_pos_id: Renamed from position_ids for ONNX export</span>
 
 <span class="sd">Model Loading Strategy:</span>
 <span class="sd">- Standard models: Use AutoModelForCausalLM/AutoModelForImageTextToText detection</span>
 <span class="sd">- EAGLE models: Load both base and draft models with weight copying</span>
+
+<span class="sd">Embedding Export:</span>
+<span class="sd">- All LLM models (both EAGLE base and regular): Export embedding.safetensors containing embedding layer weights</span>
+<span class="sd">- Draft models only: Do not export embeddings (use base model embeddings)</span>
+
+<span class="sd">Qwen3VL and Qwen3Omni Deepstack Processing:</span>
+<span class="sd">- Deepstack embeddings are provided as 3 tensors with shape (batch_size, seq_len, hidden_size)</span>
+<span class="sd">- Each tensor is directly added to hidden_states at specific decoder layers</span>
+<span class="sd">- Simple element-wise addition for clean ONNX graph</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -935,9 +939,27 @@ window.addEventListener("load", load);
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved d2t.safetensors to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">create_dummy_inputs</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">is_eagle_base</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_embedding_table</span><span class="p">(</span><span class="n">base_model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Save embedding.safetensors for LLM models (both EAGLE base and regular models).</span>
+<span class="sd">    </span>
+<span class="sd">    Note: Draft models do not need embeddings as they use the base model&#39;s embeddings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">safetensors.torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_file</span>
+
+    <span class="c1"># Get the embedding layer from the model</span>
+    <span class="n">embed_tokens</span> <span class="o">=</span> <span class="n">base_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">embed_tokens</span>
+    <span class="n">embedding_weight</span> <span class="o">=</span> <span class="n">embed_tokens</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+
+    <span class="c1"># Save as safetensors with key &#39;embedding&#39;</span>
+    <span class="n">embedding_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;embedding.safetensors&quot;</span><span class="p">)</span>
+    <span class="n">save_file</span><span class="p">({</span><span class="s2">&quot;embedding&quot;</span><span class="p">:</span> <span class="n">embedding_weight</span><span class="p">},</span> <span class="n">embedding_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved embedding.safetensors to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_dummy_inputs</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+                        <span class="n">is_eagle_base</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="n">is_eagle_draft</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-                        <span class="n">use_prompt_tuning</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+                        <span class="n">fp8_kv_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create dummy inputs for ONNX export.</span>
 <span class="sd">    </span>
@@ -945,7 +967,7 @@ window.addEventListener("load", load);
 <span class="sd">        model: The model to create inputs for</span>
 <span class="sd">        is_eagle_base: Whether this is an EAGLE base model</span>
 <span class="sd">        is_eagle_draft: Whether this is an EAGLE draft model</span>
-<span class="sd">        use_prompt_tuning: Whether the model uses prompt tuning</span>
+<span class="sd">        fp8_kv_cache: Whether to use FP8 KV cache</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: Dictionary containing dummy inputs</span>
@@ -954,7 +976,6 @@ window.addEventListener("load", load);
     <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">seq_len</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">past_len</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">image_token_len</span> <span class="o">=</span> <span class="mi">2</span>
 
     <span class="nb">print</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;Creating dummy inputs with batch_size=</span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">, seq_len=</span><span class="si">{</span><span class="n">seq_len</span><span class="si">}</span><span class="s2">, past_len=</span><span class="si">{</span><span class="n">past_len</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -962,6 +983,9 @@ window.addEventListener("load", load);
 
     <span class="c1"># Get model configuration</span>
     <span class="n">model_config</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">config</span>
+    <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;qwen3_omni_thinker&quot;</span><span class="p">:</span>
+        <span class="n">model_config</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">text_config</span>
+
     <span class="n">hidden_size</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">hidden_size</span>
     <span class="n">num_layers</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">num_hidden_layers</span>
     <span class="n">num_heads</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">num_attention_heads</span>
@@ -992,6 +1016,8 @@ window.addEventListener("load", load);
                                      <span class="n">head_dim</span><span class="p">,</span>
                                      <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
                                      <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fp8_kv_cache</span><span class="p">:</span>
+            <span class="n">past_key_value</span> <span class="o">=</span> <span class="n">past_key_value</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float8_e4m3fn</span><span class="p">)</span>
         <span class="n">past_key_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">past_key_value</span><span class="p">)</span>
 
     <span class="c1"># Create last_token_ids</span>
@@ -1029,24 +1055,19 @@ window.addEventListener("load", load);
         <span class="s1">&#39;context_lengths&#39;</span><span class="p">:</span> <span class="n">context_lengths</span>
     <span class="p">}</span>
 
-    <span class="c1"># Create input_ids for all models</span>
-    <span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
-                              <span class="n">model_config</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">,</span> <span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">),</span>
-                              <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
-                              <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-    <span class="n">base_inputs</span><span class="p">[</span><span class="s1">&#39;input_ids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_ids</span>
+    <span class="c1"># Create input_embeds for all models instead of input_ids</span>
+    <span class="n">inputs_embeds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span>
+                                <span class="n">seq_len</span><span class="p">,</span>
+                                <span class="n">hidden_size</span><span class="p">,</span>
+                                <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+                                <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">base_inputs</span><span class="p">[</span><span class="s1">&#39;inputs_embeds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs_embeds</span>
 
-    <span class="c1"># Create image_embeds for all models (needed for ONNX export alignment)</span>
-    <span class="k">if</span> <span class="n">use_prompt_tuning</span><span class="p">:</span>
-        <span class="n">image_embeds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">image_token_len</span><span class="p">,</span>
-                                   <span class="n">hidden_size</span><span class="p">,</span>
-                                   <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
-                                   <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">base_inputs</span><span class="p">[</span><span class="s1">&#39;image_embeds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_embeds</span>
-
-    <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;qwen3_vl_text&quot;</span><span class="p">:</span>
+    <span class="c1"># For Qwen3VL and Qwen3OmniThinker, add deepstack visual embeds</span>
+    <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;qwen3_vl_text&quot;</span><span class="p">,</span> <span class="s2">&quot;qwen3_omni_text&quot;</span><span class="p">]:</span>
         <span class="n">deepstack_visual_embeds</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">image_token_len</span><span class="p">,</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span>
+                        <span class="n">seq_len</span><span class="p">,</span>
                         <span class="n">hidden_size</span><span class="p">,</span>
                         <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
                         <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -1112,8 +1133,7 @@ window.addEventListener("load", load);
 
 <span class="k">def</span><span class="w"> </span><span class="nf">export_model_to_onnx</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">dummy_inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
                          <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_eagle_base</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-                         <span class="n">is_eagle_draft</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-                         <span class="n">use_prompt_tuning</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+                         <span class="n">is_eagle_draft</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Export the model to ONNX format.</span>
 <span class="sd">    </span>
@@ -1123,7 +1143,6 @@ window.addEventListener("load", load);
 <span class="sd">        output_dir: Directory to save the ONNX model</span>
 <span class="sd">        is_eagle_base: Whether this is an EAGLE base model</span>
 <span class="sd">        is_eagle_draft: Whether this is an EAGLE draft model</span>
-<span class="sd">        use_prompt_tuning: Whether the model uses prompt tuning</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting model to ONNX format: </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -1133,123 +1152,111 @@ window.addEventListener("load", load);
 
         <span class="c1"># Get model configuration for dynamic shapes</span>
         <span class="n">model_config</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">config</span>
+        <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;qwen3_omni_thinker&quot;</span><span class="p">:</span>
+            <span class="n">model_config</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">text_config</span>
         <span class="n">num_layers</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">num_hidden_layers</span>
 
-        <span class="c1"># Prepare inputs</span>
+        <span class="c1"># Prepare inputs - order must match model forward signature</span>
+        <span class="c1"># For LLM: inputs_embeds, past_key_values, rope_rotary_cos_sin, context_lengths, last_token_ids, kvcache_start_index, position_ids, attention_mask, deepstack_visual_embeds</span>
+        <span class="c1"># For Draft: inputs_embeds, past_key_values, rope_rotary_cos_sin, context_lengths, last_token_ids, kvcache_start_index, hidden_states_from_base, hidden_states_from_draft, position_ids, attention_mask</span>
+
         <span class="n">base_inputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;inputs_embeds&#39;</span><span class="p">],</span>
             <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;past_key_values&#39;</span><span class="p">],</span>
             <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;rope_rotary_cos_sin&#39;</span><span class="p">],</span>
-            <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;context_lengths&#39;</span><span class="p">],</span> <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;last_token_ids&#39;</span><span class="p">]</span>
+            <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;context_lengths&#39;</span><span class="p">],</span>
+            <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;last_token_ids&#39;</span><span class="p">],</span>
+            <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;kvcache_start_index&#39;</span><span class="p">],</span>
         <span class="p">]</span>
 
         <span class="k">if</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="n">base_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;hidden_states_from_base&#39;</span><span class="p">])</span>
-            <span class="n">base_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;hidden_states_from_draft&#39;</span><span class="p">])</span>
-
-        <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="c1"># EAGLE models use position_ids and attention_mask</span>
+            <span class="n">base_inputs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;hidden_states_from_base&#39;</span><span class="p">],</span>
+                <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;hidden_states_from_draft&#39;</span><span class="p">],</span>
+                <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;position_ids&#39;</span><span class="p">],</span> <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;attention_mask&#39;</span><span class="p">]</span>
+            <span class="p">])</span>
+        <span class="k">elif</span> <span class="n">is_eagle_base</span><span class="p">:</span>
             <span class="n">base_inputs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;position_ids&#39;</span><span class="p">],</span> <span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;attention_mask&#39;</span><span class="p">]])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Standard models pass None for position_ids and attention_mask</span>
             <span class="n">base_inputs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
 
-        <span class="c1"># kvcache_start_index is always required</span>
-        <span class="n">base_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;kvcache_start_index&#39;</span><span class="p">])</span>
-
-        <span class="c1"># Add input_ids (always present)</span>
-        <span class="n">base_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;input_ids&#39;</span><span class="p">])</span>
-
-        <span class="c1"># Add image_embeds (only for prompt tuning models)</span>
-        <span class="k">if</span> <span class="n">use_prompt_tuning</span><span class="p">:</span>
-            <span class="n">base_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;image_embeds&#39;</span><span class="p">])</span>
-
-        <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;qwen3_vl_text&quot;</span><span class="p">:</span>
-            <span class="n">base_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;deepstack_visual_embeds&#39;</span><span class="p">])</span>
+        <span class="c1"># For Qwen3VL and Qwen3Omni, add deepstack visual embeds</span>
+        <span class="n">require_deepstack_embeds</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;qwen3_vl_text&quot;</span><span class="p">,</span> <span class="s2">&quot;qwen3_omni_text&quot;</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">require_deepstack_embeds</span><span class="p">:</span>
+            <span class="n">base_inputs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">dummy_inputs</span><span class="p">[</span><span class="s1">&#39;deepstack_visual_embeds&#39;</span><span class="p">]])</span>
 
         <span class="n">inputs</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">base_inputs</span><span class="p">)</span>
 
         <span class="c1"># Create input names</span>
-        <span class="n">input_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;past_key_values.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
-            <span class="s1">&#39;rope_rotary_cos_sin&#39;</span><span class="p">,</span> <span class="s1">&#39;context_lengths&#39;</span><span class="p">,</span> <span class="s1">&#39;last_token_ids&#39;</span>
-        <span class="p">]</span>
+        <span class="n">input_names</span> <span class="o">=</span> <span class="p">([</span><span class="s1">&#39;inputs_embeds&#39;</span><span class="p">]</span> <span class="o">+</span>
+                       <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;past_key_values_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+                           <span class="s1">&#39;rope_rotary_cos_sin&#39;</span><span class="p">,</span> <span class="s1">&#39;context_lengths&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;last_token_ids&#39;</span><span class="p">,</span> <span class="s1">&#39;kvcache_start_index&#39;</span>
+                       <span class="p">])</span>
 
-        <span class="c1"># TODO: Change this name to hidden_states_from_base</span>
         <span class="k">if</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="n">input_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;hidden_states_input&#39;</span><span class="p">)</span>
-            <span class="n">input_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;hidden_states_from_draft&#39;</span><span class="p">)</span>
+            <span class="n">input_names</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="s1">&#39;hidden_states_input&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden_states_from_draft&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;attention_pos_id&#39;</span><span class="p">,</span> <span class="s1">&#39;attention_mask&#39;</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="n">is_eagle_base</span><span class="p">:</span>
+            <span class="n">input_names</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;attention_pos_id&#39;</span><span class="p">,</span> <span class="s1">&#39;attention_mask&#39;</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="n">input_names</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;attention_pos_id&#39;</span><span class="p">,</span> <span class="s1">&#39;attention_mask&#39;</span><span class="p">])</span>
-
-        <span class="c1"># kvcache_start_index is always required</span>
-        <span class="n">input_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kvcache_start_index&#39;</span><span class="p">)</span>
-
-        <span class="c1"># Add input_ids (always present)</span>
-        <span class="n">input_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;input_ids&#39;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">use_prompt_tuning</span><span class="p">:</span>
-            <span class="n">input_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;image_embeds&#39;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;qwen3_vl_text&quot;</span><span class="p">:</span>
-            <span class="n">input_names</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;deepstack_features.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">require_deepstack_embeds</span><span class="p">:</span>
+            <span class="n">input_names</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;deepstack_embeds_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
 
         <span class="c1"># Create output names</span>
-        <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="n">output_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;logits&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden_states&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span>
-                <span class="sa">f</span><span class="s1">&#39;present_key_values.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
-            <span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">output_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;logits&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span>
-                <span class="sa">f</span><span class="s1">&#39;present_key_values.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
-            <span class="p">]</span>
+        <span class="n">output_names</span> <span class="o">=</span> <span class="p">([</span><span class="s1">&#39;logits&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden_states&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="p">(</span><span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;logits&#39;</span><span class="p">])</span> <span class="o">+</span> \
+                       <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;present_key_values_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)]</span>
 
-        <span class="c1"># Create dynamic shapes</span>
-        <span class="n">past_key_values_shapes</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sa">f</span><span class="s2">&quot;past_key_values.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
-                <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;past_len&quot;</span>
-            <span class="p">}</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
-        <span class="p">}</span>
-
-        <span class="n">present_key_values_shapes</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sa">f</span><span class="s2">&quot;present_key_values.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
-                <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;present_kv_cache_len&quot;</span>
-            <span class="p">}</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
-        <span class="p">}</span>
-
-        <span class="c1"># Define dynamic axes for last_token_ids based on model type</span>
-        <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="c1"># EAGLE models: (batch_size, num_selected_tokens)</span>
-            <span class="n">last_token_ids_axes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;num_selected_tokens&quot;</span><span class="p">}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Standard models: (batch_size, 1)</span>
-            <span class="n">last_token_ids_axes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">}</span>
-
+        <span class="c1"># Create dynamic axes</span>
         <span class="n">dynamic_axes</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;input_ids&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="o">**</span><span class="p">{</span>
+                <span class="sa">f</span><span class="s2">&quot;past_key_values_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
+                    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;past_len&quot;</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="o">**</span><span class="p">{</span>
+                <span class="sa">f</span><span class="s2">&quot;present_key_values_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
+                    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;present_kv_cache_len&quot;</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;inputs_embeds&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
                 <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;seq_len&quot;</span>
             <span class="p">},</span>
-            <span class="o">**</span><span class="n">past_key_values_shapes</span><span class="p">,</span> <span class="s2">&quot;rope_rotary_cos_sin&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;rope_rotary_cos_sin&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;rope_batch_size&quot;</span><span class="p">,</span>
                 <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;max_position_embeddings&quot;</span>
             <span class="p">},</span>
             <span class="s2">&quot;context_lengths&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span>
             <span class="p">},</span>
-            <span class="s2">&quot;last_token_ids&quot;</span><span class="p">:</span> <span class="n">last_token_ids_axes</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">present_key_values_shapes</span>
-        <span class="p">}</span>
-
-        <span class="c1"># kvcache_start_index is always required with shape [kv_cache_start_batch_size]</span>
-        <span class="n">dynamic_axes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-            <span class="p">{</span><span class="s2">&quot;kvcache_start_index&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;last_token_ids&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
+                <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;num_selected_tokens&quot;</span>
+            <span class="p">}</span> <span class="k">if</span> <span class="p">(</span><span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;kvcache_start_index&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;kv_cache_start_batch_size&quot;</span>
-            <span class="p">}})</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;logits&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="mi">0</span><span class="p">:</span>
+                <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
+                <span class="mi">1</span><span class="p">:</span>
+                <span class="s2">&quot;num_selected_tokens&quot;</span> <span class="k">if</span>
+                <span class="p">(</span><span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;num_tokens&quot;</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
 
         <span class="k">if</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
             <span class="n">dynamic_axes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
@@ -1260,7 +1267,7 @@ window.addEventListener("load", load);
                 <span class="s2">&quot;hidden_states_from_draft&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
                     <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;seq_len&quot;</span>
-                <span class="p">}</span>
+                <span class="p">},</span>
             <span class="p">})</span>
 
         <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
@@ -1273,34 +1280,23 @@ window.addEventListener("load", load);
                     <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
                     <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;q_len&quot;</span><span class="p">,</span>
                     <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;q_len_padded&quot;</span>
-                <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;hidden_states&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
+                    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;seq_len&quot;</span>
+                <span class="p">},</span>
             <span class="p">})</span>
 
-        <span class="k">if</span> <span class="n">use_prompt_tuning</span><span class="p">:</span>
-            <span class="n">dynamic_axes</span><span class="p">[</span><span class="s2">&quot;image_embeds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;image_token_len&quot;</span><span class="p">}</span>
-
-        <span class="k">if</span> <span class="n">model_config</span><span class="o">.</span><span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;qwen3_vl_text&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">require_deepstack_embeds</span><span class="p">:</span>
             <span class="n">dynamic_axes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-                <span class="sa">f</span><span class="s2">&quot;deepstack_features.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;image_token_len&quot;</span>
-                <span class="p">}</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                <span class="o">**</span><span class="p">{</span>
+                    <span class="sa">f</span><span class="s2">&quot;deepstack_embeds_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
+                        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;seq_len&quot;</span>
+                    <span class="p">}</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                <span class="p">},</span>
             <span class="p">})</span>
-
-        <span class="c1"># Add dynamic axes for outputs</span>
-        <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="ow">or</span> <span class="n">is_eagle_draft</span><span class="p">:</span>
-            <span class="c1"># EAGLE models: logits shape (batch_size, num_selected_tokens, vocab_size)</span>
-            <span class="n">dynamic_axes</span><span class="p">[</span><span class="s2">&quot;logits&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span>
-                <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;num_selected_tokens&quot;</span>
-            <span class="p">}</span>
-            <span class="c1"># EAGLE models hidden_states shape</span>
-            <span class="c1"># Eagle base: (batch_size, seq_len, 3*hidden_dim)</span>
-            <span class="c1"># Eagle draft: (batch_size, seq_len, hidden_dim)</span>
-            <span class="n">dynamic_axes</span><span class="p">[</span><span class="s2">&quot;hidden_states&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;seq_len&quot;</span><span class="p">}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Standard models: logits shape (batch_size, num_tokens, vocab_size)</span>
-            <span class="n">dynamic_axes</span><span class="p">[</span><span class="s2">&quot;logits&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;num_tokens&quot;</span><span class="p">}</span>
 
         <span class="c1"># Register ONNX symbolic functions</span>
         <span class="n">register_attention_plugin_onnx_symbolic_functions</span><span class="p">()</span>
@@ -1321,7 +1317,8 @@ window.addEventListener("load", load);
                      <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
                      <span class="n">is_eagle_base</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                      <span class="n">reduced_vocab_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                     <span class="n">chat_template_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+                     <span class="n">chat_template_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">fp8_kv_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Export a language model to ONNX format with custom attention plugin.</span>
 <span class="sd">    </span>
@@ -1335,6 +1332,7 @@ window.addEventListener("load", load);
 <span class="sd">        is_eagle_base: Whether the model is an EAGLE3 base model (vs standard LLM)</span>
 <span class="sd">        reduced_vocab_dir: Directory containing vocab_map.safetensors for vocabulary reduction (optional)</span>
 <span class="sd">        chat_template_path: Path to chat template JSON file. When provided, this template is validated and used instead of inferring from the model (optional)</span>
+<span class="sd">        fp8_kv_cache: Whether to use FP8 KV cache</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
@@ -1355,7 +1353,7 @@ window.addEventListener("load", load);
             <span class="n">reduced_vocab_dir</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 
     <span class="c1"># Load model</span>
-    <span class="n">model</span><span class="p">,</span> <span class="n">use_prompt_tuning</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">processor</span> <span class="o">=</span> <span class="n">load_llm_model</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">processor</span> <span class="o">=</span> <span class="n">load_llm_model</span><span class="p">(</span>
         <span class="n">model_dir</span><span class="p">,</span>
         <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;fp16&#39;</span><span class="p">,</span>
         <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
@@ -1369,15 +1367,14 @@ window.addEventListener("load", load);
     <span class="n">dummy_inputs</span> <span class="o">=</span> <span class="n">create_dummy_inputs</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
                                        <span class="n">is_eagle_base</span><span class="o">=</span><span class="n">is_eagle_base</span><span class="p">,</span>
                                        <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                       <span class="n">use_prompt_tuning</span><span class="o">=</span><span class="n">use_prompt_tuning</span><span class="p">)</span>
+                                       <span class="n">fp8_kv_cache</span><span class="o">=</span><span class="n">fp8_kv_cache</span><span class="p">)</span>
 
     <span class="c1"># Export to ONNX</span>
     <span class="n">export_model_to_onnx</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
                          <span class="n">dummy_inputs</span><span class="p">,</span>
                          <span class="n">output_dir</span><span class="p">,</span>
                          <span class="n">is_eagle_base</span><span class="o">=</span><span class="n">is_eagle_base</span><span class="p">,</span>
-                         <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                         <span class="n">use_prompt_tuning</span><span class="o">=</span><span class="n">use_prompt_tuning</span><span class="p">)</span>
+                         <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># Save model configuration</span>
     <span class="n">model_type</span> <span class="o">=</span> <span class="s1">&#39;eagle3_base&#39;</span> <span class="k">if</span> <span class="n">is_eagle_base</span> <span class="k">else</span> <span class="s1">&#39;llm&#39;</span>
@@ -1392,6 +1389,10 @@ window.addEventListener("load", load);
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model_config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model configuration saved to </span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Save embedding.safetensors for all models (EAGLE base and regular models)</span>
+    <span class="c1"># Draft models don&#39;t need embeddings as they use the base model&#39;s embeddings</span>
+    <span class="n">save_embedding_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">)</span>
 
     <span class="c1"># Save tokenizer files</span>
     <span class="n">tokenizer</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
@@ -1461,7 +1462,6 @@ window.addEventListener("load", load);
 <a class="viewcode-back" href="../../../python_api.html#tensorrt_edgellm.export_draft_model">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">export_draft_model</span><span class="p">(</span><span class="n">draft_model_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                        <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                       <span class="n">use_prompt_tuning</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                        <span class="n">base_model_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1473,7 +1473,6 @@ window.addEventListener("load", load);
 <span class="sd">    Args:</span>
 <span class="sd">        draft_model_dir: Directory containing the EAGLE draft model</span>
 <span class="sd">        output_dir: Directory to save the exported ONNX model</span>
-<span class="sd">        use_prompt_tuning: Whether the model uses prompt tuning (for VLM models)</span>
 <span class="sd">        base_model_dir: Directory containing the base model (for weight copying)</span>
 <span class="sd">        device: Device to load the model on (&quot;cpu&quot;, &quot;cuda&quot;, or &quot;cuda:0&quot;, &quot;cuda:1&quot;, etc.)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1488,23 +1487,20 @@ window.addEventListener("load", load);
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading draft model from </span><span class="si">{</span><span class="n">draft_model_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="n">draft_model</span> <span class="o">=</span> <span class="n">load_eagle3_draft_model</span><span class="p">(</span><span class="n">draft_model_dir</span><span class="p">,</span> <span class="n">base_model_dir</span><span class="p">,</span>
-                                          <span class="n">use_prompt_tuning</span><span class="p">,</span> <span class="s1">&#39;fp16&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+                                          <span class="s1">&#39;fp16&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 
     <span class="n">draft_model</span> <span class="o">=</span> <span class="n">replace_torch_quant_linear_with_int4_plugin</span><span class="p">(</span><span class="n">draft_model</span><span class="p">)</span>
 
     <span class="c1"># Export draft model</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting draft model to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">draft_dummy_inputs</span> <span class="o">=</span> <span class="n">create_dummy_inputs</span><span class="p">(</span>
-        <span class="n">draft_model</span><span class="p">,</span>
-        <span class="n">is_eagle_base</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">use_prompt_tuning</span><span class="o">=</span><span class="n">use_prompt_tuning</span><span class="p">)</span>
+    <span class="n">draft_dummy_inputs</span> <span class="o">=</span> <span class="n">create_dummy_inputs</span><span class="p">(</span><span class="n">draft_model</span><span class="p">,</span>
+                                             <span class="n">is_eagle_base</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                             <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">export_model_to_onnx</span><span class="p">(</span><span class="n">draft_model</span><span class="p">,</span>
                          <span class="n">draft_dummy_inputs</span><span class="p">,</span>
                          <span class="n">output_dir</span><span class="p">,</span>
                          <span class="n">is_eagle_base</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                         <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                         <span class="n">use_prompt_tuning</span><span class="o">=</span><span class="n">use_prompt_tuning</span><span class="p">)</span>
+                         <span class="n">is_eagle_draft</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Save draft model configuration</span>
     <span class="n">draft_config</span> <span class="o">=</span> <span class="n">export_llm_config</span><span class="p">(</span><span class="n">draft_model</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;eagle_draft&#39;</span><span class="p">)</span>
@@ -1629,9 +1625,9 @@ window.addEventListener("load", load);
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

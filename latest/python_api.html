@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -70,12 +70,12 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="C++ API Reference" href="cpp_api.html" />
-    <link rel="prev" title="TensorRT Plugins Guide" href="developer_guide/08_TensorRT_Plugins.html" />
+    <link rel="prev" title="TensorRT Plugins Guide" href="developer_guide/customization/tensorrt-plugins.html" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -325,41 +325,33 @@
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="current nav bd-sidenav">
@@ -372,9 +364,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/bindingNames.html">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/safetensorsUtils.html">Safetensors Utils</a></li>
@@ -419,6 +413,7 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -567,7 +562,6 @@ schemes including FP8, INT4 AWQ, and NVFP4 for efficient inference on edge devic
     <span class="n">draft_model_dir</span><span class="o">=</span><span class="s2">&quot;path/to/draft_model&quot;</span><span class="p">,</span>
     <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;path/to/output&quot;</span><span class="p">,</span>
     <span class="n">base_model_dir</span><span class="o">=</span><span class="s2">&quot;path/to/base_model&quot;</span><span class="p">,</span>
-    <span class="n">use_prompt_tuning</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
 <span class="c1"># Export visual model to ONNX</span>
@@ -608,6 +602,7 @@ schemes including FP8, INT4 AWQ, and NVFP4 for efficient inference on edge devic
 <dd><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fp16'</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">dataset_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cnn_dailymail'</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">lm_head_quantization</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">kv_cache_quantization</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cuda'</span></span></em>,</dd>
 </dl>
 
@@ -620,10 +615,10 @@ quantization schemes including FP8, INT4 AWQ, and NVFP4.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model_dir</strong> – Directory containing the input HuggingFace model</p></li>
 <li><p><strong>output_dir</strong> – Directory to save the quantized model</p></li>
-<li><p><strong>quantization</strong> – Quantization method to apply (None, “fp8”, “int4_awq”, “nvfp4”, “int8_sq”)</p></li>
+<li><p><strong>quantization</strong> – Quantization method to apply (None, “fp8”, “int4_awq”, “nvfp4”, “int8_sq”, “mxfp8”)</p></li>
 <li><p><strong>dtype</strong> – Model data type for loading (“fp16”)</p></li>
 <li><p><strong>dataset_dir</strong> – Dataset name or path for calibration data</p></li>
-<li><p><strong>lm_head_quantization</strong> – Optional separate quantization for language model head (only “fp8” and “nvfp4” is currently supported)</p></li>
+<li><p><strong>lm_head_quantization</strong> – Optional separate quantization for language model head (only “fp8”, “nvfp4”, and “mxfp8” are currently supported)</p></li>
 <li><p><strong>device</strong> – Device to use for model loading and quantization (“cuda”, “cpu”)</p></li>
 </ul>
 </dd>
@@ -646,6 +641,7 @@ quantization schemes including FP8, INT4 AWQ, and NVFP4.</p>
 <dd><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fp16'</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">dataset_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cnn_dailymail'</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">lm_head_quantization</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">kv_cache_quantization</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/tensorrt_edgellm/quantization/llm_quantization.html#quantize_and_save_draft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tensorrt_edgellm.quantize_and_save_draft" title="Link to this definition">#</a></dt>
@@ -658,11 +654,12 @@ both a base model and draft model directory.</p>
 <li><p><strong>base_model_dir</strong> – Directory containing the base HuggingFace model</p></li>
 <li><p><strong>draft_model_dir</strong> – Directory containing the EAGLE draft model</p></li>
 <li><p><strong>output_dir</strong> – Directory to save the quantized model</p></li>
-<li><p><strong>quantization</strong> – Quantization method to apply (None, “fp8”, “int4_awq”, “nvfp4”, “int8_sq”)</p></li>
+<li><p><strong>quantization</strong> – Quantization method to apply (None, “fp8”, “int4_awq”, “nvfp4”, “int8_sq”, “mxfp8”)</p></li>
 <li><p><strong>device</strong> – Device to use for model loading and quantization (“cuda”, “cpu”)</p></li>
 <li><p><strong>dtype</strong> – Model data type for loading (“fp16”)</p></li>
 <li><p><strong>dataset_dir</strong> – Dataset name or path for calibration data</p></li>
-<li><p><strong>lm_head_quantization</strong> – Optional separate quantization for language model head (only “fp8” and “nvfp4” is currently supported)</p></li>
+<li><p><strong>lm_head_quantization</strong> – Optional separate quantization for language model head (only “fp8”, “nvfp4”, and “mxfp8” are currently supported)</p></li>
+<li><p><strong>kv_cache_quantization</strong> – Optional separate quantization for KV cache (only “fp8” is currently supported)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -678,7 +675,6 @@ both a base model and draft model directory.</p>
 <dl>
 <dd><em class="sig-param"><span class="n"><span class="pre">draft_model_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">use_prompt_tuning</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">base_model_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cuda'</span></span></em>,</dd>
 </dl>
@@ -692,7 +688,6 @@ The draft model requires a base model for weight copying.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>draft_model_dir</strong> – Directory containing the EAGLE draft model</p></li>
 <li><p><strong>output_dir</strong> – Directory to save the exported ONNX model</p></li>
-<li><p><strong>use_prompt_tuning</strong> – Whether the model uses prompt tuning (for VLM models)</p></li>
 <li><p><strong>base_model_dir</strong> – Directory containing the base model (for weight copying)</p></li>
 <li><p><strong>device</strong> – Device to load the model on (“cpu”, “cuda”, or “cuda:0”, “cuda:1”, etc.)</p></li>
 </ul>
@@ -711,6 +706,7 @@ The draft model requires a base model for weight copying.</p>
 <dd><em class="sig-param"><span class="n"><span class="pre">is_eagle_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">reduced_vocab_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">chat_template_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">fp8_kv_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/tensorrt_edgellm/onnx_export/llm_export.html#export_llm_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tensorrt_edgellm.export_llm_model" title="Link to this definition">#</a></dt>
@@ -726,6 +722,7 @@ to ONNX format with TensorRT Edge-LLM optimizations.</p>
 <li><p><strong>is_eagle_base</strong> – Whether the model is an EAGLE3 base model (vs standard LLM)</p></li>
 <li><p><strong>reduced_vocab_dir</strong> – Directory containing vocab_map.safetensors for vocabulary reduction (optional)</p></li>
 <li><p><strong>chat_template_path</strong> – Path to chat template JSON file. When provided, this template is validated and used instead of inferring from the model (optional)</p></li>
+<li><p><strong>fp8_kv_cache</strong> – Whether to use FP8 KV cache</p></li>
 </ul>
 </dd>
 </dl>
@@ -768,6 +765,45 @@ it to ONNX format.</p>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>ValueError</strong> – If unsupported dtype or quantization is provided</p></li>
+<li><p><strong>ValueError</strong> – If unsupported model type is detected</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tensorrt_edgellm.audio_export">
+<span class="sig-prename descclassname"><span class="pre">tensorrt_edgellm.</span></span><span class="sig-name descname"><span class="pre">audio_export</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">model_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cuda'</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/tensorrt_edgellm/onnx_export/audio_export.html#audio_export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tensorrt_edgellm.audio_export" title="Link to this definition">#</a></dt>
+<dd><p>Export audio model using the appropriate wrapper based on model architecture.</p>
+<p>This function loads a multimodal model, extracts its audio component, wraps it
+in the appropriate model wrapper, and exports it to ONNX format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_dir</strong> – Directory containing the torch model</p></li>
+<li><p><strong>output_dir</strong> – Directory to save the exported ONNX model</p></li>
+<li><p><strong>dtype</strong> – Data type for export (currently only “fp16” supported)</p></li>
+<li><p><strong>device</strong> – Device to load the model on (default: “cuda”, options: cpu, cuda, cuda:0, cuda:1, etc.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to the output directory where the exported model is saved</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If unsupported dtype is provided</p></li>
 <li><p><strong>ValueError</strong> – If unsupported model type is detected</p></li>
 </ul>
 </dd>
@@ -863,7 +899,7 @@ it to ONNX format.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="developer_guide/08_TensorRT_Plugins.html"
+       href="developer_guide/customization/tensorrt-plugins.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -907,6 +943,7 @@ it to ONNX format.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.export_draft_model"><code class="docutils literal notranslate"><span class="pre">export_draft_model()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.export_llm_model"><code class="docutils literal notranslate"><span class="pre">export_llm_model()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.visual_export"><code class="docutils literal notranslate"><span class="pre">visual_export()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.audio_export"><code class="docutils literal notranslate"><span class="pre">audio_export()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.insert_lora_and_save"><code class="docutils literal notranslate"><span class="pre">insert_lora_and_save()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.process_lora_weights_and_save"><code class="docutils literal notranslate"><span class="pre">process_lora_weights_and_save()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt_edgellm.reduce_vocab_size"><code class="docutils literal notranslate"><span class="pre">reduce_vocab_size()</span></code></a></li>
@@ -1003,9 +1040,9 @@ it to ONNX format.</p>
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

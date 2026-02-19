@@ -11,9 +11,6 @@ Plugin Utils
    :members:
    :undoc-members:
 
-.. doxygenfunction:: trt_edgellm::plugins::alignDevicePtr
-   :project: TensorRT Edge-LLM
-
 .. doxygenfunction:: trt_edgellm::plugins::toFieldType
    :project: TensorRT Edge-LLM
 

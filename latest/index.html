@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -69,12 +69,12 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="developer_guide/01.1_Overview.html" />
+    <link rel="next" title="Overview" href="developer_guide/getting-started/overview.html" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -324,41 +324,33 @@
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="nav bd-sidenav">
@@ -371,9 +363,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/bindingNames.html">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/safetensorsUtils.html">Safetensors Utils</a></li>
@@ -418,6 +412,7 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -476,221 +471,173 @@
 <h1>TensorRT Edge-LLM Documentation<a class="headerlink" href="#tensorrt-edge-llm-documentation" title="Link to this heading">#</a></h1>
 <p>Welcome to the TensorRT Edge-LLM documentation. This library provides optimized inference capabilities
 for large language models and vision-language models on edge devices.</p>
-<section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
-<p>Get up and running with TensorRT Edge-LLM. Learn about platform overview, key features, use cases,
-supported platforms, and complete installation instructions for Python and C++ components.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.1_Overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.1_Overview.html#what-is-tensorrt-edge-llm">What is TensorRT Edge-LLM?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.1_Overview.html#key-features">Key Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.1_Overview.html#key-components">Key Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.1_Overview.html#use-cases">Use Cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.1_Overview.html#supported-platforms">Supported Platforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.1_Overview.html#next-steps">Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/overview.html#what-is-tensorrt-edge-llm">What is TensorRT Edge-LLM?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/overview.html#supported-platforms">Supported Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/overview.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/overview.html#key-components">Key Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/overview.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#step-1-clone-repository-on-both-x86-host-and-device">Step 1: Clone Repository (on both x86 host and device)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#step-2-install-python-package-on-x86-host">Step 2: Install Python Package (on x86 host)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#step-3-build-c-project-on-device">Step 3: Build C++ Project (on device)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#step-4-download-and-export-a-model-on-x86-host">Step 4: Download and Export a Model (on x86 host)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#step-5-build-tensorrt-engine-on-thor-device">Step 5: Build TensorRT Engine (on Thor device)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#step-6-run-inference">Step 6: Run Inference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html#next-steps">Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/supported-models.html">Supported Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/supported-models.html#large-language-models-llms">Large Language Models (LLMs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/supported-models.html#vision-language-models-vlms">Vision-Language Models (VLMs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/supported-models.html#precision-support">Precision Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/supported-models.html#platform-compatibility">Platform Compatibility</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.3_Installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.3_Installation.html#part-1-python-export-pipeline-x86-host-with-gpu">Part 1: Python Export Pipeline (x86 Host with GPU)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.3_Installation.html#part-2-c-runtime-edge-device">Part 2: C++ Runtime (Edge Device)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.3_Installation.html#complete-workflow-summary">Complete Workflow Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.3_Installation.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.3_Installation.html#uninstalling">Uninstalling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/01.3_Installation.html#next-steps">Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/installation.html#part-1-python-export-pipeline-x86-host-with-gpu">Part 1: Python Export Pipeline (x86 Host with GPU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/installation.html#part-2-c-runtime-edge-device">Part 2: C++ Runtime (Edge Device)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/installation.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/installation.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/installation.html#uninstalling">Uninstalling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html#part-1-export-and-quantize-on-x86-host">Part 1: Export and Quantize on x86 Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html#part-2-build-and-run-on-edge-device">Part 2: Build and Run on Edge Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/examples.html">Examples and Complete Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#complete-workflow-summary">Complete Workflow Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#example-1-vlm-vision-language-model-inference">Example 1: VLM (Vision-Language Model) Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#example-2-llm-eagle-speculative-decoding">Example 2: LLM EAGLE Speculative Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#example-3-vlm-eagle-speculative-decoding">Example 3: VLM EAGLE Speculative Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#example-4-lora-enabled-models">Example 4: LoRA-Enabled Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#example-5-phi-4-multimodal-with-lora-merge">Example 5: Phi-4-Multimodal with LoRA Merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#input-file-format-reference">Input File Format Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#common-build-parameters">Common Build Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/examples.html#profiling-and-performance-analysis">Profiling and Performance Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/input-format.html">Input JSON Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/input-format.html#basic-structure">Basic Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/input-format.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/input-format.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/input-format.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html">Chat Template Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html#file-structure">File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html#thinking-mode">Thinking Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html#custom-templates">Custom Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html#system-prompt-priority">System Prompt Priority</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="models">
-<h2>Models<a class="headerlink" href="#models" title="Link to this heading">#</a></h2>
-<p>Learn about supported model families and architectures.</p>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/02_Supported_Models.html">Supported Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/02_Supported_Models.html#large-language-models-llms">Large Language Models (LLMs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/02_Supported_Models.html#vision-language-models-vlms">Vision-Language Models (VLMs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/02_Supported_Models.html#precision-support">Precision Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/02_Supported_Models.html#platform-compatibility">Platform Compatibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/02_Supported_Models.html#additional-resources">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#export-tools">Export Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#quantization-methods">Quantization Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#usage-examples">Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#common-issues-and-solutions">Common Issues and Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/engine-builder.html">Engine Builder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#compatibility-and-model-integrity">Compatibility and Model Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#build-process-workflow">Build Process Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#component-overview">Component Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#build-process-stages">Build Process Stages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#llm-builder">LLM Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#visual-encoder-builder">Visual Encoder Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#usage-examples">Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/engine-builder.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html#runtime-architecture">Runtime Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html#inference-workflow">Inference Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html#usage-examples">Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html#inference-workflow">Inference Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html#key-differences-from-llm-inference-runtime">Key Differences from LLM Inference Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html#usage-example">Usage Example</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="model-export-engine-building">
-<h2>Model Export &amp; Engine Building<a class="headerlink" href="#model-export-engine-building" title="Link to this heading">#</a></h2>
-<p>Convert and optimize your models for deployment. Learn how to convert HuggingFace models to ONNX
-with quantization and compile them into optimized TensorRT engines.</p>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#export-tools">Export Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#quantization-methods">Quantization Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#security-and-model-integrity">Security and Model Integrity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#usage-examples">Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#best-practices">Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#common-issues-and-solutions">Common Issues and Solutions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html#additional-resources">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#approach-1-static-lora-merge">Approach 1: Static LoRA Merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#approach-2-dynamic-runtime-lora">Approach 2: Dynamic Runtime LoRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#input-format-for-runtime-lora">Input Format for Runtime LoRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#script-reference">Script Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#build-parameters">Build Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/lora.html#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html">Engine Builder</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#compatibility-and-model-integrity">Compatibility and Model Integrity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#build-process-workflow">Build Process Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#component-overview">Component Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#build-process-stages">Build Process Stages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#llm-builder">LLM Builder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#visual-encoder-builder">Visual Encoder Builder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#usage-examples">Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#best-practices">Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html#additional-resources">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/reduce-vocab.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/reduce-vocab.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/reduce-vocab.html#eagle-speculative-decoding-support">EAGLE Speculative Decoding Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/reduce-vocab.html#script-reference">Script Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/reduce-vocab.html#custom-vocabulary-mapping">Custom Vocabulary Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/reduce-vocab.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/FP8KV.html">FP8 KV Cache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/FP8KV.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/FP8KV.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/FP8KV.html#technical-details">Technical Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/FP8KV.html#warning">Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/FP8KV.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html">System Prompt Cache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html#notes">Notes</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="chat-template-configuration">
-<h2>Chat Template Configuration<a class="headerlink" href="#chat-template-configuration" title="Link to this heading">#</a></h2>
-<p>Learn how to create and customize chat templates for formatting conversational messages for your models.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#chat-template-file-format">Chat Template File Format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#thinking-mode-support">Thinking Mode Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#using-chat-templates-during-export">Using Chat Templates During Export</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#pre-built-templates">Pre-built Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html#system-prompt-priority">System Prompt Priority</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="c-runtime">
-<h2>C++ Runtime<a class="headerlink" href="#c-runtime" title="Link to this heading">#</a></h2>
-<p>Explore the C++ inference runtime and its capabilities, including runtime architecture, standard runtime
-for text and multimodal inference, EAGLE speculative decoding, CUDA graphs, LoRA, and batch processing.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html#runtime-architecture">Runtime Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html#additional-resources">Additional Resources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html#architecture">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html#inference-workflow">Inference Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html#usage-examples">Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html#additional-resources">Additional Resources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html#architecture">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html#inference-workflow">Inference Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html#key-differences-from-llm-inference-runtime">Key Differences from LLM Inference Runtime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html#usage-example">Usage Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html#additional-resources">Additional Resources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#cuda-graph-optimization">CUDA Graph Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#lora-low-rank-adaptation-support">LoRA (Low-Rank Adaptation) Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#batch-processing">Batch Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#system-prompt-kv-cache-optimization">System Prompt KV-Cache Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#vocabulary-reduction">Vocabulary Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#multimodal-processing">Multimodal Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#usage-examples">Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html#additional-resources">Additional Resources</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
-<p>Reference implementations demonstrating LLM, multimodal, and utility use cases.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/05_Examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#example-flow">Example Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#build-examples">Build Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#inference-examples">Inference Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#complete-workflows">Complete Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#input-file-formats">Input File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#common-parameters">Common Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#next-steps">Next Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/05_Examples.html#additional-resources">Additional Resources</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="customization">
-<h2>Customization<a class="headerlink" href="#customization" title="Link to this heading">#</a></h2>
-<p>Learn how to customize and extend TensorRT Edge-LLM for your specific needs.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/07_Customization_Guide.html">Customization Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/07_Customization_Guide.html#customization-architecture">Customization Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/07_Customization_Guide.html#layer-1-models">Layer 1: Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/07_Customization_Guide.html#layer-2-python-export-pipeline">Layer 2: Python Export Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/07_Customization_Guide.html#layer-3-engine-builder">Layer 3: Engine Builder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/07_Customization_Guide.html#layer-4-c-runtime">Layer 4: C++ Runtime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/07_Customization_Guide.html#layer-5-application">Layer 5: Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/customization-guide.html">Customization Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#customization-architecture">Customization Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-1-models">Layer 1: Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-2-python-export-pipeline">Layer 2: Python Export Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-3-engine-builder">Layer 3: Engine Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-4-c-runtime">Layer 4: C++ Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-5-application">Layer 5: Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html#attentionplugin">AttentionPlugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html#int4groupwisegemmplugin">Int4GroupwiseGemmPlugin</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="tensorrt-plugins">
-<h2>TensorRT Plugins<a class="headerlink" href="#tensorrt-plugins" title="Link to this heading">#</a></h2>
-<p>Learn about the usage of TensorRT plugins with TensorRT Edge-LLM and how to make further customizations.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html#attentionplugin">AttentionPlugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html#int4groupwisegemmplugin">Int4GroupwiseGemmPlugin</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="apis">
-<h2>APIs<a class="headerlink" href="#apis" title="Link to this heading">#</a></h2>
-<p>API documentation for Python and C++ components.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
@@ -715,7 +662,6 @@ for text and multimodal inference, EAGLE speculative decoding, CUDA graphs, LoRA
 <hr class="docutils" />
 <p><strong>Need help?</strong> Visit our <a class="reference external" href="https://github.com/NVIDIA/TensorRT-Edge-LLM">GitHub repository</a> for issues and discussions.</p>
 </section>
-</section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -736,7 +682,7 @@ for text and multimodal inference, EAGLE speculative decoding, CUDA graphs, LoRA
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="developer_guide/01.1_Overview.html"
+       href="developer_guide/getting-started/overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -766,15 +712,6 @@ for text and multimodal inference, EAGLE speculative decoding, CUDA graphs, LoRA
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TensorRT Edge-LLM Documentation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-export-engine-building">Model Export &amp; Engine Building</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-template-configuration">Chat Template Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-runtime">C++ Runtime</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt-plugins">TensorRT Plugins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apis">APIs</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
@@ -870,9 +807,9 @@ for text and multimodal inference, EAGLE speculative decoding, CUDA graphs, LoRA
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

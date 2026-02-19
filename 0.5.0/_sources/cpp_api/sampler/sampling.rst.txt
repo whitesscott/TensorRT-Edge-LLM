@@ -1,0 +1,23 @@
+Sampling
+========
+
+.. doxygenstruct:: trt_edgellm::SamplingParams
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
+.. doxygenfunction:: trt_edgellm::getTopKtopPSamplingWorkspaceSize
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::getSelectAllTopKWorkspaceSize
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::topKtopPSamplingFromLogits
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::selectAllTopK
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::mapReducedVocabToFullVocab
+   :project: TensorRT Edge-LLM
+

@@ -7,4 +7,5 @@ API documentation for the profiling module.
    :maxdepth: 1
 
    metrics
+   nvtx_wrapper
    timer

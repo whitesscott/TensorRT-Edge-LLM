@@ -424,7 +424,7 @@ window.addEventListener("load", load);
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -437,7 +437,7 @@ window.addEventListener("load", load);
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -683,41 +683,33 @@ window.addEventListener("load", load);
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="nav bd-sidenav">
@@ -730,9 +722,11 @@ window.addEventListener("load", load);
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../cpp_api/common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/bindingNames.html">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/common/safetensorsUtils.html">Safetensors Utils</a></li>
@@ -777,6 +771,7 @@ window.addEventListener("load", load);
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../cpp_api/profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -882,7 +877,6 @@ window.addEventListener("load", load);
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
@@ -897,6 +891,8 @@ window.addEventListener("load", load);
     <span class="n">Qwen2_5_VisionTransformerPretrainedModelPatch</span><span class="p">,</span> <span class="n">export_qwen2_5_vl_visual</span><span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.visual_models.qwen2_vl_model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">Qwen2VisionTransformerPretrainedModelPatch</span><span class="p">,</span> <span class="n">export_qwen2_vl_visual</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.visual_models.qwen3_omni_model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Qwen3OmniVisionModelPatch</span><span class="p">,</span> <span class="n">export_qwen3_omni_visual</span><span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.visual_models.qwen3_vl_model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">Qwen3VLVisionModelPatch</span><span class="p">,</span> <span class="n">export_qwen3_vl_visual</span><span class="p">)</span>
 
@@ -1008,6 +1004,29 @@ window.addEventListener("load", load);
         <span class="c1"># Export using the wrapper&#39;s export function</span>
         <span class="n">export_qwen3_vl_visual</span><span class="p">(</span><span class="n">wrapped_model</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">torch_dtype</span><span class="p">)</span>
 
+    <span class="k">elif</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;qwen3_omni&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting Qwen3-Omni visual model from </span><span class="si">{</span><span class="n">model_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Qwen3-Omni uses the following structure: model.thinker.visual</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;thinker&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">thinker</span><span class="p">,</span> <span class="s1">&#39;visual&#39;</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Could not find visual encoder in Qwen3-Omni model structure&quot;</span>
+
+        <span class="c1"># Create Qwen3-Omni wrapper model (extends Qwen3-VL)</span>
+        <span class="n">wrapped_model</span> <span class="o">=</span> <span class="n">Qwen3OmniVisionModelPatch</span><span class="o">.</span><span class="n">_from_config</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">thinker</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch_dtype</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Load weights with automatic key mapping</span>
+        <span class="n">wrapped_model</span><span class="o">.</span><span class="n">load_omni_state_dict</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">thinker</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
+        <span class="n">wrapped_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="c1"># Apply quantization to wrapped model if requested</span>
+        <span class="k">if</span> <span class="n">quantization</span> <span class="o">==</span> <span class="s2">&quot;fp8&quot;</span><span class="p">:</span>
+            <span class="n">wrapped_model</span> <span class="o">=</span> <span class="n">quantize_visual</span><span class="p">(</span><span class="n">wrapped_model</span><span class="p">,</span> <span class="n">quantization</span><span class="p">,</span>
+                                            <span class="n">processor</span><span class="p">,</span> <span class="n">dataset_dir</span><span class="p">)</span>
+
+        <span class="c1"># Export using the Qwen3-Omni export function (which calls Qwen3-VL export)</span>
+        <span class="n">export_qwen3_omni_visual</span><span class="p">(</span><span class="n">wrapped_model</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">torch_dtype</span><span class="p">)</span>
+
     <span class="k">elif</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;internvl&#39;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting InternVL3 visual model from </span><span class="si">{</span><span class="n">model_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="c1"># Create InternVL3 wrapper model</span>
@@ -1039,14 +1058,19 @@ window.addEventListener("load", load);
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported model type: </span><span class="si">{</span><span class="n">model_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># Export model configuration to JSON</span>
-    <span class="n">config_dict</span> <span class="o">=</span> <span class="n">export_vision_config</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">config_dict</span> <span class="o">=</span> <span class="n">export_vision_config</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">thinker_config</span> <span class="k">if</span> <span class="n">model_type</span> <span class="o">==</span>
+        <span class="s1">&#39;qwen3_omni&#39;</span> <span class="k">else</span> <span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;config.json&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config_dict</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="c1"># Export processor configuration to JSON if exists</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="s2">&quot;preprocessor_config.json&quot;</span><span class="p">)):</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="s2">&quot;preprocessor_config.json&quot;</span><span class="p">),</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;preprocessor_config.json&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">processor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Phi4MMProcessor may not define audio_tokenizer, but transformers&#39;</span>
+        <span class="c1"># save_pretrained expects the attribute.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="s2">&quot;audio_tokenizer&quot;</span><span class="p">):</span>
+            <span class="n">processor</span><span class="o">.</span><span class="n">audio_tokenizer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">processor</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;Visual export completed for </span><span class="si">{</span><span class="n">model_type</span><span class="si">}</span><span class="s2"> with dtype=</span><span class="si">{</span><span class="n">dtype</span><span class="si">}</span><span class="s2">, quantization=</span><span class="si">{</span><span class="n">quantization</span><span class="si">}</span><span class="s2">, device=</span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1162,9 +1186,9 @@ window.addEventListener("load", load);
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

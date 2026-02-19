@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -75,7 +75,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -325,41 +325,33 @@
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="current nav bd-sidenav">
@@ -372,9 +364,11 @@
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Common Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="safetensorsUtils.html">Safetensors Utils</a></li>
@@ -419,6 +413,7 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -514,10 +509,10 @@
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-core-llm-input/output-bindings">Core LLM Input/Output Bindings</p>
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names9kInputIdsE">
-<span id="_CPPv3N11trt_edgellm13binding_names9kInputIdsE"></span><span id="_CPPv2N11trt_edgellm13binding_names9kInputIdsE"></span><span id="trt_edgellm::binding_names::kInputIds__cCP"></span><span class="target" id="bindingNames_8h_1a6f082dc4f2c56cd93161072dd473936d"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kInputIds</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;input_ids&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names9kInputIdsE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Input token IDs tensor - contains the tokenized input sequence. </p>
-<p>Shape: [batch_size, sequence_length] (INT32) </p>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names13kInputsEmbedsE">
+<span id="_CPPv3N11trt_edgellm13binding_names13kInputsEmbedsE"></span><span id="_CPPv2N11trt_edgellm13binding_names13kInputsEmbedsE"></span><span id="trt_edgellm::binding_names::kInputsEmbeds__cCP"></span><span class="target" id="bindingNames_8h_1a93f674f1b1d144e33fd185cea723903f"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kInputsEmbeds</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;inputs_embeds&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names13kInputsEmbedsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Input embeddings tensor - contains the embedded input sequence. </p>
+<p>Shape: [batch_size, sequence_length, hidden_size] (FLOAT16) </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -572,14 +567,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names22kPastKeyValuesTemplateE">
 <span id="_CPPv3N11trt_edgellm13binding_names22kPastKeyValuesTemplateE"></span><span id="_CPPv2N11trt_edgellm13binding_names22kPastKeyValuesTemplateE"></span><span id="trt_edgellm::binding_names::kPastKeyValuesTemplate__cCP"></span><span class="target" id="bindingNames_8h_1a6a3a994ab19fb52075d5c563b8b524c8"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kPastKeyValuesTemplate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;past_key_values&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names22kPastKeyValuesTemplateE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Past key-value cache tensor template - use with layer index formatting. </p>
-<p>Template: “past_key_values.{layer_idx}” Shape: [batch_size, 2, num_kv_heads, seq_len, head_dim] (FLOAT16) </p>
+<p>Template: “past_key_values_{layer_idx}” Shape: [batch_size, 2, num_kv_heads, seq_len, head_dim] (FLOAT16) </p>
 </dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names25kPresentKeyValuesTemplateE">
 <span id="_CPPv3N11trt_edgellm13binding_names25kPresentKeyValuesTemplateE"></span><span id="_CPPv2N11trt_edgellm13binding_names25kPresentKeyValuesTemplateE"></span><span id="trt_edgellm::binding_names::kPresentKeyValuesTemplate__cCP"></span><span class="target" id="bindingNames_8h_1ab4c8188a60ecfb556089ab2fb71232c9"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kPresentKeyValuesTemplate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;present_key_values&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names25kPresentKeyValuesTemplateE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Present key-value cache tensor template - use with layer index formatting. </p>
-<p>Template: “present_key_values.{layer_idx}” Shape: [batch_size, 2, num_kv_heads, seq_len, head_dim] (FLOAT16) </p>
+<p>Template: “present_key_values_{layer_idx}” Shape: [batch_size, 2, num_kv_heads, seq_len, head_dim] (FLOAT16) </p>
 </dd></dl>
 
 </div>
@@ -611,16 +606,6 @@
 <span id="_CPPv3N11trt_edgellm13binding_names15kAttentionPosIdE"></span><span id="_CPPv2N11trt_edgellm13binding_names15kAttentionPosIdE"></span><span id="trt_edgellm::binding_names::kAttentionPosId__cCP"></span><span class="target" id="bindingNames_8h_1a846779bce602b29fc1109e1f71b332fa"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kAttentionPosId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;attention_pos_id&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names15kAttentionPosIdE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Attention position IDs for Eagle models. </p>
 <p>Shape: [batch_size, tree_size] (INT32) </p>
-</dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-vision-language-model-(vlm)-bindings">Vision-Language Model (VLM) Bindings</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names12kImageEmbedsE">
-<span id="_CPPv3N11trt_edgellm13binding_names12kImageEmbedsE"></span><span id="_CPPv2N11trt_edgellm13binding_names12kImageEmbedsE"></span><span id="trt_edgellm::binding_names::kImageEmbeds__cCP"></span><span class="target" id="bindingNames_8h_1af4c1d0e2fc642c102c4974df82757b45"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kImageEmbeds</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;image_embeds&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names12kImageEmbedsE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Multimodal image embeddings tensor. </p>
-<p>Shape: [num_image_tokens, hidden_size] (FLOAT16) </p>
 </dd></dl>
 
 </div>
@@ -685,8 +670,15 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE">
 <span id="_CPPv3N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE"></span><span id="_CPPv2N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE"></span><span id="trt_edgellm::binding_names::kDeepstackFeaturesTemplate__cCP"></span><span class="target" id="bindingNames_8h_1a06053b8e09fba82e35142bedb25239b0"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kDeepstackFeaturesTemplate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;deepstack_features&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Deepstack features tensor for Qwen3-VL vision model. </p>
+<dd><p>Deepstack features tensor for Qwen3-VL vision model (visual encoder output) </p>
 <p>Shape: [num_image_tokens, hidden_size] (FLOAT16) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names24kDeepstackEmbedsTemplateE">
+<span id="_CPPv3N11trt_edgellm13binding_names24kDeepstackEmbedsTemplateE"></span><span id="_CPPv2N11trt_edgellm13binding_names24kDeepstackEmbedsTemplateE"></span><span id="trt_edgellm::binding_names::kDeepstackEmbedsTemplate__cCP"></span><span class="target" id="bindingNames_8h_1ac27db65804473e4a1c9a236d19eb7661"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kDeepstackEmbedsTemplate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;deepstack_embeds&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names24kDeepstackEmbedsTemplateE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Deepstack embeddings tensor template for Qwen3-VL text model (LLM input) </p>
+<p>Template: “deepstack_embeds_{layer_idx}” where layer_idx is 0, 1, or 2 Shape: [batch_size, sequence_length, hidden_size] (FLOAT16) </p>
 </dd></dl>
 
 </div>
@@ -727,7 +719,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names15kEdgellmVersionE">
 <span id="_CPPv3N11trt_edgellm13binding_names15kEdgellmVersionE"></span><span id="_CPPv2N11trt_edgellm13binding_names15kEdgellmVersionE"></span><span id="trt_edgellm::binding_names::kEdgellmVersion__cCP"></span><span class="target" id="bindingNames_8h_1a028be663eb0cb0f233e26dd448522b96"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kEdgellmVersion</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;edgellm_version&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names15kEdgellmVersionE" title="Link to this definition">#</a><br /></dt>
 <dd><p>EDGELLM version. </p>
-<p>Value: “major.minor.patch.build” Example: “0.4.0.0” </p>
+<p>Value: “major.minor.patch.build” Example: “0.5.0.0” </p>
 </dd></dl>
 
 </div>
@@ -752,7 +744,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Formatted binding name like “past_key_values.0” or “present_key_values.0” </p>
+<dd class="field-even"><p>Formatted binding name like “past_key_values_0” or “present_key_values_0” </p>
 </dd>
 </dl>
 </dd></dl>
@@ -794,7 +786,21 @@
 <dd class="field-odd"><p><strong>layerIdx</strong> – The layer index </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Formatted binding name like “deepstack_features.0” </p>
+<dd class="field-even"><p>Formatted binding name like “deepstack_features_0” </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t">
+<span id="_CPPv3N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t"></span><span id="_CPPv2N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t"></span><span id="trt_edgellm::binding_names::formatDeepstackEmbedsName__int32_t"></span><span class="target" id="bindingNames_8h_1ade046e2063f920b1c55e5921a2b7c148"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">formatDeepstackEmbedsName</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">embedIdx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Format deepstack embeddings binding name for a specific index. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>embedIdx</strong> – The embedding index (0, 1, or 2 for Qwen3VL) </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted binding name like “deepstack_embeds_0” </p>
 </dd>
 </dl>
 </dd></dl>
@@ -864,7 +870,7 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv411trt_edgellm"><code class="docutils literal notranslate"><span class="pre">trt_edgellm</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_namesE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::binding_names</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names9kInputIdsE"><code class="docutils literal notranslate"><span class="pre">kInputIds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names13kInputsEmbedsE"><code class="docutils literal notranslate"><span class="pre">kInputsEmbeds</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names15kContextLengthsE"><code class="docutils literal notranslate"><span class="pre">kContextLengths</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names13kLastTokenIdsE"><code class="docutils literal notranslate"><span class="pre">kLastTokenIds</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names7kLogitsE"><code class="docutils literal notranslate"><span class="pre">kLogits</span></code></a></li>
@@ -877,7 +883,6 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names23kDraftModelHiddenStatesE"><code class="docutils literal notranslate"><span class="pre">kDraftModelHiddenStates</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names14kAttentionMaskE"><code class="docutils literal notranslate"><span class="pre">kAttentionMask</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names15kAttentionPosIdE"><code class="docutils literal notranslate"><span class="pre">kAttentionPosId</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names12kImageEmbedsE"><code class="docutils literal notranslate"><span class="pre">kImageEmbeds</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names12kVisualInputE"><code class="docutils literal notranslate"><span class="pre">kVisualInput</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names13kVisualOutputE"><code class="docutils literal notranslate"><span class="pre">kVisualOutput</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names13kRotaryPosEmbE"><code class="docutils literal notranslate"><span class="pre">kRotaryPosEmb</span></code></a></li>
@@ -887,6 +892,7 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names14kFastPosEmbIdxE"><code class="docutils literal notranslate"><span class="pre">kFastPosEmbIdx</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names17kFastPosEmbWeightE"><code class="docutils literal notranslate"><span class="pre">kFastPosEmbWeight</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE"><code class="docutils literal notranslate"><span class="pre">kDeepstackFeaturesTemplate</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names24kDeepstackEmbedsTemplateE"><code class="docutils literal notranslate"><span class="pre">kDeepstackEmbedsTemplate</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names20kReducedVocabSizeKeyE"><code class="docutils literal notranslate"><span class="pre">kReducedVocabSizeKey</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names17kVocabMapFileNameE"><code class="docutils literal notranslate"><span class="pre">kVocabMapFileName</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names12kLoraAPrefixE"><code class="docutils literal notranslate"><span class="pre">kLoraAPrefix</span></code></a></li>
@@ -896,6 +902,7 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names13isLoraBindingERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">isLoraBinding()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names16isKVCacheBindingERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">isKVCacheBinding()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names27formatDeepstackFeaturesNameE7int32_t"><code class="docutils literal notranslate"><span class="pre">formatDeepstackFeaturesName()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t"><code class="docutils literal notranslate"><span class="pre">formatDeepstackEmbedsName()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -992,9 +999,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

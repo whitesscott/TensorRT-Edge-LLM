@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -75,7 +75,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -325,41 +325,33 @@
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="current nav bd-sidenav">
@@ -372,9 +364,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
@@ -419,6 +413,7 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -507,7 +502,7 @@
 <h1>Int4 Groupwise GEMM Plugin<a class="headerlink" href="#int4-groupwise-gemm-plugin" title="Link to this heading">#</a></h1>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int4GroupwiseGemmPlugin</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2DynamicExt</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int4GroupwiseGemmPlugin</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneCore</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneBuild</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneRuntime</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE" title="Link to this definition">#</a><br /></dt>
 <dd><p>TensorRT plugin for INT4 group-wise quantized GEMM. </p>
 <p>Implements efficient INT4 quantized matrix multiplication with group-wise quantization. Used for quantized weight matrix multiplications in LLM inference. </p>
 <div class="breathe-sectiondef docutils container">
@@ -538,23 +533,21 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKv6size_t">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKv6size_t"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKv6size_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::Int4GroupwiseGemmPlugin__ssCR.voidCP.s"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a5e31de0279d8ba6b1672c403b9e05f20"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4GroupwiseGemmPlugin</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::Int4GroupwiseGemmPlugin__ssCR.nvinfer1::PluginFieldCollectionCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1afd8bf2e3584bfc85d4b621a2140c2f75"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4GroupwiseGemmPlugin</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span></em></dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKv6size_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Construct from serialized data. </p>
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from field collection. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – Layer name </p></li>
-<li><p><strong>data</strong> – Serialized plugin data </p></li>
-<li><p><strong>length</strong> – Size of serialized data </p></li>
+<li><p><strong>fc</strong> – Plugin field collection </p></li>
 </ul>
 </dd>
 </dl>
@@ -579,12 +572,57 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::cloneC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ae05f987c018be685eaf4a7d9e6908bed"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2DynamicExt</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv" title="Link to this definition">#</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getCapabilityInterface__nvinfer1::PluginCapabilityType"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a99a1fdddb00cdb6c36c5617ddf968c2e"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCapability</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getCapabilityInterface</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginCapabilityType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the plugin capability interface for given type. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::clone"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a642003fd9150c557aceddd04884d6678"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv" title="Link to this definition">#</a><br /></dt>
 <dd><p>Clone the plugin for use in another network. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Cloned plugin instance </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginNameEv">
+<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginNameEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginNameEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginNameC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a3e1134b47d346193245088f70d0bb111"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginNameEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plugin name string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv">
+<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a1c133f2dc8183132205358463f147eda"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin version. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Version string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv">
+<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a756e706b1fca988dbd3217376940df3e"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin namespace. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Namespace string </p>
 </dd>
 </dl>
 </dd></dl>
@@ -601,71 +639,79 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputDataType__int32_t.nvinfer1::DataTypeCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ab91474f52c66295823294086cb35bd9a"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDataType</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">
+<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputDataTypes__nvinfer1::DataTypeP.int32_t.nvinfer1::DataTypeCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1aee2059fd4446e57c6cdd71b6796a9678"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDataTypes</span></span></span><span class="sig-paren">(</span>
 
 <dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputTypes</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputTypes</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get output tensor data type. </p>
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get output tensor data types. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – Output index </p></li>
+<li><p><strong>outputTypes</strong> – Output array for data types </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
 <li><p><strong>inputTypes</strong> – Input data types </p></li>
 <li><p><strong>nbInputs</strong> – Number of inputs </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Output data type </p>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputDimensions__int32_t.nvinfer1::DimsExprsCP.int32_t.nvinfer1::IExprBuilderR"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1aa1b567419a38b9d19d9d164216f6ba57"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDimensions</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputShapes__nvinfer1::DimsExprsCP.int32_t.nvinfer1::DimsExprsCP.int32_t.nvinfer1::DimsExprsP.int32_t.nvinfer1::IExprBuilderR"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ac21efd1c02cbff10692afd972fe53fa8"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputShapes</span></span></span><span class="sig-paren">(</span>
 
 <dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">outputIndex</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">shapeInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbShapeInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IExprBuilder</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">exprBuilder</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get output tensor dimensions. </p>
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get output tensor shapes. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>outputIndex</strong> – Output index </p></li>
 <li><p><strong>inputs</strong> – Input dimensions </p></li>
 <li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>shapeInputs</strong> – Shape tensor inputs </p></li>
+<li><p><strong>nbShapeInputs</strong> – Number of shape inputs </p></li>
+<li><p><strong>outputs</strong> – Output dimensions </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
 <li><p><strong>exprBuilder</strong> – Expression builder for dynamic shapes </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Output dimensions </p>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::supportsFormatCombination__int32_t.nvinfer1::PluginTensorDescCP.int32_t.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a08405f96f66985b6efacd2d1b7e31093"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supportsFormatCombination</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::supportsFormatCombination__int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a5f48a59f88d8b9e0e30be3efbcaa20bb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supportsFormatCombination</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pos</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inOut</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inOut</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t" title="Link to this definition">#</a><br /></dt>
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t" title="Link to this definition">#</a><br /></dt>
 <dd><p>Check if format combination is supported. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -684,7 +730,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::configurePlugin__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a39181702732db5c9131e115ac0ea069b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configurePlugin</span></span></span><span class="sig-paren">(</span>
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::configurePlugin__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a8154addd5446557b0d35d50afc23251c"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configurePlugin</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
@@ -704,21 +750,24 @@
 <li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getWorkspaceSize__nvinfer1::PluginTensorDescCP.int32_t.nvinfer1::PluginTensorDescCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1af99b39d66499d5fffdd6cecfce5daf7f"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWorkspaceSize</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
+<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getWorkspaceSize__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a45f4e7b9deff1d944f8c79bca48733ef"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWorkspaceSize</span></span></span><span class="sig-paren">(</span>
 
 <dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
 <dd><p>Get workspace size required for execution. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -768,45 +817,65 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getSerializationSizeEv">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getSerializationSizeEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getSerializationSizeEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getSerializationSizeC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ad112efee758d294332de29736cab37df"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getSerializationSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getSerializationSizeEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get serialization size. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Size in bytes </p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::onShapeChange__nvinfer1::PluginTensorDescCP.int32_t.nvinfer1::PluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a1fc86ed86a2bff505c12022ca18e3443"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onShapeChange</span></span></span><span class="sig-paren">(</span>
 
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9serializeEPv">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9serializeEPv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9serializeEPv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::serialize__voidPC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ad6e2d3ff19ff5b49bf1987447aeff510"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serialize</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9serializeEPv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Serialize plugin state. </p>
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Called when input/output shapes change during runtime. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>buffer</strong> – Output buffer </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in</strong> – Input tensor descriptors </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>out</strong> – Output tensor descriptors </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginTypeEv">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginTypeEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginTypeEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginTypeC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a45c4d4a84fa8853bc6580470f4f5f6f2"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginTypeEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin type name. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::attachToContext__nvinfer1::IPluginResourceContextP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a80c49247c62abd4fef54d86e1127216a"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">attachToContext</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginResourceContext</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Attach plugin to an execution context. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin type string </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> – Plugin resource context </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cloned plugin attached to context </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a756e706b1fca988dbd3217376940df3e"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin namespace. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getFieldsToSerializeEv">
+<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getFieldsToSerializeEv"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getFieldsToSerializeEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getFieldsToSerialize"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ac9ec1c0da69aaea4e69e99121b8513eb"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldsToSerialize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getFieldsToSerializeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin fields for serialization. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Namespace string </p>
+<dd class="field-odd"><p>Field collection for serialization </p>
 </dd>
 </dl>
 </dd></dl>
@@ -822,46 +891,12 @@
 </dl>
 </dd></dl>
 
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv">
-<span id="_CPPv3NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a1c133f2dc8183132205358463f147eda"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin version. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Version string </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin10initializeEv">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin10initializeEv"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin10initializeEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::initialize"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1a4fe95310606e3bfc523590036035bdce"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin10initializeEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Initialize plugin resources. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>0 on success </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9terminateEv">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9terminateEv"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9terminateEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::terminate"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1adadf203a82374d8eb07ab3c5119db420"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">terminate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9terminateEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Release plugin resources. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7destroyEv">
-<span id="_CPPv3N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7destroyEv"></span><span id="_CPPv2N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7destroyEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPlugin::destroy"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin_1ab48689a075e43edc7c2f8f9b6406d223"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">destroy</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7destroyEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Destroy plugin instance. </p>
-</dd></dl>
-
 </div>
 </dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE">
-<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int4GroupwiseGemmPluginCreator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCreator</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int4GroupwiseGemmPluginCreator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCreatorV3One</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Factory for creating <a class="reference internal" href="#classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPlugin"><span class="std std-ref">Int4GroupwiseGemmPlugin</span></a> instances. </p>
 <p>Handles plugin registration and creation in TensorRT. </p>
 <div class="breathe-sectiondef docutils container">
@@ -890,6 +925,17 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv">
+<span id="_CPPv3NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1aada563e991fa44d0ba4ede6cf87b9525"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin version. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Version string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getFieldNamesEv">
 <span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getFieldNamesEv"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getFieldNamesEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::getFieldNames"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1a8d14c25f82388740bf39b6991cf9b58e"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldNames</span></span></span><span class="sig-paren">(</span>
 
@@ -906,17 +952,6 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc">
-<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1a7b59b7f5e0b03a2785555e8a4a326bc6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
-<dd><p>Set plugin namespace. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pluginNamespace</strong> – Namespace string </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18getPluginNamespaceEv">
 <span id="_CPPv3NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1a310a5356b9ddf49fb1d1584187f6d83b"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
 <dd><p>Get plugin namespace. </p>
@@ -928,62 +963,38 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv">
-<span id="_CPPv3NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1aada563e991fa44d0ba4ede6cf87b9525"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin version. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc">
+<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1a7b59b7f5e0b03a2785555e8a4a326bc6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
+<dd><p>Set plugin namespace. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Version string </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pluginNamespace</strong> – Namespace string </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE">
-<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::createPlugin__cCP.nvinfer1::PluginFieldCollectionCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1aa442322bb17ab7a301182936b947f715"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">createPlugin</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE">
+<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::createPlugin__cCP.nvinfer1::PluginFieldCollectionCP.nvinfer1::TensorRTPhase"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1a7470bb2ed06af6b21e3da1115942cf9e"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">createPlugin</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em></dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">TensorRTPhase</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">phase</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE" title="Link to this definition">#</a><br /></dt>
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Create plugin from field collection. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – Plugin name </p></li>
 <li><p><strong>fc</strong> – Field collection with parameters </p></li>
+<li><p><strong>phase</strong> – TensorRT phase (build or runtime) </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Created plugin instance </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator17deserializePluginEPKcPKv6size_t">
-<span id="_CPPv3N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator17deserializePluginEPKcPKv6size_t"></span><span id="_CPPv2N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator17deserializePluginEPKcPKv6size_t"></span><span id="trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::deserializePlugin__cCP.voidCP.s"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4GroupwiseGemmPluginCreator_1a04d70ea9ce0a68f9e07c76873296bb1a"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">deserializePlugin</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">serialData</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">serialLength</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator17deserializePluginEPKcPKv6size_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Deserialize plugin from data. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – Plugin name </p></li>
-<li><p><strong>serialData</strong> – Serialized data </p></li>
-<li><p><strong>serialLength</strong> – Data size </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Deserialized plugin instance </p>
 </dd>
 </dl>
 </dd></dl>
@@ -1044,39 +1055,37 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::plugins::Int4GroupwiseGemmPlugin</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringE7int32_t7int32_t7int32_t"><code class="docutils literal notranslate"><span class="pre">Int4GroupwiseGemmPlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKv6size_t"><code class="docutils literal notranslate"><span class="pre">Int4GroupwiseGemmPlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"><code class="docutils literal notranslate"><span class="pre">Int4GroupwiseGemmPlugin()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginEv"><code class="docutils literal notranslate"><span class="pre">Int4GroupwiseGemmPlugin()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERK23Int4GroupwiseGemmPlugin"><code class="docutils literal notranslate"><span class="pre">Int4GroupwiseGemmPlugin()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginD0Ev"><code class="docutils literal notranslate"><span class="pre">~Int4GroupwiseGemmPlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin12getNbOutputsEv"><code class="docutils literal notranslate"><span class="pre">getNbOutputs()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"><code class="docutils literal notranslate"><span class="pre">getOutputDataType()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"><code class="docutils literal notranslate"><span class="pre">getOutputDimensions()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t"><code class="docutils literal notranslate"><span class="pre">supportsFormatCombination()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">configurePlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">getWorkspaceSize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getSerializationSizeEv"><code class="docutils literal notranslate"><span class="pre">getSerializationSize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9serializeEPv"><code class="docutils literal notranslate"><span class="pre">serialize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginTypeEv"><code class="docutils literal notranslate"><span class="pre">getPluginType()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"><code class="docutils literal notranslate"><span class="pre">getCapabilityInterface()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginNameEv"><code class="docutils literal notranslate"><span class="pre">getPluginName()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin10initializeEv"><code class="docutils literal notranslate"><span class="pre">initialize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9terminateEv"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7destroyEv"><code class="docutils literal notranslate"><span class="pre">destroy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin12getNbOutputsEv"><code class="docutils literal notranslate"><span class="pre">getNbOutputs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"><code class="docutils literal notranslate"><span class="pre">getOutputDataTypes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"><code class="docutils literal notranslate"><span class="pre">getOutputShapes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"><code class="docutils literal notranslate"><span class="pre">supportsFormatCombination()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">configurePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">getWorkspaceSize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">onShapeChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"><code class="docutils literal notranslate"><span class="pre">attachToContext()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getFieldsToSerializeEv"><code class="docutils literal notranslate"><span class="pre">getFieldsToSerialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator30Int4GroupwiseGemmPluginCreatorEv"><code class="docutils literal notranslate"><span class="pre">Int4GroupwiseGemmPluginCreator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorD0Ev"><code class="docutils literal notranslate"><span class="pre">~Int4GroupwiseGemmPluginCreator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getPluginNameEv"><code class="docutils literal notranslate"><span class="pre">getPluginName()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getFieldNamesEv"><code class="docutils literal notranslate"><span class="pre">getFieldNames()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE"><code class="docutils literal notranslate"><span class="pre">createPlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator17deserializePluginEPKcPKv6size_t"><code class="docutils literal notranslate"><span class="pre">deserializePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getFieldNamesEv"><code class="docutils literal notranslate"><span class="pre">getFieldNames()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"><code class="docutils literal notranslate"><span class="pre">createPlugin()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1170,9 +1179,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

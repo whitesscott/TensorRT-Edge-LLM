@@ -424,7 +424,7 @@ window.addEventListener("load", load);
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -437,7 +437,7 @@ window.addEventListener("load", load);
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0" />
+  <meta name="docsearch:version" content="0.5.0" />
 
 
   </head>
@@ -683,41 +683,33 @@ window.addEventListener("load", load);
   <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.1_Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.2_Quick_Start_Guide.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/01.3_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/examples.html">Examples and Complete Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/getting-started/chat-template-format.html">Chat Template Format</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/02_Supported_Models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Export &amp; Engine Building</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.1_Python_Export_Pipeline.html">Python Export Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/03.2_Engine_Builder.html">Engine Builder</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chat Template Configuration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/06_Chat_Template_Format.html">Chat Template Format Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Runtime</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.1_C%2B%2B_Runtime_Overview.html">C++ Runtime Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.2_LLM_Inference_Runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.3_LLM_Inference_SpecDecode_Runtime.html">LLM Inference SpecDecode Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/04.4_Advanced_Runtime_Features.html">Advanced Runtime Features</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/05_Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/07_Customization_Guide.html">Customization Guide</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TensorRT Plugins</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/08_TensorRT_Plugins.html">TensorRT Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="nav bd-sidenav">
@@ -730,9 +722,11 @@ window.addEventListener("load", load);
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/bindingNames.html">Binding Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/cudaMacros.html">CUDA Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/cudaUtils.html">CUDA Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/fileUtils.html">File Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/inputLimits.html">Input Limits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/logger.html">Logger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/mmapReader.html">MMAP Reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/safetensorsUtils.html">Safetensors Utils</a></li>
@@ -777,6 +771,7 @@ window.addEventListener("load", load);
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/profiling/timer.html">Timer</a></li>
 </ul>
 </details></li>
@@ -844,9 +839,11 @@ window.addEventListener("load", load);
  | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
@@ -866,10 +863,10 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N11AlibiParams23round_down_to_power_twoEi">AlibiParams::round_down_to_power_two (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N11AlibiParams17scale_after_alibiE">AlibiParams::scale_after_alibi (C++ member)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N11AlibiParams19sequence_pos_offsetE">AlibiParams::sequence_pos_offset (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv420AttentionInputLayout">AttentionInputLayout (C++ enum)</a>
@@ -881,6 +878,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N20AttentionInputLayout10Q_PAGED_KVE">AttentionInputLayout::Q_PAGED_KV (C++ enumerator)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N20AttentionInputLayout14SEPARATE_Q_K_VE">AttentionInputLayout::SEPARATE_Q_K_V (C++ enumerator)</a>
+</li>
+      <li><a href="python_api.html#tensorrt_edgellm.audio_export">audio_export() (in module tensorrt_edgellm)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1140,6 +1139,18 @@ window.addEventListener("load", load);
   </ul></td>
 </tr></table>
 
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/profiling/nvtx_wrapper.html#c.NVTX_RGB">NVTX_RGB (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/profiling/nvtx_wrapper.html#c.NVTX_SCOPED_RANGE">NVTX_SCOPED_RANGE (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1168,6 +1179,14 @@ window.addEventListener("load", load);
   </ul></td>
 </tr></table>
 
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/common/cudaMacros.html#c.SUPPORTS_FP8">SUPPORTS_FP8 (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1178,9 +1197,11 @@ window.addEventListener("load", load);
         <li><a href="python_api.html#module-tensorrt_edgellm">module</a>
 </li>
       </ul></li>
-      <li><a href="cpp_api/common/bindingNames.html#_CPPv411trt_edgellm">trt_edgellm (C++ type)</a>, <a href="cpp_api/common/checkMacros.html#_CPPv411trt_edgellm">[1]</a>, <a href="cpp_api/common/cudaUtils.html#_CPPv411trt_edgellm">[2]</a>, <a href="cpp_api/common/hashUtils.html#_CPPv411trt_edgellm">[3]</a>, <a href="cpp_api/multimodal/imageUtils.html#_CPPv411trt_edgellm">[4]</a>, <a href="cpp_api/multimodal/modelTypes.html#_CPPv411trt_edgellm">[5]</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv411trt_edgellm">[6]</a>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv411trt_edgellm">trt_edgellm (C++ type)</a>, <a href="cpp_api/common/checkMacros.html#_CPPv411trt_edgellm">[1]</a>, <a href="cpp_api/common/cudaUtils.html#_CPPv411trt_edgellm">[2]</a>, <a href="cpp_api/common/inputLimits.html#_CPPv411trt_edgellm">[3]</a>, <a href="cpp_api/multimodal/imageUtils.html#_CPPv411trt_edgellm">[4]</a>, <a href="cpp_api/multimodal/modelTypes.html#_CPPv411trt_edgellm">[5]</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv411trt_edgellm">[6]</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_namesE">trt_edgellm::binding_names (C++ type)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t">trt_edgellm::binding_names::formatDeepstackEmbedsName (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names27formatDeepstackFeaturesNameE7int32_t">trt_edgellm::binding_names::formatDeepstackFeaturesName (C++ function)</a>
 </li>
@@ -1198,6 +1219,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names15kContextLengthsE">trt_edgellm::binding_names::kContextLengths (C++ member)</a>
 </li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names24kDeepstackEmbedsTemplateE">trt_edgellm::binding_names::kDeepstackEmbedsTemplate (C++ member)</a>
+</li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE">trt_edgellm::binding_names::kDeepstackFeaturesTemplate (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names23kDraftModelHiddenStatesE">trt_edgellm::binding_names::kDraftModelHiddenStates (C++ member)</a>
@@ -1208,9 +1231,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names17kFastPosEmbWeightE">trt_edgellm::binding_names::kFastPosEmbWeight (C++ member)</a>
 </li>
-      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names12kImageEmbedsE">trt_edgellm::binding_names::kImageEmbeds (C++ member)</a>
-</li>
-      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names9kInputIdsE">trt_edgellm::binding_names::kInputIds (C++ member)</a>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names13kInputsEmbedsE">trt_edgellm::binding_names::kInputsEmbeds (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names18kKVCacheStartIndexE">trt_edgellm::binding_names::kKVCacheStartIndex (C++ member)</a>
 </li>
@@ -1262,13 +1283,9 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig8fromJsonERK4Json">trt_edgellm::builder::LLMBuilderConfig::fromJson (C++ function)</a>
 </li>
-      <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig5isVlmE">trt_edgellm::builder::LLMBuilderConfig::isVlm (C++ member)</a>
-</li>
       <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig12maxBatchSizeE">trt_edgellm::builder::LLMBuilderConfig::maxBatchSize (C++ member)</a>
 </li>
       <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig16maxDraftTreeSizeE">trt_edgellm::builder::LLMBuilderConfig::maxDraftTreeSize (C++ member)</a>
-</li>
-      <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig14maxImageTokensE">trt_edgellm::builder::LLMBuilderConfig::maxImageTokens (C++ member)</a>
 </li>
       <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig11maxInputLenE">trt_edgellm::builder::LLMBuilderConfig::maxInputLen (C++ member)</a>
 </li>
@@ -1277,8 +1294,6 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig11maxLoraRankE">trt_edgellm::builder::LLMBuilderConfig::maxLoraRank (C++ member)</a>
 </li>
       <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig17maxVerifyTreeSizeE">trt_edgellm::builder::LLMBuilderConfig::maxVerifyTreeSize (C++ member)</a>
-</li>
-      <li><a href="cpp_api/builder/builder.html#_CPPv4N11trt_edgellm7builder16LLMBuilderConfig14minImageTokensE">trt_edgellm::builder::LLMBuilderConfig::minImageTokens (C++ member)</a>
 </li>
       <li><a href="cpp_api/builder/builder.html#_CPPv4NK11trt_edgellm7builder16LLMBuilderConfig6toJsonEv">trt_edgellm::builder::LLMBuilderConfig::toJson (C++ function)</a>
 </li>
@@ -1332,9 +1347,9 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunnerE">trt_edgellm::DecoderXQARunner (C++ class)</a>
 </li>
-      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner12canImplementE7int32_t7int32_t7int32_tN8nvinfer18DataTypeE">trt_edgellm::DecoderXQARunner::canImplement (C++ function)</a>
+      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner12canImplementE7int32_t7int32_t7int32_tN8nvinfer18DataTypeEN8nvinfer18DataTypeE">trt_edgellm::DecoderXQARunner::canImplement (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner16DecoderXQARunnerEKN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t7int32_t">trt_edgellm::DecoderXQARunner::DecoderXQARunner (C++ function)</a>, <a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner16DecoderXQARunnerEv">[1]</a>
+      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner16DecoderXQARunnerEKN8nvinfer18DataTypeEKN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t7int32_t">trt_edgellm::DecoderXQARunner::DecoderXQARunner (C++ function)</a>, <a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner16DecoderXQARunnerEv">[1]</a>
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner27dispatchSpecDecodeXQAKernelER15XQALaunchParamsRK12cudaStream_t">trt_edgellm::DecoderXQARunner::dispatchSpecDecodeXQAKernel (C++ function)</a>
 </li>
@@ -1342,7 +1357,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner13initXQAParamsEv">trt_edgellm::DecoderXQARunner::initXQAParams (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner20loadDecodeXQAKernelsE7int32_tN8nvinfer18DataTypeEb">trt_edgellm::DecoderXQARunner::loadDecodeXQAKernels (C++ function)</a>
+      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunner20loadDecodeXQAKernelsE7int32_tN8nvinfer18DataTypeEN8nvinfer18DataTypeEb">trt_edgellm::DecoderXQARunner::loadDecodeXQAKernels (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm16DecoderXQARunnerD0Ev">trt_edgellm::DecoderXQARunner::~DecoderXQARunner (C++ function)</a>
 </li>
@@ -1382,11 +1397,15 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/sampler/sampling.html#_CPPv4N11trt_edgellm32getTopKtopPSamplingWorkspaceSizeE7int32_t7int32_tRK14SamplingParams">trt_edgellm::getTopKtopPSamplingWorkspaceSize (C++ function)</a>
 </li>
-      <li><a href="cpp_api/common/hashUtils.html#_CPPv4N11trt_edgellm10hash_utilsE">trt_edgellm::hash_utils (C++ type)</a>
+      <li><a href="cpp_api/common/hashUtils.html#_CPPv4I0EN11trt_edgellm10hash_utils4HashE">trt_edgellm::hash_utils::Hash (C++ struct)</a>
 </li>
-      <li><a href="cpp_api/common/hashUtils.html#_CPPv4I0EN11trt_edgellm10hash_utils11hashCombineEvR6size_tRK1T">trt_edgellm::hash_utils::hashCombine (C++ function)</a>
+      <li><a href="cpp_api/common/hashUtils.html#_CPPv4IDpEN11trt_edgellm10hash_utils4HashINSt5tupleIDp4ArgsEEEE">trt_edgellm::hash_utils::Hash&lt;std::tuple&lt;Args...&gt;&gt; (C++ struct)</a>
+</li>
+      <li><a href="cpp_api/common/hashUtils.html#_CPPv4NK11trt_edgellm10hash_utils4HashINSt5tupleIDp4ArgsEEEclERKNSt5tupleIDp4ArgsEE">trt_edgellm::hash_utils::Hash&lt;std::tuple&lt;Args...&gt;&gt;::operator() (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/cudaUtils.html#_CPPv4N11trt_edgellm20instantiateCudaGraphEP15cudaGraphExec_t11cudaGraph_t">trt_edgellm::instantiateCudaGraph (C++ function)</a>
+</li>
+      <li><a href="cpp_api/kernels/embeddingKernels.html#_CPPv4N11trt_edgellm6kernel26assembleDeepstackEmbeddingERKN2rt6TensorERKN2rt6TensorE7int32_tRN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::assembleDeepstackEmbedding (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/eagleUtilKernels.html#_CPPv4N11trt_edgellm6kernel22assembleDraftTreeInputERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorEK7int32_tK7int32_t12cudaStream_t">trt_edgellm::kernel::assembleDraftTreeInput (C++ function)</a>
 </li>
@@ -1406,7 +1425,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/eagleUtilKernels.html#_CPPv4N11trt_edgellm6kernel30constructVerificationDraftTreeERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::constructVerificationDraftTree (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/utilKernels.html#_CPPv4N11trt_edgellm6kernel21cvtKVLayoutBHSDToBSHDERKN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::cvtKVLayoutBHSDToBSHD (C++ function)</a>
+      <li><a href="cpp_api/kernels/utilKernels.html#_CPPv4N11trt_edgellm6kernel21cvtKVLayoutBHSDToBSHDERKN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::cvtKVLayoutBHSDToBSHD (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/vectorizedTypes.html#_CPPv4I0EN11trt_edgellm6kernel4DVecE">trt_edgellm::kernel::DVec (C++ struct)</a>
 </li>
@@ -1424,11 +1443,13 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/embeddingKernels.html#_CPPv4N11trt_edgellm6kernel15embeddingLookupERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::embeddingLookup (C++ function)</a>
 </li>
+      <li><a href="cpp_api/kernels/embeddingKernels.html#_CPPv4N11trt_edgellm6kernel25embeddingLookupMultimodalERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorENSt8optionalI7int32_tEEN2rt19OptionalInputTensorENSt8optionalI7int32_tEEN2rt19OptionalInputTensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::embeddingLookupMultimodal (C++ function)</a>
+</li>
       <li><a href="cpp_api/kernels/embeddingKernels.html#_CPPv4N11trt_edgellm6kernel33embeddingLookupWithImageInsertionERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::embeddingLookupWithImageInsertion (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/int4GroupwiseGemm.html#_CPPv4N11trt_edgellm6kernel21gemm_forward_cuda_newEP4halfP6int8_tP4halfP4halfiiii12cudaStream_t">trt_edgellm::kernel::gemm_forward_cuda_new (C++ function)</a>
+      <li><a href="cpp_api/kernels/int4GroupwiseGemm.html#_CPPv4N11trt_edgellm6kernel21gemm_forward_cuda_newEPK4halfPK6int8_tPK4halfP4halfiiii12cudaStream_t">trt_edgellm::kernel::gemm_forward_cuda_new (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/int4GroupwiseGemm.html#_CPPv4N11trt_edgellm6kernel21gemv_forward_cuda_newEP4halfP6int8_tP4halfP4halfiiii12cudaStream_t">trt_edgellm::kernel::gemv_forward_cuda_new (C++ function)</a>
+      <li><a href="cpp_api/kernels/int4GroupwiseGemm.html#_CPPv4N11trt_edgellm6kernel21gemv_forward_cuda_newEPK4halfPK6int8_tPK4halfP4halfiiii12cudaStream_t">trt_edgellm::kernel::gemv_forward_cuda_new (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/eagleAcceptKernels.html#_CPPv4N11trt_edgellm6kernel27getEagleAcceptWorkspaceSizeE7int32_t7int32_t">trt_edgellm::kernel::getEagleAcceptWorkspaceSize (C++ function)</a>
 </li>
@@ -1448,11 +1469,11 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/kvCacheUtilsKernels.html#_CPPv4N11trt_edgellm6kernel28instantiateKVCacheFromTensorERN2rt6TensorERKN2rt6TensorE7int32_t12cudaStream_t">trt_edgellm::kernel::instantiateKVCacheFromTensor (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/applyRopeWriteKV.html#_CPPv4N11trt_edgellm6kernel43launchApplyRopeWriteKVContinuousQAndKVCacheERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::launchApplyRopeWriteKVContinuousQAndKVCache (C++ function)</a>
+      <li><a href="cpp_api/kernels/applyRopeWriteKV.html#_CPPv4N11trt_edgellm6kernel43launchApplyRopeWriteKVContinuousQAndKVCacheERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::launchApplyRopeWriteKVContinuousQAndKVCache (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/applyRopeWriteKV.html#_CPPv4N11trt_edgellm6kernel31launchApplyRopeWriteKVPackedQKVERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::launchApplyRopeWriteKVPackedQKV (C++ function)</a>
+      <li><a href="cpp_api/kernels/applyRopeWriteKV.html#_CPPv4N11trt_edgellm6kernel31launchApplyRopeWriteKVPackedQKVERKN2rt6TensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::launchApplyRopeWriteKVPackedQKV (C++ function)</a>
 </li>
-      <li><a href="cpp_api/kernels/applyRopeWriteKV.html#_CPPv4N11trt_edgellm6kernel34launchApplyRopeWriteKVTreeDecodingERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::launchApplyRopeWriteKVTreeDecoding (C++ function)</a>
+      <li><a href="cpp_api/kernels/applyRopeWriteKV.html#_CPPv4N11trt_edgellm6kernel34launchApplyRopeWriteKVTreeDecodingERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::launchApplyRopeWriteKVTreeDecoding (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/imageUtilKernels.html#_CPPv4N11trt_edgellm6kernel14normalizeImageERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::normalizeImage (C++ function)</a>
 </li>
@@ -1499,6 +1520,30 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/kernels/imageUtilKernels.html#_CPPv4N11trt_edgellm6kernel23transposeToPatchQwenViTERKN2rt6TensorERN2rt6TensorEK7int64_tK7int64_tK7int64_tK7int64_t12cudaStream_t">trt_edgellm::kernel::transposeToPatchQwenViT (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/eagleUtilKernels.html#_CPPv4N11trt_edgellm6kernel25updateDraftTreeFullTablesERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERN2rt6TensorEK7int32_tK7int32_t12cudaStream_t">trt_edgellm::kernel::updateDraftTreeFullTables (C++ function)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limitsE">trt_edgellm::limits (C++ type)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits20kInputLimitsLocationE">trt_edgellm::limits::kInputLimitsLocation (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits8securityE">trt_edgellm::limits::security (C++ type)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE">trt_edgellm::limits::security::kMaxContentItemsPerMessage (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE">trt_edgellm::limits::security::kMaxMessageContentSizeBytes (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits8security22kMaxMessagesPerRequestE">trt_edgellm::limits::security::kMaxMessagesPerRequest (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE">trt_edgellm::limits::security::kReasonableMaxBatchSize (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits9tokenizerE">trt_edgellm::limits::tokenizer (C++ type)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE">trt_edgellm::limits::tokenizer::kChatTemplateFileSizeBytes (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE">trt_edgellm::limits::tokenizer::kMaxConfigFileSizeBytes (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE">trt_edgellm::limits::tokenizer::kMaxInputTextSizeBytes (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/inputLimits.html#_CPPv4N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE">trt_edgellm::limits::tokenizer::kMaxTokenPieceSizeBytes (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/logger.html#_CPPv4N11trt_edgellm6logger13EdgeLLMLoggerE">trt_edgellm::logger::EdgeLLMLogger (C++ class)</a>
 </li>
@@ -1600,11 +1645,9 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/modelTypes.html#_CPPv4N11trt_edgellm10multimodal17stringToModelTypeERKNSt6stringE">trt_edgellm::multimodal::stringToModelType (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4N11trt_edgellm7plugins14alignDevicePtrEPv">trt_edgellm::plugins::alignDevicePtr (C++ function)</a>
-</li>
       <li><a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPluginE">trt_edgellm::plugins::AttentionPlugin (C++ class)</a>
 </li>
-      <li><a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERK15AttentionPlugin">trt_edgellm::plugins::AttentionPlugin::AttentionPlugin (C++ function)</a>, <a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringE7int32_t7int32_t7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKv6size_t">[2]</a>, <a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv">[3]</a>
+      <li><a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERK15AttentionPlugin">trt_edgellm::plugins::AttentionPlugin::AttentionPlugin (C++ function)</a>, <a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringE7int32_t7int32_t7int32_t7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKNSt4byteE6size_t">[2]</a>, <a href="cpp_api/plugins/attentionPlugin.html#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv">[3]</a>
 </li>
       <li><a href="cpp_api/plugins/attentionPlugin.html#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin5cloneEv">trt_edgellm::plugins::AttentionPlugin::clone (C++ function)</a>
 </li>
@@ -1664,49 +1707,45 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginE">trt_edgellm::plugins::Int4GroupwiseGemmPlugin (C++ class)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::clone (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::attachToContext (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin5cloneEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::clone (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::configurePlugin (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7destroyEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::destroy (C++ function)</a>
-</li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::enqueue (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getCapabilityInterface (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getFieldsToSerializeEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getFieldsToSerialize (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin12getNbOutputsEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getNbOutputs (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputDataType (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputDataTypes (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputDimensions (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getOutputShapes (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginNameEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginName (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18getPluginNamespaceEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginNamespace (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13getPluginTypeEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginType (C++ function)</a>
-</li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getPluginVersionEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getPluginVersion (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin20getSerializationSizeEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getSerializationSize (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getWorkspaceSize (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::getWorkspaceSize (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERK23Int4GroupwiseGemmPlugin">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::Int4GroupwiseGemmPlugin (C++ function)</a>, <a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringE7int32_t7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE">[2]</a>, <a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginEv">[3]</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin10initializeEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::initialize (C++ function)</a>
-</li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERK23Int4GroupwiseGemmPlugin">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::Int4GroupwiseGemmPlugin (C++ function)</a>, <a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringE7int32_t7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginERKNSt6stringEPKv6size_t">[2]</a>, <a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin23Int4GroupwiseGemmPluginEv">[3]</a>
-</li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4NK11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9serializeEPv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::serialize (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::onShapeChange (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin18setPluginNamespaceEPKc">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::setPluginNamespace (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::supportsFormatCombination (C++ function)</a>
-</li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin9terminateEv">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::terminate (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::supportsFormatCombination (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins23Int4GroupwiseGemmPluginD0Ev">trt_edgellm::plugins::Int4GroupwiseGemmPlugin::~Int4GroupwiseGemmPlugin (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreatorE">trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator (C++ class)</a>
 </li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE">trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::createPlugin (C++ function)</a>
-</li>
-      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator17deserializePluginEPKcPKv6size_t">trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::deserializePlugin (C++ function)</a>
+      <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE">trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::createPlugin (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/int4GroupwiseGemmPlugin.html#_CPPv4N11trt_edgellm7plugins30Int4GroupwiseGemmPluginCreator13getFieldNamesEv">trt_edgellm::plugins::Int4GroupwiseGemmPluginCreator::getFieldNames (C++ function)</a>
 </li>
@@ -1726,13 +1765,25 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4I0EN11trt_edgellm7plugins10SerializerI1TNSt11enable_if_tIXooNSt15is_arithmetic_vI1TEENSt9is_enum_vI1TEEEEEEE">trt_edgellm::plugins::Serializer&lt;T, typename std::enable_if_t&lt;std::is_arithmetic_v&lt;T&gt; || std::is_enum_v&lt;T&gt;&gt;&gt; (C++ struct)</a>
 </li>
-      <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4N11trt_edgellm7plugins10SerializerI1TNSt11enable_if_tIXooNSt15is_arithmetic_vI1TEENSt9is_enum_vI1TEEEEEE11deserializeEPPKvP6size_tP1T">trt_edgellm::plugins::Serializer&lt;T, typename std::enable_if_t&lt;std::is_arithmetic_v&lt;T&gt; || std::is_enum_v&lt;T&gt;&gt;&gt;::deserialize (C++ function)</a>
+      <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4N11trt_edgellm7plugins10SerializerI1TNSt11enable_if_tIXooNSt15is_arithmetic_vI1TEENSt9is_enum_vI1TEEEEEE11deserializeEPPKNSt4byteEP6size_tP1T">trt_edgellm::plugins::Serializer&lt;T, typename std::enable_if_t&lt;std::is_arithmetic_v&lt;T&gt; || std::is_enum_v&lt;T&gt;&gt;&gt;::deserialize (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4N11trt_edgellm7plugins10SerializerI1TNSt11enable_if_tIXooNSt15is_arithmetic_vI1TEENSt9is_enum_vI1TEEEEEE9serializeEPPvRK1T">trt_edgellm::plugins::Serializer&lt;T, typename std::enable_if_t&lt;std::is_arithmetic_v&lt;T&gt; || std::is_enum_v&lt;T&gt;&gt;&gt;::serialize (C++ function)</a>
+      <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4N11trt_edgellm7plugins10SerializerI1TNSt11enable_if_tIXooNSt15is_arithmetic_vI1TEENSt9is_enum_vI1TEEEEEE9serializeEPPNSt4byteERK1T">trt_edgellm::plugins::Serializer&lt;T, typename std::enable_if_t&lt;std::is_arithmetic_v&lt;T&gt; || std::is_enum_v&lt;T&gt;&gt;&gt;::serialize (C++ function)</a>
 </li>
       <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4I0EN11trt_edgellm7plugins11toFieldTypeEN8nvinfer115PluginFieldTypeEv">trt_edgellm::plugins::toFieldType (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE">trt_edgellm::rt (C++ type)</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv4N11trt_edgellm2rtE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt11BatchResultE">trt_edgellm::rt::BatchResult (C++ struct)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt11BatchResult16actualIterationsE">trt_edgellm::rt::BatchResult::actualIterations (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt11BatchResult22effectivePrefillLengthE">trt_edgellm::rt::BatchResult::effectivePrefillLength (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt11BatchResult14generateLengthE">trt_edgellm::rt::BatchResult::generateLength (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt11BatchResult18rawBatchedInputIdsE">trt_edgellm::rt::BatchResult::rawBatchedInputIds (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt11BatchResult8tokenIdsE">trt_edgellm::rt::BatchResult::tokenIds (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt17buildBatchMappingERKNSt6vectorI6int8_tEE">trt_edgellm::rt::buildBatchMapping (C++ function)</a>
 </li>
@@ -1750,7 +1801,11 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/tensor.html#_CPPv4NK11trt_edgellm2rt6Coords10getTRTDimsEv">trt_edgellm::rt::Coords::getTRTDims (C++ function)</a>
 </li>
+      <li><a href="cpp_api/common/tensor.html#_CPPv4NK11trt_edgellm2rt6CoordsneERK6Coords">trt_edgellm::rt::Coords::operator!= (C++ function)</a>
+</li>
       <li><a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6CoordsaSERK6Coords">trt_edgellm::rt::Coords::operator= (C++ function)</a>, <a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6CoordsaSERR6Coords">[1]</a>
+</li>
+      <li><a href="cpp_api/common/tensor.html#_CPPv4NK11trt_edgellm2rt6CoordseqERK6Coords">trt_edgellm::rt::Coords::operator== (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6CoordsixE7int32_t">trt_edgellm::rt::Coords::operator[] (C++ function)</a>, <a href="cpp_api/common/tensor.html#_CPPv4NK11trt_edgellm2rt6CoordsixE7int32_t">[1]</a>
 </li>
@@ -1758,9 +1813,13 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunnerE">trt_edgellm::rt::EagleDraftEngineRunner (C++ class)</a>
 </li>
+      <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner20AcceptDecodeTokenKeyE">trt_edgellm::rt::EagleDraftEngineRunner::AcceptDecodeTokenKey (C++ type)</a>
+</li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner38captureEagleAcceptDecodeTokenCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::EagleDraftEngineRunner::captureEagleAcceptDecodeTokenCudaGraph (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner34captureEagleDraftProposalCudaGraphERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::EagleDraftEngineRunner::captureEagleDraftProposalCudaGraph (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner16DraftProposalKeyE">trt_edgellm::rt::EagleDraftEngineRunner::DraftProposalKey (C++ type)</a>
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner22EagleDraftEngineRunnerERKNSt10filesystem4pathERKNSt10filesystem4pathE12cudaStream_t">trt_edgellm::rt::EagleDraftEngineRunner::EagleDraftEngineRunner (C++ function)</a>
 </li>
@@ -1768,7 +1827,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner29executeEagleDraftProposalStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::EagleDraftEngineRunner::executeEagleDraftProposalStep (C++ function)</a>
 </li>
-      <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::rt::EagleDraftEngineRunner::executeEaglePrefillStep (C++ function)</a>
+      <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt22EagleDraftEngineRunner23executeEaglePrefillStepERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::rt::EagleDraftEngineRunner::executeEaglePrefillStep (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4NK11trt_edgellm2rt22EagleDraftEngineRunner20getDraftEngineConfigEv">trt_edgellm::rt::EagleDraftEngineRunner::getDraftEngineConfig (C++ function)</a>
 </li>
@@ -1787,8 +1846,6 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig19draftModelVocabSizeE">trt_edgellm::rt::EagleDraftEngineRunnerConfig::draftModelVocabSize (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig7headDimE">trt_edgellm::rt::EagleDraftEngineRunnerConfig::headDim (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig5isVlmE">trt_edgellm::rt::EagleDraftEngineRunnerConfig::isVlm (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/eagleDraftEngineRunner.html#_CPPv4N11trt_edgellm2rt28EagleDraftEngineRunnerConfig16maxDraftTreeSizeE">trt_edgellm::rt::EagleDraftEngineRunnerConfig::maxDraftTreeSize (C++ member)</a>
 </li>
@@ -1878,7 +1935,9 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/internViTRunner.html#_CPPv4N11trt_edgellm2rt15InternViTRunner15InternViTRunnerERKNSt6stringE12cudaStream_t">trt_edgellm::rt::InternViTRunner::InternViTRunner (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/internViTRunner.html#_CPPv4N11trt_edgellm2rt15InternViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::InternViTRunner::preprocess (C++ function)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/multimodal/internViTRunner.html#_CPPv4N11trt_edgellm2rt15InternViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::InternViTRunner::preprocess (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/internViTRunner.html#_CPPv4N11trt_edgellm2rt15InternViTRunner21validateAndFillConfigERKNSt6stringE">trt_edgellm::rt::InternViTRunner::validateAndFillConfig (C++ function)</a>
 </li>
@@ -1906,12 +1965,6 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache17getKVCacheLengthsEv">trt_edgellm::rt::LinearKVCache::getKVCacheLengths (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache11KVCacheTypeE">trt_edgellm::rt::LinearKVCache::KVCacheType (C++ type)</a>
-</li>
-      <li><a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache14KVCacheTypeTRTE">trt_edgellm::rt::LinearKVCache::KVCacheTypeTRT (C++ member)</a>
-</li>
       <li><a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache13LinearKVCacheERK11CacheConfig12cudaStream_t">trt_edgellm::rt::LinearKVCache::LinearKVCache (C++ function)</a>, <a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache13LinearKVCacheERK13LinearKVCache">[1]</a>, <a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache13LinearKVCacheERR13LinearKVCache">[2]</a>, <a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCache13LinearKVCacheEv">[3]</a>
 </li>
       <li><a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCacheaSERK13LinearKVCache">trt_edgellm::rt::LinearKVCache::operator= (C++ function)</a>, <a href="cpp_api/runtime/linearKVCache.html#_CPPv4N11trt_edgellm2rt13LinearKVCacheaSERR13LinearKVCache">[1]</a>
@@ -1924,13 +1977,17 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunnerE">trt_edgellm::rt::LLMEngineRunner (C++ class)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner12BaseGraphKeyE">trt_edgellm::rt::LLMEngineRunner::BaseGraphKey (C++ type)</a>
+</li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner37captureEagleBaseTreeDecodingCudaGraphERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::LLMEngineRunner::captureEagleBaseTreeDecodingCudaGraph (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner31captureVanillaDecodingCudaGraphERKN2rt6TensorERN2rt6TensorERKNSt6stringE12cudaStream_t">trt_edgellm::rt::LLMEngineRunner::captureVanillaDecodingCudaGraph (C++ function)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner16DecodingGraphKeyE">trt_edgellm::rt::LLMEngineRunner::DecodingGraphKey (C++ type)</a>
+</li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner32executeEagleBaseTreeDecodingStepERKN2rt6TensorERKN2rt6TensorERN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::LLMEngineRunner::executeEagleBaseTreeDecodingStep (C++ function)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner18executePrefillStepERKN2rt6TensorERKN2rt6TensorEN2rt19OptionalInputTensorEN2rt20OptionalInputTensorsERN2rt6TensorEN2rt20OptionalOutputTensorE12cudaStream_t">trt_edgellm::rt::LLMEngineRunner::executePrefillStep (C++ function)</a>
+      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner18executePrefillStepERKN2rt6TensorERKN2rt6TensorEN2rt20OptionalInputTensorsERN2rt6TensorEN2rt20OptionalOutputTensorE12cudaStream_t">trt_edgellm::rt::LLMEngineRunner::executePrefillStep (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner26executeVanillaDecodingStepERKN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::LLMEngineRunner::executeVanillaDecodingStep (C++ function)</a>
 </li>
@@ -1958,8 +2015,6 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig10hiddenSizeE">trt_edgellm::rt::LLMEngineRunnerConfig::hiddenSize (C++ member)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig5isVlmE">trt_edgellm::rt::LLMEngineRunnerConfig::isVlm (C++ member)</a>
-</li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig18maxKVCacheCapacityE">trt_edgellm::rt::LLMEngineRunnerConfig::maxKVCacheCapacity (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig21maxSupportedBatchSizeE">trt_edgellm::rt::LLMEngineRunnerConfig::maxSupportedBatchSize (C++ member)</a>
@@ -1969,8 +2024,6 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig20maxSupportedLoraRankE">trt_edgellm::rt::LLMEngineRunnerConfig::maxSupportedLoraRank (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig17maxVerifyTreeSizeE">trt_edgellm::rt::LLMEngineRunnerConfig::maxVerifyTreeSize (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig23minSupportedInputLengthE">trt_edgellm::rt::LLMEngineRunnerConfig::minSupportedInputLength (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig16numDecoderLayersE">trt_edgellm::rt::LLMEngineRunnerConfig::numDecoderLayers (C++ member)</a>
 </li>
@@ -1997,6 +2050,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE">trt_edgellm::rt::LLMGenerationRequest::addGenerationPrompt (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE">trt_edgellm::rt::LLMGenerationRequest::applyChatTemplate (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17disableSpecDecodeE">trt_edgellm::rt::LLMGenerationRequest::disableSpecDecode (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest14enableThinkingE">trt_edgellm::rt::LLMGenerationRequest::enableThinking (C++ member)</a>
 </li>
@@ -2042,11 +2097,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime (C++ class)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime32captureBaseVerificationCudaGraphE12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureBaseVerificationCudaGraph (C++ function)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime38captureDraftAcceptDecodeTokenCudaGraphE12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureDraftAcceptDecodeTokenCudaGraph (C++ function)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29captureDraftProposalCudaGraphE12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureDraftProposalCudaGraph (C++ function)</a>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime24captureDecodingCudaGraphE12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::captureDecodingCudaGraph (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getEagleGenerationMetrics (C++ function)</a>
 </li>
@@ -2086,7 +2137,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner6createERKNSt6stringE7int32_t7int64_t12cudaStream_t">trt_edgellm::rt::MultimodalRunner::create (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner22getExtraVisualFeaturesEv">trt_edgellm::rt::MultimodalRunner::getExtraVisualFeatures (C++ function)</a>
+      <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner20getDeepstackFeaturesEv">trt_edgellm::rt::MultimodalRunner::getDeepstackFeatures (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4NK11trt_edgellm2rt16MultimodalRunner12getModelTypeEv">trt_edgellm::rt::MultimodalRunner::getModelType (C++ function)</a>
 </li>
@@ -2098,9 +2149,9 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner16MultimodalRunnerERKNSt6stringE12cudaStream_t">trt_edgellm::rt::MultimodalRunner::MultimodalRunner (C++ function)</a>, <a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner16MultimodalRunnerEv">[1]</a>
 </li>
-      <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::MultimodalRunner::preprocess (C++ function)</a>
+      <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::MultimodalRunner::preprocess (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::MultimodalRunner::preprocessSystemPrompt (C++ function)</a>
+      <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::MultimodalRunner::preprocessSystemPrompt (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/multimodalRunner.html#_CPPv4N11trt_edgellm2rt16MultimodalRunner21validateAndFillConfigERKNSt6stringE">trt_edgellm::rt::MultimodalRunner::validateAndFillConfig (C++ function)</a>
 </li>
@@ -2144,7 +2195,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/phi4mmViTRunner.html#_CPPv4N11trt_edgellm2rt15Phi4MMViTRunner15Phi4MMViTRunnerERKNSt6stringE12cudaStream_t">trt_edgellm::rt::Phi4MMViTRunner::Phi4MMViTRunner (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/phi4mmViTRunner.html#_CPPv4N11trt_edgellm2rt15Phi4MMViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::Phi4MMViTRunner::preprocess (C++ function)</a>
+      <li><a href="cpp_api/multimodal/phi4mmViTRunner.html#_CPPv4N11trt_edgellm2rt15Phi4MMViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::Phi4MMViTRunner::preprocess (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/phi4mmViTRunner.html#_CPPv4N11trt_edgellm2rt15Phi4MMViTRunner21validateAndFillConfigERKNSt6stringE">trt_edgellm::rt::Phi4MMViTRunner::validateAndFillConfig (C++ function)</a>
 </li>
@@ -2198,13 +2249,13 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner14allocateBufferE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::allocateBuffer (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner22getExtraVisualFeaturesEv">trt_edgellm::rt::QwenViTRunner::getExtraVisualFeatures (C++ function)</a>
+      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner20getDeepstackFeaturesEv">trt_edgellm::rt::QwenViTRunner::getDeepstackFeatures (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::infer (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::preprocess (C++ function)</a>
+      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::preprocess (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::preprocessSystemPrompt (C++ function)</a>
+      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::preprocessSystemPrompt (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner13QwenViTRunnerERKNSt6stringE7int32_t7int32_t12cudaStream_t">trt_edgellm::rt::QwenViTRunner::QwenViTRunner (C++ function)</a>
 </li>
@@ -2232,29 +2283,17 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15activeBatchSizeE">trt_edgellm::rt::SpecDecodeInferenceContext::activeBatchSize (C++ member)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext16actualIterationsE">trt_edgellm::rt::SpecDecodeInferenceContext::actualIterations (C++ member)</a>
-</li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17batchIndexMappingE">trt_edgellm::rt::SpecDecodeInferenceContext::batchIndexMapping (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext16completedBatchesE">trt_edgellm::rt::SpecDecodeInferenceContext::completedBatches (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22currentGenerateLengthsE">trt_edgellm::rt::SpecDecodeInferenceContext::currentGenerateLengths (C++ member)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext23evictedActualIterationsE">trt_edgellm::rt::SpecDecodeInferenceContext::evictedActualIterations (C++ member)</a>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17deepstackFeaturesE">trt_edgellm::rt::SpecDecodeInferenceContext::deepstackFeatures (C++ member)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext22evictedGenerateLengthsE">trt_edgellm::rt::SpecDecodeInferenceContext::evictedGenerateLengths (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedPromptLengthsE">trt_edgellm::rt::SpecDecodeInferenceContext::evictedPromptLengths (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext25evictedRawBatchedInputIdsE">trt_edgellm::rt::SpecDecodeInferenceContext::evictedRawBatchedInputIds (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20evictedSystemPromptsE">trt_edgellm::rt::SpecDecodeInferenceContext::evictedSystemPrompts (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15evictedTokenIdsE">trt_edgellm::rt::SpecDecodeInferenceContext::evictedTokenIds (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17extraInputTensorsE">trt_edgellm::rt::SpecDecodeInferenceContext::extraInputTensors (C++ member)</a>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext23effectivePrefillLengthsE">trt_edgellm::rt::SpecDecodeInferenceContext::effectivePrefillLengths (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext14finishedStatesE">trt_edgellm::rt::SpecDecodeInferenceContext::finishedStates (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext26genAndSaveSystemCacheIndexE">trt_edgellm::rt::SpecDecodeInferenceContext::genAndSaveSystemCacheIndex (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15generationRoundE">trt_edgellm::rt::SpecDecodeInferenceContext::generationRound (C++ member)</a>
 </li>
@@ -2263,12 +2302,6 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE">trt_edgellm::rt::SpecDecodeInferenceContext::maxGenerateLength (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext20multimodalEmbeddingsE">trt_edgellm::rt::SpecDecodeInferenceContext::multimodalEmbeddings (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17originalBatchSizeE">trt_edgellm::rt::SpecDecodeInferenceContext::originalBatchSize (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17packedInputLengthE">trt_edgellm::rt::SpecDecodeInferenceContext::packedInputLength (C++ member)</a>
-</li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext13promptLengthsE">trt_edgellm::rt::SpecDecodeInferenceContext::promptLengths (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE">trt_edgellm::rt::SpecDecodeInferenceContext::rawBatchedInputIds (C++ member)</a>
 </li>
@@ -2618,9 +2651,11 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams8headSizeE">trt_edgellm::XQALaunchParams::headSize (C++ member)</a>
 </li>
+      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams6kScaleE">trt_edgellm::XQALaunchParams::kScale (C++ member)</a>
+</li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams7kvCacheE">trt_edgellm::XQALaunchParams::kvCache (C++ member)</a>
 </li>
-      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams7kvScaleE">trt_edgellm::XQALaunchParams::kvScale (C++ member)</a>
+      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams10kvDataTypeE">trt_edgellm::XQALaunchParams::kvDataType (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams10numKVheadsE">trt_edgellm::XQALaunchParams::numKVheads (C++ member)</a>
 </li>
@@ -2641,6 +2676,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams10semaphoresE">trt_edgellm::XQALaunchParams::semaphores (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams12treeAttnMaskE">trt_edgellm::XQALaunchParams::treeAttnMask (C++ member)</a>
+</li>
+      <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams6vScaleE">trt_edgellm::XQALaunchParams::vScale (C++ member)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2761,9 +2798,9 @@ window.addEventListener("load", load);
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on January 05, 2026.</p>
+  <p>Last updated on February 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/f627c5b">f627c5b</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/53cd261">53cd261</a>.</p>
   
 </div></div>
       

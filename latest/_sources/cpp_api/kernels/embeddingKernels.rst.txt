@@ -7,3 +7,9 @@ Embedding Kernels
 .. doxygenfunction:: trt_edgellm::kernel::embeddingLookupWithImageInsertion
    :project: TensorRT Edge-LLM
 
+.. doxygenfunction:: trt_edgellm::kernel::assembleDeepstackEmbedding
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::kernel::embeddingLookupMultimodal
+   :project: TensorRT Edge-LLM
+

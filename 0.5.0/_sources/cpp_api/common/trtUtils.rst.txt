@@ -1,0 +1,8 @@
+TRT Utils
+=========
+
+.. doxygenstruct:: trt_edgellm::DlDeleter
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+

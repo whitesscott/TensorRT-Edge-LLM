@@ -1,0 +1,12 @@
+Apply Rope Write KV
+===================
+
+.. doxygenfunction:: trt_edgellm::kernel::launchApplyRopeWriteKVPackedQKV
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::kernel::launchApplyRopeWriteKVContinuousQAndKVCache
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::kernel::launchApplyRopeWriteKVTreeDecoding
+   :project: TensorRT Edge-LLM
+

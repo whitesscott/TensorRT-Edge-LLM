@@ -6,6 +6,11 @@ LLM Inference Spec Decode Runtime
    :members:
    :undoc-members:
 
+.. doxygenstruct:: trt_edgellm::rt::BatchResult
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
 .. doxygenstruct:: trt_edgellm::rt::SpecDecodeInferenceContext
    :project: TensorRT Edge-LLM
    :members:

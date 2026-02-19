@@ -1,0 +1,12 @@
+Initialize Cos Sin Cache
+========================
+
+.. doxygenfunction:: trt_edgellm::kernel::initializeNormalRopeCosSin
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::kernel::initializeLongRopeCosSin
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::kernel::initializeMRopeCosSin
+   :project: TensorRT Edge-LLM
+
