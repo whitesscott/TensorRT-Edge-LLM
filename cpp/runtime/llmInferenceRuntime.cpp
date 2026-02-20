@@ -789,5 +789,200 @@ bool LLMInferenceRuntime::genAndSaveSystemPromptKVCache(
     return true;
 }
 
+bool LLMInferenceRuntime::handleRequestWithTokens(std::vector<std::vector<int32_t>> const& batchedInputTokenIds,
+    float temperature, float topP, int64_t topK, int64_t maxGenerateLength, LLMGenerationResponse& response,
+    cudaStream_t stream, TokenStreamCallback tokenCallback)
+{
+    int32_t const activeBatchSize = static_cast<int32_t>(batchedInputTokenIds.size());
+
+    if (activeBatchSize == 0)
+    {
+        LOG_ERROR("LLMInferenceRuntime(): Empty batch with no input token IDs.");
+        return false;
+    }
+
+    if (activeBatchSize > mEngineConfig.maxSupportedBatchSize)
+    {
+        LOG_ERROR("LLMInferenceRuntime(): The batched request size (%d) exceeds the max supported batch size (%d).",
+            activeBatchSize, mEngineConfig.maxSupportedBatchSize);
+        return false;
+    }
+
+    // Use empty system prompts for token-based input (no system prompt caching)
+    std::vector<std::string> batchSystemPrompts(activeBatchSize, "");
+    std::string loraWeightsName = "";
+
+    // Set up for prefill execution with token IDs directly (skip tokenization)
+    if (!setUpForPrefillExecution(batchedInputTokenIds, batchSystemPrompts, loraWeightsName, stream))
+    {
+        LOG_ERROR("LLMInferenceRuntime(): Prefill execution setup failed. This request cannot be handled.");
+        return false;
+    }
+
+    // Record context information for performance tracking
+    auto tokenCount = calculateTokenCounts(batchedInputTokenIds, batchSystemPrompts, loraWeightsName);
+
+    int32_t const maxInputIdsLength = mInputIds.getShape()[1];
+    int32_t actualMaxGenerationLength = static_cast<int32_t>(maxGenerateLength);
+    if (maxInputIdsLength + actualMaxGenerationLength > mEngineConfig.maxKVCacheCapacity)
+    {
+        actualMaxGenerationLength = mEngineConfig.maxKVCacheCapacity - maxInputIdsLength;
+        LOG_WARNING(
+            "The requested input length (%d) + max generation length (%d) = %d exceeds the max KV "
+            "cache capacity (%d). Reduce the generation length to %d to avoid the truncation of the generated tokens.",
+            maxInputIdsLength, actualMaxGenerationLength, maxInputIdsLength + actualMaxGenerationLength,
+            mEngineConfig.maxKVCacheCapacity, actualMaxGenerationLength);
+    }
+
+    // Set up data structures to store the generated results during decoding.
+    int32_t unFinishedBatchNum = activeBatchSize;
+    int32_t generationIter{0};
+    std::vector<std::vector<int32_t>> outputIds(activeBatchSize);
+    std::vector<bool> finishedStates(activeBatchSize, false);
+    mSelectedIndices.reshape({activeBatchSize, 1});
+    mHostSelectedTokenIds.reshape({activeBatchSize});
+    int32_t* hostSelectedTokenIdsData = mHostSelectedTokenIds.dataPointer<int32_t>();
+
+    SamplingParams params(activeBatchSize, mEngineConfig.outputVocabSize, temperature, topK, topP);
+    // Track first token for each batch item for callback
+    std::vector<bool> isFirstToken(activeBatchSize, true);
+    auto sampleTokens = [&]() {
+        trt_edgellm::topKtopPSamplingFromLogits(mOutputLogits, mSelectedIndices, params, mSamplingWorkspace, stream);
+        // Apply vocabulary mapping if reduced vocabulary is used
+        if (mEngineConfig.reducedVocabSize > 0)
+        {
+            trt_edgellm::mapReducedVocabToFullVocab(mSelectedIndices, mVocabMappingTable, stream);
+        }
+        CUDA_CHECK(cudaMemcpyAsync(mHostSelectedTokenIds.rawPointer(), mSelectedIndices.rawPointer(),
+            activeBatchSize * sizeof(int32_t), cudaMemcpyDeviceToHost, stream));
+        CUDA_CHECK(cudaStreamSynchronize(stream));
+        for (int32_t i = 0; i < activeBatchSize; ++i)
+        {
+            if (!finishedStates[i])
+            {
+                int32_t tokenId = hostSelectedTokenIdsData[i];
+                outputIds[i].push_back(tokenId);
+
+                // Call streaming callback if provided
+                if (tokenCallback)
+                {
+                    bool shouldContinue = tokenCallback(i, tokenId, isFirstToken[i]);
+                    if (!shouldContinue)
+                    {
+                        // Early termination requested by callback
+                        finishedStates[i] = true;
+                        unFinishedBatchNum--;
+                    }
+                }
+
+                finishedStates[i] = finishedStates[i] || (tokenId == mTokenizer->getEosId());
+                if (finishedStates[i])
+                {
+                    unFinishedBatchNum--;
+                }
+
+                // Mark that first token has been sent
+                isFirstToken[i] = false;
+            }
+        }
+        ++generationIter;
+    };
+
+    // Perform embedding lookup for prefill
+    int32_t const prefillSequenceLength = mInputIds.getShape()[1];
+    mInputsEmbeds.reshape({activeBatchSize, prefillSequenceLength, mEngineConfig.hiddenSize});
+
+    // Standard embedding lookup (no multimodal for token-based input)
+    kernel::embeddingLookup(mInputIds, mEmbeddingTable, mInputsEmbeds, stream);
+
+    // No deepstack features for token-based input
+    rt::OptionalInputTensors deepstackEmbeds{};
+
+    // Profile all sampling operations as one stage
+    // Prefill profiling session
+    rt::OptionalOutputTensor outputHiddenStates{std::nullopt};
+    {
+        TIME_STAGE(metrics::StageNames::kLLM_PREFILL, stream);
+        NVTX_SCOPED_RANGE(nvtx_prefill,
+            ("LLM_PREFILL[BS=" + std::to_string(activeBatchSize)
+                + ",Reused=" + std::to_string(tokenCount.totalReusedTokens)
+                + ",Computed=" + std::to_string(tokenCount.totalComputedTokens) + "]")
+                .c_str(),
+            nvtx_colors::BLUE);
+
+        bool prefillStatus = mLLMEngineRunner->executePrefillStep(
+            mInputsEmbeds, mHostContextLengths, deepstackEmbeds, mOutputLogits, outputHiddenStates, stream);
+        if (!prefillStatus)
+        {
+            LOG_ERROR(
+                "LLMInferenceRuntime(): Failed to execute prefill step. Cannot generate the KVCache for this prompt.");
+            return false;
+        }
+        sampleTokens();
+    }
+
+    // Record prefill metrics
+    mPrefillMetrics.recordRun(tokenCount.totalReusedTokens, tokenCount.totalComputedTokens);
+
+    // Reshape for decoding step
+    mInputsEmbeds.reshape({activeBatchSize, 1, mEngineConfig.hiddenSize});
+
+    // Profile entire generation phase
+    {
+        TIME_STAGE(metrics::StageNames::kLLM_GENERATION, stream);
+        NVTX_SCOPED_RANGE(nvtx_generation,
+            ("LLM_GENERATION[BS=" + std::to_string(activeBatchSize)
+                + ",MaxLen=" + std::to_string(actualMaxGenerationLength) + "]")
+                .c_str(),
+            nvtx_colors::GREEN);
+
+        while (unFinishedBatchNum > 0 && generationIter < actualMaxGenerationLength)
+        {
+            NVTX_SCOPED_RANGE(iter_range,
+                ("Decode_Iter[" + std::to_string(generationIter) + "/" + std::to_string(actualMaxGenerationLength)
+                    + ",Active=" + std::to_string(unFinishedBatchNum) + "]")
+                    .c_str(),
+                nvtx_colors::LIGHT_GREEN);
+
+            // Perform embedding lookup for the selected token indices
+            kernel::embeddingLookup(mSelectedIndices, mEmbeddingTable, mInputsEmbeds, stream);
+
+            // Use the embedded tokens as input for the decoding step.
+            bool decodingStatus = mLLMEngineRunner->executeVanillaDecodingStep(mInputsEmbeds, mOutputLogits, stream);
+            if (!decodingStatus)
+            {
+                LOG_ERROR("LLMInferenceRuntime(): Failed to execute decoding step.");
+                return false;
+            }
+
+            sampleTokens();
+        }
+    }
+
+    // Record generation and sampling metrics
+    int32_t totalGeneratedTokens = 0;
+    for (int32_t i = 0; i < activeBatchSize; ++i)
+    {
+        totalGeneratedTokens += static_cast<int32_t>(outputIds[i].size() - 1);
+    }
+
+    if (totalGeneratedTokens > 0)
+    {
+        mGenerationMetrics.recordRun(totalGeneratedTokens);
+    }
+
+    // Fill the response with output token IDs only (no text decoding)
+    response.outputIds.clear();
+    response.outputTexts.clear();
+    for (int32_t i = 0; i < activeBatchSize; ++i)
+    {
+        response.outputIds.emplace_back(outputIds[i]);
+        // Don't decode to text for token-based API
+        response.outputTexts.emplace_back("");
+    }
+
+    return true;
+}
+
 } // namespace rt
 } // namespace trt_edgellm

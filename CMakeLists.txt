@@ -25,6 +25,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CUDA_STANDARD 17)
 
+# Use shared CUDA runtime (required for Jetson Thor where static libs may not
+# exist)
+set(CMAKE_CUDA_RUNTIME_LIBRARY Shared)
+
 set(CMAKE_CXX_FLAGS
     "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wall -Werror=return-type")
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Wno-deprecated-declarations")
@@ -159,6 +163,13 @@ add_subdirectory(cpp)
 add_subdirectory(examples)
 
 option(BUILD_UNIT_TESTS "Enable building unit tests" OFF)
+option(BUILD_PYTHON_BINDINGS "Enable building Python bindings" OFF)
+
+# Build Python bindings if enabled
+if(BUILD_PYTHON_BINDINGS)
+  message(STATUS "Python bindings ENABLED")
+  add_subdirectory(cpp/pybind)
+endif()
 
 if(BUILD_UNIT_TESTS)
   set(BUILD_GMOCK

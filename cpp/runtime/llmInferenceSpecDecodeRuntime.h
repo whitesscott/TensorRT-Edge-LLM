@@ -85,6 +85,8 @@ struct SpecDecodeInferenceContext
     int32_t maxGenerateLength;                  //!< Maximum generation length
     int32_t activeBatchSize;                    //!< Current active batch size
     cudaStream_t stream;                        //!< CUDA stream
+    TokenStreamCallback tokenCallback;          //!< Optional callback for streaming tokens (nullptr if disabled)
+    std::vector<bool> isFirstToken;             //!< Track if first token has been sent for each batch item
 
     /*!
      * @brief Initialize the context with given parameters
@@ -151,6 +153,24 @@ public:
      * @return True on success, false on failure
      */
     bool handleRequest(LLMGenerationRequest const& request, LLMGenerationResponse& response, cudaStream_t stream);
+
+    /*!
+     * @brief Handle generation request with token IDs directly (token-in, token-out)
+     * @param batchedInputTokenIds Batched input token IDs (one vector per batch item)
+     * @param temperature Temperature for sampling
+     * @param topP Top-p (nucleus) sampling parameter
+     * @param topK Top-k sampling parameter
+     * @param maxGenerateLength Maximum number of tokens to generate
+     * @param enableSpecDecode Whether to enable speculative decoding
+     * @param response Output response with generated token IDs (output_texts will be empty)
+     * @param stream CUDA stream
+     * @param tokenCallback Optional callback function called for each generated token during streaming (nullptr to
+     * disable)
+     * @return True on success, false on failure
+     */
+    bool handleRequestWithTokens(std::vector<std::vector<int32_t>> const& batchedInputTokenIds, float temperature,
+        float topP, int64_t topK, int64_t maxGenerateLength, bool enableSpecDecode, LLMGenerationResponse& response,
+        cudaStream_t stream, TokenStreamCallback tokenCallback = nullptr);
 
     //! Get LLM prefill stage metrics
     metrics::LLMPrefillMetrics const& getPrefillMetrics() const

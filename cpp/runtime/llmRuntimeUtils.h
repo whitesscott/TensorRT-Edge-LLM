@@ -21,6 +21,7 @@
 #include "runtime/imageUtils.h"
 
 #include <cstdint>
+#include <functional>
 #include <nlohmann/json.hpp>
 #include <optional>
 #include <string>
@@ -98,6 +99,18 @@ struct LLMGenerationResponse
     std::vector<std::vector<int32_t>> outputIds; //!< Generated token IDs for each request in the batch
     std::vector<std::string> outputTexts;        //!< Generated text strings for each request in the batch
 };
+
+/*! \brief Token streaming callback function type
+ *
+ *  Callback function called for each newly generated token during streaming inference.
+ *  Parameters:
+ *    - batchIndex: Index of the batch item (0-based)
+ *    - tokenId: The newly generated token ID
+ *    - isFirstToken: True if this is the first token generated for this batch item
+ *
+ *  Return value: True to continue generation, false to stop (early termination)
+ */
+using TokenStreamCallback = std::function<bool(int32_t batchIndex, int32_t tokenId, bool isFirstToken)>;
 
 /*! \brief RoPE (Rotary Position Embedding) type enumeration
  */

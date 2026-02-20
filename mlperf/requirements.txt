@@ -1,0 +1,9 @@
+transformers==4.57.6
+nltk
+evaluate
+absl-py
+rouge-score
+sentencepiece
+accelerate
+pybind11
+requests

@@ -55,6 +55,7 @@ void SpecDecodeInferenceContext::initialize(int32_t _activeBatchSize, int32_t _m
     currentGenerateLengths.resize(_activeBatchSize, 0);
     effectivePrefillLengths.resize(_activeBatchSize, 0);
     finishedStates.resize(_activeBatchSize, 0);
+    isFirstToken.resize(_activeBatchSize, true);
 
     // Initialize batch index mapping (identity mapping initially)
     batchIndexMapping.resize(_activeBatchSize);
@@ -72,6 +73,7 @@ void SpecDecodeInferenceContext::initialize(int32_t _activeBatchSize, int32_t _m
     maxGenerateLength = _maxGenerateLength;
     activeBatchSize = _activeBatchSize;
     stream = _stream;
+    tokenCallback = nullptr; // Initialize to nullptr, will be set by caller if needed
 }
 
 LLMInferenceSpecDecodeRuntime::LLMInferenceSpecDecodeRuntime(std::string const& engineDir,
@@ -657,6 +659,226 @@ bool LLMInferenceSpecDecodeRuntime::handleRequest(
     return true;
 }
 
+bool LLMInferenceSpecDecodeRuntime::handleRequestWithTokens(
+    std::vector<std::vector<int32_t>> const& batchedInputTokenIds, float temperature, float topP, int64_t topK,
+    int64_t maxGenerateLength, bool enableSpecDecode, LLMGenerationResponse& response, cudaStream_t stream,
+    TokenStreamCallback tokenCallback)
+{
+    int32_t const activeBatchSize = static_cast<int32_t>(batchedInputTokenIds.size());
+
+    if (activeBatchSize == 0)
+    {
+        LOG_ERROR("Empty batch with no input token IDs");
+        return false;
+    }
+
+    if (activeBatchSize > mMaxRuntimeBatchSize)
+    {
+        LOG_ERROR(
+            "Requested batch size %d exceeds maximum supported batch size %d", activeBatchSize, mMaxRuntimeBatchSize);
+        return false;
+    }
+
+    // Use empty tensors for multimodal (not supported in token-based mode)
+    rt::OptionalInputTensor multimodalEmbeddings = std::nullopt;
+    rt::OptionalInputTensors deepstackFeatures = rt::OptionalInputTensors{};
+
+    int32_t actualMaxGenerateLength = static_cast<int32_t>(maxGenerateLength);
+
+    // Initialize context for multi-batch
+    SpecDecodeInferenceContext context;
+    context.initialize(activeBatchSize, actualMaxGenerateLength, multimodalEmbeddings, deepstackFeatures, stream);
+    context.tokenCallback = tokenCallback; // Set callback for streaming
+
+    // Use token IDs directly (skip tokenization)
+    context.rawBatchedInputIds = batchedInputTokenIds;
+    context.systemPrompts.assign(activeBatchSize, ""); // No system prompts for token-based input
+
+    // Check KV cache capacity
+    constexpr int32_t kDRAFT_KVCACHE_RESERVE_LENGTH{100};
+    int32_t const perfillTokenLength = context.rawBatchedInputIds[0].size();
+    int32_t const kvCacheCapacity
+        = std::max(mBaseEngineConfig.maxKVCacheCapacity, mDraftEngineConfig.maxKVCacheCapacity);
+    if (perfillTokenLength + actualMaxGenerateLength > (kvCacheCapacity - kDRAFT_KVCACHE_RESERVE_LENGTH))
+    {
+        actualMaxGenerateLength = kvCacheCapacity - perfillTokenLength - kDRAFT_KVCACHE_RESERVE_LENGTH;
+        LOG_WARNING(
+            "With Eagle3, we need to write drafting KVCache which constrain us on sequence generation."
+            "Reduce max Generation length to %d",
+            actualMaxGenerateLength);
+        context.maxGenerateLength = actualMaxGenerateLength;
+    }
+
+    // Set up for prefill execution (this will set up tokenIds and effectivePrefillLengths)
+    if (!setUpForPrefillExecution(context))
+    {
+        LOG_ERROR("Prefill execution setup failed. This request cannot be handled.");
+        return false;
+    }
+
+    // Prefill from the base model and run spec-decode inference.
+    bool const prefillStatus = runBaseModelPrefill(context);
+    if (!prefillStatus)
+    {
+        LOG_ERROR("Failed to execute prefill step for base model.");
+        return false;
+    }
+
+    // Lambda to check if all batches are finished
+    auto checkAllFinished = [&]() {
+        if (context.activeBatchSize == 0)
+        {
+            return true;
+        }
+        for (int32_t i = 0; i < context.activeBatchSize; ++i)
+        {
+            if (!context.finishedStates[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    // Lambda to update finish states based on EOS and max_length
+    auto updateFinishStates = [&]() {
+        for (int32_t i = 0; i < context.activeBatchSize; ++i)
+        {
+            if (!context.tokenIds[i].empty() && context.tokenIds[i].back() == mTokenizer->getEosId())
+            {
+                context.finishedStates[i] = 1;
+                continue;
+            }
+            if (context.currentGenerateLengths[i] >= context.maxGenerateLength)
+            {
+                context.finishedStates[i] = 1;
+                continue;
+            }
+        }
+    };
+
+    // Check if any batch finished immediately after prefill
+    updateFinishStates();
+
+    // If everything finished during prefill, evict once so activeBatchSize reaches 0
+    if (checkAllFinished() && context.activeBatchSize > 0)
+    {
+        bool const batchEvictStatus = performBatchEvict(context);
+        if (!batchEvictStatus)
+        {
+            LOG_ERROR("Failed to perform batch eviction.");
+            return false;
+        }
+    }
+
+    while (!checkAllFinished())
+    {
+        if (enableSpecDecode)
+        {
+            if (context.generationRound == 0)
+            {
+                bool const draftPrefillStatus = runDraftModelPrefill(context);
+                if (!draftPrefillStatus)
+                {
+                    LOG_ERROR("Failed to execute prefill step for draft model.");
+                    return false;
+                }
+            }
+            else
+            {
+                bool const draftAcceptTokenStatus = runDraftModelAcceptToken(context);
+                if (!draftAcceptTokenStatus)
+                {
+                    LOG_ERROR("Failed to execute accept token step for draft model.");
+                    return false;
+                }
+            }
+
+            bool const draftTreeConstructionStatus = constructDraftTree(context);
+            if (!draftTreeConstructionStatus)
+            {
+                LOG_ERROR("Failed to construct draft tree.");
+                return false;
+            }
+
+            bool const baseModelVerificationStatus = runBaseModelVerification(context);
+            if (!baseModelVerificationStatus)
+            {
+                LOG_ERROR("Failed to verify token draft tree with base model.");
+                return false;
+            }
+        }
+        else
+        {
+            bool const vanillaDecodingStatus = runVanillaDecoding(context);
+            if (!vanillaDecodingStatus)
+            {
+                LOG_ERROR("Failed to decode tokens with vanilla decoding.");
+                return false;
+            }
+        }
+
+        updateFinishStates();
+        context.generationRound += 1;
+
+        bool const batchEvictStatus = performBatchEvict(context);
+        if (!batchEvictStatus)
+        {
+            LOG_ERROR("Failed to perform batch eviction.");
+            return false;
+        }
+    }
+
+    if (context.activeBatchSize != 0)
+    {
+        LOG_ERROR("Eviction failure, there should be no active batch at the end of the inference. activeBatchSize: %d",
+            context.activeBatchSize);
+        return false;
+    }
+
+    // Record Eagle metrics
+    int32_t totalReusedTokens = 0;
+    int32_t totalComputedTokens = 0;
+    int32_t totalGeneratedTokens = 0;
+    int32_t totalIterations = 0;
+
+    for (auto const& [originalIdx, batchResult] : context.completedBatches)
+    {
+        int32_t rawPromptLength = static_cast<int32_t>(batchResult.rawBatchedInputIds.size());
+        int32_t computedLength = batchResult.effectivePrefillLength;
+        totalReusedTokens += (rawPromptLength - computedLength);
+        totalComputedTokens += computedLength;
+        totalGeneratedTokens += batchResult.generateLength;
+        totalIterations += batchResult.actualIterations;
+    }
+
+    mPrefillMetrics.recordRun(totalReusedTokens, totalComputedTokens);
+    if (enableSpecDecode)
+    {
+        mEagleGenerationMetrics.recordRun(totalIterations, totalGeneratedTokens);
+    }
+
+    // Save output ids to response (no text decoding for token-based API)
+    response.outputIds.clear();
+    response.outputTexts.clear();
+    response.outputIds.resize(context.completedBatches.size());
+    response.outputTexts.resize(context.completedBatches.size());
+
+    for (auto const& [originalIdx, batchResult] : context.completedBatches)
+    {
+        int32_t genLength = batchResult.generateLength;
+        int32_t const totalLength = static_cast<int32_t>(batchResult.tokenIds.size());
+
+        check::check(totalLength >= genLength, "Total length should be greater than or equal to generated length");
+        response.outputIds[originalIdx] = std::vector<int32_t>(
+            batchResult.tokenIds.begin() + (totalLength - genLength), batchResult.tokenIds.end());
+        // Don't decode to text for token-based API
+        response.outputTexts[originalIdx] = "";
+    }
+
+    return true;
+}
+
 bool LLMInferenceSpecDecodeRuntime::runBaseModelPrefill(SpecDecodeInferenceContext& context)
 {
     TIME_STAGE(metrics::StageNames::kLLM_PREFILL, context.stream);
@@ -771,8 +993,24 @@ bool LLMInferenceSpecDecodeRuntime::runBaseModelPrefill(SpecDecodeInferenceConte
     {
         if (!context.finishedStates[i])
         {
-            context.tokenIds[i].push_back(hostSelectedTokenIdsData[i]);
+            int32_t tokenId = hostSelectedTokenIdsData[i];
+            context.tokenIds[i].push_back(tokenId);
             context.currentGenerateLengths[i] += 1;
+
+            // Call streaming callback if provided
+            if (context.tokenCallback)
+            {
+                int32_t originalIdx = context.batchIndexMapping[i];
+                bool shouldContinue = context.tokenCallback(originalIdx, tokenId, context.isFirstToken[i]);
+                if (!shouldContinue)
+                {
+                    // Early termination requested by callback
+                    context.finishedStates[i] = true;
+                }
+            }
+
+            // Mark that first token has been sent
+            context.isFirstToken[i] = false;
         }
     }
 
@@ -1107,6 +1345,22 @@ bool LLMInferenceSpecDecodeRuntime::runBaseModelVerification(SpecDecodeInference
             context.tokenIds[batchIdx].push_back(token);
             context.currentGenerateLengths[batchIdx]++;
 
+            // Call streaming callback if provided
+            if (context.tokenCallback)
+            {
+                int32_t originalIdx = context.batchIndexMapping[batchIdx];
+                bool shouldContinue = context.tokenCallback(originalIdx, token, context.isFirstToken[batchIdx]);
+                if (!shouldContinue)
+                {
+                    // Early termination requested by callback
+                    context.finishedStates[batchIdx] = true;
+                    break;
+                }
+            }
+
+            // Mark that first token has been sent
+            context.isFirstToken[batchIdx] = false;
+
             // Abandon token after EOS if they exist.
             if (token == mTokenizer->getEosId())
             {
@@ -1176,8 +1430,27 @@ bool LLMInferenceSpecDecodeRuntime::runVanillaDecoding(SpecDecodeInferenceContex
     // Update tokenIds and generation length for each sequence
     for (int32_t i = 0; i < activeBatchSize; ++i)
     {
-        context.tokenIds[i].push_back(hostSelectedTokenIdsData[i]);
-        context.currentGenerateLengths[i] += 1;
+        if (!context.finishedStates[i])
+        {
+            int32_t tokenId = hostSelectedTokenIdsData[i];
+            context.tokenIds[i].push_back(tokenId);
+            context.currentGenerateLengths[i] += 1;
+
+            // Call streaming callback if provided
+            if (context.tokenCallback)
+            {
+                int32_t originalIdx = context.batchIndexMapping[i];
+                bool shouldContinue = context.tokenCallback(originalIdx, tokenId, context.isFirstToken[i]);
+                if (!shouldContinue)
+                {
+                    // Early termination requested by callback
+                    context.finishedStates[i] = true;
+                }
+            }
+
+            // Mark that first token has been sent
+            context.isFirstToken[i] = false;
+        }
     }
 
     return true;
@@ -1686,6 +1959,7 @@ bool LLMInferenceSpecDecodeRuntime::performBatchEvict(SpecDecodeInferenceContext
     rt::compactVector(batchMapping, context.rawBatchedInputIds);
     rt::compactVector(batchMapping, context.effectivePrefillLengths);
     rt::compactVector(batchMapping, context.batchIndexMapping);
+    rt::compactVector(batchMapping, context.isFirstToken);
 
     // Update active batch size
     context.activeBatchSize = newActiveBatch;

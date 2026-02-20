@@ -68,6 +68,22 @@ public:
      */
     bool handleRequest(LLMGenerationRequest const& request, LLMGenerationResponse& response, cudaStream_t stream);
 
+    /*! \brief Handle an LLM generation request with token IDs directly (token-in, token-out)
+     *  \param batchedInputTokenIds Batched input token IDs (one vector per batch item)
+     *  \param temperature Temperature for sampling
+     *  \param topP Top-p (nucleus) sampling parameter
+     *  \param topK Top-k sampling parameter
+     *  \param maxGenerateLength Maximum number of tokens to generate
+     *  \param response The generation response to be filled with output token IDs
+     *  \param stream CUDA stream for execution
+     *  \param tokenCallback Optional callback function called for each generated token during streaming (nullptr to
+     * disable)
+     *  \return True if request was handled successfully, false otherwise
+     */
+    bool handleRequestWithTokens(std::vector<std::vector<int32_t>> const& batchedInputTokenIds, float temperature,
+        float topP, int64_t topK, int64_t maxGenerateLength, LLMGenerationResponse& response, cudaStream_t stream,
+        TokenStreamCallback tokenCallback = nullptr);
+
     /*! \brief Capture CUDA graph for the decoding step to optimize performance
      *  \param stream CUDA stream for graph capture
      *  \return True if graph was captured successfully, false otherwise
