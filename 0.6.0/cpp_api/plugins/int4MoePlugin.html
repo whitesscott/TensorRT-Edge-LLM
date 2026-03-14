@@ -1,0 +1,1256 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Int4 Moe Plugin &#8212; TensorRT Edge-LLM</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css?v=a0a71c94" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=65e89d2a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/plugins/int4MoePlugin';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+
+    <link rel="icon" href="../../_static/favicon.png"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mamba Plugin" href="mambaPlugin.html" />
+    <link rel="prev" title="Int4 Groupwise GEMM Plugin" href="int4GroupwiseGemmPlugin.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.0" />
+
+
+  </head>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="TensorRT Edge-LLM - Home"/>
+    <img src="../../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="TensorRT Edge-LLM - Home"/>
+  
+  
+    <p class="title logo__title">TensorRT Edge-LLM</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/getting_started/supported-models.html">Supported Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/getting_started/quick-start-guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/getting_started/limitations.html">Limitations and Known Issues</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vlm.html">VLM (Vision-Language Model) Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/speculative-decoding.html">Speculative Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/phi4.html">Phi-4-Multimodal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Input &amp; Chat Format</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/input-format.html">Input JSON Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/chat-template-format.html">Chat Template Format</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/customization/customization-guide.html">Customization Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/customization/tensorrt-plugins.html">TensorRT Plugins Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/testing/code-coverage.html">Code Coverage with SonarQube</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/audioBuilder.html">Audio Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../builder/builderUtils.html">Builder Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../builder/llmBuilder.html">LLM Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../builder/visualBuilder.html">Visual Builder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common/index.html">Common Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/bindingNames.html">Binding Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/checkMacros.html">Check Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaMacros.html">CUDA Macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/cudaUtils.html">CUDA Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/fileUtils.html">File Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/hashUtils.html">Hash Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/inputLimits.html">Input Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/logger.html">Logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mathUtils.html">Math Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/mmapReader.html">MMAP Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/safetensorsUtils.html">Safetensors Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/causalConv1d.html">Causal Conv1d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/common.html">Common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequant.html">Dequant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleAcceptKernels.html">EAGLE Accept Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kernel.html">Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kernel_selector.html">Kernel Selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/marlin.html">Marlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_dtypes.html">Marlin Dtypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_mma.html">Marlin Mma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_template.html">Marlin Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeActivationKernels.html">Moe Activation Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeAlignSumKernels.html">Moe Align Sum Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeMarlin.html">Moe Marlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/selectiveStateUpdate.html">Selective State Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multimodal/index.html">Multimodal Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/audioRunner.html">Audio Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/code2WavRunner.html">Code2 Wav Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Plugins Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="attentionPlugin.html">Attention Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causalConv1dPlugin.html">Causal Conv1d Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Int4 Moe Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mambaPlugin.html">Mamba Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pluginUtils.html">Plugin Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitAttentionPlugin.html">VIT Attention Plugin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../profiling/index.html">Profiling Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/layerProfiler.html">Layer Profiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/nvtx_wrapper.html">Nvtx Wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiling/timer.html">Timer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sampler/sampling.html">Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tokenizer/index.html">Tokenizer Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/preTokenizer.html">Pre Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenEncoder.html">Token Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizer.html">Tokenizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/tokenizerUtils.html">Tokenizer Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tokenizer/unicodeData.html">Unicode Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quick Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/TensorRT-Edge-LLM/releases">Releases</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/TensorRT-Edge-LLM">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/TensorRT-Edge-LLM/issues?q=is%3Aissue%20state%3Aopen%20label%3ARoadmap">Roadmap</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../cpp_api.html" class="nav-link">C++ API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Plugins Module</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Int4 Moe Plugin</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="int4-moe-plugin">
+<h1>Int4 Moe Plugin<a class="headerlink" href="#int4-moe-plugin" title="Link to this heading">#</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePluginE">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePluginE"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePluginE"></span><span id="trt_edgellm::plugins::Int4MoePlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePlugin</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneCore</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneBuild</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneRuntime</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePluginE" title="Link to this definition">#</a><br /></dt>
+<dd><p>TensorRT plugin for INT4 Mixture of Experts (MoE) </p>
+<p>Implements efficient INT4 quantized matrix multiplication with Mixture of Experts (MoE) quantization. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEK7int32_tK7int32_tK7int32_tK7int32_tKN8nvinfer114ActivationTypeEK7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEK7int32_tK7int32_tK7int32_tK7int32_tKN8nvinfer114ActivationTypeEK7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEK7int32_tK7int32_tK7int32_tK7int32_tKN8nvinfer114ActivationTypeEK7int32_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::Int4MoePlugin__ssCR.int32_tC.int32_tC.int32_tC.int32_tC.nvinfer1::ActivationTypeC.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a3e488c027bcaa7ee566ecceda0ae9741"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePlugin</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numExperts</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">topK</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">hiddenSize</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">moeInterSize</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ActivationType</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">activationType</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">quantizationGroupSize</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEK7int32_tK7int32_tK7int32_tK7int32_tKN8nvinfer114ActivationTypeEK7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct INT4 Mixture of Experts (MoE) plugin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Layer name </p></li>
+<li><p><strong>numExperts</strong> – Number of experts </p></li>
+<li><p><strong>topK</strong> – Top K experts to select </p></li>
+<li><p><strong>hiddenSize</strong> – Hidden size </p></li>
+<li><p><strong>moeInterSize</strong> – Intermediate size of the MoE layer </p></li>
+<li><p><strong>activationType</strong> – Activation type </p></li>
+<li><p><strong>quantizationGroupSize</strong> – Quantization group size </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"></span><span id="trt_edgellm::plugins::Int4MoePlugin::Int4MoePlugin__ssCR.nvinfer1::PluginFieldCollectionCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a4b97bcdec7806d78d67069c175e7afcc"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePlugin</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct from field collection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Layer name </p></li>
+<li><p><strong>fc</strong> – Plugin field collection </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginEv">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginEv"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::Int4MoePlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a29413eac39e19347528a2c38bbe8b241"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePlugin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Deleted default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERK13Int4MoePlugin">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERK13Int4MoePlugin"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERK13Int4MoePlugin"></span><span id="trt_edgellm::plugins::Int4MoePlugin::Int4MoePlugin__Int4MoePluginCR"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1adc9c8f6d5f603ffed989d6bfbf78b407"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePlugin</span></span></span><span class="sig-paren">(</span><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERK13Int4MoePlugin" title="trt_edgellm::plugins::Int4MoePlugin::Int4MoePlugin"><span class="n"><span class="pre">Int4MoePlugin</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERK13Int4MoePlugin" title="Link to this definition">#</a><br /></dt>
+<dd><p>Deleted copy constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePluginD0Ev">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePluginD0Ev"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePluginD0Ev"></span><span id="trt_edgellm::plugins::Int4MoePlugin::~Int4MoePlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1afde4545645bea5753fe6e0532f21ef2b"></span><span class="sig-name descname"><span class="n"><span class="pre">~Int4MoePlugin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePluginD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getCapabilityInterface__nvinfer1::PluginCapabilityType"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1aaeb5f2eda53863434afc2a12413acbd0"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCapability</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getCapabilityInterface</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginCapabilityType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the plugin capability interface for given type. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin5cloneEv">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin5cloneEv"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin5cloneEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::clone"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a9500d433e9ab54854427f9b8130db50a"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin5cloneEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Clone the plugin for use in another network. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cloned plugin instance </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin13getPluginNameEv">
+<span id="_CPPv3NK11trt_edgellm7plugins13Int4MoePlugin13getPluginNameEv"></span><span id="_CPPv2NK11trt_edgellm7plugins13Int4MoePlugin13getPluginNameEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getPluginNameC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a5c0266693e382d52f79294252bc70a0c"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin13getPluginNameEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plugin name string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin16getPluginVersionEv">
+<span id="_CPPv3NK11trt_edgellm7plugins13Int4MoePlugin16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins13Int4MoePlugin16getPluginVersionEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a430e24d6d0063a84d25ec2418f268937"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin version. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Version string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin18getPluginNamespaceEv">
+<span id="_CPPv3NK11trt_edgellm7plugins13Int4MoePlugin18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins13Int4MoePlugin18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a44ea6da3d93633710b3641fceb32df8a"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin namespace. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Namespace string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin12getNbOutputsEv">
+<span id="_CPPv3NK11trt_edgellm7plugins13Int4MoePlugin12getNbOutputsEv"></span><span id="_CPPv2NK11trt_edgellm7plugins13Int4MoePlugin12getNbOutputsEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getNbOutputsC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a077eda1d04dd4296357ac87801281811"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNbOutputs</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin12getNbOutputsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get number of output tensors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of outputs (1) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">
+<span id="_CPPv3NK11trt_edgellm7plugins13Int4MoePlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins13Int4MoePlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getOutputDataTypes__nvinfer1::DataTypeP.int32_t.nvinfer1::DataTypeCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a43c35f9c3fe6642bedf25a7f4c264e60"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDataTypes</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputTypes</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputTypes</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get output tensor data types. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outputTypes</strong> – Output array for data types </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+<li><p><strong>inputTypes</strong> – Input data types </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getOutputShapes__nvinfer1::DimsExprsCP.int32_t.nvinfer1::DimsExprsCP.int32_t.nvinfer1::DimsExprsP.int32_t.nvinfer1::IExprBuilderR"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a4a5d71308fdace10dbe01fc6ea4c6595"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputShapes</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">shapeInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbShapeInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IExprBuilder</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">exprBuilder</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get output tensor shapes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input dimensions </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>shapeInputs</strong> – Shape tensor inputs </p></li>
+<li><p><strong>nbShapeInputs</strong> – Number of shape inputs </p></li>
+<li><p><strong>outputs</strong> – Output dimensions </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+<li><p><strong>exprBuilder</strong> – Expression builder for dynamic shapes </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::supportsFormatCombination__int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1aa9062b2b584970345bc7a4533eadcd58"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supportsFormatCombination</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inOut</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Check if format combination is supported. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> – Position in input/output array </p></li>
+<li><p><strong>inOut</strong> – Input and output tensor descriptors </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if supported </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::configurePlugin__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a845de5143037e98d9645b575d6bdf337"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configurePlugin</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configure plugin with tensor descriptions. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in</strong> – Input tensor descriptors </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>out</strong> – Output tensor descriptors </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
+<span id="_CPPv3NK11trt_edgellm7plugins13Int4MoePlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins13Int4MoePlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getWorkspaceSize__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a1d18ae98c8d11f2dbad68613191795c3"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWorkspaceSize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get workspace size required for execution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input tensor descriptors </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>outputs</strong> – Output tensor descriptors </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Workspace size in bytes </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::enqueue__nvinfer1::PluginTensorDescCP.nvinfer1::PluginTensorDescCP.voidCPCP.voidPCP.voidP.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a2dd2c2aaae6120ff10ec3fe52c1bc4e3"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enqueue</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputDesc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputDesc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">workspace</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Execute the plugin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputDesc</strong> – Input tensor descriptors </p></li>
+<li><p><strong>outputDesc</strong> – Output tensor descriptors </p></li>
+<li><p><strong>inputs</strong> – Input tensor pointers </p></li>
+<li><p><strong>outputs</strong> – Output tensor pointers </p></li>
+<li><p><strong>workspace</strong> – Workspace pointer </p></li>
+<li><p><strong>stream</strong> – CUDA stream </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::Int4MoePlugin::onShapeChange__nvinfer1::PluginTensorDescCP.int32_t.nvinfer1::PluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a1c220b2a6e148d0f7206e168c3b8f6b0"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onShapeChange</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Called when input/output shapes change during runtime. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in</strong> – Input tensor descriptors </p></li>
+<li><p><strong>nbInputs</strong> – Number of inputs </p></li>
+<li><p><strong>out</strong> – Output tensor descriptors </p></li>
+<li><p><strong>nbOutputs</strong> – Number of outputs </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, non-zero on error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15attachToContextEPN8nvinfer122IPluginResourceContextE">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"></span><span id="trt_edgellm::plugins::Int4MoePlugin::attachToContext__nvinfer1::IPluginResourceContextP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1ad25088f3ce0b0e6aabaec9015c0a15c9"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">attachToContext</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginResourceContext</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15attachToContextEPN8nvinfer122IPluginResourceContextE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Attach plugin to an execution context. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> – Plugin resource context </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cloned plugin attached to context </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin20getFieldsToSerializeEv">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin20getFieldsToSerializeEv"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin20getFieldsToSerializeEv"></span><span id="trt_edgellm::plugins::Int4MoePlugin::getFieldsToSerialize"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1a44d38ebb92066b88504e484c546ca881"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldsToSerialize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin20getFieldsToSerializeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin fields for serialization. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Field collection for serialization </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins13Int4MoePlugin18setPluginNamespaceEPKc">
+<span id="_CPPv3N11trt_edgellm7plugins13Int4MoePlugin18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins13Int4MoePlugin18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::Int4MoePlugin::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePlugin_1adba201ba03a62b60428d82af5637a2c7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
+<dd><p>Set plugin namespace. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pluginNamespace</strong> – Namespace string </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreatorE">
+<span id="_CPPv3N11trt_edgellm7plugins20Int4MoePluginCreatorE"></span><span id="_CPPv2N11trt_edgellm7plugins20Int4MoePluginCreatorE"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePluginCreator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCreatorV3One</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreatorE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Factory for creating <a class="reference internal" href="#classtrt__edgellm_1_1plugins_1_1Int4MoePlugin"><span class="std std-ref">Int4MoePlugin</span></a> instances. </p>
+<p>Handles plugin registration and creation in TensorRT. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator20Int4MoePluginCreatorEv">
+<span id="_CPPv3N11trt_edgellm7plugins20Int4MoePluginCreator20Int4MoePluginCreatorEv"></span><span id="_CPPv2N11trt_edgellm7plugins20Int4MoePluginCreator20Int4MoePluginCreatorEv"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::Int4MoePluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1a5f3e4dfc4b45ce2710bc9366d8f4d2fc"></span><span class="sig-name descname"><span class="n"><span class="pre">Int4MoePluginCreator</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator20Int4MoePluginCreatorEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreatorD0Ev">
+<span id="_CPPv3N11trt_edgellm7plugins20Int4MoePluginCreatorD0Ev"></span><span id="_CPPv2N11trt_edgellm7plugins20Int4MoePluginCreatorD0Ev"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::~Int4MoePluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1a357816e840868b4a3997155264b0121b"></span><span class="sig-name descname"><span class="n"><span class="pre">~Int4MoePluginCreator</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreatorD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator13getPluginNameEv">
+<span id="_CPPv3NK11trt_edgellm7plugins20Int4MoePluginCreator13getPluginNameEv"></span><span id="_CPPv2NK11trt_edgellm7plugins20Int4MoePluginCreator13getPluginNameEv"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::getPluginNameC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1af850408671c135d94ed529f287934cf9"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator13getPluginNameEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plugin name string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator16getPluginVersionEv">
+<span id="_CPPv3NK11trt_edgellm7plugins20Int4MoePluginCreator16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins20Int4MoePluginCreator16getPluginVersionEv"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1ab80a869855e3aa6acd44c55df2182b6f"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin version. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Version string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator13getFieldNamesEv">
+<span id="_CPPv3N11trt_edgellm7plugins20Int4MoePluginCreator13getFieldNamesEv"></span><span id="_CPPv2N11trt_edgellm7plugins20Int4MoePluginCreator13getFieldNamesEv"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::getFieldNames"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1ad751d4a249bc9b0c9a1551e893f9c8ec"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldNames</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator13getFieldNamesEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin field names. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Field collection </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator18getPluginNamespaceEv">
+<span id="_CPPv3NK11trt_edgellm7plugins20Int4MoePluginCreator18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins20Int4MoePluginCreator18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1abe6d86049475b692c4a1654b7d885f05"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get plugin namespace. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Namespace string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator18setPluginNamespaceEPKc">
+<span id="_CPPv3N11trt_edgellm7plugins20Int4MoePluginCreator18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins20Int4MoePluginCreator18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1a887cf76e8a7d78358f945b9e84acb445"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
+<dd><p>Set plugin namespace. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pluginNamespace</strong> – Namespace string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE">
+<span id="_CPPv3N11trt_edgellm7plugins20Int4MoePluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"></span><span id="_CPPv2N11trt_edgellm7plugins20Int4MoePluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"></span><span id="trt_edgellm::plugins::Int4MoePluginCreator::createPlugin__cCP.nvinfer1::PluginFieldCollectionCP.nvinfer1::TensorRTPhase"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1Int4MoePluginCreator_1a6a7ef406be766c9b6b463bcb76f70aff"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">createPlugin</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">TensorRTPhase</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">phase</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Create plugin from field collection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Plugin name </p></li>
+<li><p><strong>fc</strong> – Field collection with parameters </p></li>
+<li><p><strong>phase</strong> – TensorRT phase (build or runtime) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Created plugin instance </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="int4GroupwiseGemmPlugin.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Int4 Groupwise GEMM Plugin</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mambaPlugin.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mamba Plugin</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePluginE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::plugins::Int4MoePlugin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEK7int32_tK7int32_tK7int32_tK7int32_tKN8nvinfer114ActivationTypeEK7int32_t"><code class="docutils literal notranslate"><span class="pre">Int4MoePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"><code class="docutils literal notranslate"><span class="pre">Int4MoePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginEv"><code class="docutils literal notranslate"><span class="pre">Int4MoePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13Int4MoePluginERK13Int4MoePlugin"><code class="docutils literal notranslate"><span class="pre">Int4MoePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePluginD0Ev"><code class="docutils literal notranslate"><span class="pre">~Int4MoePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"><code class="docutils literal notranslate"><span class="pre">getCapabilityInterface()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin5cloneEv"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin13getPluginNameEv"><code class="docutils literal notranslate"><span class="pre">getPluginName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin12getNbOutputsEv"><code class="docutils literal notranslate"><span class="pre">getNbOutputs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"><code class="docutils literal notranslate"><span class="pre">getOutputDataTypes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"><code class="docutils literal notranslate"><span class="pre">getOutputShapes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"><code class="docutils literal notranslate"><span class="pre">supportsFormatCombination()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">configurePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins13Int4MoePlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">getWorkspaceSize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">onShapeChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"><code class="docutils literal notranslate"><span class="pre">attachToContext()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin20getFieldsToSerializeEv"><code class="docutils literal notranslate"><span class="pre">getFieldsToSerialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins13Int4MoePlugin18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreatorE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::plugins::Int4MoePluginCreator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator20Int4MoePluginCreatorEv"><code class="docutils literal notranslate"><span class="pre">Int4MoePluginCreator()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreatorD0Ev"><code class="docutils literal notranslate"><span class="pre">~Int4MoePluginCreator()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator13getPluginNameEv"><code class="docutils literal notranslate"><span class="pre">getPluginName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator13getFieldNamesEv"><code class="docutils literal notranslate"><span class="pre">getFieldNames()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins20Int4MoePluginCreator18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins20Int4MoePluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"><code class="docutils literal notranslate"><span class="pre">createPlugin()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2025, Nvidia.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+<div class="extra_footer">
+  
+  <p>Last updated on March 14, 2026.</p>
+  
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/d71c009">d71c009</a>.</p>
+  
+</div></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>
