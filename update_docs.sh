@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
-# Update docs after pulling a new version folder (e.g. 0.6.0).
+# Update docs after pulling a new version folder (e.g. 0.6.1).
 # Usage: ./update_docs.sh <VERSION>
-# Example: ./update_docs.sh 0.6.0
+# Example: ./update_docs.sh 0.6.1
 #
 # This script:
-# 1. Removes the existing latest/ folder
-# 2. Copies the new version (e.g. 0.6.0) to latest/, including _modules, _sources, _static, .html and related docs (no .nojekyll)
-# 3. Updates every _static/switcher.json with all existing versions and "latest" pointing to the new content
+# 1. Resolves the doc source root inside the version folder
+#    (uses <VERSION>/html/ if present, otherwise <VERSION>/ directly)
+# 2. Syncs the doc source root -> latest/  (excluding .nojekyll)
+# 3. Syncs the doc source root -> repo root (cpp_api/, developer_guide/,
+#    user_guide/, _modules/, _sources/, _static/, *.html, etc.)
+#    Preserves: .git, .nojekyll, README.md, update_docs.sh, latest/,
+#    and all versioned release folders (e.g. 0.4.0/, 0.6.1/).
+# 4. Updates every _static/switcher.json with all existing versions,
+#    "latest" pointing to the new content.
 
 set -euo pipefail
 
@@ -16,7 +22,7 @@ BASE_URL="https://nvidia.github.io/TensorRT-Edge-LLM"
 
 if [[ $# -lt 1 ]]; then
   echo "Usage: $0 <VERSION>" >&2
-  echo "Example: $0 0.6.0" >&2
+  echo "Example: $0 0.6.1" >&2
   exit 1
 fi
 
@@ -29,22 +35,41 @@ if [[ ! -d "$VERSION_DIR" ]]; then
   exit 1
 fi
 
-echo "Updating docs: making $VERSION the new latest..."
-
-# (1) Remove existing latest folder
-if [[ -d "$REPO_ROOT/latest" ]]; then
-  echo "Removing existing latest/ ..."
-  rm -rf "$REPO_ROOT/latest"
+# Resolve the actual doc root: some releases nest everything under html/
+if [[ -d "$VERSION_DIR/html" ]]; then
+  SOURCE_ROOT="$VERSION_DIR/html"
+  echo "Detected nested html/ layout: using $VERSION/html/ as source root."
+else
+  SOURCE_ROOT="$VERSION_DIR"
 fi
 
-# (2) Copy version to latest: _modules, _sources, _static, all .html and doc trees; do NOT copy .nojekyll
-echo "Copying $VERSION/ to latest/ (excluding .nojekyll) ..."
+echo "Updating docs: making $VERSION the new latest..."
+
+# (1) Remove existing latest folder and repopulate from SOURCE_ROOT
+echo "Rebuilding latest/ from $SOURCE_ROOT ..."
+rm -rf "$REPO_ROOT/latest"
 mkdir -p "$REPO_ROOT/latest"
-rsync -a --exclude='.nojekyll' "$VERSION_DIR/" "$REPO_ROOT/latest/"
-# Ensure we never leave .nojekyll in latest (in case version dir had one)
+rsync -a --exclude='.nojekyll' "$SOURCE_ROOT/" "$REPO_ROOT/latest/"
 rm -f "$REPO_ROOT/latest/.nojekyll"
 
-# (3) Discover all version directories (semver-like: 0.4.0, 0.5.0, 0.6.0, ...)
+# (2) Sync doc content to the repo root so that cpp_api/, developer_guide/,
+#     user_guide/, _modules/, _sources/, _static/, *.html, etc. reflect the
+#     new version.  We use --delete so stale files are removed, but we
+#     carefully exclude everything that must not be touched.
+echo "Syncing $SOURCE_ROOT -> repo root (updating cpp_api/, developer_guide/, _static/, HTML files, etc.) ..."
+rsync -a --delete \
+  --exclude='.git' \
+  --exclude='.git/' \
+  --exclude='.nojekyll' \
+  --exclude='README.md' \
+  --exclude='update_docs.sh' \
+  --exclude='latest' \
+  --exclude='latest/' \
+  --exclude='[0-9]*.[0-9]*.[0-9]*' \
+  --exclude='[0-9]*.[0-9]*.[0-9]*/' \
+  "$SOURCE_ROOT/" "$REPO_ROOT/"
+
+# (3) Discover all version directories (semver-like: 0.4.0, 0.5.0, 0.6.1, ...)
 VERSION_DIRS=()
 for d in "$REPO_ROOT"/*; do
   if [[ -d "$d" ]]; then
@@ -54,14 +79,14 @@ for d in "$REPO_ROOT"/*; do
     fi
   fi
 done
-# Sort versions descending (newest first). Use -V if available (GNU), else numeric keys.
+# Sort versions descending (newest first). Use -V if available (GNU sort), else numeric keys.
 if sort -Vr <<<"0.1.0" &>/dev/null; then
   IFS=$'\n' sorted_versions=($(printf '%s\n' "${VERSION_DIRS[@]}" | sort -Vr)); unset IFS
 else
   IFS=$'\n' sorted_versions=($(printf '%s\n' "${VERSION_DIRS[@]}" | sort -t. -k1,1nr -k2,2nr -k3,3nr)); unset IFS
 fi
 
-# Build switcher.json content: "latest" first (preferred), then numeric versions (newest first)
+# (4) Build switcher.json: "latest" first (preferred), then numeric versions newest-first
 SWITCHER_ENTRIES="[
     {
         \"preferred\": true,
@@ -78,25 +103,37 @@ done
 SWITCHER_ENTRIES+="
 ]"
 
-# Write switcher.json to root _static and to every version's _static (including latest)
+# Helper: find the _static dir inside a version folder (may be nested under html/)
+version_static_dir() {
+  local v="$1"
+  if [[ -d "$REPO_ROOT/$v/html/_static" ]]; then
+    echo "$REPO_ROOT/$v/html/_static"
+  elif [[ -d "$REPO_ROOT/$v/_static" ]]; then
+    echo "$REPO_ROOT/$v/_static"
+  fi
+}
+
+# Collect all switcher.json paths: root, latest, and every version
 SWITCHER_PATHS=(
   "$REPO_ROOT/_static/switcher.json"
   "$REPO_ROOT/latest/_static/switcher.json"
 )
 for v in "${sorted_versions[@]}"; do
-  p="$REPO_ROOT/$v/_static/switcher.json"
-  if [[ -f "$p" || -d "$REPO_ROOT/$v/_static" ]]; then
-    SWITCHER_PATHS+=("$p")
+  sdir="$(version_static_dir "$v")"
+  if [[ -n "$sdir" ]]; then
+    SWITCHER_PATHS+=("$sdir/switcher.json")
   fi
 done
 
 echo "Updating switcher.json in ${#SWITCHER_PATHS[@]} locations..."
 for p in "${SWITCHER_PATHS[@]}"; do
   dir=$(dirname "$p")
-  if [[ ! -d "$dir" ]]; then
-    mkdir -p "$dir"
-  fi
+  mkdir -p "$dir"
   echo "$SWITCHER_ENTRIES" > "$p"
 done
 
-echo "Done. latest/ now reflects $VERSION; all switcher.json files list: latest, ${sorted_versions[*]}."
+echo ""
+echo "Done."
+echo "  latest/    -> $VERSION content"
+echo "  repo root  -> $VERSION content (cpp_api/, developer_guide/, _static/, HTML files, ...)"
+echo "  switcher   -> latest, ${sorted_versions[*]}"

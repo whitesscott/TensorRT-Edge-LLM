@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css?v=a0a71c94" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=e02be394" />
   
@@ -424,7 +424,7 @@ window.addEventListener("load", load);
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.1';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -437,7 +437,7 @@ window.addEventListener("load", load);
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.6.0" />
+  <meta name="docsearch:version" content="0.6.1" />
 
 
   </head>
@@ -1275,6 +1275,36 @@ window.addEventListener("load", load);
     <span class="k">return</span> <span class="n">model</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_sanitize_generation_config</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reset sampling-only params to neutral defaults when do_sample=False.</span>
+
+<span class="sd">    transformers &gt;= 4.39 validates GenerationConfig strictly during</span>
+<span class="sd">    save_pretrained(), raising ValueError if sampling-only params are set</span>
+<span class="sd">    while do_sample=False. Affected params: temperature, top_p, min_p,</span>
+<span class="sd">    typical_p, top_k, epsilon_cutoff, eta_cutoff.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;generation_config&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">model</span><span class="o">.</span><span class="n">generation_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generation_config</span>
+    <span class="k">if</span> <span class="n">gc</span><span class="o">.</span><span class="n">do_sample</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">gc</span><span class="o">.</span><span class="n">temperature</span> <span class="o">!=</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">gc</span><span class="o">.</span><span class="n">top_p</span> <span class="o">!=</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="s2">&quot;min_p&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">min_p</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="s2">&quot;typical_p&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">typical_p</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">gc</span><span class="o">.</span><span class="n">top_k</span> <span class="o">!=</span> <span class="mi">50</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="s2">&quot;penalty_alpha&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="s2">&quot;epsilon_cutoff&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">epsilon_cutoff</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="s2">&quot;eta_cutoff&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">eta_cutoff</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+
 <div class="viewcode-block" id="quantize_and_save_llm">
 <a class="viewcode-back" href="../../../python_api.html#tensorrt_edgellm.quantize_and_save_llm">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">quantize_and_save_llm</span><span class="p">(</span><span class="n">model_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1319,6 +1349,7 @@ window.addEventListener("load", load);
     <span class="c1"># Save the quantized model</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+    <span class="n">_sanitize_generation_config</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
         <span class="n">model</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
     <span class="n">tokenizer</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
@@ -1390,6 +1421,7 @@ window.addEventListener("load", load);
     <span class="c1"># Save the quantized model</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+    <span class="n">_sanitize_generation_config</span><span class="p">(</span><span class="n">draft_model</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
         <span class="n">draft_model</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
 
@@ -1512,9 +1544,9 @@ window.addEventListener("load", load);
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on March 14, 2026.</p>
+  <p>Last updated on April 16, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/d71c009">d71c009</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/09e8e5e">09e8e5e</a>.</p>
   
 </div></div>
       
