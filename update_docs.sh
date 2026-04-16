@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
-# Update docs after pulling a new version folder (e.g. 0.6.1).
+# Update docs with a new version release.
 # Usage: ./update_docs.sh <VERSION>
 # Example: ./update_docs.sh 0.6.1
 #
-# This script:
-# 1. Resolves the doc source root inside the version folder
-#    (uses <VERSION>/html/ if present, otherwise <VERSION>/ directly)
-# 2. Syncs the doc source root -> latest/  (excluding .nojekyll)
-# 3. Syncs the doc source root -> repo root (cpp_api/, developer_guide/,
-#    user_guide/, _modules/, _sources/, _static/, *.html, etc.)
-#    Preserves: .git, .nojekyll, README.md, update_docs.sh, latest/,
-#    and all versioned release folders (e.g. 0.4.0/, 0.6.1/).
-# 4. Updates every _static/switcher.json with all existing versions,
-#    "latest" pointing to the new content.
+# Steps:
+# 1. Flatten the version folder: if <VERSION>/html/ exists, replace <VERSION>/
+#    with its contents so <VERSION>/index.html is at the root and
+#    https://.../TensorRT-Edge-LLM/<VERSION>/ always resolves correctly.
+# 2. Update latest/ to match the new version content (no .nojekyll).
+# 3. Update root-level doc files/folders to the new version content.
+#    Protected (never touched): .git  .nojekyll  README.md  update_docs.sh
+#                               latest/  and all x.y.z/ version folders.
+# 4. Update every _static/switcher.json to list all versions (newest first).
 
 set -euo pipefail
 
@@ -27,113 +26,120 @@ if [[ $# -lt 1 ]]; then
 fi
 
 VERSION="$1"
-
-# Validate version folder exists
 VERSION_DIR="$REPO_ROOT/$VERSION"
+
 if [[ ! -d "$VERSION_DIR" ]]; then
-  echo "Error: Version directory does not exist: $VERSION_DIR" >&2
+  echo "Error: version folder not found: $VERSION_DIR" >&2
   exit 1
 fi
 
-# Resolve the actual doc root: some releases nest everything under html/
+# ---------------------------------------------------------------------------
+# Step 1 – Flatten nested html/ layout
+#   Some builds place the actual HTML under <VERSION>/html/.  We replace the
+#   version folder with that content so <VERSION>/index.html sits at the top.
+# ---------------------------------------------------------------------------
 if [[ -d "$VERSION_DIR/html" ]]; then
-  SOURCE_ROOT="$VERSION_DIR/html"
-  echo "Detected nested html/ layout: using $VERSION/html/ as source root."
-else
-  SOURCE_ROOT="$VERSION_DIR"
+  echo "[$VERSION] Nested html/ detected — flattening $VERSION/ ..."
+  TMP_DIR="$(mktemp -d)"
+  cp -r "$VERSION_DIR/html/." "$TMP_DIR/"
+  rm -rf "$VERSION_DIR"
+  mv "$TMP_DIR" "$VERSION_DIR"
 fi
 
-echo "Updating docs: making $VERSION the new latest..."
+SOURCE="$VERSION_DIR"
+echo "Releasing $VERSION as latest (source: $SOURCE) ..."
 
-# (1) Remove existing latest folder and repopulate from SOURCE_ROOT
-echo "Rebuilding latest/ from $SOURCE_ROOT ..."
+# ---------------------------------------------------------------------------
+# Step 2 – Rebuild latest/
+# ---------------------------------------------------------------------------
+echo "Updating latest/ ..."
 rm -rf "$REPO_ROOT/latest"
 mkdir -p "$REPO_ROOT/latest"
-rsync -a --exclude='.nojekyll' "$SOURCE_ROOT/" "$REPO_ROOT/latest/"
+cp -r "$SOURCE/." "$REPO_ROOT/latest/"
 rm -f "$REPO_ROOT/latest/.nojekyll"
 
-# (2) Sync doc content to the repo root so that cpp_api/, developer_guide/,
-#     user_guide/, _modules/, _sources/, _static/, *.html, etc. reflect the
-#     new version.  We use --delete so stale files are removed, but we
-#     carefully exclude everything that must not be touched.
-echo "Syncing $SOURCE_ROOT -> repo root (updating cpp_api/, developer_guide/, _static/, HTML files, etc.) ..."
-rsync -a --delete \
-  --exclude='.git' \
-  --exclude='.git/' \
-  --exclude='.nojekyll' \
-  --exclude='README.md' \
-  --exclude='update_docs.sh' \
-  --exclude='latest' \
-  --exclude='latest/' \
-  --exclude='[0-9]*.[0-9]*.[0-9]*' \
-  --exclude='[0-9]*.[0-9]*.[0-9]*/' \
-  "$SOURCE_ROOT/" "$REPO_ROOT/"
+# ---------------------------------------------------------------------------
+# Step 3 – Update root-level doc content
+#   Remove every non-protected item first, then copy the new version in.
+# ---------------------------------------------------------------------------
+echo "Updating root-level doc content ..."
 
-# (3) Discover all version directories (semver-like: 0.4.0, 0.5.0, 0.6.1, ...)
-VERSION_DIRS=()
-for d in "$REPO_ROOT"/*; do
-  if [[ -d "$d" ]]; then
-    name=$(basename "$d")
-    if [[ "$name" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-      VERSION_DIRS+=("$name")
-    fi
-  fi
+# Remove stale doc directories (skip version dirs, latest/, and .git)
+for item in "$REPO_ROOT"/*/; do
+  name=$(basename "$item")
+  [[ "$name" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && continue
+  [[ "$name" == "latest" ]]                  && continue
+  [[ "$name" == ".git" ]]                    && continue
+  rm -rf "$REPO_ROOT/$name"
 done
-# Sort versions descending (newest first). Use -V if available (GNU sort), else numeric keys.
-if sort -Vr <<<"0.1.0" &>/dev/null; then
+
+# Remove stale doc files (skip protected files; hidden files like .nojekyll
+# are not matched by * so they are naturally safe)
+for f in "$REPO_ROOT"/*; do
+  [[ -d "$f" ]] && continue
+  name=$(basename "$f")
+  case "$name" in
+    README.md|update_docs.sh) continue ;;
+  esac
+  rm -f "$f"
+done
+
+# Copy new version content into root
+cp -r "$SOURCE/." "$REPO_ROOT/"
+
+# ---------------------------------------------------------------------------
+# Step 4 – Rebuild switcher.json everywhere
+# ---------------------------------------------------------------------------
+
+# Collect all x.y.z version dirs, sorted newest-first
+VERSION_DIRS=()
+for d in "$REPO_ROOT"/*/; do
+  name=$(basename "$d")
+  [[ "$name" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && VERSION_DIRS+=("$name")
+done
+
+if sort -Vr <<<"0.1.0" &>/dev/null 2>&1; then
   IFS=$'\n' sorted_versions=($(printf '%s\n' "${VERSION_DIRS[@]}" | sort -Vr)); unset IFS
 else
   IFS=$'\n' sorted_versions=($(printf '%s\n' "${VERSION_DIRS[@]}" | sort -t. -k1,1nr -k2,2nr -k3,3nr)); unset IFS
 fi
 
-# (4) Build switcher.json: "latest" first (preferred), then numeric versions newest-first
-SWITCHER_ENTRIES="[
+# Build JSON
+SWITCHER_JSON="[
     {
         \"preferred\": true,
         \"version\": \"latest\",
         \"url\": \"${BASE_URL}/latest/\"
     }"
 for v in "${sorted_versions[@]}"; do
-  SWITCHER_ENTRIES+=",
+  SWITCHER_JSON+=",
     {
         \"version\": \"$v\",
         \"url\": \"${BASE_URL}/$v/\"
     }"
 done
-SWITCHER_ENTRIES+="
+SWITCHER_JSON+="
 ]"
 
-# Helper: find the _static dir inside a version folder (may be nested under html/)
-version_static_dir() {
-  local v="$1"
-  if [[ -d "$REPO_ROOT/$v/html/_static" ]]; then
-    echo "$REPO_ROOT/$v/html/_static"
-  elif [[ -d "$REPO_ROOT/$v/_static" ]]; then
-    echo "$REPO_ROOT/$v/_static"
-  fi
-}
-
-# Collect all switcher.json paths: root, latest, and every version
+# Write to: root _static/, latest/_static/, and every <version>/_static/
 SWITCHER_PATHS=(
   "$REPO_ROOT/_static/switcher.json"
   "$REPO_ROOT/latest/_static/switcher.json"
 )
 for v in "${sorted_versions[@]}"; do
-  sdir="$(version_static_dir "$v")"
-  if [[ -n "$sdir" ]]; then
-    SWITCHER_PATHS+=("$sdir/switcher.json")
-  fi
+  [[ -d "$REPO_ROOT/$v/_static" ]] && SWITCHER_PATHS+=("$REPO_ROOT/$v/_static/switcher.json")
 done
 
-echo "Updating switcher.json in ${#SWITCHER_PATHS[@]} locations..."
+echo "Updating ${#SWITCHER_PATHS[@]} switcher.json files ..."
 for p in "${SWITCHER_PATHS[@]}"; do
-  dir=$(dirname "$p")
-  mkdir -p "$dir"
-  echo "$SWITCHER_ENTRIES" > "$p"
+  mkdir -p "$(dirname "$p")"
+  printf '%s\n' "$SWITCHER_JSON" > "$p"
 done
 
+# ---------------------------------------------------------------------------
 echo ""
 echo "Done."
-echo "  latest/    -> $VERSION content"
-echo "  repo root  -> $VERSION content (cpp_api/, developer_guide/, _static/, HTML files, ...)"
-echo "  switcher   -> latest, ${sorted_versions[*]}"
+echo "  $VERSION/   index.html at root (flattened if needed)"
+echo "  latest/     $VERSION content"
+echo "  repo root   $VERSION content"
+echo "  switcher    latest  ${sorted_versions[*]}"
