@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -69,13 +69,13 @@
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Causal Conv1d" href="causalConv1d.html" />
+    <link rel="next" title="Build Layout" href="buildLayout.html" />
     <link rel="prev" title="Apply Rope Write KV" href="applyRopeWriteKV.html" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.6.1" />
+  <meta name="docsearch:version" content="0.7.0" />
 
 
   </head>
@@ -333,18 +333,23 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vlm.html">VLM (Vision-Language Model) Inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/speculative-decoding.html">Speculative Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/phi4.html">Phi-4-Multimodal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/fp8-embedding.html">FP8 Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/streaming.html">Streaming Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Input &amp; Chat Format</span></p>
@@ -352,13 +357,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/input-format.html">Input JSON Format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/chat-template-format.html">Chat Template Format</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/performance/performance-benchmarks.html">Performance Benchmarks</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
@@ -374,6 +386,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/audioBuilder.html">Audio Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/builderUtils.html">Builder Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/llmBuilder.html">LLM Builder</a></li>
@@ -395,17 +408,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/utf8.html">Utf8</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Kernels Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="NvFP4MoEContiguousGemmRunner.html">Nv Fp4 Mo E Contiguous GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NvFP4MoEFC2FinalizeRunner.html">Nv Fp4 Mo Efc2 Finalize Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NvFP4MoEUtils.html">Nv Fp4 Mo E Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alphaCompute.html">Alpha Compute</a></li>
 <li class="toctree-l3"><a class="reference internal" href="applyRopeWriteKV.html">Apply Rope Write KV</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buildLayout.html">Build Layout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="causalConv1d.html">Causal Conv1d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="conversion.html">Conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dequant.html">Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dequantize.html">Dequantize</a></li>
@@ -413,21 +435,30 @@
 <li class="toctree-l3"><a class="reference internal" href="eagleUtilKernels.html">EAGLE Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embeddingKernels.html">Embedding Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp4Quantize.html">Fp4 Quantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdnKernelUtils.html">Gdn Kernel Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="imageUtilKernels.html">Image Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kernel.html">Kernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kernel_selector.html">Kernel Selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernels.html">Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="marlin.html">Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="marlin_dtypes.html">Marlin Dtypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="marlin_mma.html">Marlin Mma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="marlin_template.html">Marlin Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marlin_template.html">Marlin Template</a></li>
 <li class="toctree-l3"><a class="reference internal" href="moeActivationKernels.html">Moe Activation Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="moeAlignSumKernels.html">Moe Align Sum Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="moeGather.html">Moe Gather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="moeMarlin.html">Moe Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nvfp4_dequant.html">Nvfp4 Dequant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="selectiveStateUpdate.html">Selective State Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="utilKernels.html">Util Kernels</a></li>
@@ -442,6 +473,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/nemotronOmniAudioRunner.html">Nemotron Omni Audio Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/nemotronOmniViTRunner.html">Nemotron Omni ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
 </ul>
@@ -449,9 +482,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/causalConv1dPlugin.html">Causal Conv1d Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/gatedDeltaNetPlugin.html">Gated Delta Net Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/mambaPlugin.html">Mamba Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -466,13 +501,16 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/audioUtils.html">Audio Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/kvCacheManager.html">KV Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/streaming.html">Streaming</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -554,39 +592,63 @@
                   
   <section id="batch-evict-kernels">
 <h1>Batch Evict Kernels<a class="headerlink" href="#batch-evict-kernels" title="Link to this heading">#</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel11KVLayerInfoE">
+<span id="_CPPv3N11trt_edgellm6kernel11KVLayerInfoE"></span><span id="_CPPv2N11trt_edgellm6kernel11KVLayerInfoE"></span><span id="trt_edgellm::kernel::KVLayerInfo"></span><span class="target" id="structtrt__edgellm_1_1kernel_1_1KVLayerInfo"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">KVLayerInfo</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfoE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Per-layer KV cache metadata for batched kernel operations. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel11KVLayerInfo4dataE">
+<span id="_CPPv3N11trt_edgellm6kernel11KVLayerInfo4dataE"></span><span id="_CPPv2N11trt_edgellm6kernel11KVLayerInfo4dataE"></span><span id="trt_edgellm::kernel::KVLayerInfo::data__voidP"></span><span class="target" id="structtrt__edgellm_1_1kernel_1_1KVLayerInfo_1a2925c4d4b77443f67989b0098fe8eeef"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfo4dataE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Pointer to this layer’s KV buffer [maxB, 2, H, S, D]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel11KVLayerInfo10numKVHeadsE">
+<span id="_CPPv3N11trt_edgellm6kernel11KVLayerInfo10numKVHeadsE"></span><span id="_CPPv2N11trt_edgellm6kernel11KVLayerInfo10numKVHeadsE"></span><span id="trt_edgellm::kernel::KVLayerInfo::numKVHeads__int32_t"></span><span class="target" id="structtrt__edgellm_1_1kernel_1_1KVLayerInfo_1abfa508c783dd8fa76240d04bd6d88609"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numKVHeads</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfo10numKVHeadsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of KV heads for this layer. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel11KVLayerInfo9maxSeqLenE">
+<span id="_CPPv3N11trt_edgellm6kernel11KVLayerInfo9maxSeqLenE"></span><span id="_CPPv2N11trt_edgellm6kernel11KVLayerInfo9maxSeqLenE"></span><span id="trt_edgellm::kernel::KVLayerInfo::maxSeqLen__int32_t"></span><span class="target" id="structtrt__edgellm_1_1kernel_1_1KVLayerInfo_1a4b22b2c4e4b2dde05fe2917f151aa7a8"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxSeqLen</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfo9maxSeqLenE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Max sequence length for this layer. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel14compactKVCacheERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_t7int32_t12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm6kernel14compactKVCacheERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_t7int32_t12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm6kernel14compactKVCacheERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_t7int32_t12cudaStream_t"></span><span id="trt_edgellm::kernel::compactKVCache__rt::TensorCR.rt::TensorR.rt::TensorR.int32_t.int32_t.cudaStream_t"></span><span class="target" id="batchEvictKernels_8cu_1abf0f0588a13f23eaa268b318aff603b9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">compactKVCache</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel25compactKVCacheSingleLayerERN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE7int32_t7int32_tb12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm6kernel25compactKVCacheSingleLayerERN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE7int32_t7int32_tb12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm6kernel25compactKVCacheSingleLayerERN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE7int32_t7int32_tb12cudaStream_t"></span><span id="trt_edgellm::kernel::compactKVCacheSingleLayer__rt::TensorR.rt::TensorCR.rt::TensorCR.rt::TensorR.int32_t.int32_t.b.cudaStream_t"></span><span class="target" id="batchEvictKernels_8cu_1a8cd29e4b90a1a63249306b5973964252"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">compactKVCacheSingleLayer</span></span></span><span class="sig-paren">(</span>
 
 <dl>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">kvCacheLayer</span></span></em>,</dd>
 <dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">batchMapping</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">kvCacheBuffer</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">kvCacheLengths</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">kvCacheLengths</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dstKVCacheLengths</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">oldActiveBatch</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">newActiveBatch</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">updateLengths</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel14compactKVCacheERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_t7int32_t12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Compact KV Cache by removing evicted batches. </p>
-<p>This kernel moves KV Cache data for active batches to dense consecutive positions.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This function updates kvCacheBuffer and kvCacheLengths in-place with compacted values </p>
-</div>
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel25compactKVCacheSingleLayerERN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE7int32_t7int32_tb12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Compact a single layer’s KV cache by removing evicted batches. </p>
+<p>Single-layer variant of compactKVCache for per-layer heterogeneous KV cache.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>batchMapping</strong> – [oldActiveBatch] GPU tensor (const input), mapping[i] = newBatchIdx or -1 (evict) </p></li>
-<li><p><strong>kvCacheBuffer</strong> – [numLayers, maxBatch, 2 (K/V), numHeads, maxSeq, headDim] (input/output) </p></li>
-<li><p><strong>kvCacheLengths</strong> – [maxBatch] (input/output), compacted in-place </p></li>
+<li><p><strong>kvCacheLayer</strong> – [maxBatch, 2, numKVHeads, maxSeq, headDim] single-layer buffer (in/out) </p></li>
+<li><p><strong>batchMapping</strong> – [oldActiveBatch] GPU tensor, mapping[i] = newBatchIdx or -1 (evict) </p></li>
+<li><p><strong>kvCacheLengths</strong> – [maxBatch] GPU tensor of sequence lengths (const input) </p></li>
+<li><p><strong>dstKVCacheLengths</strong> – [maxBatch] GPU tensor for compacted lengths (output, may alias kvCacheLengths) </p></li>
 <li><p><strong>oldActiveBatch</strong> – Number of batches before eviction </p></li>
 <li><p><strong>newActiveBatch</strong> – Number of batches after eviction </p></li>
-<li><p><strong>stream</strong> – CUDA stream</p></li>
+<li><p><strong>updateLengths</strong> – If true, update dstKVCacheLengths (only first layer should do this) </p></li>
+<li><p><strong>stream</strong> – CUDA stream </p></li>
 </ul>
-</dd>
-<dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if tensors are not located on the GPU, or batch size is excessive </p>
 </dd>
 </dl>
 </dd></dl>
@@ -632,6 +694,46 @@
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6kernel21compactKVCacheBatchedEPK11KVLayerInfoRKN2rt6TensorERKN2rt6TensorE7int32_t7int32_tN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm6kernel21compactKVCacheBatchedEPK11KVLayerInfoRKN2rt6TensorERKN2rt6TensorE7int32_t7int32_tN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm6kernel21compactKVCacheBatchedEPK11KVLayerInfoRKN2rt6TensorERKN2rt6TensorE7int32_t7int32_tN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t12cudaStream_t"></span><span id="trt_edgellm::kernel::compactKVCacheBatched__KVLayerInfoCP.rt::TensorCR.rt::TensorCR.int32_t.int32_t.nvinfer1::DataType.int32_t.int32_t.int32_t.int32_t.cudaStream_t"></span><span class="target" id="batchEvictKernels_8cu_1a4ffd8251d318d43561b4023eaa3f938a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../common/bindingNames.html#_CPPv411trt_edgellm" title="trt_edgellm"><span class="n"><span class="pre">trt_edgellm</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">compactKVCacheBatched</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfoE" title="trt_edgellm::kernel::KVLayerInfo"><span class="n"><span class="pre">KVLayerInfo</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">layerInfos</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">batchMapping</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">kvCacheLengths</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numLayers</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">headDim</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">kvCacheType</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxKVHeads</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxBatchSize</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">oldActiveBatch</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">newActiveBatch</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm6kernel21compactKVCacheBatchedEPK11KVLayerInfoRKN2rt6TensorERKN2rt6TensorE7int32_t7int32_tN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Batched compaction across multiple layers in a single kernel launch. </p>
+<p>All layers in the batch must share the same headDim (template-selected). Layers may have different numKVHeads and maxSeqLen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layerInfos</strong> – [numLayers] GPU array of <a class="reference internal" href="#structtrt__edgellm_1_1kernel_1_1KVLayerInfo"><span class="std std-ref">KVLayerInfo</span></a></p></li>
+<li><p><strong>batchMapping</strong> – [oldActiveBatch] GPU tensor </p></li>
+<li><p><strong>kvCacheLengths</strong> – [maxBatch] GPU tensor of sequence lengths </p></li>
+<li><p><strong>numLayers</strong> – Number of layers in this batch </p></li>
+<li><p><strong>headDim</strong> – Head dimension (same for all layers in batch) </p></li>
+<li><p><strong>kvCacheType</strong> – KV cache storage dtype (kHALF or kFP8); controls element size for stride calculation </p></li>
+<li><p><strong>maxKVHeads</strong> – Maximum numKVHeads across all layers (for grid sizing) </p></li>
+<li><p><strong>maxBatchSize</strong> – Max batch size </p></li>
+<li><p><strong>oldActiveBatch</strong> – Batches before eviction </p></li>
+<li><p><strong>newActiveBatch</strong> – Batches after eviction </p></li>
+<li><p><strong>stream</strong> – CUDA stream </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -654,11 +756,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="causalConv1d.html"
+       href="buildLayout.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Causal Conv1d</p>
+        <p class="prev-next-title">Build Layout</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -683,8 +785,15 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel14compactKVCacheERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_t7int32_t12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">compactKVCache()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfoE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::kernel::KVLayerInfo</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfo4dataE"><code class="docutils literal notranslate"><span class="pre">data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfo10numKVHeadsE"><code class="docutils literal notranslate"><span class="pre">numKVHeads</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel11KVLayerInfo9maxSeqLenE"><code class="docutils literal notranslate"><span class="pre">maxSeqLen</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel25compactKVCacheSingleLayerERN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE7int32_t7int32_tb12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">compactKVCacheSingleLayer()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel18compactTensorBatchERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE7int32_t7int32_t12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">compactTensorBatch()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm6kernel21compactKVCacheBatchedEPK11KVLayerInfoRKN2rt6TensorERKN2rt6TensorE7int32_t7int32_tN8nvinfer18DataTypeE7int32_t7int32_t7int32_t7int32_t12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">compactKVCacheBatched()</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -776,9 +885,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 16, 2026.</p>
+  <p>Last updated on April 28, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/09e8e5e">09e8e5e</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
   
 </div></div>
       

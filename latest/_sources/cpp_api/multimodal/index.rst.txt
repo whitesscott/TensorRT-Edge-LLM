@@ -13,5 +13,7 @@ API documentation for the multimodal module.
    internViTRunner
    modelTypes
    multimodalRunner
+   nemotronOmniAudioRunner
+   nemotronOmniViTRunner
    phi4mmViTRunner
    qwenViTRunner

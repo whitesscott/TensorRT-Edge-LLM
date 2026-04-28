@@ -1,0 +1,17 @@
+TRT Utils
+=========
+
+.. doxygenstruct:: trt_edgellm::DlDeleter
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
+.. doxygenfunction:: trt_edgellm::captureTRTCudaGraph
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::dimsToString
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::printEngineInfo
+   :project: TensorRT Edge-LLM
+

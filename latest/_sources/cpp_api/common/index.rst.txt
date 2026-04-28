@@ -20,4 +20,5 @@ API documentation for the common module.
    stringUtils
    tensor
    trtUtils
+   utf8
    version

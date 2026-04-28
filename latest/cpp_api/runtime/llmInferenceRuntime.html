@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -75,7 +75,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.6.1" />
+  <meta name="docsearch:version" content="0.7.0" />
 
 
   </head>
@@ -333,18 +333,23 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vlm.html">VLM (Vision-Language Model) Inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/speculative-decoding.html">Speculative Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/phi4.html">Phi-4-Multimodal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/fp8-embedding.html">FP8 Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/streaming.html">Streaming Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Input &amp; Chat Format</span></p>
@@ -352,13 +357,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/input-format.html">Input JSON Format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/chat-template-format.html">Chat Template Format</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/performance/performance-benchmarks.html">Performance Benchmarks</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
@@ -374,6 +386,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/audioBuilder.html">Audio Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/builderUtils.html">Builder Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/llmBuilder.html">LLM Builder</a></li>
@@ -395,17 +408,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../common/stringUtils.html">String Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/tensor.html">Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/utf8.html">Utf8</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/version.html">Version</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/NvFP4MoEContiguousGemmRunner.html">Nv Fp4 Mo E Contiguous GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/NvFP4MoEFC2FinalizeRunner.html">Nv Fp4 Mo Efc2 Finalize Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/NvFP4MoEUtils.html">Nv Fp4 Mo E Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/alphaCompute.html">Alpha Compute</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/buildLayout.html">Build Layout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/causalConv1d.html">Causal Conv1d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/conversion.html">Conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/dequant.html">Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/dequantize.html">Dequantize</a></li>
@@ -413,21 +435,30 @@
 <li class="toctree-l3"><a class="reference internal" href="../kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/embeddingKernels.html">Embedding Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/fp4Quantize.html">Fp4 Quantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/gdnKernelUtils.html">Gdn Kernel Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/imageUtilKernels.html">Image Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/kernel.html">Kernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/kernel_selector.html">Kernel Selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/kernels.html">Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/marlin.html">Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_dtypes.html">Marlin Dtypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_mma.html">Marlin Mma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_template.html">Marlin Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/marlin_template.html">Marlin Template</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeActivationKernels.html">Moe Activation Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeAlignSumKernels.html">Moe Align Sum Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeGather.html">Moe Gather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeMarlin.html">Moe Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/selectiveStateUpdate.html">Selective State Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
@@ -442,6 +473,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/internViTRunner.html">Intern ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/modelTypes.html">Model Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/nemotronOmniAudioRunner.html">Nemotron Omni Audio Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multimodal/nemotronOmniViTRunner.html">Nemotron Omni ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
 </ul>
@@ -449,9 +482,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/attentionPlugin.html">Attention Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/causalConv1dPlugin.html">Causal Conv1d Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/gatedDeltaNetPlugin.html">Gated Delta Net Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/mambaPlugin.html">Mamba Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -466,13 +501,16 @@
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Runtime Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="audioUtils.html">Audio Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="imageUtils.html">Image Utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvCacheManager.html">KV Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">LLM Inference Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mambaCacheManager.html">Mamba Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streaming.html">Streaming</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -554,209 +592,23 @@
                   
   <section id="llm-inference-runtime">
 <h1>LLM Inference Runtime<a class="headerlink" href="#llm-inference-runtime" title="Link to this heading">#</a></h1>
-<dl class="cpp class">
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv411trt_edgellm">
+<span id="_CPPv311trt_edgellm"></span><span id="_CPPv211trt_edgellm"></span><span id="trt_edgellm"></span><span class="target" id="namespacetrt__edgellm"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trt_edgellm</span></span></span><br /></dt>
+<dd><dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rtE">
+<span id="_CPPv3N11trt_edgellm2rtE"></span><span id="_CPPv2N11trt_edgellm2rtE"></span><span id="trt_edgellm::rt"></span><span class="target" id="namespacetrt__edgellm_1_1rt"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rt</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeE">
-<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntimeE"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntimeE"></span><span id="trt_edgellm::rt::LLMInferenceRuntime"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LLMInferenceRuntime</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeE" title="Link to this definition">#</a><br /></dt>
-<dd><p>LLM Inference Runtime for handling generation requests. </p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime19LLMInferenceRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEE12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntime19LLMInferenceRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntime19LLMInferenceRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEE12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::LLMInferenceRuntime__ssCR.ssCR.std::unordered_map:ss.ss:CR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1a94d1202f28c94bf0cb49922962e76300"></span><span class="sig-name descname"><span class="n"><span class="pre">LLMInferenceRuntime</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">engineDir</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">multimodalEngineDir</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loraWeightsMap</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime19LLMInferenceRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Construct an LLM Inference Runtime. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>engineDir</strong> – Directory containing the LLM engine </p></li>
-<li><p><strong>multimodalEngineDir</strong> – Directory containing the multimodal engine </p></li>
-<li><p><strong>loraWeightsMap</strong> – Map of LoRA weights names to their paths </p></li>
-<li><p><strong>stream</strong> – CUDA stream for initialization </p></li>
-</ul>
-</dd>
-<dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if loading data from directories fails, or tensor shapes are invalid, or there is an initialization error </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeD0Ev">
-<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntimeD0Ev"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntimeD0Ev"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::~LLMInferenceRuntime"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1a5e1f403b9d5abb1b5209956d29b63e81"></span><span class="sig-name descname"><span class="n"><span class="pre">~LLMInferenceRuntime</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeD0Ev" title="Link to this definition">#</a><br /></dt>
-<dd><p>Destructor. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::handleRequest__LLMGenerationRequestCR.LLMGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1a17381ede6038f15fb269135f09f1bf31"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleRequest</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE" title="trt_edgellm::rt::LLMGenerationRequest"><span class="n"><span class="pre">LLMGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE" title="trt_edgellm::rt::LLMGenerationResponse"><span class="n"><span class="pre">LLMGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">response</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Handle an LLM generation request. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>request</strong> – The generation request containing prompt and generation parameters </p></li>
-<li><p><strong>response</strong> – The generation response to be filled with output </p></li>
-<li><p><strong>stream</strong> – CUDA stream for execution </p></li>
-</ul>
-</dd>
-<dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if a LLM operation or CUDA operation fails </p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if request was handled successfully, false otherwise </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime24captureDecodingCUDAGraphE12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntime24captureDecodingCUDAGraphE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntime24captureDecodingCUDAGraphE12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::captureDecodingCUDAGraph__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1ab973291d9b065c39486550359578964f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureDecodingCUDAGraph</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime24captureDecodingCUDAGraphE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Capture CUDA graph for the decoding step to optimize performance. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stream</strong> – CUDA stream for graph capture </p>
-</dd>
-<dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if a CUDA operation fails </p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if graph was captured successfully, false otherwise </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime29genAndSaveSystemPromptKVCacheERKNSt6stringERKNSt6stringE12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntime29genAndSaveSystemPromptKVCacheERKNSt6stringERKNSt6stringE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntime29genAndSaveSystemPromptKVCacheERKNSt6stringERKNSt6stringE12cudaStream_t"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::genAndSaveSystemPromptKVCache__ssCR.ssCR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1ade287d3d68e0e5fa2968fbad6a3c0fbe"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">genAndSaveSystemPromptKVCache</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">prompt</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loraWeightsName</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime29genAndSaveSystemPromptKVCacheERKNSt6stringERKNSt6stringE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Execute the prefill step generation of the KVCache for the prompt and save for later usage. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prompt</strong> – The system prompt to generate the KVCache </p></li>
-<li><p><strong>loraWeightsName</strong> – The name of the LoRA weights </p></li>
-<li><p><strong>stream</strong> – The CUDA stream used for the generation </p></li>
-</ul>
-</dd>
-<dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if a CUDA operation fails </p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the KVCache is generated and saved successfully, false otherwise </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime17getPrefillMetricsEv">
-<span id="_CPPv3NK11trt_edgellm2rt19LLMInferenceRuntime17getPrefillMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt19LLMInferenceRuntime17getPrefillMetricsEv"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::getPrefillMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1ad2ca1b9007d636a30e73e943e75a14bc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17LLMPrefillMetricsE" title="trt_edgellm::metrics::LLMPrefillMetrics"><span class="n"><span class="pre">LLMPrefillMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPrefillMetrics</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime17getPrefillMetricsEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get LLM prefill stage metrics. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Reference to prefill metrics </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime20getGenerationMetricsEv">
-<span id="_CPPv3NK11trt_edgellm2rt19LLMInferenceRuntime20getGenerationMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt19LLMInferenceRuntime20getGenerationMetricsEv"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::getGenerationMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1a022fe856f11d9a519c0463c59aaa393a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics20LLMGenerationMetricsE" title="trt_edgellm::metrics::LLMGenerationMetrics"><span class="n"><span class="pre">LLMGenerationMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getGenerationMetrics</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime20getGenerationMetricsEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get LLM generation stage metrics. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Reference to generation metrics </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime20getMultimodalMetricsEv">
-<span id="_CPPv3NK11trt_edgellm2rt19LLMInferenceRuntime20getMultimodalMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt19LLMInferenceRuntime20getMultimodalMetricsEv"></span><span id="trt_edgellm::rt::LLMInferenceRuntime::getMultimodalMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1LLMInferenceRuntime_1a240d668d1387e55dce7032f1890e7cb4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17MultimodalMetricsE" title="trt_edgellm::metrics::MultimodalMetrics"><span class="n"><span class="pre">MultimodalMetrics</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getMultimodalMetrics</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime20getMultimodalMetricsEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get multimodal metrics (returns empty metrics if no multimodal runner) </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multimodal metrics, or empty metrics if no multimodal runner is available </p>
-</dd>
-</dl>
+<span id="_CPPv3N11trt_edgellm2rt19LLMInferenceRuntimeE"></span><span id="_CPPv2N11trt_edgellm2rt19LLMInferenceRuntimeE"></span><span class="target" id="llmInferenceRuntime_8h_1a2b4f630d0f69f458adfb6b32455c9082"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LLMInferenceRuntime</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE" title="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime"><span class="n"><span class="pre">LLMInferenceSpecDecodeRuntime</span></span></a><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Compatibility typedef — LLMInferenceRuntime is now <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime"><span class="std std-ref">LLMInferenceSpecDecodeRuntime</span></a>. The unified runtime supports both vanilla (no draft model) and Eagle spec-decode modes. Construct without <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#structtrt__edgellm_1_1rt_1_1EagleDraftingConfig"><span class="std std-ref">EagleDraftingConfig</span></a> for vanilla-only behavior identical to the old LLMInferenceRuntime. </p>
 </dd></dl>
 
 </div>
 </dd></dl>
 
-<dl class="cpp struct">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19SystemPromptKVCacheE">
-<span id="_CPPv3N11trt_edgellm2rt19SystemPromptKVCacheE"></span><span id="_CPPv2N11trt_edgellm2rt19SystemPromptKVCacheE"></span><span id="trt_edgellm::rt::SystemPromptKVCache"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SystemPromptKVCache"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SystemPromptKVCache</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCacheE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Structure to hold cached system prompt and its KV cache. </p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19SystemPromptKVCache12systemPromptE">
-<span id="_CPPv3N11trt_edgellm2rt19SystemPromptKVCache12systemPromptE"></span><span id="_CPPv2N11trt_edgellm2rt19SystemPromptKVCache12systemPromptE"></span><span id="trt_edgellm::rt::SystemPromptKVCache::systemPrompt__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SystemPromptKVCache_1afc1ec1db951247e122fe648182dccb25"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">systemPrompt</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache12systemPromptE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The system prompt text. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19SystemPromptKVCache15tokenizedPromptE">
-<span id="_CPPv3N11trt_edgellm2rt19SystemPromptKVCache15tokenizedPromptE"></span><span id="_CPPv2N11trt_edgellm2rt19SystemPromptKVCache15tokenizedPromptE"></span><span id="trt_edgellm::rt::SystemPromptKVCache::tokenizedPrompt__std::vector:tokenizer::Rank:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SystemPromptKVCache_1a75920dc34443f7ebd63e69cccd77f9b7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rank</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tokenizedPrompt</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache15tokenizedPromptE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Tokenized version of the system prompt. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19SystemPromptKVCache14kvCacheContentE">
-<span id="_CPPv3N11trt_edgellm2rt19SystemPromptKVCache14kvCacheContentE"></span><span id="_CPPv2N11trt_edgellm2rt19SystemPromptKVCache14kvCacheContentE"></span><span id="trt_edgellm::rt::SystemPromptKVCache::kvCacheContent__rt::Tensor"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SystemPromptKVCache_1a22eaa8c1a6beea9477c0d927d3ed0a6c"></span><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kvCacheContent</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache14kvCacheContentE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Cached KV cache content for the system prompt. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19SystemPromptKVCache16ssmStateContentsE">
-<span id="_CPPv3N11trt_edgellm2rt19SystemPromptKVCache16ssmStateContentsE"></span><span id="_CPPv2N11trt_edgellm2rt19SystemPromptKVCache16ssmStateContentsE"></span><span id="trt_edgellm::rt::SystemPromptKVCache::ssmStateContents__std::vector:rt::Tensor:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SystemPromptKVCache_1aa99b5a6b011a8f3d06b06f108bcf1f24"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ssmStateContents</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache16ssmStateContentsE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Cached SSM states for Mamba layers. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19SystemPromptKVCache17convStateContentsE">
-<span id="_CPPv3N11trt_edgellm2rt19SystemPromptKVCache17convStateContentsE"></span><span id="_CPPv2N11trt_edgellm2rt19SystemPromptKVCache17convStateContentsE"></span><span id="trt_edgellm::rt::SystemPromptKVCache::convStateContents__std::vector:rt::Tensor:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1SystemPromptKVCache_1ad54ce4cdf19037ab5dacf1c401133aa7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">convStateContents</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache17convStateContentsE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Cached conv states for Mamba layers. </p>
-</dd></dl>
-
-</div>
 </dd></dl>
 
 </section>
@@ -810,23 +662,11 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::LLMInferenceRuntime</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime19LLMInferenceRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeD0Ev"><code class="docutils literal notranslate"><span class="pre">~LLMInferenceRuntime()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleRequest()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime24captureDecodingCUDAGraphE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureDecodingCUDAGraph()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntime29genAndSaveSystemPromptKVCacheERKNSt6stringERKNSt6stringE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">genAndSaveSystemPromptKVCache()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime17getPrefillMetricsEv"><code class="docutils literal notranslate"><span class="pre">getPrefillMetrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime20getGenerationMetricsEv"><code class="docutils literal notranslate"><span class="pre">getGenerationMetrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19LLMInferenceRuntime20getMultimodalMetricsEv"><code class="docutils literal notranslate"><span class="pre">getMultimodalMetrics()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv411trt_edgellm"><code class="docutils literal notranslate"><span class="pre">trt_edgellm</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rtE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeE"><code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCacheE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::SystemPromptKVCache</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache12systemPromptE"><code class="docutils literal notranslate"><span class="pre">systemPrompt</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache15tokenizedPromptE"><code class="docutils literal notranslate"><span class="pre">tokenizedPrompt</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache14kvCacheContentE"><code class="docutils literal notranslate"><span class="pre">kvCacheContent</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache16ssmStateContentsE"><code class="docutils literal notranslate"><span class="pre">ssmStateContents</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19SystemPromptKVCache17convStateContentsE"><code class="docutils literal notranslate"><span class="pre">convStateContents</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -920,9 +760,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 16, 2026.</p>
+  <p>Last updated on April 28, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/09e8e5e">09e8e5e</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
   
 </div></div>
       

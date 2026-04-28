@@ -21,3 +21,6 @@ Sampling
 .. doxygenfunction:: trt_edgellm::mapReducedVocabToFullVocab
    :project: TensorRT Edge-LLM
 
+.. doxygenfunction:: trt_edgellm::shouldUseNonGreedySampling
+   :project: TensorRT Edge-LLM
+

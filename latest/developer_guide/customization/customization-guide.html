@@ -425,7 +425,7 @@ window.addEventListener("load", load);
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -435,12 +435,12 @@ window.addEventListener("load", load);
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="TensorRT Plugins Guide" href="tensorrt-plugins.html" />
-    <link rel="prev" title="LLM Inference SpecDecode Runtime" href="../software-design/llm-inference-specdecode-runtime.html" />
+    <link rel="prev" title="LLM Streaming — Design" href="../software-design/llm-streaming.html" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.6.1" />
+  <meta name="docsearch:version" content="0.7.0" />
 
 
   </head>
@@ -698,18 +698,23 @@ window.addEventListener("load", load);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vlm.html">VLM (Vision-Language Model) Inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/speculative-decoding.html">Speculative Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/phi4.html">Phi-4-Multimodal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/fp8-embedding.html">FP8 Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/streaming.html">Streaming Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Input &amp; Chat Format</span></p>
@@ -717,13 +722,20 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/input-format.html">Input JSON Format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/format/chat-template-format.html">Chat Template Format</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/performance/performance-benchmarks.html">Performance Benchmarks</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="current nav bd-sidenav">
@@ -739,6 +751,7 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/audioBuilder.html">Audio Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/builderUtils.html">Builder Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/llmBuilder.html">LLM Builder</a></li>
@@ -760,17 +773,26 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/common/stringUtils.html">String Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/common/tensor.html">Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/common/utf8.html">Utf8</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/common/version.html">Version</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/NvFP4MoEContiguousGemmRunner.html">Nv Fp4 Mo E Contiguous GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/NvFP4MoEFC2FinalizeRunner.html">Nv Fp4 Mo Efc2 Finalize Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/NvFP4MoEUtils.html">Nv Fp4 Mo E Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/alphaCompute.html">Alpha Compute</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/buildLayout.html">Build Layout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/causalConv1d.html">Causal Conv1d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/dequant.html">Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/dequantize.html">Dequantize</a></li>
@@ -778,21 +800,30 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/embeddingKernels.html">Embedding Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/fp4Quantize.html">Fp4 Quantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/gdnKernelUtils.html">Gdn Kernel Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/imageUtilKernels.html">Image Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/kernel.html">Kernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/kernel_selector.html">Kernel Selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/kernels.html">Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/marlin.html">Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/marlin_dtypes.html">Marlin Dtypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/marlin_mma.html">Marlin Mma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/marlin_template.html">Marlin Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/marlin_template.html">Marlin Template</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeActivationKernels.html">Moe Activation Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeAlignSumKernels.html">Moe Align Sum Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeGather.html">Moe Gather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeMarlin.html">Moe Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/selectiveStateUpdate.html">Selective State Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/utilKernels.html">Util Kernels</a></li>
@@ -807,6 +838,8 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/internViTRunner.html">Intern ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/modelTypes.html">Model Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/nemotronOmniAudioRunner.html">Nemotron Omni Audio Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/nemotronOmniViTRunner.html">Nemotron Omni ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
 </ul>
@@ -814,9 +847,11 @@ window.addEventListener("load", load);
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/attentionPlugin.html">Attention Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/causalConv1dPlugin.html">Causal Conv1d Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/gatedDeltaNetPlugin.html">Gated Delta Net Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/mambaPlugin.html">Mamba Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -831,13 +866,16 @@ window.addEventListener("load", load);
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -913,6 +951,50 @@ window.addEventListener("load", load);
                   
   <section class="tex2jax_ignore mathjax_ignore" id="customization-guide">
 <h1>Customization Guide<a class="headerlink" href="#customization-guide" title="Link to this heading">#</a></h1>
+<section id="recommended-checkpoint-based-loader">
+<h2>Recommended: Checkpoint-Based Loader<a class="headerlink" href="#recommended-checkpoint-based-loader" title="Link to this heading">#</a></h2>
+<p>New model enablement should target <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/</span></code> first. The older <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> customization points later in this page remain useful for legacy exports.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Area</p></th>
+<th class="head"><p>Files</p></th>
+<th class="head"><p>What to update</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Text model</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/&lt;family&gt;/</span></code></p></td>
+<td><p>Add a native <code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code> implementation when the default decoder is not enough. Keep parameter names aligned with the HuggingFace checkpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Registration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/__init__.py</span></code></p></td>
+<td><p>Register custom text classes with <code class="docutils literal notranslate"><span class="pre">register_model(&quot;&lt;model_type&gt;&quot;,</span> <span class="pre">ModelClass)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Checkpoint parsing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/config.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/</span></code></p></td>
+<td><p>Add model-specific config fields, tensor remapping, fused-weight splitting, or metadata handling.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Encoder export</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/export_encoder.py</span></code></p></td>
+<td><p>Register visual or audio encoder builders and config extraction rules.</p></td>
+</tr>
+<tr class="row-even"><td><p>Export CLI/server</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/server/</span></code></p></td>
+<td><p>Add model-type classification for LLM-only, VLM, audio, TTS, or omni checkpoints.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Custom ops</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/ops.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/dynamo_translations.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/onnx_custom_schemas.py</span></code></p></td>
+<td><p>Add torch stubs, ONNX translations, and schemas for new TensorRT plugin calls.</p></td>
+</tr>
+<tr class="row-even"><td><p>Runtime/plugins</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/plugins/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/runtime/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/multimodal/</span></code></p></td>
+<td><p>Add plugin/runtime support only when the exported graph or model I/O needs new runtime behavior.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Update the supported-models documentation and add focused export tests for each new model family. Keep checkpoint metadata, tensor key remapping, ONNX custom-op translations, and runtime sidecar requirements aligned with the <a class="reference internal" href="../software-design/llm-loader.html"><span class="std std-doc">Checkpoint-Based Model Loader Design</span></a>.</p>
+</section>
 <section id="customization-architecture">
 <h2>Customization Architecture<a class="headerlink" href="#customization-architecture" title="Link to this heading">#</a></h2>
 <p>TensorRT Edge-LLM follows a clear data flow from models through to inference, with customization points at each layer:</p>
@@ -1072,9 +1154,9 @@ graph TB
 <h3>1. Model Architecture Customization<a class="headerlink" href="#model-architecture-customization" title="Link to this heading">#</a></h3>
 <p>The architecture layer provides base classes that wrap HuggingFace models and adapt them for TensorRT Edge-LLM’s optimized inference pipeline.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#../../../tensorrt_edgellm/llm_models/models/llm_model.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMModel</span></code></span></a>: The core model class that wraps a HuggingFace model and replaces its decoder layers with optimized variants.</p></li>
-<li><p><a class="reference internal" href="#../../../tensorrt_edgellm/llm_models/layers/layers.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMDecoderLayer</span></code></span></a>: Optimized decoder layer that wraps HuggingFace attention and MLP modules.</p></li>
-<li><p><a class="reference internal" href="#../../../tensorrt_edgellm/llm_models/layers/layers.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMAttention</span></code></span></a>: Multi-headed attention using the custom attention plugin.</p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/a9f5f242ab50af9ae1323da2479c36f9/llm_model.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMModel</span></code></span></a>: The core model class that wraps a HuggingFace model and replaces its decoder layers with optimized variants.</p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/e13238637af828027beffc4053807a17/layers.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMDecoderLayer</span></code></span></a>: Optimized decoder layer that wraps HuggingFace attention and MLP modules.</p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/e13238637af828027beffc4053807a17/layers.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMAttention</span></code></span></a>: Multi-headed attention using the custom attention plugin.</p></li>
 </ul>
 <p>TensorRT Edge-LLM automatically detects and supports Llama-style and Qwen-style architectures:</p>
 <ul class="simple">
@@ -1212,23 +1294,23 @@ graph TB
 </ul>
 <section id="llm-model-export">
 <h4>LLM Model Export<a class="headerlink" href="#llm-model-export" title="Link to this heading">#</a></h4>
-<p>The <a class="reference internal" href="#../../../tensorrt_edgellm/onnx_export/llm_export.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">export_llm_model()</span></code></span></a> function handles LLM and EAGLE base model export. To add support for new model architectures, you may need to customize:</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/d0b01f33e8717d9566d320b816ce206a/llm_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">export_llm_model()</span></code></span></a> function handles LLM and EAGLE base model export. To add support for new model architectures, you may need to customize:</p>
 <ul class="simple">
-<li><p><strong>Inputs</strong>: Modify <a class="reference internal" href="#../../../tensorrt_edgellm/onnx_export/llm_export.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">create_dummy_inputs()</span></code></span></a> to add model-specific inputs (e.g., <code class="docutils literal notranslate"><span class="pre">deepstack_visual_embeds</span></code> for Qwen3-VL)</p></li>
-<li><p><strong>Dynamic Axes</strong>: Update <a class="reference internal" href="#../../../tensorrt_edgellm/onnx_export/llm_export.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">export_model_to_onnx()</span></code></span></a> to define dynamic dimensions for new inputs/outputs</p></li>
+<li><p><strong>Inputs</strong>: Modify <a class="reference download internal" download="" href="../../_downloads/d0b01f33e8717d9566d320b816ce206a/llm_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">create_dummy_inputs()</span></code></span></a> to add model-specific inputs (e.g., <code class="docutils literal notranslate"><span class="pre">deepstack_visual_embeds</span></code> for Qwen3-VL)</p></li>
+<li><p><strong>Dynamic Axes</strong>: Update <a class="reference download internal" download="" href="../../_downloads/d0b01f33e8717d9566d320b816ce206a/llm_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">export_model_to_onnx()</span></code></span></a> to define dynamic dimensions for new inputs/outputs</p></li>
 <li><p><strong>Input/Output Names</strong>: Ensure ONNX input and output names align with the C++ runtime expectations</p></li>
 </ul>
 </section>
 <section id="multimodal-model-export">
 <h4>Multimodal Model Export<a class="headerlink" href="#multimodal-model-export" title="Link to this heading">#</a></h4>
-<p>The <a class="reference internal" href="#../../../tensorrt_edgellm/onnx_export/visual_export.py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">visual_export()</span></code></span></a> function exports the visual encoder of VLMs to ONNX. Supported models are defined in <a class="reference internal" href="#../../../tensorrt_edgellm/visual_models"><span class="xref myst">visual_models</span></a>.</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/2d6b53febde90b30974ee555453ad2f0/visual_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">visual_export()</span></code></span></a> function exports the visual encoder of VLMs to ONNX. Supported models are defined in <a class="reference internal" href="#../../../../tensorrt_edgellm/visual_models"><span class="xref myst">visual_models</span></a>.</p>
 <p>HuggingFace visual models often contain ONNX-incompatible logic (flash attention, shape-dependent initialization, complex post-processing). To add a new multimodal encoder, you may need to extend the original class with a wrapper that:</p>
 <ul class="simple">
 <li><p><strong>Externalizes shape-dependent computations</strong>: Pass precomputed tensors (e.g., <code class="docutils literal notranslate"><span class="pre">rotary_pos_emb</span></code>, <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code>) as explicit inputs</p></li>
 <li><p><strong>Replaces unsupported operations</strong>: Use standard PyTorch ops instead of flash attention</p></li>
 <li><p><strong>Delegates complex preprocessing/postprocessing to C++ runtime</strong>: Handle operations like dynamic indexing at runtime</p></li>
 </ul>
-<p>See existing <a class="reference internal" href="#../../../tensorrt_edgellm/visual_models"><span class="xref myst">visual_models</span></a> implementations for reference.</p>
+<p>See existing <a class="reference internal" href="#../../../../tensorrt_edgellm/visual_models"><span class="xref myst">visual_models</span></a> implementations for reference.</p>
 </section>
 </section>
 <section id="custom-operators">
@@ -1267,7 +1349,7 @@ graph TB
 <h2>Layer 3: Engine Builder<a class="headerlink" href="#layer-3-engine-builder" title="Link to this heading">#</a></h2>
 <section id="llm-builder-customization">
 <h3>1. LLM Builder Customization<a class="headerlink" href="#llm-builder-customization" title="Link to this heading">#</a></h3>
-<p>The <a class="reference internal" href="#../../../cpp/builder/builder.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">LLMBuilder</span></code></span></a> class builds TensorRT engines from ONNX models. The CLI tool <a class="reference internal" href="#../../../examples/llm/llm_build.cpp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">llm_build</span></code></span></a> provides a command-line interface:</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/666fbe90434fafcd4d57f0b0590921ac/llmBuilder.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMBuilder</span></code></span></a> class builds TensorRT engines from ONNX models. The CLI tool <a class="reference download internal" download="" href="../../_downloads/1f20c62ae439d29bdbaecf5f6e93a09c/llm_build.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llm_build</span></code></span></a> provides a command-line interface:</p>
 <p>The builder automatically creates <strong>two optimization profiles</strong> for different inference phases:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1291,7 +1373,7 @@ graph TB
 </tbody>
 </table>
 </div>
-<p>To support new model architectures, you need to extend the optimization profile setup methods in <a class="reference internal" href="#../../../cpp/builder/builder.cpp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">builder.cpp</span></code></span></a>:</p>
+<p>To support new model architectures, you need to extend the optimization profile setup methods in <a class="reference download internal" download="" href="../../_downloads/22ec8c31eb50ce2930ca80fabc68e9f2/llmBuilder.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llmBuilder.cpp</span></code></span></a>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">setupCommonProfiles()</span></code>: Context lengths, RoPE embeddings, KV cache (shared by all models)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">setupVanillaProfiles()</span></code>: Standard LLM input_ids and last_token_ids</p></li>
@@ -1302,10 +1384,10 @@ graph TB
 </section>
 <section id="multimodal-builder-customization">
 <h3>2. Multimodal Builder Customization<a class="headerlink" href="#multimodal-builder-customization" title="Link to this heading">#</a></h3>
-<p>The <a class="reference internal" href="#../../../cpp/builder/builder.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">VisualBuilder</span></code></span></a> class builds TensorRT engines for visual encoders. The CLI tool <a class="reference internal" href="#../../../examples/multimodal/visual_build.cpp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">visual_build</span></code></span></a> provides a command-line interface:</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/51808691ce40993a77b4778ebcdf2145/visualBuilder.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">VisualBuilder</span></code></span></a> class builds TensorRT engines for visual encoders. The CLI tool <a class="reference download internal" download="" href="../../_downloads/d891e0209400c403c135d1bdb174cd0f/visual_build.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">visual_build</span></code></span></a> provides a command-line interface:</p>
 <p>To support new visual encoders, you have two options:</p>
 <ol class="arabic simple">
-<li><p><strong>Extend VisualBuilder</strong>: Add a new profile setup method (e.g., <code class="docutils literal notranslate"><span class="pre">setupYourViTProfile()</span></code>) in <a class="reference internal" href="#../../../cpp/builder/builder.cpp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">builder.cpp</span></code></span></a>. Define optimization profiles with input shapes calculated from <code class="docutils literal notranslate"><span class="pre">minImageTokens</span></code> and <code class="docutils literal notranslate"><span class="pre">maxImageTokens</span></code>.</p></li>
+<li><p><strong>Extend VisualBuilder</strong>: Add a new profile setup method (e.g., <code class="docutils literal notranslate"><span class="pre">setupYourViTProfile()</span></code>) in <a class="reference download internal" download="" href="../../_downloads/c39eda127dcce16d3eeedf539f4d3bc2/visualBuilder.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">visualBuilder.cpp</span></code></span></a>. Define optimization profiles with input shapes calculated from <code class="docutils literal notranslate"><span class="pre">minImageTokens</span></code> and <code class="docutils literal notranslate"><span class="pre">maxImageTokens</span></code>.</p></li>
 <li><p><strong>Use trtexec</strong>: Build the engine directly with TensorRT’s command-line tool for simpler models.</p></li>
 </ol>
 </section>
@@ -1315,16 +1397,16 @@ graph TB
 <h2>Layer 4: C++ Runtime<a class="headerlink" href="#layer-4-c-runtime" title="Link to this heading">#</a></h2>
 <section id="text-processing-and-tokenization">
 <h3>1. Text Processing and Tokenization<a class="headerlink" href="#text-processing-and-tokenization" title="Link to this heading">#</a></h3>
-<p>The <a class="reference internal" href="#../../../cpp/tokenizer/tokenizer.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code></span></a> class provides text encoding/decoding with HuggingFace-compatible loading. It uses a modular architecture:</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/e8365bcdd38657ed06da129136e274b0/tokenizer.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code></span></a> class provides text encoding/decoding with HuggingFace-compatible loading. It uses a modular architecture:</p>
 <ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">PreTokenizer</span></code></strong> (<a class="reference internal" href="#../../../cpp/tokenizer/preTokenizer.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">preTokenizer.h</span></code></span></a>): Regex-based text splitting before encoding</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">TokenEncoder</span></code></strong> (<a class="reference internal" href="#../../../cpp/tokenizer/tokenEncoder.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">tokenEncoder.h</span></code></span></a>): BPE encoding algorithm with vocabulary management</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">PreTokenizer</span></code></strong> (<a class="reference download internal" download="" href="../../_downloads/dcade291aca922868e0d4712b3ab735d/preTokenizer.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">preTokenizer.h</span></code></span></a>): Regex-based text splitting before encoding</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">TokenEncoder</span></code></strong> (<a class="reference download internal" download="" href="../../_downloads/f947c1f439101ccc9b7f8e51ad6037a9/tokenEncoder.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">tokenEncoder.h</span></code></span></a>): BPE encoding algorithm with vocabulary management</p></li>
 </ul>
 <p>The tokenizer automatically loads from the engine directory (uses <code class="docutils literal notranslate"><span class="pre">tokenizer.json</span></code> and <code class="docutils literal notranslate"><span class="pre">tokenizer_config.json</span></code>). To support new tokenization schemes, extend <code class="docutils literal notranslate"><span class="pre">TokenEncoder</span></code> with additional algorithms (e.g., SentencePiece, WordPiece).</p>
 </section>
 <section id="sampling-parameters">
 <h3>2. Sampling Parameters<a class="headerlink" href="#sampling-parameters" title="Link to this heading">#</a></h3>
-<p>The <a class="reference internal" href="#../../../cpp/sampler/sampling.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">SamplingParams</span></code></span></a> structure controls token generation randomness. Supported parameters:</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/a35e69d5e942477b6719800df658d8de/sampling.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">SamplingParams</span></code></span></a> structure controls token generation randomness. Supported parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -1348,16 +1430,16 @@ graph TB
 </tbody>
 </table>
 </div>
-<p>To add more sampling params (e.g., repetition_penalty, logits_bias) or custom sampling algorithms (e.g., beam search), extend the sampling functions in <a class="reference internal" href="#../../../cpp/sampler/sampling.cu"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">sampling.cu</span></code></span></a>.</p>
+<p>To add more sampling params (e.g., repetition_penalty, logits_bias) or custom sampling algorithms (e.g., beam search), extend the sampling functions in <a class="reference download internal" download="" href="../../_downloads/d8d2fa8498d9d4bc9ee55c2b5d5f0fd9/sampling.cu"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">sampling.cu</span></code></span></a>.</p>
 </section>
 <section id="multimodal-runner">
 <h3>3. Multimodal Runner<a class="headerlink" href="#multimodal-runner" title="Link to this heading">#</a></h3>
-<p>The <a class="reference internal" href="#../../../cpp/multimodal/multimodalRunner.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">MultimodalRunner</span></code></span></a> base class provides the interface for visual encoder processing in VLMs. The factory method <code class="docutils literal notranslate"><span class="pre">MultimodalRunner::create()</span></code> automatically instantiates the appropriate runner based on model type.</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/6dfcef4ef1ad1125249cf5996b69156b/multimodalRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">MultimodalRunner</span></code></span></a> base class provides the interface for visual encoder processing in VLMs. The factory method <code class="docutils literal notranslate"><span class="pre">MultimodalRunner::create()</span></code> automatically instantiates the appropriate runner based on model type.</p>
 <p><strong>Existing Runners:</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#../../../cpp/multimodal/qwenViTRunner.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">QwenViTRunner</span></code></span></a>: Qwen2-VL, Qwen2.5-VL, Qwen3-VL</p></li>
-<li><p><a class="reference internal" href="#../../../cpp/multimodal/internViTRunner.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">InternViTRunner</span></code></span></a>: InternVL3</p></li>
-<li><p><a class="reference internal" href="#../../../cpp/multimodal/phi4mmViTRunner.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Phi4MMViTRunner</span></code></span></a>: Phi-4-multimodal</p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/f8dfd6f4e443357c6b0e0d877238ea47/qwenViTRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">QwenViTRunner</span></code></span></a>: Qwen2-VL, Qwen2.5-VL, Qwen3-VL</p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/c732ad0d562a2b218f383b1d0167c2e7/internViTRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">InternViTRunner</span></code></span></a>: InternVL3</p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/a3ae267b286e94033f0f823896112aa5/phi4mmViTRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">Phi4MMViTRunner</span></code></span></a>: Phi-4-multimodal</p></li>
 </ul>
 <p><strong>To add support for a new VLM</strong>, create a new runner class that inherits from <code class="docutils literal notranslate"><span class="pre">MultimodalRunner</span></code> and implements:</p>
 <ol class="arabic simple">
@@ -1370,20 +1452,20 @@ graph TB
 </section>
 <section id="runtime-features">
 <h3>4. Runtime Features<a class="headerlink" href="#runtime-features" title="Link to this heading">#</a></h3>
-<p>The <a class="reference internal" href="#../../../cpp/runtime/llmInferenceRuntime.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code></span></a> provides high-level inference APIs with several optimization features:</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/780afa95ebb0b9dd50fa1270f6f4ae2f/llmInferenceRuntime.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code></span></a> provides high-level inference APIs with several optimization features:</p>
 <ul class="simple">
 <li><p><strong>CUDA Graph Capture</strong>: Reduces kernel launch overhead by capturing and replaying execution sequences via <code class="docutils literal notranslate"><span class="pre">captureDecodingCUDAGraph()</span></code></p></li>
 <li><p><strong>System Prompt Caching</strong>: Caches KV states for frequently-used system prompts via <code class="docutils literal notranslate"><span class="pre">genAndSaveSystemPromptKVCache()</span></code> to reduce first-token latency</p></li>
 <li><p><strong>LoRA Switching</strong>: Dynamically switches between LoRA adapters at runtime without engine rebuild</p></li>
-<li><p><strong>EAGLE3 Speculative Decoding</strong>: Accelerates generation using draft-then-verify approach via <a class="reference internal" href="#../../../cpp/runtime/llmInferenceSpecDecodeRuntime.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">llmInferenceSpecDecodeRuntime</span></code></span></a> with tree-based draft proposal and verification</p></li>
+<li><p><strong>EAGLE3 Speculative Decoding</strong>: Accelerates generation using draft-then-verify approach via <a class="reference download internal" download="" href="../../_downloads/ad2bb30270c60e5447f1ccbafc1ce1d4/llmInferenceSpecDecodeRuntime.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llmInferenceSpecDecodeRuntime</span></code></span></a> with tree-based draft proposal and verification</p></li>
 </ul>
-<p>To extend runtime capabilities, modify <a class="reference internal" href="#../../../cpp/runtime/llmEngineRunner.h"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">LLMEngineRunner</span></code></span></a> for core execution logic or <a class="reference internal" href="#../../../cpp/runtime/llmInferenceRuntime.cpp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code></span></a> for high-level request handling.</p>
+<p>To extend runtime capabilities, modify <a class="reference download internal" download="" href="../../_downloads/98f9b1017309853fc8874ef54ec39292/llmEngineRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMEngineRunner</span></code></span></a> for core execution logic or <a class="reference download internal" download="" href="../../_downloads/24bbd3df8afa70981bed8b6fa488f21b/llmInferenceSpecDecodeRuntime.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMInferenceSpecDecodeRuntime</span></code></span></a> for high-level request handling.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="layer-5-application">
 <h2>Layer 5: Application<a class="headerlink" href="#layer-5-application" title="Link to this heading">#</a></h2>
-<p>The <a class="reference internal" href="#../../../examples/llm/llm_inference.cpp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">llm_inference</span></code></span></a> example provides a reference implementation for building custom applications.</p>
+<p>The <a class="reference download internal" download="" href="../../_downloads/8b05bc5a77927729639d0ce3927d4c01/llm_inference.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llm_inference</span></code></span></a> example provides a reference implementation for building custom applications.</p>
 <section id="building-custom-applications">
 <h3>Building Custom Applications<a class="headerlink" href="#building-custom-applications" title="Link to this heading">#</a></h3>
 <p>Use the example as a template and adapt for your use case:</p>
@@ -1501,12 +1583,12 @@ graph TB
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../software-design/llm-inference-specdecode-runtime.html"
+       href="../software-design/llm-streaming.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">LLM Inference SpecDecode Runtime</p>
+        <p class="prev-next-title">LLM Streaming — Design</p>
       </div>
     </a>
     <a class="right-next"
@@ -1539,6 +1621,7 @@ graph TB
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-checkpoint-based-loader">Recommended: Checkpoint-Based Loader</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-architecture">Customization Architecture</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-points-by-layer">Customization Points by Layer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-methods-summary">Customization Methods Summary</a></li>
@@ -1671,9 +1754,9 @@ graph TB
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 16, 2026.</p>
+  <p>Last updated on April 28, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/09e8e5e">09e8e5e</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
   
 </div></div>
       

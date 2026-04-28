@@ -8,10 +8,13 @@ API documentation for the runtime module.
 
    audioUtils
    eagleDraftEngineRunner
+   hybridCacheManager
    imageUtils
-   linearKVCache
+   kvCacheManager
    llmEngineRunner
    llmInferenceRuntime
    llmInferenceSpecDecodeRuntime
    llmRuntimeUtils
+   mambaCacheManager
    qwen3OmniTTSRuntime
+   streaming

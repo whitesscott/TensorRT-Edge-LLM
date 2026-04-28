@@ -60,7 +60,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.6.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -74,7 +74,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.6.1" />
+  <meta name="docsearch:version" content="0.7.0" />
 
 
   </head>
@@ -332,18 +332,23 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="user_guide/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/vlm.html">VLM (Vision-Language Model) Inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/speculative-decoding.html">Speculative Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/phi4.html">Phi-4-Multimodal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/features/quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/reduce-vocab.html">Vocabulary Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/FP8KV.html">FP8 KV Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/features/fp8-embedding.html">FP8 Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/features/streaming.html">Streaming Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/system-prompt-cache.html">System Prompt Cache</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Input &amp; Chat Format</span></p>
@@ -351,13 +356,20 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide/format/input-format.html">Input JSON Format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/format/chat-template-format.html">Chat Template Format</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html">Performance Benchmarks</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul class="nav bd-sidenav">
@@ -373,6 +385,7 @@
 <li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cpp_api.html">C++ API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/builder/audioBuilder.html">Audio Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/builder/builderUtils.html">Builder Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/builder/llmBuilder.html">LLM Builder</a></li>
@@ -394,17 +407,26 @@
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/stringUtils.html">String Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/tensor.html">Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/trtUtils.html">TRT Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/common/utf8.html">Utf8</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/common/version.html">Version</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/kernels/index.html">Kernels Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/NvFP4MoEContiguousGemmRunner.html">Nv Fp4 Mo E Contiguous GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/NvFP4MoEFC2FinalizeRunner.html">Nv Fp4 Mo Efc2 Finalize Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/NvFP4MoEUtils.html">Nv Fp4 Mo E Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/alphaCompute.html">Alpha Compute</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/applyRopeWriteKV.html">Apply Rope Write KV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/batchEvictKernels.html">Batch Evict Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/buildLayout.html">Build Layout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/causalConv1d.html">Causal Conv1d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/conversion.html">Conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/dequant.html">Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/dequantize.html">Dequantize</a></li>
@@ -412,21 +434,30 @@
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/eagleUtilKernels.html">EAGLE Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/embeddingKernels.html">Embedding Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/fmhaParams_v2.html">FMHA Params V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/fp4Quantize.html">Fp4 Quantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/gdnKernelUtils.html">Gdn Kernel Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/imageUtilKernels.html">Image Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/initializeCosSinCache.html">Initialize Cos Sin Cache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/int4GroupwiseGemm.html">Int4 Groupwise GEMM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/kernel.html">Kernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/kernel_selector.html">Kernel Selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/kernels.html">Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/kvCacheUtilsKernels.html">KV Cache Utils Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/marlin.html">Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/marlin_dtypes.html">Marlin Dtypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/marlin_mma.html">Marlin Mma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/marlin_template.html">Marlin Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/marlin_template.html">Marlin Template</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeActivationKernels.html">Moe Activation Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeAlignSumKernels.html">Moe Align Sum Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeGather.html">Moe Gather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeMarlin.html">Moe Marlin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/selectiveStateUpdate.html">Selective State Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/utilKernels.html">Util Kernels</a></li>
@@ -441,6 +472,8 @@
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/internViTRunner.html">Intern ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/modelTypes.html">Model Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/multimodalRunner.html">Multimodal Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/nemotronOmniAudioRunner.html">Nemotron Omni Audio Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/nemotronOmniViTRunner.html">Nemotron Omni ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/phi4mmViTRunner.html">Phi4mm ViT Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/multimodal/qwenViTRunner.html">Qwen ViT Runner</a></li>
 </ul>
@@ -448,9 +481,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/plugins/index.html">Plugins Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/attentionPlugin.html">Attention Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/causalConv1dPlugin.html">Causal Conv1d Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/gatedDeltaNetPlugin.html">Gated Delta Net Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/int4GroupwiseGemmPlugin.html">Int4 Groupwise GEMM Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/mambaPlugin.html">Mamba Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -465,13 +500,16 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/imageUtils.html">Image Utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/linearKVCache.html">Linear KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/runtime/streaming.html">Streaming</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -537,12 +575,10 @@ for large language models and vision-language models on edge devices.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/getting_started/supported-models.html">Supported Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#large-language-models-llms">Large Language Models (LLMs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#vision-language-models-vlms">Vision-Language Models (VLMs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#audio-multimodal-models">Audio Multimodal Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#text-to-speech-tts-models">Text-to-Speech (TTS) Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#precision-support">Precision Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#platform-compatibility">Platform Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#support-policy">Support Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#precision-notes">Precision Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/supported-models.html#eagle3-draft-models">EAGLE3 Draft Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/getting_started/installation.html">Installation</a><ul>
@@ -554,14 +590,15 @@ for large language models and vision-language models on edge devices.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/getting_started/quick-start-guide.html">Quick Start Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/quick-start-guide.html#part-1-export-and-quantize-on-x86-host">Part 1: Export and Quantize on x86 Host</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/quick-start-guide.html#part-2-build-and-run-on-edge-device">Part 2: Build and Run on Edge Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/quick-start-guide.html#recommended-high-level-api-or-server">Recommended: High-Level API or Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/quick-start-guide.html#manual-export-and-c-runtime-path">Manual Export and C++ Runtime Path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/quick-start-guide.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/getting_started/limitations.html">Limitations and Known Issues</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/limitations.html#id1">0.6.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/limitations.html#id2">0.6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/limitations.html#id1">0.7.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/limitations.html#id2">0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/getting_started/limitations.html#id3">0.6.0</a></li>
 </ul>
 </li>
 </ul>
@@ -569,6 +606,10 @@ for large language models and vision-language models on edge devices.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/index.html#available-examples">Available Examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/vlm.html">VLM (Vision-Language Model) Inference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/examples/vlm.html#step-1-quantize-and-export-x86-host">Step 1: Quantize and Export (x86 Host)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/examples/vlm.html#step-2-transfer-to-device">Step 2: Transfer to Device</a></li>
@@ -588,6 +629,7 @@ for large language models and vision-language models on edge devices.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/asr.html#part-0-install-asr-dependency-x86-host">Part 0: Install ASR Dependency (x86 Host)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/examples/asr.html#step-1-export-x86-host">Step 1: Export (x86 Host)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/examples/asr.html#step-2-transfer-to-device">Step 2: Transfer to Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/examples/asr.html#step-3-build-engines-thor-device">Step 3: Build Engines (Thor Device)</a></li>
@@ -610,19 +652,41 @@ for large language models and vision-language models on edge devices.</p>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/examples/tts.html#notes">Notes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#python-api">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#openai-compatible-server">OpenAI-Compatible Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#common-inputs">Common Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#sampling-parameters">Sampling Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#eagle">EAGLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/examples/experimental-server.html#notes">Notes</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/lora.html">LoRA (Low-Rank Adaptation)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#recommended-checkpoint-based-loader">Recommended: Checkpoint-Based Loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#alternative-legacy-export-tools">Alternative: Legacy Export Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#approach-1-static-lora-merge">Approach 1: Static LoRA Merge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#approach-2-dynamic-runtime-lora">Approach 2: Dynamic Runtime LoRA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#input-format-for-runtime-lora">Input Format for Runtime LoRA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#script-reference">Script Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#build-parameters">Build Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/lora.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/features/quantization.html">Quantization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#quantize-an-llm">Quantize An LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#enable-fp8-kv-cache">Enable FP8 KV Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#quantize-an-eagle3-draft">Quantize An EAGLE3 Draft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#export-the-quantized-checkpoint">Export The Quantized Checkpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#supported-methods">Supported Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/quantization.html#notes">Notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/reduce-vocab.html">Vocabulary Reduction</a><ul>
@@ -638,8 +702,30 @@ for large language models and vision-language models on edge devices.</p>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/FP8KV.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/FP8KV.html#workflow">Workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/FP8KV.html#technical-details">Technical Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/FP8KV.html#performance-fp8-vs-fp16-fmha-on-thor">Performance: FP8 vs FP16 FMHA on Thor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/FP8KV.html#warning">Warning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/features/FP8KV.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/features/fp8-embedding.html">FP8 Embedding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/fp8-embedding.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/fp8-embedding.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/fp8-embedding.html#combining-with-other-quantization">Combining with Other Quantization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/fp8-embedding.html#technical-details">Technical Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/fp8-embedding.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/fp8-embedding.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/features/streaming.html">Streaming Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#the-streamchunk-payload">The <code class="docutils literal notranslate"><span class="pre">StreamChunk</span></code> payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#batching-with-per-slot-opt-in-opt-out">Batching with per-slot opt-in / opt-out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#throttling-with-streaminterval">Throttling with <code class="docutils literal notranslate"><span class="pre">streamInterval</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#cancellation">Cancellation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#alternative-delivery-patterns">Alternative delivery patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#channel-lifetime-rules">Channel lifetime rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#end-to-end-demo-llm-stream">End-to-end demo: <code class="docutils literal notranslate"><span class="pre">llm_stream</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/features/streaming.html#common-pitfalls">Common pitfalls</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/features/system-prompt-cache.html">System Prompt Cache</a><ul>
@@ -674,9 +760,45 @@ for large language models and vision-language models on edge devices.</p>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html">Performance Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html#llm-vanilla-decoding">LLM — Vanilla Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html#vision-language-model-vanilla-decoding">Vision Language Model — Vanilla Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html#llm-eagle-speculative-decoding">LLM — EAGLE Speculative Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html#vision-language-model-eagle-speculative-decoding">Vision Language Model — EAGLE Speculative Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/performance/performance-benchmarks.html#key-observations">Key Observations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#design-goals">Design Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#data-flow">Data Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#checkpoint-metadata-contract">Checkpoint Metadata Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#quantization-integration">Quantization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#model-and-component-dispatch">Model and Component Dispatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#onnx-and-runtime-artifact-contract">ONNX and Runtime Artifact Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#lora-integration">LoRA Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-loader.html#migrating-from-the-legacy-pipeline">Migrating From The Legacy Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html#design-goals">Design Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html#package-layout">Package Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html#flow">Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html#artifact-contract">Artifact Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html#supported-methods">Supported Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#export-tools">Export Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html#quantization-methods">Quantization Methods</a></li>
@@ -715,12 +837,26 @@ for large language models and vision-language models on edge devices.</p>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-inference-specdecode-runtime.html#usage-example">Usage Example</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#key-decisions">Key decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#data-types-cpp-runtime-streaming-h">Data types (<code class="docutils literal notranslate"><span class="pre">cpp/runtime/streaming.h</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#runtime-integration-handlerequest-flow">Runtime integration — <code class="docutils literal notranslate"><span class="pre">handleRequest</span></code> flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#terminal-reason-latching-race-free-by-construction">Terminal-reason latching (race-free by construction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#detokenization-algorithm-strategy-a">Detokenization algorithm (Strategy A)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#non-streaming-back-compat">Non-streaming back-compat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#non-goals-deferred">Non-goals (deferred)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#code-layout">Code layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/software-design/llm-streaming.html#user-guide">User guide</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/customization/customization-guide.html">Customization Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#recommended-checkpoint-based-loader">Recommended: Checkpoint-Based Loader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#customization-architecture">Customization Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-1-models">Layer 1: Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/customization/customization-guide.html#layer-2-python-export-pipeline">Layer 2: Python Export Pipeline</a></li>
@@ -756,7 +892,7 @@ for large language models and vision-language models on edge devices.</p>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python_api.html#module-tensorrt_edgellm">Main Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#main-module">Main Module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_api.html">C++ API Reference</a><ul>
@@ -927,9 +1063,9 @@ for large language models and vision-language models on edge devices.</p>
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 16, 2026.</p>
+  <p>Last updated on April 28, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/09e8e5e">09e8e5e</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
   
 </div></div>
       

@@ -8,8 +8,10 @@ API documentation for the plugins module.
 
    attentionPlugin
    causalConv1dPlugin
+   gatedDeltaNetPlugin
    int4GroupwiseGemmPlugin
    int4MoePlugin
    mambaPlugin
+   nvfp4MoePlugin
    pluginUtils
    vitAttentionPlugin

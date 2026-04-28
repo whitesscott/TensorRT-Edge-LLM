@@ -25,7 +25,10 @@ EAGLE Util Kernels
 .. doxygenfunction:: trt_edgellm::kernel::prepareEagleBaseTreeDecodingInputsTrtNative
    :project: TensorRT Edge-LLM
 
-.. doxygenfunction:: trt_edgellm::kernel::eagleBaseCommitKVCacheAndAssembleHiddenState
+.. doxygenfunction:: trt_edgellm::kernel::eagleBaseCommitKVCache
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::kernel::eagleBaseAssembleHiddenState
    :project: TensorRT Edge-LLM
 
 .. doxygenfunction:: trt_edgellm::kernel::initializeDraftTreeTables

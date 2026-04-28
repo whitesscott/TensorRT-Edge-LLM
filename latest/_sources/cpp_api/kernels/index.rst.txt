@@ -6,13 +6,21 @@ API documentation for the kernels module.
 .. toctree::
    :maxdepth: 1
 
+   NvFP4MoEContiguousGemmRunner
+   NvFP4MoEFC2FinalizeRunner
+   NvFP4MoEUtils
+   alphaCompute
    applyRopeWriteKV
    batchEvictKernels
+   buildLayout
    causalConv1d
    common
    contextFMHARunner
    conversion
    cuteDslFMHARunner
+   cuteDslGDNRunner
+   cuteDslGemmRunner
+   cuteDslSSDRunner
    decoderXQARunner
    dequant
    dequantize
@@ -20,21 +28,30 @@ API documentation for the kernels module.
    eagleUtilKernels
    embeddingKernels
    fmhaParams_v2
+   fp4Quantize
+   gdnKernelUtils
    imageUtilKernels
    initializeCosSinCache
    int4GroupwiseGemm
    kernel
    kernel_selector
+   kernels
    kvCacheUtilsKernels
    marlin
    marlin_dtypes
    marlin_mma
    marlin_template
+   marlin_template
    moeActivationKernels
    moeAlignSumKernels
+   moeGather
    moeMarlin
    moeMarlinIndicesKernels
+   moeSigmoidGroupTopkKernels
    moeTopkSoftmaxKernels
+   nvfp4MoeTypes
+   nvfp4_dequant
+   nvfp4_tensor
    selectiveStateUpdate
    talkerMLPKernels
    utilKernels
