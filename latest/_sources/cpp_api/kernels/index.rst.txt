@@ -20,6 +20,7 @@ API documentation for the kernels module.
    cuteDslFMHARunner
    cuteDslGDNRunner
    cuteDslGemmRunner
+   cuteDslNvfp4MoeRunner
    cuteDslSSDRunner
    decoderXQARunner
    dequant
@@ -49,10 +50,12 @@ API documentation for the kernels module.
    moeMarlinIndicesKernels
    moeSigmoidGroupTopkKernels
    moeTopkSoftmaxKernels
+   mtpStateScatterKernels
    nvfp4MoeTypes
    nvfp4_dequant
    nvfp4_tensor
    selectiveStateUpdate
+   ssdVarlenMetadata
    talkerMLPKernels
    utilKernels
    vectorizedTypes

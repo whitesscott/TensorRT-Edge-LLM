@@ -27,42 +27,44 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
 
 
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=65e89d2a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
 
-const defaultStyle = document.createElement('style');
-defaultStyle.textContent = `pre.mermaid {
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = `pre.mermaid {
     /* Same as .mermaid-container > pre */
     display: block;
     width: 100%;
@@ -73,12 +75,11 @@ pre.mermaid > svg {
     height: 500px;
     width: 100%;
     max-width: 100% !important;
-}
-`;
-document.head.appendChild(defaultStyle);
+}`;
+    document.head.appendChild(defaultStyle);
 
-const fullscreenStyle = document.createElement('style');
-fullscreenStyle.textContent = `.mermaid-container {
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = `.mermaid-container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -230,10 +231,32 @@ fullscreenStyle.textContent = `.mermaid-container {
 .mermaid-fullscreen-modal .mermaid-fullscreen-btn {
     display: none !important;
 }`;
-document.head.appendChild(fullscreenStyle);
+    document.head.appendChild(fullscreenStyle);
+}
 
 // Detect if page has dark background
 const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
     const bgColor = window.getComputedStyle(document.body).backgroundColor;
     const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
     if (match) {
@@ -241,15 +264,45 @@ const isDarkTheme = () => {
         const g = parseInt(match[2]);
         const b = parseInt(match[3]);
         const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
         return brightness < 128;
     }
+    // console.log("No dark or light theme detected, defaulting to light theme");
     return false;
 };
 
-const load = async () => {
-    await mermaid.run();
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
 
-    const all_mermaids = document.querySelectorAll(".mermaid");
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        all_mermaids.forEach((el) => {
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+        await mermaid.run();
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
 
     if ("False" === "True") {
@@ -257,10 +310,10 @@ const load = async () => {
         if(mermaids_to_add_zoom > 0) {
             var svgs = d3.selectAll("");
             if(all_mermaids.length !== mermaids_processed.length) {
-                setTimeout(load, 200);
+                setTimeout(() => runMermaid(false), 200);
                 return;
             } else if(svgs.size() !== mermaids_to_add_zoom) {
-                setTimeout(load, 200);
+                setTimeout(() => runMermaid(false), 200);
                 return;
             } else {
                 svgs.each(function() {
@@ -276,16 +329,21 @@ const load = async () => {
         }
     } else if(all_mermaids.length !== mermaids_processed.length) {
         // Wait for mermaid to process all diagrams
-        setTimeout(load, 200);
+        setTimeout(() => runMermaid(false), 200);
         return;
     }
-
-    const darkTheme = isDarkTheme();
 
     // Stop here if not adding fullscreen capability
     if ("True" !== "True") return;
 
-    const modal = document.createElement('div');
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
     modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-modal', 'true');
@@ -296,10 +354,8 @@ const load = async () => {
     `;
     document.body.appendChild(modal);
 
-    const modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
     const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
-
-    let previousScrollOffset = [window.scrollX, window.scrollY];
 
     const closeModal = () => {
         modal.classList.remove('active');
@@ -318,11 +374,14 @@ const load = async () => {
         }
     });
 
-    const allButtons = [];
-
     document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
         if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
             mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
             return;
         }
 
@@ -380,54 +439,67 @@ const load = async () => {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
-
         container.appendChild(fullscreenBtn);
-        allButtons.push(fullscreenBtn);
-    });
-
-    // Update theme classes when theme changes
-    const updateTheme = () => {
-        const dark = isDarkTheme();
-        allButtons.forEach(btn => {
-            if (dark) {
-                btn.classList.add('dark-theme');
-            } else {
-                btn.classList.remove('dark-theme');
-            }
-        });
-        if (dark) {
-            modal.classList.add('dark-theme');
-            modalContent.classList.add('dark-theme');
-            closeBtn.classList.add('dark-theme');
-        } else {
-            modal.classList.remove('dark-theme');
-            modalContent.classList.remove('dark-theme');
-            closeBtn.classList.remove('dark-theme');
-        }
-    };
-
-    // Watch for theme changes
-    const observer = new MutationObserver(updateTheme);
-    observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['class', 'style', 'data-theme']
-    });
-    observer.observe(document.body, {
-        attributes: true,
-        attributeFilter: ['class', 'style']
     });
 };
 
+const load = async () => {
+    initStyles();
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...JSON.parse(
+                    `{"startOnLoad": false}`
+                ),
+                ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...JSON.parse(
+        `{"startOnLoad": false}`
+    ),
+    ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+    }
+);
+
 window.addEventListener("load", load);
-</script>
+window.runMermaid = runMermaid;</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
 
     <link rel="icon" href="_static/favicon.png"/>
 
@@ -437,26 +509,32 @@ window.addEventListener("load", load);
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.0" />
+  <meta name="docsearch:version" content="0.7.1" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
 
 
   </head>
 
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-default-mode="">
+
 
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
 
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -482,7 +560,7 @@ window.addEventListener("load", load);
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -698,6 +776,7 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/examples/vla.html">Alpamayo-R1-10B (Vision-Language-Action)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
@@ -723,7 +802,7 @@ window.addEventListener("load", load);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
@@ -743,6 +822,13 @@ window.addEventListener("load", load);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cpp_api.html">C++ API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/action/index.html">Action Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/action/actionModelTypes.html">Action Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/action/actionUtils.html">Action Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/action/alpamayo1ActionRunner.html">Alpamayo1 Action Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/action/alpamayo1RunnerUtils.html">Alpamayo1 Runner Utils</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="cpp_api/builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/builder/audioBuilder.html">Audio Builder</a></li>
@@ -785,6 +871,7 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslNvfp4MoeRunner.html">Cute Dsl Nvfp4 Moe Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/dequant.html">Dequant</a></li>
@@ -814,10 +901,12 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/mtpStateScatterKernels.html">Mtp State Scatter Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/selectiveStateUpdate.html">Selective State Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/ssdVarlenMetadata.html">Ssd Varlen Metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/utilKernels.html">Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/kernels/vectorizedTypes.html">Vectorized Types</a></li>
@@ -845,6 +934,7 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/mambaPlugin.html">Mamba Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/nvfp4MoePluginGeforce.html">Nvfp4 Moe Plugin Geforce</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp_api/plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -926,7 +1016,11 @@ window.addEventListener("load", load);
  | <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
@@ -938,6 +1032,18 @@ window.addEventListener("load", load);
 </div>
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.CompletionOutput.__init__">__init__() (experimental.server.CompletionOutput method)</a>
+
+      <ul>
+        <li><a href="python_api.html#experimental.server.LLM.__init__">(experimental.server.LLM method)</a>
+</li>
+        <li><a href="python_api.html#experimental.server.SamplingParams.__init__">(experimental.server.SamplingParams method)</a>
+</li>
+        <li><a href="python_api.html#experimental.server.StreamDelta.__init__">(experimental.server.StreamDelta method)</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/marlin_dtypes.html#c._data_types_cuh">_data_types_cuh (C macro)</a>
 </li>
@@ -989,14 +1095,18 @@ window.addEventListener("load", load);
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.LLM.chat">chat() (experimental.server.LLM method)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.CompletionOutput">CompletionOutput (class in experimental.server)</a>
+</li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv424ContextAttentionMaskType">ContextAttentionMaskType (C++ enum)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N24ContextAttentionMaskType6CAUSALE">ContextAttentionMaskType::CAUSAL (C++ enumerator)</a>
 </li>
-      <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N24ContextAttentionMaskType11CUSTOM_MASKE">ContextAttentionMaskType::CUSTOM_MASK (C++ enumerator)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N24ContextAttentionMaskType11CUSTOM_MASKE">ContextAttentionMaskType::CUSTOM_MASK (C++ enumerator)</a>
+</li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N24ContextAttentionMaskType7PADDINGE">ContextAttentionMaskType::PADDING (C++ enumerator)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N24ContextAttentionMaskType25SLIDING_OR_CHUNKED_CAUSALE">ContextAttentionMaskType::SLIDING_OR_CHUNKED_CAUSAL (C++ enumerator)</a>
@@ -1008,9 +1118,53 @@ window.addEventListener("load", load);
   </ul></td>
 </tr></table>
 
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.SamplingParams.disable_spec_decode">disable_spec_decode (experimental.server.SamplingParams attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/common/checkMacros.html#c.ELLM_CHECK">ELLM_CHECK (C macro)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.SamplingParams.enable_thinking">enable_thinking (experimental.server.SamplingParams attribute)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.LLM.engine_dir">engine_dir (experimental.server.LLM property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    experimental.quantization
+
+      <ul>
+        <li><a href="python_api.html#module-experimental.quantization">module</a>
+</li>
+      </ul></li>
+      <li>
+    experimental.server
+
+      <ul>
+        <li><a href="python_api.html#module-experimental.server">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.CompletionOutput.finish_reason">finish_reason (experimental.server.CompletionOutput attribute)</a>
+
+      <ul>
+        <li><a href="python_api.html#experimental.server.StreamDelta.finish_reason">(experimental.server.StreamDelta attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api.html#experimental.server.StreamDelta.finished">finished (experimental.server.StreamDelta attribute)</a>
+</li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv431FusedMultiheadAttentionParamsV2">FusedMultiheadAttentionParamsV2 (C++ struct)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV212alibi_paramsE">FusedMultiheadAttentionParamsV2::alibi_params (C++ member)</a>
@@ -1065,12 +1219,12 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV227packed_mask_stride_in_bytesE">FusedMultiheadAttentionParamsV2::packed_mask_stride_in_bytes (C++ member)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV214paged_kv_cacheE">FusedMultiheadAttentionParamsV2::paged_kv_cache (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV25q_ptrE">FusedMultiheadAttentionParamsV2::q_ptr (C++ member)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV217q_stride_in_bytesE">FusedMultiheadAttentionParamsV2::q_stride_in_bytes (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV27qkv_ptrE">FusedMultiheadAttentionParamsV2::qkv_ptr (C++ member)</a>
@@ -1128,6 +1282,26 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV25v_ptrE">FusedMultiheadAttentionParamsV2::v_ptr (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N31FusedMultiheadAttentionParamsV217v_stride_in_bytesE">FusedMultiheadAttentionParamsV2::v_stride_in_bytes (C++ member)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.LLM.generate">generate() (experimental.server.LLM method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.LLM.generate_stream">generate_stream() (experimental.server.LLM method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.LLM.has_draft_model">has_draft_model (experimental.server.LLM property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1205,6 +1379,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/fmhaParams_v2.html#_CPPv4N12LaunchParams19warp_specializationE">LaunchParams::warp_specialization (C++ member)</a>
 </li>
+      <li><a href="python_api.html#experimental.server.LLM">LLM (class in experimental.server)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1220,6 +1396,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/kernels/causalConv1d.html#_CPPv4N9mamba_ssm18invokeCausalConv1dERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorEN11trt_edgellm2rt19OptionalInputTensorERN11trt_edgellm2rt6TensorE7int32_t7int32_t7int32_tN11trt_edgellm2rt19OptionalInputTensorE12cudaStream_t">mamba_ssm::invokeCausalConv1d (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/causalConv1d.html#_CPPv4N9mamba_ssm24invokeCausalConv1dDecodeERN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorEN11trt_edgellm2rt19OptionalInputTensorERN11trt_edgellm2rt6TensorE12cudaStream_t">mamba_ssm::invokeCausalConv1dDecode (C++ function)</a>
+</li>
+      <li><a href="cpp_api/kernels/causalConv1d.html#_CPPv4N9mamba_ssm27invokeCausalConv1dDecodeMTPERN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorEN11trt_edgellm2rt19OptionalInputTensorERN11trt_edgellm2rt6TensorERN11trt_edgellm2rt6TensorE7int32_t12cudaStream_t">mamba_ssm::invokeCausalConv1dDecodeMTP (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/selectiveStateUpdate.html#_CPPv4N9mamba_ssm26invokeSelectiveStateUpdateERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorERKN11trt_edgellm2rt6TensorEN11trt_edgellm2rt19OptionalInputTensorEN11trt_edgellm2rt19OptionalInputTensorEN11trt_edgellm2rt19OptionalInputTensorERN11trt_edgellm2rt6TensorERN11trt_edgellm2rt6TensorEb12cudaStream_t">mamba_ssm::invokeSelectiveStateUpdate (C++ function)</a>
 </li>
@@ -1259,12 +1437,12 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/marlin_dtypes.html#_CPPv4N21MARLIN_NAMESPACE_NAME16MarlinScalarTypeIXcldtN11trt_edgellm13marlin_dtypes9kBFloat16E2idEEE14scalar_32bit_tE">MARLIN_NAMESPACE_NAME::MarlinScalarType&lt;trt_edgellm::marlin_dtypes::kBFloat16.id()&gt;::scalar_32bit_t (C++ type)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/marlin_dtypes.html#_CPPv4N21MARLIN_NAMESPACE_NAME16MarlinScalarTypeIXcldtN11trt_edgellm13marlin_dtypes9kBFloat16E2idEEE8scalar_tE">MARLIN_NAMESPACE_NAME::MarlinScalarType&lt;trt_edgellm::marlin_dtypes::kBFloat16.id()&gt;::scalar_t (C++ type)</a>
 </li>
       <li><a href="cpp_api/kernels/marlin_dtypes.html#_CPPv4N21MARLIN_NAMESPACE_NAME16MarlinScalarTypeIXcldtN11trt_edgellm13marlin_dtypes9kBFloat16E2idEEE9scalar_t2E">MARLIN_NAMESPACE_NAME::MarlinScalarType&lt;trt_edgellm::marlin_dtypes::kBFloat16.id()&gt;::scalar_t2 (C++ type)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/kernels/marlin_dtypes.html#_CPPv4N21MARLIN_NAMESPACE_NAME16MarlinScalarTypeIXcldtN11trt_edgellm13marlin_dtypes9kBFloat16E2idEEE9scalar_t4E">MARLIN_NAMESPACE_NAME::MarlinScalarType&lt;trt_edgellm::marlin_dtypes::kBFloat16.id()&gt;::scalar_t4 (C++ type)</a>
 </li>
       <li><a href="cpp_api/kernels/marlin_dtypes.html#_CPPv4IEN21MARLIN_NAMESPACE_NAME16MarlinScalarTypeIXcldtN11trt_edgellm13marlin_dtypes8kFloat16E2idEEEE">MARLIN_NAMESPACE_NAME::MarlinScalarType&lt;trt_edgellm::marlin_dtypes::kFloat16.id()&gt; (C++ class)</a>
@@ -1309,6 +1487,19 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/marlin.html#_CPPv4N21MARLIN_NAMESPACE_NAME3Vec5elemsE">MARLIN_NAMESPACE_NAME::Vec::elems (C++ member)</a>
 </li>
+      <li><a href="python_api.html#experimental.server.SamplingParams.max_tokens">max_tokens (experimental.server.SamplingParams attribute)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.LLM.model_dir">model_dir (experimental.server.LLM property)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="python_api.html#module-experimental.quantization">experimental.quantization</a>
+</li>
+        <li><a href="python_api.html#module-experimental.server">experimental.server</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1327,10 +1518,16 @@ window.addEventListener("load", load);
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="cpp_api/common/cudaMacros.html#c.SUPPORTS_FP4">SUPPORTS_FP4 (C macro)</a>
+      <li><a href="python_api.html#experimental.server.SamplingParams">SamplingParams (class in experimental.server)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.LLM.serve">serve() (experimental.server.LLM method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api.html#experimental.server.StreamDelta">StreamDelta (class in experimental.server)</a>
+</li>
+      <li><a href="cpp_api/common/cudaMacros.html#c.SUPPORTS_FP4">SUPPORTS_FP4 (C macro)</a>
+</li>
       <li><a href="cpp_api/common/cudaMacros.html#c.SUPPORTS_FP8">SUPPORTS_FP8 (C macro)</a>
 </li>
   </ul></td>
@@ -1339,7 +1536,33 @@ window.addEventListener("load", load);
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="cpp_api/common/bindingNames.html#_CPPv411trt_edgellm">trt_edgellm (C++ type)</a>, <a href="cpp_api/common/checkMacros.html#_CPPv411trt_edgellm">[1]</a>, <a href="cpp_api/common/cudaUtils.html#_CPPv411trt_edgellm">[2]</a>, <a href="cpp_api/common/inputLimits.html#_CPPv411trt_edgellm">[3]</a>, <a href="cpp_api/kernels/kernels.html#_CPPv411trt_edgellm">[4]</a>, <a href="cpp_api/kernels/nvfp4_tensor.html#_CPPv411trt_edgellm">[5]</a>, <a href="cpp_api/multimodal/audioUtils.html#_CPPv411trt_edgellm">[6]</a>, <a href="cpp_api/multimodal/imageUtils.html#_CPPv411trt_edgellm">[7]</a>, <a href="cpp_api/multimodal/modelTypes.html#_CPPv411trt_edgellm">[8]</a>, <a href="cpp_api/runtime/audioUtils.html#_CPPv411trt_edgellm">[9]</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv411trt_edgellm">[10]</a>, <a href="cpp_api/runtime/llmInferenceRuntime.html#_CPPv411trt_edgellm">[11]</a>
+      <li><a href="python_api.html#experimental.server.SamplingParams.temperature">temperature (experimental.server.SamplingParams attribute)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.CompletionOutput.text">text (experimental.server.CompletionOutput attribute)</a>
+
+      <ul>
+        <li><a href="python_api.html#experimental.server.StreamDelta.text">(experimental.server.StreamDelta attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api.html#experimental.server.CompletionOutput.token_ids">token_ids (experimental.server.CompletionOutput attribute)</a>
+
+      <ul>
+        <li><a href="python_api.html#experimental.server.StreamDelta.token_ids">(experimental.server.StreamDelta attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api.html#experimental.server.SamplingParams.top_k">top_k (experimental.server.SamplingParams attribute)</a>
+</li>
+      <li><a href="python_api.html#experimental.server.SamplingParams.top_p">top_p (experimental.server.SamplingParams attribute)</a>
+</li>
+      <li><a href="cpp_api/action/actionModelTypes.html#_CPPv411trt_edgellm">trt_edgellm (C++ type)</a>, <a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv411trt_edgellm">[1]</a>, <a href="cpp_api/common/bindingNames.html#_CPPv411trt_edgellm">[2]</a>, <a href="cpp_api/common/checkMacros.html#_CPPv411trt_edgellm">[3]</a>, <a href="cpp_api/common/cudaUtils.html#_CPPv411trt_edgellm">[4]</a>, <a href="cpp_api/common/inputLimits.html#_CPPv411trt_edgellm">[5]</a>, <a href="cpp_api/kernels/kernels.html#_CPPv411trt_edgellm">[6]</a>, <a href="cpp_api/kernels/nvfp4_tensor.html#_CPPv411trt_edgellm">[7]</a>, <a href="cpp_api/multimodal/audioUtils.html#_CPPv411trt_edgellm">[8]</a>, <a href="cpp_api/multimodal/imageUtils.html#_CPPv411trt_edgellm">[9]</a>, <a href="cpp_api/multimodal/modelTypes.html#_CPPv411trt_edgellm">[10]</a>, <a href="cpp_api/runtime/audioUtils.html#_CPPv411trt_edgellm">[11]</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv411trt_edgellm">[12]</a>, <a href="cpp_api/runtime/llmInferenceRuntime.html#_CPPv411trt_edgellm">[13]</a>
+</li>
+      <li><a href="cpp_api/action/actionModelTypes.html#_CPPv4N11trt_edgellm6actionE">trt_edgellm::action (C++ type)</a>
+</li>
+      <li><a href="cpp_api/action/actionModelTypes.html#_CPPv4N11trt_edgellm6action15ActionModelTypeE">trt_edgellm::action::ActionModelType (C++ enum)</a>
+</li>
+      <li><a href="cpp_api/action/actionModelTypes.html#_CPPv4N11trt_edgellm6action15ActionModelType9ALPAMAYO1E">trt_edgellm::action::ActionModelType::ALPAMAYO1 (C++ enumerator)</a>
+</li>
+      <li><a href="cpp_api/action/actionModelTypes.html#_CPPv4N11trt_edgellm6action15ActionModelType7UNKNOWNE">trt_edgellm::action::ActionModelType::UNKNOWN (C++ enumerator)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_namesE">trt_edgellm::binding_names (C++ type)</a>
 </li>
@@ -1348,6 +1571,10 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names25formatDeepstackEmbedsNameE7int32_t">trt_edgellm::binding_names::formatDeepstackEmbedsName (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names27formatDeepstackFeaturesNameE7int32_t">trt_edgellm::binding_names::formatDeepstackFeaturesName (C++ function)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names31formatIntermediateConvStateNameE7int32_t">trt_edgellm::binding_names::formatIntermediateConvStateName (C++ function)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names36formatIntermediateRecurrentStateNameE7int32_t">trt_edgellm::binding_names::formatIntermediateRecurrentStateName (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names16formatKCacheNameE7int32_tb">trt_edgellm::binding_names::formatKCacheName (C++ function)</a>
 </li>
@@ -1395,6 +1622,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names26kDeepstackFeaturesTemplateE">trt_edgellm::binding_names::kDeepstackFeaturesTemplate (C++ member)</a>
 </li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names19kDenoisedTrajectoryE">trt_edgellm::binding_names::kDenoisedTrajectory (C++ member)</a>
+</li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names23kDraftModelHiddenStatesE">trt_edgellm::binding_names::kDraftModelHiddenStates (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names15kEdgellmVersionE">trt_edgellm::binding_names::kEdgellmVersion (C++ member)</a>
@@ -1404,6 +1633,10 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names17kFastPosEmbWeightE">trt_edgellm::binding_names::kFastPosEmbWeight (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names13kInputsEmbedsE">trt_edgellm::binding_names::kInputsEmbeds (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names30kIntermediateConvStateTemplateE">trt_edgellm::binding_names::kIntermediateConvStateTemplate (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names35kIntermediateRecurrentStateTemplateE">trt_edgellm::binding_names::kIntermediateRecurrentStateTemplate (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names15kKCacheTemplateE">trt_edgellm::binding_names::kKCacheTemplate (C++ member)</a>
 </li>
@@ -1420,6 +1653,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names12kLoraBPrefixE">trt_edgellm::binding_names::kLoraBPrefix (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names17kMaxSeqLenCarrierE">trt_edgellm::binding_names::kMaxSeqLenCarrier (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names16kNoiseTrajectoryE">trt_edgellm::binding_names::kNoiseTrajectory (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names19kOutputHiddenStatesE">trt_edgellm::binding_names::kOutputHiddenStates (C++ member)</a>
 </li>
@@ -1445,6 +1680,10 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names13kRotaryPosEmbE">trt_edgellm::binding_names::kRotaryPosEmb (C++ member)</a>
 </li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names12kTimeStepsT0E">trt_edgellm::binding_names::kTimeStepsT0 (C++ member)</a>
+</li>
+      <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names12kTimeStepsT1E">trt_edgellm::binding_names::kTimeStepsT1 (C++ member)</a>
+</li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names15kVCacheTemplateE">trt_edgellm::binding_names::kVCacheTemplate (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/bindingNames.html#_CPPv4N11trt_edgellm13binding_names12kVisualInputE">trt_edgellm::binding_names::kVisualInput (C++ member)</a>
@@ -1467,11 +1706,9 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4N11trt_edgellm7builder19ActionBuilderConfig8fromJsonERK4Json">trt_edgellm::builder::ActionBuilderConfig::fromJson (C++ function)</a>
 </li>
-      <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4N11trt_edgellm7builder19ActionBuilderConfig9maxSeqLenE">trt_edgellm::builder::ActionBuilderConfig::maxSeqLen (C++ member)</a>
+      <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4N11trt_edgellm7builder19ActionBuilderConfig12maxBatchSizeE">trt_edgellm::builder::ActionBuilderConfig::maxBatchSize (C++ member)</a>
 </li>
-      <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4N11trt_edgellm7builder19ActionBuilderConfig9minSeqLenE">trt_edgellm::builder::ActionBuilderConfig::minSeqLen (C++ member)</a>
-</li>
-      <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4N11trt_edgellm7builder19ActionBuilderConfig9optSeqLenE">trt_edgellm::builder::ActionBuilderConfig::optSeqLen (C++ member)</a>
+      <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4N11trt_edgellm7builder19ActionBuilderConfig18maxKVCacheCapacityE">trt_edgellm::builder::ActionBuilderConfig::maxKVCacheCapacity (C++ member)</a>
 </li>
       <li><a href="cpp_api/builder/actionBuilder.html#_CPPv4NK11trt_edgellm7builder19ActionBuilderConfig6toJsonEv">trt_edgellm::builder::ActionBuilderConfig::toJson (C++ function)</a>
 </li>
@@ -1671,6 +1908,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/trtUtils.html#_CPPv4NK11trt_edgellm9DlDeleterclEPv">trt_edgellm::DlDeleter::operator() (C++ function)</a>
 </li>
+      <li><a href="cpp_api/common/trtUtils.html#_CPPv4N11trt_edgellm21engineHasOutputTensorEPKN8nvinfer111ICudaEngineEPKc">trt_edgellm::engineHasOutputTensor (C++ function)</a>
+</li>
       <li><a href="cpp_api/common/fileUtils.html#_CPPv4N11trt_edgellm7file_io8copyFileERKNSt6stringERKNSt6stringE">trt_edgellm::file_io::copyFile (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/mmapReader.html#_CPPv4N11trt_edgellm7file_io10MmapReaderE">trt_edgellm::file_io::MmapReader (C++ class)</a>
@@ -1866,6 +2105,20 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/kernels/moeSigmoidGroupTopkKernels.html#_CPPv4N11trt_edgellm6kernel19moeSigmoidGroupTopkERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_t7int32_t7int32_tbf12cudaStream_tN2rt19OptionalInputTensorE">trt_edgellm::kernel::moeSigmoidGroupTopk (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/moeTopkSoftmaxKernels.html#_CPPv4N11trt_edgellm6kernel14moeTopkSoftmaxERKN2rt6TensorERN2rt6TensorERN2rt6TensorE7int32_tPv6size_t12cudaStream_tbfN2rt19OptionalInputTensorE">trt_edgellm::kernel::moeTopkSoftmax (C++ function)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel12MtpLayerInfoE">trt_edgellm::kernel::MtpLayerInfo (C++ struct)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel12MtpLayerInfo7convDstE">trt_edgellm::kernel::MtpLayerInfo::convDst (C++ member)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel12MtpLayerInfo7convSrcE">trt_edgellm::kernel::MtpLayerInfo::convSrc (C++ member)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel12MtpLayerInfo12recurrentDstE">trt_edgellm::kernel::MtpLayerInfo::recurrentDst (C++ member)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel12MtpLayerInfo12recurrentSrcE">trt_edgellm::kernel::MtpLayerInfo::recurrentSrc (C++ member)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel20mtpScatterConvStatesEPK12MtpLayerInfo7int32_t7int32_t7int32_t7int32_tPK7int32_t12cudaStream_t">trt_edgellm::kernel::mtpScatterConvStates (C++ function)</a>
+</li>
+      <li><a href="cpp_api/kernels/mtpStateScatterKernels.html#_CPPv4N11trt_edgellm6kernel25mtpScatterRecurrentStatesEPK12MtpLayerInfo7int32_t7int32_t7int32_t7int32_tPK7int32_t12cudaStream_t">trt_edgellm::kernel::mtpScatterRecurrentStates (C++ function)</a>
 </li>
       <li><a href="cpp_api/kernels/imageUtilKernels.html#_CPPv4N11trt_edgellm6kernel14normalizeImageERKN2rt6TensorERKN2rt6TensorERKN2rt6TensorERN2rt6TensorE12cudaStream_t">trt_edgellm::kernel::normalizeImage (C++ function)</a>
 </li>
@@ -2087,6 +2340,10 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/logger.html#_CPPv4N11trt_edgellm6logger14SourceLocation14SourceLocationEPKcPKc7int32_t">trt_edgellm::logger::SourceLocation::SourceLocation (C++ function)</a>
 </li>
+      <li><a href="cpp_api/kernels/ssdVarlenMetadata.html#_CPPv4N11trt_edgellm5mamba22buildSSDVarlenMetadataEP7int32_tP7int32_tP7int32_tP7int32_tPK7int32_t7int32_t7int32_t7int32_t12cudaStream_t">trt_edgellm::mamba::buildSSDVarlenMetadata (C++ function)</a>
+</li>
+      <li><a href="cpp_api/kernels/ssdVarlenMetadata.html#_CPPv4N11trt_edgellm5mamba20fillUniformValidLensEP7int32_t7int32_t7int32_t12cudaStream_t">trt_edgellm::mamba::fillUniformValidLens (C++ function)</a>
+</li>
       <li><a href="cpp_api/sampler/sampling.html#_CPPv4N11trt_edgellm26mapReducedVocabToFullVocabERN2rt6TensorERKN2rt6TensorE12cudaStream_t">trt_edgellm::mapReducedVocabToFullVocab (C++ function)</a>
 </li>
       <li><a href="cpp_api/common/mathUtils.html#_CPPv4N11trt_edgellm4math13OverflowErrorE">trt_edgellm::math::OverflowError (C++ class)</a>
@@ -2136,6 +2393,38 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17MultimodalMetrics11totalImagesE">trt_edgellm::metrics::MultimodalMetrics::totalImages (C++ member)</a>
 </li>
       <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17MultimodalMetrics16totalImageTokensE">trt_edgellm::metrics::MultimodalMetrics::totalImageTokens (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetricsE">trt_edgellm::metrics::OmniLatencyMetrics (C++ struct)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics20audioDurationSecondsE">trt_edgellm::metrics::OmniLatencyMetrics::audioDurationSeconds (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics12audioSamplesE">trt_edgellm::metrics::OmniLatencyMetrics::audioSamples (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics10endToEndMsE">trt_edgellm::metrics::OmniLatencyMetrics::endToEndMs (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics14realTimeFactorE">trt_edgellm::metrics::OmniLatencyMetrics::realTimeFactor (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics10sampleRateE">trt_edgellm::metrics::OmniLatencyMetrics::sampleRate (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics22timeToFirstAudioCodeMsE">trt_edgellm::metrics::OmniLatencyMetrics::timeToFirstAudioCodeMs (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetrics26timeToFirstPlayableAudioMsE">trt_edgellm::metrics::OmniLatencyMetrics::timeToFirstPlayableAudioMs (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetricsE">trt_edgellm::metrics::OmniTalkerMetrics (C++ class)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics10exitReasonE">trt_edgellm::metrics::OmniTalkerMetrics::exitReason (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics11isStreamingE">trt_edgellm::metrics::OmniTalkerMetrics::isStreaming (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics16prefillGpuTimeMsE">trt_edgellm::metrics::OmniTalkerMetrics::prefillGpuTimeMs (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics16prefillSeqLengthE">trt_edgellm::metrics::OmniTalkerMetrics::prefillSeqLength (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics9recordRunE7int64_t7int64_tf7int32_tRKNSt6stringEb">trt_edgellm::metrics::OmniTalkerMetrics::recordRun (C++ function)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics11totalFramesE">trt_edgellm::metrics::OmniTalkerMetrics::totalFrames (C++ member)</a>
+</li>
+      <li><a href="cpp_api/profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetrics13totalRvqCodesE">trt_edgellm::metrics::OmniTalkerMetrics::totalRvqCodes (C++ member)</a>
 </li>
       <li><a href="cpp_api/kernels/kernels.html#_CPPv4N11trt_edgellm17MoEActivationKindE">trt_edgellm::MoEActivationKind (C++ enum)</a>
 </li>
@@ -2273,7 +2562,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPluginE">trt_edgellm::plugins::CausalConv1dPlugin (C++ class)</a>
 </li>
-      <li><a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginERK18CausalConv1dPlugin">trt_edgellm::plugins::CausalConv1dPlugin::CausalConv1dPlugin (C++ function)</a>, <a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginERKNSt6stringE7int32_t7int32_t7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginERKNSt6stringEPKv6size_t">[2]</a>, <a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginEv">[3]</a>
+      <li><a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginERK18CausalConv1dPlugin">trt_edgellm::plugins::CausalConv1dPlugin::CausalConv1dPlugin (C++ function)</a>, <a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginERKNSt6stringE7int32_t7int32_t7int32_t7int32_tb">[1]</a>, <a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginERKNSt6stringEPKv6size_t">[2]</a>, <a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4N11trt_edgellm7plugins18CausalConv1dPlugin18CausalConv1dPluginEv">[3]</a>
 </li>
       <li><a href="cpp_api/plugins/causalConv1dPlugin.html#_CPPv4NK11trt_edgellm7plugins18CausalConv1dPlugin5cloneEv">trt_edgellm::plugins::CausalConv1dPlugin::clone (C++ function)</a>
 </li>
@@ -2341,7 +2630,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t">trt_edgellm::plugins::GatedDeltaNetPlugin::enqueue (C++ function)</a>
 </li>
-      <li><a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginERK19GatedDeltaNetPlugin">trt_edgellm::plugins::GatedDeltaNetPlugin::GatedDeltaNetPlugin (C++ function)</a>, <a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginERKNSt6stringE7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginERKNSt6stringEPKv6size_t">[2]</a>, <a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginEv">[3]</a>
+      <li><a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginERK19GatedDeltaNetPlugin">trt_edgellm::plugins::GatedDeltaNetPlugin::GatedDeltaNetPlugin (C++ function)</a>, <a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginERKNSt6stringE7int32_t7int32_tb">[1]</a>, <a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginERKNSt6stringEPKv6size_t">[2]</a>, <a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4N11trt_edgellm7plugins19GatedDeltaNetPlugin19GatedDeltaNetPluginEv">[3]</a>
 </li>
       <li><a href="cpp_api/plugins/gatedDeltaNetPlugin.html#_CPPv4NK11trt_edgellm7plugins19GatedDeltaNetPlugin12getNbOutputsEv">trt_edgellm::plugins::GatedDeltaNetPlugin::getNbOutputs (C++ function)</a>
 </li>
@@ -2615,6 +2904,62 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/plugins/nvfp4MoePlugin.html#_CPPv4N11trt_edgellm7plugins21Nvfp4MoePluginCreatorD0Ev">trt_edgellm::plugins::Nvfp4MoePluginCreator::~Nvfp4MoePluginCreator (C++ function)</a>
 </li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforceE">trt_edgellm::plugins::NvFP4MoEPluginGeforce (C++ class)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce15attachToContextEPN8nvinfer122IPluginResourceContextE">trt_edgellm::plugins::NvFP4MoEPluginGeforce::attachToContext (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce5cloneEv">trt_edgellm::plugins::NvFP4MoEPluginGeforce::clone (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">trt_edgellm::plugins::NvFP4MoEPluginGeforce::configurePlugin (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t">trt_edgellm::plugins::NvFP4MoEPluginGeforce::enqueue (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getCapabilityInterface (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce20getFieldsToSerializeEv">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getFieldsToSerialize (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins21NvFP4MoEPluginGeforce12getNbOutputsEv">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getNbOutputs (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins21NvFP4MoEPluginGeforce18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getOutputDataTypes (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getOutputShapes (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins21NvFP4MoEPluginGeforce13getPluginNameEv">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getPluginName (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins21NvFP4MoEPluginGeforce18getPluginNamespaceEv">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getPluginNamespace (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins21NvFP4MoEPluginGeforce16getPluginVersionEv">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getPluginVersion (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins21NvFP4MoEPluginGeforce16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">trt_edgellm::plugins::NvFP4MoEPluginGeforce::getWorkspaceSize (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce21NvFP4MoEPluginGeforceERK21NvFP4MoEPluginGeforce">trt_edgellm::plugins::NvFP4MoEPluginGeforce::NvFP4MoEPluginGeforce (C++ function)</a>, <a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce21NvFP4MoEPluginGeforceERKNSt6stringE7int32_t7int32_t7int32_t7int32_t7int32_t7int32_t7int32_t7int32_t">[1]</a>, <a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce21NvFP4MoEPluginGeforceERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE">[2]</a>, <a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce21NvFP4MoEPluginGeforceEv">[3]</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">trt_edgellm::plugins::NvFP4MoEPluginGeforce::onShapeChange (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce18setPluginNamespaceEPKc">trt_edgellm::plugins::NvFP4MoEPluginGeforce::setPluginNamespace (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforce25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t">trt_edgellm::plugins::NvFP4MoEPluginGeforce::supportsFormatCombination (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins21NvFP4MoEPluginGeforceD0Ev">trt_edgellm::plugins::NvFP4MoEPluginGeforce::~NvFP4MoEPluginGeforce (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreatorE">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator (C++ class)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::createPlugin (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator13getFieldNamesEv">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::getFieldNames (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator13getPluginNameEv">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::getPluginName (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator18getPluginNamespaceEv">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::getPluginNamespace (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4NK11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator16getPluginVersionEv">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::getPluginVersion (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator28NvFP4MoEPluginGeforceCreatorEv">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::NvFP4MoEPluginGeforceCreator (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreator18setPluginNamespaceEPKc">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::setPluginNamespace (C++ function)</a>
+</li>
+      <li><a href="cpp_api/plugins/nvfp4MoePluginGeforce.html#_CPPv4N11trt_edgellm7plugins28NvFP4MoEPluginGeforceCreatorD0Ev">trt_edgellm::plugins::NvFP4MoEPluginGeforceCreator::~NvFP4MoEPluginGeforceCreator (C++ function)</a>
+</li>
       <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4I00EN11trt_edgellm7plugins10SerializerE">trt_edgellm::plugins::Serializer (C++ struct)</a>
 </li>
       <li><a href="cpp_api/plugins/pluginUtils.html#_CPPv4I0EN11trt_edgellm7plugins10SerializerI1TNSt11enable_if_tIXooNSt15is_arithmetic_vI1TEENSt9is_enum_vI1TEEEEEEE">trt_edgellm::plugins::Serializer&lt;T, typename std::enable_if_t&lt;std::is_arithmetic_v&lt;T&gt; || std::is_enum_v&lt;T&gt;&gt;&gt; (C++ struct)</a>
@@ -2687,7 +3032,51 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/trtUtils.html#_CPPv4N11trt_edgellm15printEngineInfoEPKN8nvinfer111ICudaEngineE7int32_t">trt_edgellm::printEngineInfo (C++ function)</a>
 </li>
-      <li><a href="cpp_api/multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE">trt_edgellm::rt (C++ type)</a>, <a href="cpp_api/multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE">[1]</a>, <a href="cpp_api/runtime/audioUtils.html#_CPPv4N11trt_edgellm2rtE">[2]</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv4N11trt_edgellm2rtE">[3]</a>, <a href="cpp_api/runtime/llmInferenceRuntime.html#_CPPv4N11trt_edgellm2rtE">[4]</a>
+      <li><a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE">trt_edgellm::rt (C++ type)</a>, <a href="cpp_api/multimodal/audioUtils.html#_CPPv4N11trt_edgellm2rtE">[1]</a>, <a href="cpp_api/multimodal/imageUtils.html#_CPPv4N11trt_edgellm2rtE">[2]</a>, <a href="cpp_api/runtime/audioUtils.html#_CPPv4N11trt_edgellm2rtE">[3]</a>, <a href="cpp_api/runtime/imageUtils.html#_CPPv4N11trt_edgellm2rtE">[4]</a>, <a href="cpp_api/runtime/llmInferenceRuntime.html#_CPPv4N11trt_edgellm2rtE">[5]</a>
+</li>
+      <li><a href="cpp_api/action/actionUtils.html#_CPPv4N11trt_edgellm2rt12action_utils20trajectoryToTokenIdsERKNSt6vectorI19PastTrajectoryPointEEN9tokenizer4RankEN9tokenizer4RankE">trt_edgellm::rt::action_utils::trajectoryToTokenIds (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfigE">trt_edgellm::rt::ActionConfig (C++ struct)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig7headDimE">trt_edgellm::rt::ActionConfig::headDim (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig18maxKVCacheCapacityE">trt_edgellm::rt::ActionConfig::maxKVCacheCapacity (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig13mropeSectionHE">trt_edgellm::rt::ActionConfig::mropeSectionH (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig13mropeSectionWE">trt_edgellm::rt::ActionConfig::mropeSectionW (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig16numDecoderLayersE">trt_edgellm::rt::ActionConfig::numDecoderLayers (C++ member)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig10numKVHeadsE">trt_edgellm::rt::ActionConfig::numKVHeads (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig13numTrajTokensE">trt_edgellm::rt::ActionConfig::numTrajTokens (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig9ropeThetaE">trt_edgellm::rt::ActionConfig::ropeTheta (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt12ActionConfig14trajTokenStartE">trt_edgellm::rt::ActionConfig::trajTokenStart (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunnerE">trt_edgellm::rt::Alpamayo1ActionRunner (C++ class)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunner21Alpamayo1ActionRunnerERKNSt6stringE12cudaStream_tRKN14KVCacheManager6ConfigE">trt_edgellm::rt::Alpamayo1ActionRunner::Alpamayo1ActionRunner (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4NK11trt_edgellm2rt21Alpamayo1ActionRunner21getMaxKVCacheCapacityEv">trt_edgellm::rt::Alpamayo1ActionRunner::getMaxKVCacheCapacity (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4NK11trt_edgellm2rt21Alpamayo1ActionRunner12getModelTypeEv">trt_edgellm::rt::Alpamayo1ActionRunner::getModelType (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4NK11trt_edgellm2rt21Alpamayo1ActionRunner28getRequiredContextMemorySizeEv">trt_edgellm::rt::Alpamayo1ActionRunner::getRequiredContextMemorySize (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunner10preprocessERK20LLMGenerationRequestRNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerE">trt_edgellm::rt::Alpamayo1ActionRunner::preprocess (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunner16sampleTrajectoryE12cudaStream_t7int32_tR18HybridCacheManagerRKNSt6vectorI7int64_tEE">trt_edgellm::rt::Alpamayo1ActionRunner::sampleTrajectory (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunner16setContextMemoryERN2rt6TensorE">trt_edgellm::rt::Alpamayo1ActionRunner::setContextMemory (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunner12setNoiseSeedE7int32_t">trt_edgellm::rt::Alpamayo1ActionRunner::setNoiseSeed (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1ActionRunner.html#_CPPv4N11trt_edgellm2rt21Alpamayo1ActionRunnerD0Ev">trt_edgellm::rt::Alpamayo1ActionRunner::~Alpamayo1ActionRunner (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/streaming.html#_CPPv4N11trt_edgellm2rt31applyCancellationToFinishStatesER26SpecDecodeInferenceContext">trt_edgellm::rt::applyCancellationToFinishStates (C++ function)</a>
 </li>
@@ -2701,8 +3090,6 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/audioRunner.html#_CPPv4N11trt_edgellm2rt11AudioConfig15audioFeatureDimE">trt_edgellm::rt::AudioConfig::audioFeatureDim (C++ member)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cpp_api/multimodal/audioRunner.html#_CPPv4N11trt_edgellm2rt11AudioConfig12audioTokenIdE">trt_edgellm::rt::AudioConfig::audioTokenId (C++ member)</a>
 </li>
       <li><a href="cpp_api/multimodal/audioRunner.html#_CPPv4N11trt_edgellm2rt11AudioConfig7melBinsE">trt_edgellm::rt::AudioConfig::melBins (C++ member)</a>
@@ -2891,6 +3278,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt16formatRopeConfigERK10RopeConfig">trt_edgellm::rt::formatRopeConfig (C++ function)</a>
 </li>
+      <li><a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rt21FutureTrajectoryPointE">trt_edgellm::rt::FutureTrajectoryPoint (C++ type)</a>
+</li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt25generateMultimodalIndicesERKN2rt6TensorENSt8optionalI7int32_tEENSt8optionalI7int32_tEE7int32_t">trt_edgellm::rt::generateMultimodalIndices (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/hybridCacheManager.html#_CPPv4N11trt_edgellm2rt18HybridCacheManagerE">trt_edgellm::rt::HybridCacheManager (C++ class)</a>
@@ -3035,6 +3424,12 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/common/tensor.html#_CPPv4IEN11trt_edgellm2rt17is_arithmetic_extI4halfEE">trt_edgellm::rt::is_arithmetic_ext&lt;half&gt; (C++ struct)</a>
 </li>
+      <li><a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rt18kTrajHistoryEndStrE">trt_edgellm::rt::kTrajHistoryEndStr (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rt18kTrajHistoryPadStrE">trt_edgellm::rt::kTrajHistoryPadStr (C++ member)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rt20kTrajHistoryStartStrE">trt_edgellm::rt::kTrajHistoryStartStr (C++ member)</a>
+</li>
       <li><a href="cpp_api/runtime/kvCacheManager.html#_CPPv4N11trt_edgellm2rt14KVCacheManagerE">trt_edgellm::rt::KVCacheManager (C++ class)</a>
 </li>
       <li><a href="cpp_api/runtime/kvCacheManager.html#_CPPv4N11trt_edgellm2rt14KVCacheManager18getCombinedKVCacheE7int32_t">trt_edgellm::rt::KVCacheManager::getCombinedKVCache (C++ function)</a>
@@ -3093,7 +3488,7 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner16setContextMemoryERN2rt6TensorE">trt_edgellm::rt::LLMEngineRunner::setContextMemory (C++ function)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner16setLMHeadWeightsERKNSt6stringERKN2rt6TensorE">trt_edgellm::rt::LLMEngineRunner::setLMHeadWeights (C++ function)</a>
+      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner15setLmHeadWeightERKN2rt6TensorE">trt_edgellm::rt::LLMEngineRunner::setLmHeadWeight (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt15LLMEngineRunner17switchLoraWeightsERKNSt6stringE">trt_edgellm::rt::LLMEngineRunner::switchLoraWeights (C++ function)</a>
 </li>
@@ -3129,6 +3524,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig17maxVerifyTreeSizeE">trt_edgellm::rt::LLMEngineRunnerConfig::maxVerifyTreeSize (C++ member)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig7mtpBaseE">trt_edgellm::rt::LLMEngineRunnerConfig::mtpBase (C++ member)</a>
+</li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig18numAttentionLayersE">trt_edgellm::rt::LLMEngineRunnerConfig::numAttentionLayers (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmEngineRunner.html#_CPPv4N11trt_edgellm2rt21LLMEngineRunnerConfig16numDecoderLayersE">trt_edgellm::rt::LLMEngineRunnerConfig::numDecoderLayers (C++ member)</a>
@@ -3163,6 +3560,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE">trt_edgellm::rt::LLMGenerationRequest (C++ struct)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17acceptHiddenLayerE">trt_edgellm::rt::LLMGenerationRequest::acceptHiddenLayer (C++ member)</a>
+</li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest19addGenerationPromptE">trt_edgellm::rt::LLMGenerationRequest::addGenerationPrompt (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17applyChatTemplateE">trt_edgellm::rt::LLMGenerationRequest::applyChatTemplate (C++ member)</a>
@@ -3173,9 +3572,13 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17formattedRequestsE">trt_edgellm::rt::LLMGenerationRequest::formattedRequests (C++ member)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest13generateAudioE">trt_edgellm::rt::LLMGenerationRequest::generateAudio (C++ member)</a>
+</li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest15loraWeightsNameE">trt_edgellm::rt::LLMGenerationRequest::loraWeightsName (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest17maxGenerateLengthE">trt_edgellm::rt::LLMGenerationRequest::maxGenerateLength (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest16onTokenGeneratedE">trt_edgellm::rt::LLMGenerationRequest::onTokenGenerated (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequest8requestsE">trt_edgellm::rt::LLMGenerationRequest::requests (C++ member)</a>
 </li>
@@ -3191,9 +3594,13 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE">trt_edgellm::rt::LLMGenerationResponse (C++ struct)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse12outputAudiosE">trt_edgellm::rt::LLMGenerationResponse::outputAudios (C++ member)</a>
+</li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse9outputIdsE">trt_edgellm::rt::LLMGenerationResponse::outputIds (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse11outputTextsE">trt_edgellm::rt::LLMGenerationResponse::outputTexts (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponse18outputTrajectoriesE">trt_edgellm::rt::LLMGenerationResponse::outputTrajectories (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceRuntime.html#_CPPv4N11trt_edgellm2rt19LLMInferenceRuntimeE">trt_edgellm::rt::LLMInferenceRuntime (C++ type)</a>
 </li>
@@ -3203,7 +3610,15 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29genAndSaveSystemPromptKVCacheERKNSt6stringERKNSt6stringE12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::genAndSaveSystemPromptKVCache (C++ function)</a>
 </li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime24getBaseModelHiddenStatesE7int32_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getBaseModelHiddenStates (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getBaseModelInputTokenIdsEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getBaseModelInputTokenIds (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getBaseModelPrefillLengthEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getBaseModelPrefillLength (C++ function)</a>
+</li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime25getEagleGenerationMetricsEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getEagleGenerationMetrics (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getEmbeddingTableEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getEmbeddingTable (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime20getGenerationMetricsEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getGenerationMetrics (C++ function)</a>
 </li>
@@ -3211,11 +3626,13 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime17getPrefillMetricsEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::getPrefillMetrics (C++ function)</a>
 </li>
-      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::handleRequest (C++ function)</a>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13handleRequestERK20LLMGenerationRequestR21LLMGenerationResponse12cudaStream_tb">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::handleRequest (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4NK11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime13hasDraftModelEv">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::hasDraftModel (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEE12cudaStream_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::LLMInferenceSpecDecodeRuntime (C++ function)</a>, <a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime29LLMInferenceSpecDecodeRuntimeERKNSt6stringERKNSt6stringERKNSt13unordered_mapINSt6stringENSt6stringEEERK19EagleDraftingConfig12cudaStream_t">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntime18setActionNoiseSeedE7int32_t">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::setActionNoiseSeed (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeD0Ev">trt_edgellm::rt::LLMInferenceSpecDecodeRuntime::~LLMInferenceSpecDecodeRuntime (C++ function)</a>
 </li>
@@ -3241,13 +3658,25 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager12getConvStateE7int32_t">trt_edgellm::rt::MambaCacheManager::getConvState (C++ function)</a>
 </li>
+      <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager24getIntermediateConvStateE7int32_t">trt_edgellm::rt::MambaCacheManager::getIntermediateConvState (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager29getIntermediateRecurrentStateE7int32_t">trt_edgellm::rt::MambaCacheManager::getIntermediateRecurrentState (C++ function)</a>
+</li>
       <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager17getRecurrentStateE7int32_t">trt_edgellm::rt::MambaCacheManager::getRecurrentState (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4NK11trt_edgellm2rt17MambaCacheManager25hasIntermediateConvStatesEv">trt_edgellm::rt::MambaCacheManager::hasIntermediateConvStates (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4NK11trt_edgellm2rt17MambaCacheManager30hasIntermediateRecurrentStatesEv">trt_edgellm::rt::MambaCacheManager::hasIntermediateRecurrentStates (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager17MambaCacheManagerERK17MambaCacheManager">trt_edgellm::rt::MambaCacheManager::MambaCacheManager (C++ function)</a>, <a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager17MambaCacheManagerERK6Config12cudaStream_t">[1]</a>, <a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager17MambaCacheManagerERR17MambaCacheManager">[2]</a>, <a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager17MambaCacheManagerEv">[3]</a>
 </li>
       <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4NK11trt_edgellm2rt17MambaCacheManager9numLayersEv">trt_edgellm::rt::MambaCacheManager::numLayers (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManageraSERK17MambaCacheManager">trt_edgellm::rt::MambaCacheManager::operator= (C++ function)</a>, <a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManageraSERR17MambaCacheManager">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager25reshapeIntermediateStatesE7int32_t7int32_t">trt_edgellm::rt::MambaCacheManager::reshapeIntermediateStates (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManager16scatterMtpStatesERKN2rt6TensorE12cudaStream_t">trt_edgellm::rt::MambaCacheManager::scatterMtpStates (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/mambaCacheManager.html#_CPPv4N11trt_edgellm2rt17MambaCacheManagerD0Ev">trt_edgellm::rt::MambaCacheManager::~MambaCacheManager (C++ function)</a>
 </li>
@@ -3307,22 +3736,6 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioConfig9vocabSizeE">trt_edgellm::rt::NemotronOmniAudioConfig::vocabSize (C++ member)</a>
 </li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunnerE">trt_edgellm::rt::NemotronOmniAudioRunner (C++ class)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunner14allocateBufferE12cudaStream_t">trt_edgellm::rt::NemotronOmniAudioRunner::allocateBuffer (C++ function)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunner18getOutputEmbeddingEv">trt_edgellm::rt::NemotronOmniAudioRunner::getOutputEmbedding (C++ function)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunner5inferE12cudaStream_t">trt_edgellm::rt::NemotronOmniAudioRunner::infer (C++ function)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunner23NemotronOmniAudioRunnerERKNSt6stringE12cudaStream_t">trt_edgellm::rt::NemotronOmniAudioRunner::NemotronOmniAudioRunner (C++ function)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb">trt_edgellm::rt::NemotronOmniAudioRunner::preprocess (C++ function)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunner21validateAndFillConfigERKNSt6stringE">trt_edgellm::rt::NemotronOmniAudioRunner::validateAndFillConfig (C++ function)</a>
-</li>
-      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt23NemotronOmniAudioRunnerD0Ev">trt_edgellm::rt::NemotronOmniAudioRunner::~NemotronOmniAudioRunner (C++ function)</a>
-</li>
       <li><a href="cpp_api/multimodal/nemotronOmniViTRunner.html#_CPPv4N11trt_edgellm2rt21NemotronOmniViTConfigE">trt_edgellm::rt::NemotronOmniViTConfig (C++ struct)</a>
 </li>
       <li><a href="cpp_api/multimodal/nemotronOmniViTRunner.html#_CPPv4N11trt_edgellm2rt21NemotronOmniViTConfig15blockImageSizeHE">trt_edgellm::rt::NemotronOmniViTConfig::blockImageSizeH (C++ member)</a>
@@ -3368,6 +3781,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/multimodal/nemotronOmniViTRunner.html#_CPPv4N11trt_edgellm2rt21NemotronOmniViTRunner21validateAndFillConfigERKNSt6stringE">trt_edgellm::rt::NemotronOmniViTRunner::validateAndFillConfig (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/nemotronOmniViTRunner.html#_CPPv4N11trt_edgellm2rt21NemotronOmniViTRunnerD0Ev">trt_edgellm::rt::NemotronOmniViTRunner::~NemotronOmniViTRunner (C++ function)</a>
+</li>
+      <li><a href="cpp_api/action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rt19PastTrajectoryPointE">trt_edgellm::rt::PastTrajectoryPoint (C++ type)</a>
 </li>
       <li><a href="cpp_api/multimodal/phi4mmViTRunner.html#_CPPv4N11trt_edgellm2rt15Phi4MMViTConfigE">trt_edgellm::rt::Phi4MMViTConfig (C++ struct)</a>
 </li>
@@ -3433,15 +3848,55 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntimeE">trt_edgellm::rt::Qwen3OmniTTSRuntime (C++ class)</a>
 </li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE">trt_edgellm::rt::Qwen3OmniTTSRuntime::AudioChunkCallback (C++ type)</a>
+</li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24captureDecodingCUDAGraphE12cudaStream_t">trt_edgellm::rt::Qwen3OmniTTSRuntime::captureDecodingCUDAGraph (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime10getMetricsEv">trt_edgellm::rt::Qwen3OmniTTSRuntime::getMetrics (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28getMutableOmniLatencyMetricsEv">trt_edgellm::rt::Qwen3OmniTTSRuntime::getMutableOmniLatencyMetrics (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime21getOmniLatencyMetricsEv">trt_edgellm::rt::Qwen3OmniTTSRuntime::getOmniLatencyMetrics (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime20getOmniTalkerMetricsEv">trt_edgellm::rt::Qwen3OmniTTSRuntime::getOmniTalkerMetrics (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime18getSpeakerIdByNameERKNSt6stringE">trt_edgellm::rt::Qwen3OmniTTSRuntime::getSpeakerIdByName (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime28getThinkerHiddenLayerIndicesEv">trt_edgellm::rt::Qwen3OmniTTSRuntime::getThinkerHiddenLayerIndices (C++ function)</a>
 </li>
-      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t">trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGeneration (C++ function)</a>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime15getTtfaEndEventEv">trt_edgellm::rt::Qwen3OmniTTSRuntime::getTtfaEndEvent (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t">trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGeneration (C++ function)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERKNSt6vectorI23TalkerGenerationRequestEER24TalkerGenerationResponse12cudaStream_t">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t">trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGenerationFromThinker (C++ function)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERKNSt6vectorI21OmniGenerationRequestEER24TalkerGenerationResponse12cudaStream_t">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime25handleStreamingGenerationER29LLMInferenceSpecDecodeRuntimeR20LLMGenerationRequestR21LLMGenerationResponseRK28ThinkerTalkerStreamingConfigRK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t">trt_edgellm::rt::Qwen3OmniTTSRuntime::handleStreamingGeneration (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest (C++ struct)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::fullText (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::maxAudioLength (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::prefillLength (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::repetitionPenalty (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::speakerId (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::speakerName (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::talkerTemperature (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::talkerTopK (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::talkerTopP (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::textTokenIds (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::thinkerHiddenStates (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::thinkerPrefillEmbeds (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE">[1]</a>
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime19Qwen3OmniTTSRuntimeERKNSt6stringERKNSt6stringERKNSt6stringE12cudaStream_t">trt_edgellm::rt::Qwen3OmniTTSRuntime::Qwen3OmniTTSRuntime (C++ function)</a>
 </li>
@@ -3471,11 +3926,19 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse (C++ struct)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE">[1]</a>
 </li>
-      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::numFrames (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE">[1]</a>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::batchRvqCodes (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE">[1]</a>
 </li>
-      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::rvqCodes (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE">[1]</a>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::numFramesPerSample (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE">[1]</a>
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::success (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE">trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig (C++ struct)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE">trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig::codecChunkFrames (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE">trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig::onAudioChunkReady (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE">[1]</a>
+</li>
+      <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE">trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig::talkerPrefillThreshold (C++ member)</a>, <a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE">[1]</a>
 </li>
       <li><a href="cpp_api/runtime/qwen3OmniTTSRuntime.html#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntimeD0Ev">trt_edgellm::rt::Qwen3OmniTTSRuntime::~Qwen3OmniTTSRuntime (C++ function)</a>
 </li>
@@ -3500,6 +3963,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTConfig5minHWE">trt_edgellm::rt::QwenViTConfig::minHW (C++ member)</a>
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTConfig22minImageTokensPerImageE">trt_edgellm::rt::QwenViTConfig::minImageTokensPerImage (C++ member)</a>
+</li>
+      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTConfig16mropeInterleavedE">trt_edgellm::rt::QwenViTConfig::mropeInterleaved (C++ member)</a>
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTConfig13mropeSectionHE">trt_edgellm::rt::QwenViTConfig::mropeSectionH (C++ member)</a>
 </li>
@@ -3535,6 +4000,8 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner20getDeepstackFeaturesEv">trt_edgellm::rt::QwenViTRunner::getDeepstackFeatures (C++ function)</a>
 </li>
+      <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4NK11trt_edgellm2rt13QwenViTRunner26getMropeRopeDeltasPerBatchEv">trt_edgellm::rt::QwenViTRunner::getMropeRopeDeltasPerBatch (C++ function)</a>
+</li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner5inferE12cudaStream_t">trt_edgellm::rt::QwenViTRunner::infer (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb">trt_edgellm::rt::QwenViTRunner::preprocess (C++ function)</a>
@@ -3546,6 +4013,8 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunner21validateAndFillConfigERKNSt6stringE">trt_edgellm::rt::QwenViTRunner::validateAndFillConfig (C++ function)</a>
 </li>
       <li><a href="cpp_api/multimodal/qwenViTRunner.html#_CPPv4N11trt_edgellm2rt13QwenViTRunnerD0Ev">trt_edgellm::rt::QwenViTRunner::~QwenViTRunner (C++ function)</a>
+</li>
+      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt22resizeEmbeddingForRowsE7int64_t">trt_edgellm::rt::resizeEmbeddingForRows (C++ function)</a>
 </li>
       <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt10RopeConfigE">trt_edgellm::rt::RopeConfig (C++ struct)</a>
 </li>
@@ -3600,6 +4069,10 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext15loraWeightsNameE">trt_edgellm::rt::SpecDecodeInferenceContext::loraWeightsName (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext17maxGenerateLengthE">trt_edgellm::rt::SpecDecodeInferenceContext::maxGenerateLength (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext16onTokenGeneratedE">trt_edgellm::rt::SpecDecodeInferenceContext::onTokenGenerated (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext23outputThinkerEmbeddingsE">trt_edgellm::rt::SpecDecodeInferenceContext::outputThinkerEmbeddings (C++ member)</a>
 </li>
       <li><a href="cpp_api/runtime/llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt26SpecDecodeInferenceContext18rawBatchedInputIdsE">trt_edgellm::rt::SpecDecodeInferenceContext::rawBatchedInputIds (C++ member)</a>
 </li>
@@ -3702,6 +4175,18 @@ window.addEventListener("load", load);
       <li><a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6Tensor6TensorEPvRK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE">trt_edgellm::rt::Tensor::Tensor (C++ function)</a>, <a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Coords10DeviceTypeN8nvinfer18DataTypeERKNSt6stringE">[1]</a>, <a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6Tensor6TensorERK6Tensor">[2]</a>, <a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6Tensor6TensorERR6Tensor">[3]</a>, <a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6Tensor6TensorEv">[4]</a>
 </li>
       <li><a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorD0Ev">trt_edgellm::rt::Tensor::~Tensor (C++ function)</a>
+</li>
+      <li><a href="cpp_api/multimodal/nemotronOmniAudioRunner.html#_CPPv4N11trt_edgellm2rt14textPreprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEERKNSt6vectorI7int64_tEEPKN9tokenizer9TokenizerE">trt_edgellm::rt::textPreprocess (C++ function)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt17TokenCallbackInfoE">trt_edgellm::rt::TokenCallbackInfo (C++ struct)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt17TokenCallbackInfo8batchIdxE">trt_edgellm::rt::TokenCallbackInfo::batchIdx (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt17TokenCallbackInfo14generationStepE">trt_edgellm::rt::TokenCallbackInfo::generationStep (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt17TokenCallbackInfo10isFinishedE">trt_edgellm::rt::TokenCallbackInfo::isFinished (C++ member)</a>
+</li>
+      <li><a href="cpp_api/runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt17TokenCallbackInfo7tokenIdE">trt_edgellm::rt::TokenCallbackInfo::tokenId (C++ member)</a>
 </li>
       <li><a href="cpp_api/common/tensor.html#_CPPv4N11trt_edgellm2rt5utils14computeStridesERK6Coords">trt_edgellm::rt::utils::computeStrides (C++ function)</a>
 </li>
@@ -3995,6 +4480,10 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/tokenizer/tokenizer.html#_CPPv4NK11trt_edgellm9tokenizer9Tokenizer8getPadIdEv">trt_edgellm::tokenizer::Tokenizer::getPadId (C++ function)</a>
 </li>
+      <li><a href="cpp_api/tokenizer/tokenizer.html#_CPPv4NK11trt_edgellm9tokenizer9Tokenizer23getSpecialTokensEncoderEv">trt_edgellm::tokenizer::Tokenizer::getSpecialTokensEncoder (C++ function)</a>
+</li>
+      <li><a href="cpp_api/tokenizer/tokenizer.html#_CPPv4NK11trt_edgellm9tokenizer9Tokenizer10getTokenIdERKNSt6stringE">trt_edgellm::tokenizer::Tokenizer::getTokenId (C++ function)</a>
+</li>
       <li><a href="cpp_api/tokenizer/tokenizer.html#_CPPv4NK11trt_edgellm9tokenizer9Tokenizer8getUnkIdEv">trt_edgellm::tokenizer::Tokenizer::getUnkId (C++ function)</a>
 </li>
       <li><a href="cpp_api/tokenizer/tokenizer.html#_CPPv4NK11trt_edgellm9tokenizer9Tokenizer9idToPieceE4Rankb">trt_edgellm::tokenizer::Tokenizer::idToPiece (C++ function)</a>
@@ -4065,6 +4554,10 @@ window.addEventListener("load", load);
 </li>
       <li><a href="cpp_api/kernels/decoderXQARunner.html#_CPPv4N11trt_edgellm15XQALaunchParams6vScaleE">trt_edgellm::XQALaunchParams::vScale (C++ member)</a>
 </li>
+      <li><a href="cpp_api/common/checkMacros.html#c.TRT_EDGELLM_STRINGIFY">TRT_EDGELLM_STRINGIFY (C macro)</a>
+</li>
+      <li><a href="cpp_api/common/checkMacros.html#c.TRT_EDGELLM_STRINGIFY_IMPL">TRT_EDGELLM_STRINGIFY_IMPL (C macro)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -4103,8 +4596,8 @@ window.addEventListener("load", load);
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 
   <footer class="bd-footer">
@@ -4176,9 +4669,9 @@ window.addEventListener("load", load);
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 28, 2026.</p>
+  <p>Last updated on May 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
   
 </div></div>
       

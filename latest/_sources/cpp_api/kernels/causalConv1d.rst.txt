@@ -10,3 +10,6 @@ Causal Conv1d
 .. doxygenfunction:: mamba_ssm::invokeCausalConv1dDecode
    :project: TensorRT Edge-LLM
 
+.. doxygenfunction:: mamba_ssm::invokeCausalConv1dDecodeMTP
+   :project: TensorRT Edge-LLM
+

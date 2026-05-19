@@ -11,6 +11,11 @@ LLM Runtime Utils
    :members:
    :undoc-members:
 
+.. doxygenstruct:: trt_edgellm::rt::TokenCallbackInfo
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
 .. doxygenstruct:: trt_edgellm::rt::LLMGenerationRequest
    :project: TensorRT Edge-LLM
    :members:

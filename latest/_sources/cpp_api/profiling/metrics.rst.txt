@@ -26,3 +26,13 @@ Metrics
    :members:
    :undoc-members:
 
+.. doxygenclass:: trt_edgellm::metrics::OmniTalkerMetrics
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
+.. doxygenstruct:: trt_edgellm::metrics::OmniLatencyMetrics
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+

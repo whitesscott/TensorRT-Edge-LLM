@@ -15,3 +15,6 @@ TRT Utils
 .. doxygenfunction:: trt_edgellm::printEngineInfo
    :project: TensorRT Edge-LLM
 
+.. doxygenfunction:: trt_edgellm::engineHasOutputTensor
+   :project: TensorRT Edge-LLM
+

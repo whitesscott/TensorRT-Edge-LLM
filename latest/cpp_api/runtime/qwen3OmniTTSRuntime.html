@@ -28,42 +28,43 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
 
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=65e89d2a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/runtime/qwen3OmniTTSRuntime';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
 
     <link rel="icon" href="../../_static/favicon.png"/>
 
@@ -75,26 +76,32 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.0" />
+  <meta name="docsearch:version" content="0.7.1" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
 
 
   </head>
 
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-default-mode="">
+
 
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
 
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -120,7 +127,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -340,6 +347,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vla.html">Alpamayo-R1-10B (Vision-Language-Action)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
@@ -365,7 +373,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
@@ -385,6 +393,13 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../action/index.html">Action Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../action/actionModelTypes.html">Action Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../action/actionUtils.html">Action Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../action/alpamayo1ActionRunner.html">Alpamayo1 Action Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../action/alpamayo1RunnerUtils.html">Alpamayo1 Runner Utils</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../builder/audioBuilder.html">Audio Builder</a></li>
@@ -427,6 +442,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslNvfp4MoeRunner.html">Cute Dsl Nvfp4 Moe Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/dequant.html">Dequant</a></li>
@@ -456,10 +472,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/mtpStateScatterKernels.html">Mtp State Scatter Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/selectiveStateUpdate.html">Selective State Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/ssdVarlenMetadata.html">Ssd Varlen Metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/utilKernels.html">Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/vectorizedTypes.html">Vectorized Types</a></li>
@@ -487,6 +505,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/mambaPlugin.html">Mamba Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/nvfp4MoePluginGeforce.html">Nvfp4 Moe Plugin Geforce</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -600,17 +619,26 @@
 <p>Pipeline:<ol class="loweralpha simple">
 <li><p>MLP Projection: thinker embed (layer 0) → talker embeddings via text_projection</p></li>
 <li><p>Talker LLM: generate codec tokens autoregressively</p></li>
-<li><p>CodePredictor: generate 15-layer codebook codes</p></li>
+<li><p>CodePredictor: generate multi-layer codebook codes (Omni: 15, TTS: 31)</p></li>
 <li><p>Return RVQ codes (vocoding done separately at example layer)</p></li>
 </ol>
 </p>
 <p>Architecture Philosophy:<ul class="simple">
 <li><p>Talker is an LLM decoder, NOT a multimodal input encoder</p></li>
-<li><p>Similar to LLMInferenceRuntime, manages multiple LLM engines</p></li>
+<li><p>Similar to <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime"><span class="std std-ref">LLMInferenceSpecDecodeRuntime</span></a>, manages multiple LLM engines</p></li>
 <li><p>Standalone runtime, not dependent on <a class="reference internal" href="../multimodal/multimodalRunner.html#classtrt__edgellm_1_1rt_1_1MultimodalRunner"><span class="std std-ref">MultimodalRunner</span></a> hierarchy</p></li>
 <li><p>Code2Wav vocoding is separated for better modularity </p></li>
 </ul>
 </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a1ef1cfbaeee82e0a0a357a46f46d2852"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AudioChunkCallback</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">chunkRvqCodes</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Configuration for Thinker→Talker streaming pipeline. </p>
+</dd></dl>
+
+</div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -653,28 +681,40 @@
 <dd><p>Get required hidden state layer indices from thinker. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Vector containing {0} for layer 0 (embed) </p>
+<dd class="field-odd"><p>Vector containing {0} for layer 0 (embed) and {14} for accept_hidden_layer </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGeneration__TalkerGenerationRequestCR.TalkerGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a81c3081577ec23c34269a754e3dfa112"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleAudioGeneration</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERKNSt6vectorI23TalkerGenerationRequestEER24TalkerGenerationResponse12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERKNSt6vectorI23TalkerGenerationRequestEER24TalkerGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERKNSt6vectorI23TalkerGenerationRequestEER24TalkerGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGeneration__std::vector:TalkerGenerationRequest:CR.TalkerGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a986a35c646407b0bcb3c9a1efa36591c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleAudioGeneration</span></span></span><span class="sig-paren">(</span>
 
 <dl>
-<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationRequest"><span class="n"><span class="pre">TalkerGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationRequest"><span class="n"><span class="pre">TalkerGenerationRequest</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">requests</span></span></em>,</dd>
 <dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse"><span class="n"><span class="pre">TalkerGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">response</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Generate audio with RVQ codes. </p>
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERKNSt6vectorI23TalkerGenerationRequestEER24TalkerGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generate audio with RVQ codes (batched) </p>
+<p>Implements the complete nested generation loop for a batch of requests:<ul class="simple">
+<li><p>Talker generation loop (autoregressive, batched engine execution)</p></li>
+<li><p>CodePredictor generation (mNumRvqLayers per Talker step, per-batch)</p></li>
+<li><p>Residual connections</p></li>
+<li><p>Sampling at Runtime Layer (batched)</p></li>
+</ul>
+</p>
+<p>This is the main entry point for audio generation, analogous to <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime_1a0cb567fdc32ab0c8a28ce86b233505d4"><span class="std std-ref">LLMInferenceSpecDecodeRuntime::handleRequest()</span></a> for standard LLM inference.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sampling parameters (temperature, topK, topP, repetitionPenalty) are taken from requests[0] and applied uniformly to all batches. This matches <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime"><span class="std std-ref">LLMInferenceSpecDecodeRuntime</span></a>’s design where <a class="reference internal" href="../sampler/sampling.html#structtrt__edgellm_1_1SamplingParams"><span class="std std-ref">SamplingParams</span></a> is shared across the batch.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>request</strong> – Request containing sampling parameters and input data </p></li>
-<li><p><strong>response</strong> – Response containing generated RVQ codes </p></li>
+<li><p><strong>requests</strong> – Batch of requests, each containing per-batch input data </p></li>
+<li><p><strong>response</strong> – Response containing generated RVQ codes [batchSize][frames][codes] </p></li>
 <li><p><strong>stream</strong> – CUDA stream for execution </p></li>
 </ul>
 </dd>
@@ -685,9 +725,101 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGeneration__TalkerGenerationRequestCR.TalkerGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a81c3081577ec23c34269a754e3dfa112"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleAudioGeneration</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationRequest"><span class="n"><span class="pre">TalkerGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse"><span class="n"><span class="pre">TalkerGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">response</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convenience wrapper for single-request audio generation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERKNSt6vectorI21OmniGenerationRequestEER24TalkerGenerationResponse12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERKNSt6vectorI21OmniGenerationRequestEER24TalkerGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERKNSt6vectorI21OmniGenerationRequestEER24TalkerGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGenerationFromThinker__std::vector:OmniGenerationRequest:CR.TalkerGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a6b6f061d6884e7d7cedbdc9ffac7091c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleAudioGenerationFromThinker</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest"><span class="n"><span class="pre">OmniGenerationRequest</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">requests</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse"><span class="n"><span class="pre">TalkerGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">response</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERKNSt6vectorI21OmniGenerationRequestEER24TalkerGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generate audio from external Thinker hidden states (Omni inference path, batched) </p>
+<p>Instead of tokenizing text and looking up embeddings internally (TTS path), this API accepts pre-computed Thinker layer-0 hidden states and projects them through the MLP to produce Talker input. Used when integrating with llm_inference.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sampling parameters (temperature, topK, topP, repetitionPenalty) are taken from requests[0] and applied uniformly to all batches. This matches <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime"><span class="std std-ref">LLMInferenceSpecDecodeRuntime</span></a>’s design where <a class="reference internal" href="../sampler/sampling.html#structtrt__edgellm_1_1SamplingParams"><span class="std std-ref">SamplingParams</span></a> is shared across the batch.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>requests</strong> – Batch of requests, each containing per-batch thinker embeddings </p></li>
+<li><p><strong>response</strong> – Response containing generated RVQ codes [batchSize][frames][codes] </p></li>
+<li><p><strong>stream</strong> – CUDA stream for execution </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if generation succeeded, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::handleAudioGenerationFromThinker__OmniGenerationRequestCR.TalkerGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a28a5591d40a57e66ff5bcf88e804bc58"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleAudioGenerationFromThinker</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest"><span class="n"><span class="pre">OmniGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse"><span class="n"><span class="pre">TalkerGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">response</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convenience wrapper for single-request Omni audio generation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime25handleStreamingGenerationER29LLMInferenceSpecDecodeRuntimeR20LLMGenerationRequestR21LLMGenerationResponseRK28ThinkerTalkerStreamingConfigRK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime25handleStreamingGenerationER29LLMInferenceSpecDecodeRuntimeR20LLMGenerationRequestR21LLMGenerationResponseRK28ThinkerTalkerStreamingConfigRK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime25handleStreamingGenerationER29LLMInferenceSpecDecodeRuntimeR20LLMGenerationRequestR21LLMGenerationResponseRK28ThinkerTalkerStreamingConfigRK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::handleStreamingGeneration__LLMInferenceSpecDecodeRuntimeR.LLMGenerationRequestR.LLMGenerationResponseR.ThinkerTalkerStreamingConfigCR.OmniGenerationRequestCR.TalkerGenerationResponseR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1aa75ddde59cd41c9366b09d949b738449"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">handleStreamingGeneration</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#_CPPv4N11trt_edgellm2rt29LLMInferenceSpecDecodeRuntimeE" title="trt_edgellm::rt::LLMInferenceSpecDecodeRuntime"><span class="n"><span class="pre">LLMInferenceSpecDecodeRuntime</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">thinkerRuntime</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE" title="trt_edgellm::rt::LLMGenerationRequest"><span class="n"><span class="pre">LLMGenerationRequest</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">thinkerRequest</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt21LLMGenerationResponseE" title="trt_edgellm::rt::LLMGenerationResponse"><span class="n"><span class="pre">LLMGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">thinkerResponse</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig"><span class="n"><span class="pre">ThinkerTalkerStreamingConfig</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">streamingConfig</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest"><span class="n"><span class="pre">OmniGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">omniBaseRequest</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse"><span class="n"><span class="pre">TalkerGenerationResponse</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">talkerResponse</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime25handleStreamingGenerationER29LLMInferenceSpecDecodeRuntimeR20LLMGenerationRequestR21LLMGenerationResponseRK28ThinkerTalkerStreamingConfigRK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Streaming generation: Thinker and Talker run interleaved on the same CUDA stream. </p>
+<p>Uses <a class="reference internal" href="llmRuntimeUtils.html#structtrt__edgellm_1_1rt_1_1LLMGenerationRequest_1a612ffa6844fe655177db270be9ec9b25"><span class="std std-ref">LLMGenerationRequest::onTokenGenerated</span></a> to receive per-token callbacks from the Thinker’s decode loop. When enough assistant tokens accumulate, Talker prefill is triggered. Subsequent Thinker tokens incrementally extend trailing_text_hidden, and Talker decode steps are interleaved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thinkerRuntime</strong> – Thinker LLM runtime (will call handleRequest internally) </p></li>
+<li><p><strong>thinkerRequest</strong> – Thinker request (onTokenGenerated will be overwritten) </p></li>
+<li><p><strong>streamingConfig</strong> – Pipeline tuning parameters </p></li>
+<li><p><strong>talkerResponse</strong> – Output: generated RVQ codes </p></li>
+<li><p><strong>stream</strong> – CUDA stream (shared by Thinker and Talker) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the full pipeline succeeded </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime10getMetricsEv">
 <span id="_CPPv3NK11trt_edgellm2rt19Qwen3OmniTTSRuntime10getMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt19Qwen3OmniTTSRuntime10getMetricsEv"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::getMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1ae9ac183134fdd2ba83fd2f4c1b255c8f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17MultimodalMetricsE" title="trt_edgellm::metrics::MultimodalMetrics"><span class="n"><span class="pre">MultimodalMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getMetrics</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime10getMetricsEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get performance metrics for Talker pipeline. </p>
+<dd><p>Get performance metrics for Talker pipeline (legacy, for backward compat) </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Reference to metrics object </p>
@@ -696,9 +828,43 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime20getOmniTalkerMetricsEv">
+<span id="_CPPv3NK11trt_edgellm2rt19Qwen3OmniTTSRuntime20getOmniTalkerMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt19Qwen3OmniTTSRuntime20getOmniTalkerMetricsEv"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::getOmniTalkerMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1abe105852099fd05756e6810652d693fa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics17OmniTalkerMetricsE" title="trt_edgellm::metrics::OmniTalkerMetrics"><span class="n"><span class="pre">OmniTalkerMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getOmniTalkerMetrics</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime20getOmniTalkerMetricsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get Omni-specific Talker metrics (frames, RVQ codes, prefill time, exit reason) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime21getOmniLatencyMetricsEv">
+<span id="_CPPv3NK11trt_edgellm2rt19Qwen3OmniTTSRuntime21getOmniLatencyMetricsEv"></span><span id="_CPPv2NK11trt_edgellm2rt19Qwen3OmniTTSRuntime21getOmniLatencyMetricsEv"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::getOmniLatencyMetricsC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1acc3c24bcd5640bdf6da9096ef9009169"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetricsE" title="trt_edgellm::metrics::OmniLatencyMetrics"><span class="n"><span class="pre">OmniLatencyMetrics</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getOmniLatencyMetrics</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime21getOmniLatencyMetricsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get Omni audio latency metrics (TTFA, RTF, E2E) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28getMutableOmniLatencyMetricsEv">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime28getMutableOmniLatencyMetricsEv"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime28getMutableOmniLatencyMetricsEv"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::getMutableOmniLatencyMetrics"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1aa47a283ab9d633ff981ea3cb12aba0cf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../profiling/metrics.html#_CPPv4N11trt_edgellm7metrics18OmniLatencyMetricsE" title="trt_edgellm::metrics::OmniLatencyMetrics"><span class="n"><span class="pre">OmniLatencyMetrics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getMutableOmniLatencyMetrics</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28getMutableOmniLatencyMetricsEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get mutable reference to latency metrics (for E2E timing set at example layer) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime15getTtfaEndEventEv">
+<span id="_CPPv3NK11trt_edgellm2rt19Qwen3OmniTTSRuntime15getTtfaEndEventEv"></span><span id="_CPPv2NK11trt_edgellm2rt19Qwen3OmniTTSRuntime15getTtfaEndEventEv"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::getTtfaEndEventC"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a08f79d35d201c4cb7b236842553028c4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">cudaEvent_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTtfaEndEvent</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime15getTtfaEndEventEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the TTFA end event (first codec token sampled) for external timing. </p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24captureDecodingCUDAGraphE12cudaStream_t">
 <span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime24captureDecodingCUDAGraphE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime24captureDecodingCUDAGraphE12cudaStream_t"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::captureDecodingCUDAGraph__cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1a559549e377286e9fd58e56d89425b530"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">captureDecodingCUDAGraph</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24captureDecodingCUDAGraphE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Capture CUDA graphs for decoding steps (same pattern as LLMInferenceRuntime). </p>
+<dd><p>Capture CUDA graphs for decoding steps (same pattern as <a class="reference internal" href="llmInferenceSpecDecodeRuntime.html#classtrt__edgellm_1_1rt_1_1LLMInferenceSpecDecodeRuntime"><span class="std std-ref">LLMInferenceSpecDecodeRuntime</span></a>). </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>stream</strong> – CUDA stream for capture </p>
@@ -724,6 +890,81 @@
 </dd></dl>
 
 </div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OmniGenerationRequest</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Request structure for Omni inference (Thinker output as input) </p>
+<p>Non-streaming: provide fullText (formatted prompt + generated text), which will be tokenized internally to reconstruct layer-0 embeddings via the Thinker embedding table. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::fullText__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a19f5e7ef909b57b69e289eeb040205de"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fullText</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Complete formatted text (if textTokenIds empty, tokenized internally) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::textTokenIds__std::vector:int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1ad455aa43a3b1f518e8cca1b83a619101"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">textTokenIds</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Full token sequence: inputTokenIds + outputIds (including EOS) </p>
+<p>Non-owning pointer to this batch’s prefill layer-0 embeddings (with multimodal features). Must point to a [1, prefillLength, thinkerHiddenSize] FP16 (GPU) view for this batch. Caller slices from the full [BS, prefillLen, H] tensor. Generated token embeddings are reconstructed from the TTS embedding table internally. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::thinkerPrefillEmbeds__rt::TensorCP"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a60690ec66866595de2f6e3e5c7656646"></span><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">thinkerPrefillEmbeds</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Non-owning pointer to this batch’s layer-14 hidden states (prefill only). Must point to a [1, prefillLength, thinkerHiddenSize] FP16 (GPU) view for this batch. Only user-segment multimodal token positions are read. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::thinkerHiddenStates__rt::TensorCP"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a7991d5b602503993e905e31edc9a41f6"></span><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">thinkerHiddenStates</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::prefillLength__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a33a34756a325b0c6e334799aaf06aa08"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">prefillLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of prefill tokens (layer0/layer14 cover [0, prefillLength)) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::maxAudioLength__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a5159fb5eca42001c172cd33c21a60e6a"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxAudioLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">4096</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::talkerTemperature__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a48a9194c4707b5b8adc2d70967bb72c5"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerTemperature</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::talkerTopK__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a4a4bad53e08447023961090595eef3e3"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerTopK</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::talkerTopP__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1ab42faa8b82e58b3d812f3afd0df29fa0"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerTopP</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::repetitionPenalty__float"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1ae834bf9eccd4514fce20aa359b19713d"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">repetitionPenalty</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">1.05f</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::speakerName__ss"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a70c5cfca076f8cf1d4b51ef9f0e5639d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">speakerName</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="s"><span class="pre">&quot;&quot;</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest::speakerId__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a2cef4f07f048c1ebff0a33c0e54d9b25"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">speakerId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE">
 <span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationRequest"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationRequest"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TalkerGenerationRequest</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE" title="Link to this definition">#</a><br /></dt>
@@ -807,20 +1048,46 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE">
-<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::rvqCodes__std::vector:std::vector:int32_t::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a1d2c71ed33588c78e6d25770beefa8e6"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rvqCodes</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE" title="Link to this definition">#</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::batchRvqCodes__std::vector:std::vector:std::vector:int32_t:::"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a187f86bb725288e21d0aa89de68ee053"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">batchRvqCodes</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE">
-<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::numFrames__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a8f43824aff79b1cfccdd05637311ff82"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numFrames</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Number of audio frames generated. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::numFramesPerSample__std::vector:int32_t:"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a4a82ec69e9292e00d7921dfa1bea86c7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numFramesPerSample</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Number of audio frames generated per batch sample. </p>
 </dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE">
 <span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse::success__b"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a425e7723d6c9c7b5122054f7dbe25de9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">success</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Whether generation succeeded. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ThinkerTalkerStreamingConfig</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE" title="Link to this definition">#</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig::talkerPrefillThreshold__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig_1a119b947a5cd080a79b4a548440cfae13"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerPrefillThreshold</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Start Talker prefill after this many assistant tokens. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig::codecChunkFrames__int32_t"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig_1a854e9750647dfc319880985a6b9ec749"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">codecChunkFrames</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Vocode every N frames during flush (0 = disabled) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE">
+<span id="_CPPv3N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE"></span><span id="_CPPv2N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE"></span><span id="trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig::onAudioChunkReady__AudioChunkCallback"></span><span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig_1adbefdf189278139bc9f36058303ba9b1"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::AudioChunkCallback"><span class="n"><span class="pre">AudioChunkCallback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onAudioChunkReady</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Called with chunk RVQ codes [frames][16] when ready. </p>
 </dd></dl>
 
 </div>
@@ -912,19 +1179,120 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a1d2c71ed33588c78e6d25770beefa8e6"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rvqCodes</span></span></span><br /></dt>
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a187f86bb725288e21d0aa89de68ee053"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">batchRvqCodes</span></span></span><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a8f43824aff79b1cfccdd05637311ff82"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numFrames</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
-<dd><p>Number of audio frames generated. </p>
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a4a82ec69e9292e00d7921dfa1bea86c7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numFramesPerSample</span></span></span><br /></dt>
+<dd><p>Number of audio frames generated per batch sample. </p>
 </dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
 <span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1TalkerGenerationResponse_1a425e7723d6c9c7b5122054f7dbe25de9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">success</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
 <dd><p>Whether generation succeeded. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OmniGenerationRequest</span></span></span><br /></dt>
+<dd><p>Request structure for Omni inference (Thinker output as input) </p>
+<p>Non-streaming: provide fullText (formatted prompt + generated text), which will be tokenized internally to reconstruct layer-0 embeddings via the Thinker embedding table. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a19f5e7ef909b57b69e289eeb040205de"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fullText</span></span></span><br /></dt>
+<dd><p>Complete formatted text (if textTokenIds empty, tokenized internally) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1ad455aa43a3b1f518e8cca1b83a619101"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">textTokenIds</span></span></span><br /></dt>
+<dd><p>Full token sequence: inputTokenIds + outputIds (including EOS) </p>
+<p>Non-owning pointer to this batch’s prefill layer-0 embeddings (with multimodal features). Must point to a [1, prefillLength, thinkerHiddenSize] FP16 (GPU) view for this batch. Caller slices from the full [BS, prefillLen, H] tensor. Generated token embeddings are reconstructed from the TTS embedding table internally. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a60690ec66866595de2f6e3e5c7656646"></span><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">thinkerPrefillEmbeds</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd><p>Non-owning pointer to this batch’s layer-14 hidden states (prefill only). Must point to a [1, prefillLength, thinkerHiddenSize] FP16 (GPU) view for this batch. Only user-segment multimodal token positions are read. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a7991d5b602503993e905e31edc9a41f6"></span><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">thinkerHiddenStates</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a33a34756a325b0c6e334799aaf06aa08"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">prefillLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd><p>Number of prefill tokens (layer0/layer14 cover [0, prefillLength)) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a5159fb5eca42001c172cd33c21a60e6a"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxAudioLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">4096</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a48a9194c4707b5b8adc2d70967bb72c5"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerTemperature</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a4a4bad53e08447023961090595eef3e3"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerTopK</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1ab42faa8b82e58b3d812f3afd0df29fa0"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerTopP</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1ae834bf9eccd4514fce20aa359b19713d"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">repetitionPenalty</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">1.05f</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a70c5cfca076f8cf1d4b51ef9f0e5639d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">speakerName</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="s"><span class="pre">&quot;&quot;</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1OmniGenerationRequest_1a2cef4f07f048c1ebff0a33c0e54d9b25"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">speakerId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ThinkerTalkerStreamingConfig</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig_1a119b947a5cd080a79b4a548440cfae13"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">talkerPrefillThreshold</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd><p>Start Talker prefill after this many assistant tokens. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig_1a854e9750647dfc319880985a6b9ec749"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">codecChunkFrames</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd><p>Vocode every N frames during flush (0 = disabled) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="target" id="structtrt__edgellm_1_1rt_1_1Qwen3OmniTTSRuntime_1_1ThinkerTalkerStreamingConfig_1adbefdf189278139bc9f36058303ba9b1"></span><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE" title="trt_edgellm::rt::Qwen3OmniTTSRuntime::AudioChunkCallback"><span class="n"><span class="pre">AudioChunkCallback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onAudioChunkReady</span></span></span><br /></dt>
+<dd><p>Called with chunk RVQ codes [frames][16] when ready. </p>
 </dd></dl>
 
 </div>
@@ -979,16 +1347,40 @@
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntimeE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Qwen3OmniTTSRuntime</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime18AudioChunkCallbackE"><code class="docutils literal notranslate"><span class="pre">AudioChunkCallback</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime19Qwen3OmniTTSRuntimeERKNSt6stringERKNSt6stringERKNSt6stringE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">Qwen3OmniTTSRuntime()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntimeD0Ev"><code class="docutils literal notranslate"><span class="pre">~Qwen3OmniTTSRuntime()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime28getThinkerHiddenLayerIndicesEv"><code class="docutils literal notranslate"><span class="pre">getThinkerHiddenLayerIndices()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERKNSt6vectorI23TalkerGenerationRequestEER24TalkerGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleAudioGeneration()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21handleAudioGenerationERK23TalkerGenerationRequestR24TalkerGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleAudioGeneration()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERKNSt6vectorI21OmniGenerationRequestEER24TalkerGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleAudioGenerationFromThinker()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime32handleAudioGenerationFromThinkerERK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleAudioGenerationFromThinker()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime25handleStreamingGenerationER29LLMInferenceSpecDecodeRuntimeR20LLMGenerationRequestR21LLMGenerationResponseRK28ThinkerTalkerStreamingConfigRK21OmniGenerationRequestR24TalkerGenerationResponse12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">handleStreamingGeneration()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime10getMetricsEv"><code class="docutils literal notranslate"><span class="pre">getMetrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime20getOmniTalkerMetricsEv"><code class="docutils literal notranslate"><span class="pre">getOmniTalkerMetrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime21getOmniLatencyMetricsEv"><code class="docutils literal notranslate"><span class="pre">getOmniLatencyMetrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28getMutableOmniLatencyMetricsEv"><code class="docutils literal notranslate"><span class="pre">getMutableOmniLatencyMetrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime15getTtfaEndEventEv"><code class="docutils literal notranslate"><span class="pre">getTtfaEndEvent()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24captureDecodingCUDAGraphE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">captureDecodingCUDAGraph()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt19Qwen3OmniTTSRuntime18getSpeakerIdByNameERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">getSpeakerIdByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequestE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest8fullTextE"><code class="docutils literal notranslate"><span class="pre">fullText</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest12textTokenIdsE"><code class="docutils literal notranslate"><span class="pre">textTokenIds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest20thinkerPrefillEmbedsE"><code class="docutils literal notranslate"><span class="pre">thinkerPrefillEmbeds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest19thinkerHiddenStatesE"><code class="docutils literal notranslate"><span class="pre">thinkerHiddenStates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest13prefillLengthE"><code class="docutils literal notranslate"><span class="pre">prefillLength</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest14maxAudioLengthE"><code class="docutils literal notranslate"><span class="pre">maxAudioLength</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17talkerTemperatureE"><code class="docutils literal notranslate"><span class="pre">talkerTemperature</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopKE"><code class="docutils literal notranslate"><span class="pre">talkerTopK</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest10talkerTopPE"><code class="docutils literal notranslate"><span class="pre">talkerTopP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest17repetitionPenaltyE"><code class="docutils literal notranslate"><span class="pre">repetitionPenalty</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest11speakerNameE"><code class="docutils literal notranslate"><span class="pre">speakerName</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime21OmniGenerationRequest9speakerIdE"><code class="docutils literal notranslate"><span class="pre">speakerId</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequestE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationRequest</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequest14maxAudioLengthE"><code class="docutils literal notranslate"><span class="pre">maxAudioLength</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime23TalkerGenerationRequest17talkerTemperatureE"><code class="docutils literal notranslate"><span class="pre">talkerTemperature</span></code></a></li>
@@ -1004,9 +1396,15 @@
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponseE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Qwen3OmniTTSRuntime::TalkerGenerationResponse</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse8rvqCodesE"><code class="docutils literal notranslate"><span class="pre">rvqCodes</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse9numFramesE"><code class="docutils literal notranslate"><span class="pre">numFrames</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse13batchRvqCodesE"><code class="docutils literal notranslate"><span class="pre">batchRvqCodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse18numFramesPerSampleE"><code class="docutils literal notranslate"><span class="pre">numFramesPerSample</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime24TalkerGenerationResponse7successE"><code class="docutils literal notranslate"><span class="pre">success</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfigE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig22talkerPrefillThresholdE"><code class="docutils literal notranslate"><span class="pre">talkerPrefillThreshold</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig16codecChunkFramesE"><code class="docutils literal notranslate"><span class="pre">codecChunkFrames</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt19Qwen3OmniTTSRuntime28ThinkerTalkerStreamingConfig17onAudioChunkReadyE"><code class="docutils literal notranslate"><span class="pre">onAudioChunkReady</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1029,8 +1427,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 
   <footer class="bd-footer">
@@ -1102,9 +1500,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 28, 2026.</p>
+  <p>Last updated on May 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
   
 </div></div>
       

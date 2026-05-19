@@ -16,3 +16,13 @@ Qwen3 Omni Tts Runtime
    :members:
    :undoc-members:
 
+.. doxygenstruct:: trt_edgellm::rt::Qwen3OmniTTSRuntime::OmniGenerationRequest
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
+.. doxygenstruct:: trt_edgellm::rt::Qwen3OmniTTSRuntime::ThinkerTalkerStreamingConfig
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+

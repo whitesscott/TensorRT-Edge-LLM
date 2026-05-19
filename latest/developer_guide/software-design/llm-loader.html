@@ -28,42 +28,43 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
 
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=65e89d2a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/software-design/llm-loader';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
 
     <link rel="icon" href="../../_static/favicon.png"/>
 
@@ -75,26 +76,32 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.0" />
+  <meta name="docsearch:version" content="0.7.1" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
 
 
   </head>
 
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-default-mode="">
+
 
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
 
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -120,7 +127,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -340,6 +347,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vla.html">Alpamayo-R1-10B (Vision-Language-Action)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
@@ -365,7 +373,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Checkpoint-Based Model Loader Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llm-inference-runtime.html">LLM Inference Runtime</a></li>
@@ -385,6 +393,13 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/action/index.html">Action Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/actionModelTypes.html">Action Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/actionUtils.html">Action Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/alpamayo1ActionRunner.html">Alpamayo1 Action Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/alpamayo1RunnerUtils.html">Alpamayo1 Runner Utils</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/audioBuilder.html">Audio Builder</a></li>
@@ -427,6 +442,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslNvfp4MoeRunner.html">Cute Dsl Nvfp4 Moe Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/dequant.html">Dequant</a></li>
@@ -456,10 +472,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/mtpStateScatterKernels.html">Mtp State Scatter Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/selectiveStateUpdate.html">Selective State Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/ssdVarlenMetadata.html">Ssd Varlen Metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/utilKernels.html">Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/vectorizedTypes.html">Vectorized Types</a></li>
@@ -487,6 +505,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/mambaPlugin.html">Mamba Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/nvfp4MoePluginGeforce.html">Nvfp4 Moe Plugin Geforce</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -624,15 +643,19 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/loader.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/repacking.py</span></code></p></td>
 <td><p>Load safetensors, remap keys when needed, and repack quantized tensors into runtime/export formats.</p></td>
 </tr>
-<tr class="row-even"><td><p>ONNX graph export</p></td>
+<tr class="row-even"><td><p>Vocabulary reduction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/vocab_reduction/selection.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/vocab_reduction/onnx_export.py</span></code></p></td>
+<td><p>Generate <code class="docutils literal notranslate"><span class="pre">vocab_map.safetensors</span></code> separately from applying an existing map to supported LM-head tensors during ONNX export.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ONNX graph export</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/export.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/export_encoder.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/dynamo_translations.py</span></code></p></td>
 <td><p>Export text and encoder graphs, register custom ONNX schemas, and translate PyTorch custom ops to TensorRT Edge-LLM ONNX nodes.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Component orchestration</p></td>
+<tr class="row-even"><td><p>Component orchestration</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code></p></td>
 <td><p>Classify model components and coordinate text, visual, audio, TTS, code2wav, EAGLE, and sidecar exports.</p></td>
 </tr>
-<tr class="row-even"><td><p>Runtime artifacts</p></td>
+<tr class="row-odd"><td><p>Runtime artifacts</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/checkpoint_utils.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/chat_template.py</span></code></p></td>
 <td><p>Write tokenizer/config/chat-template/embedding sidecars expected by the C++ runtime and Python server.</p></td>
 </tr>
@@ -649,6 +672,7 @@
 <li><p>Build <code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code>, including quantization, KV cache, layer-type, RoPE, and model-family fields.</p></li>
 <li><p>Dispatch to the correct TensorRT Edge-LLM-native model implementation.</p></li>
 <li><p>Load and repack weights from checkpoint tensors.</p></li>
+<li><p>Optionally apply vocabulary reduction from <code class="docutils literal notranslate"><span class="pre">vocab_map.safetensors</span></code>.</p></li>
 <li><p>Export ONNX graphs with TensorRT Edge-LLM custom-op schemas and dynamo translations.</p></li>
 <li><p>Write runtime sidecars that the engine builder and runtime consume.</p></li>
 </ol>
@@ -709,7 +733,7 @@
 <ul class="simple">
 <li><p>Visual encoders are selected by <code class="docutils literal notranslate"><span class="pre">_VISUAL_REGISTRY</span></code> and family build functions in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/export_encoder.py</span></code>.</p></li>
 <li><p>Audio encoders are selected by audio model-type registries and component-specific key prefixes.</p></li>
-<li><p>TTS exports reuse the LLM export path for talker and code-predictor decoder components, with model-specific key remapping.</p></li>
+<li><p>TTS exports reuse the LLM export path for talker and code-predictor decoder components, with model-specific key remapping. Qwen3-TTS Code2Wav is exported from the checkpoint’s <code class="docutils literal notranslate"><span class="pre">speech_tokenizer/</span></code> directory.</p></li>
 <li><p>Omni checkpoints may combine text, visual, audio, and vocoder/code2wav exports under one checkpoint-level orchestration.</p></li>
 </ul>
 <p>This keeps component-specific model code separate while preserving one checkpoint-level export frontend.</p>
@@ -725,6 +749,7 @@
 <ul class="simple">
 <li><p>Graph insertion augments supported linear projections with LoRA inputs and runtime hooks.</p></li>
 <li><p>Adapter processing converts LoRA checkpoint tensors into the layout expected by the runtime.</p></li>
+<li><p>Static merge uses <code class="docutils literal notranslate"><span class="pre">llm_loader.lora.merge_lora_cli</span></code> before quantization for models such as Phi-4-Multimodal that ship required LoRA adapters.</p></li>
 <li><p>The base model export remains checkpoint-driven and does not depend on the legacy FX export pipeline.</p></li>
 </ul>
 <p>Runtime usage is documented in <a class="reference internal" href="../../user_guide/features/lora.html"><span class="std std-doc">LoRA</span></a>.</p>
@@ -732,7 +757,6 @@
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Vocabulary reduction is not supported by <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>. Use full-vocabulary exports.</p></li>
 <li><p>FP8 visual encoder export is not supported by <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>; use the legacy <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> visual quantization/export tools when FP8 visual encoders are required.</p></li>
 <li><p>FP8 embedding sidecars are not supported for TTS talker/code_predictor exports.</p></li>
 <li><p>TensorRT native-ops export mode is not supported at this time.</p></li>
@@ -760,8 +784,8 @@
 <tr class="row-odd"><td><p>Legacy LoRA export hooks</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/lora/</span></code> graph insertion and adapter processing.</p></td>
 </tr>
-<tr class="row-even"><td><p>Vocabulary reduction frontend</p></td>
-<td><p>No replacement in <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>; full-vocabulary export is required.</p></td>
+<tr class="row-even"><td><p>Vocabulary reduction export</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">llm_loader.export_all_cli</span> <span class="pre">--reduced-vocab-dir</span></code>; reference vocabulary-map generation uses <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">llm_loader.vocab_reduction</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -817,8 +841,8 @@
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-goals">Design Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-flow">Data Flow</a></li>
@@ -847,8 +871,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 
   <footer class="bd-footer">
@@ -920,9 +944,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 28, 2026.</p>
+  <p>Last updated on May 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
   
 </div></div>
       

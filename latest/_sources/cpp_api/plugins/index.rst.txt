@@ -13,5 +13,6 @@ API documentation for the plugins module.
    int4MoePlugin
    mambaPlugin
    nvfp4MoePlugin
+   nvfp4MoePluginGeforce
    pluginUtils
    vitAttentionPlugin

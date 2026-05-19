@@ -28,407 +28,43 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
 
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=65e89d2a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
-
-const defaultStyle = document.createElement('style');
-defaultStyle.textContent = `pre.mermaid {
-    /* Same as .mermaid-container > pre */
-    display: block;
-    width: 100%;
-}
-
-pre.mermaid > svg {
-    /* Same as .mermaid-container > pre > svg */
-    height: 500px;
-    width: 100%;
-    max-width: 100% !important;
-}
-`;
-document.head.appendChild(defaultStyle);
-
-const fullscreenStyle = document.createElement('style');
-fullscreenStyle.textContent = `.mermaid-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.mermaid-container > pre {
-    display: block;
-    width: 100%;
-}
-
-.mermaid-container > pre > svg {
-    height: 500px;
-    width: 100%;
-    max-width: 100% !important;
-}
-
-.mermaid-fullscreen-btn {
-    width: 28px;
-    height: 28px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    line-height: 1;
-    padding: 0;
-    color: #333;
-}
-
-.mermaid-fullscreen-btn:hover {
-    opacity: 100% !important;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.1);
-}
-
-.mermaid-fullscreen-btn.dark-theme {
-    background: rgba(50, 50, 50, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #e0e0e0;
-}
-
-.mermaid-fullscreen-btn.dark-theme:hover {
-    background: rgba(60, 60, 60, 1);
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
-}
-
-.mermaid-fullscreen-modal {
-    display: none;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 95vw;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    z-index: 9999;
-    padding: 20px;
-    overflow: auto;
-}
-
-.mermaid-fullscreen-modal.dark-theme {
-    background: rgba(0, 0, 0, 0.98);
-}
-
-.mermaid-fullscreen-modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mermaid-container-fullscreen {
-    position: relative;
-    width: 95vw;
-    height: 90vh;
-    max-width: 95vw;
-    max-height: 90vh;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    overflow: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mermaid-container-fullscreen.dark-theme {
-    background: #1a1a1a;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-}
-
-.mermaid-container-fullscreen pre.mermaid {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mermaid-container-fullscreen .mermaid svg {
-    height: 100% !important;
-    width: 100% !important;
-    cursor: grab;
-}
-
-.mermaid-fullscreen-close {
-    position: fixed !important;
-    top: 20px !important;
-    right: 20px !important;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s;
-    font-size: 24px;
-    line-height: 1;
-    color: #333;
-}
-
-.mermaid-fullscreen-close:hover {
-    background: white;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    transform: scale(1.1);
-}
-
-.mermaid-fullscreen-close.dark-theme {
-    background: rgba(50, 50, 50, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #e0e0e0;
-}
-
-.mermaid-fullscreen-close.dark-theme:hover {
-    background: rgba(60, 60, 60, 1);
-    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
-}
-
-.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
-    display: none !important;
-}`;
-document.head.appendChild(fullscreenStyle);
-
-// Detect if page has dark background
-const isDarkTheme = () => {
-    const bgColor = window.getComputedStyle(document.body).backgroundColor;
-    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
-    if (match) {
-        const r = parseInt(match[1]);
-        const g = parseInt(match[2]);
-        const b = parseInt(match[3]);
-        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-        return brightness < 128;
-    }
-    return false;
-};
-
-const load = async () => {
-    await mermaid.run();
-
-    const all_mermaids = document.querySelectorAll(".mermaid");
-    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
-
-    if ("False" === "True") {
-        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
-        if(mermaids_to_add_zoom > 0) {
-            var svgs = d3.selectAll("");
-            if(all_mermaids.length !== mermaids_processed.length) {
-                setTimeout(load, 200);
-                return;
-            } else if(svgs.size() !== mermaids_to_add_zoom) {
-                setTimeout(load, 200);
-                return;
-            } else {
-                svgs.each(function() {
-                    var svg = d3.select(this);
-                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
-                    var inner = svg.select("g");
-                    var zoom = d3.zoom().on("zoom", function(event) {
-                        inner.attr("transform", event.transform);
-                    });
-                    svg.call(zoom);
-                });
-            }
-        }
-    } else if(all_mermaids.length !== mermaids_processed.length) {
-        // Wait for mermaid to process all diagrams
-        setTimeout(load, 200);
-        return;
-    }
-
-    const darkTheme = isDarkTheme();
-
-    // Stop here if not adding fullscreen capability
-    if ("True" !== "True") return;
-
-    const modal = document.createElement('div');
-    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
-    modal.innerHTML = `
-        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
-        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
-    `;
-    document.body.appendChild(modal);
-
-    const modalContent = modal.querySelector('.mermaid-container-fullscreen');
-    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
-
-    let previousScrollOffset = [window.scrollX, window.scrollY];
-
-    const closeModal = () => {
-        modal.classList.remove('active');
-        modalContent.innerHTML = '';
-        document.body.style.overflow = ''
-        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
-    };
-
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    const allButtons = [];
-
-    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
-        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
-            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
-            return;
-        }
-
-        const container = document.createElement('div');
-        container.className = 'mermaid-container';
-        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
-        container.appendChild(mermaidDiv);
-
-        const fullscreenBtn = document.createElement('button');
-        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
-        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
-        fullscreenBtn.textContent = '⛶';
-        fullscreenBtn.style.opacity = '50%';
-
-        // Calculate dynamic position based on diagram's margin and padding
-        const diagramStyle = window.getComputedStyle(mermaidDiv);
-        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
-        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
-        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
-        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
-        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
-        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
-
-        fullscreenBtn.addEventListener('click', () => {
-            previousScrollOffset = [window.scroll, window.scrollY];
-            const clone = mermaidDiv.cloneNode(true);
-            modalContent.innerHTML = '';
-            modalContent.appendChild(clone);
-
-            const svg = clone.querySelector('svg');
-            if (svg) {
-                svg.removeAttribute('width');
-                svg.removeAttribute('height');
-                svg.style.width = '100%';
-                svg.style.height = 'auto';
-                svg.style.maxWidth = '100%';
-                svg.style.sdisplay = 'block';
-
-                if ("False" === "True") {
-                    setTimeout(() => {
-                        const g = svg.querySelector('g');
-                        if (g) {
-                            var svgD3 = d3.select(svg);
-                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
-                            var inner = svgD3.select("g");
-                            var zoom = d3.zoom().on("zoom", function(event) {
-                                inner.attr("transform", event.transform);
-                            });
-                            svgD3.call(zoom);
-                        }
-                    }, 100);
-                }
-            }
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        container.appendChild(fullscreenBtn);
-        allButtons.push(fullscreenBtn);
-    });
-
-    // Update theme classes when theme changes
-    const updateTheme = () => {
-        const dark = isDarkTheme();
-        allButtons.forEach(btn => {
-            if (dark) {
-                btn.classList.add('dark-theme');
-            } else {
-                btn.classList.remove('dark-theme');
-            }
-        });
-        if (dark) {
-            modal.classList.add('dark-theme');
-            modalContent.classList.add('dark-theme');
-            closeBtn.classList.add('dark-theme');
-        } else {
-            modal.classList.remove('dark-theme');
-            modalContent.classList.remove('dark-theme');
-            closeBtn.classList.remove('dark-theme');
-        }
-    };
-
-    // Watch for theme changes
-    const observer = new MutationObserver(updateTheme);
-    observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['class', 'style', 'data-theme']
-    });
-    observer.observe(document.body, {
-        attributes: true,
-        attributeFilter: ['class', 'style']
-    });
-};
-
-window.addEventListener("load", load);
-</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/customization/customization-guide';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
 
     <link rel="icon" href="../../_static/favicon.png"/>
 
@@ -440,26 +76,32 @@ window.addEventListener("load", load);
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.0" />
+  <meta name="docsearch:version" content="0.7.1" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
 
 
   </head>
 
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-default-mode="">
+
 
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
 
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -485,7 +127,7 @@ window.addEventListener("load", load);
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -705,6 +347,7 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/asr.html">ASR (Automatic Speech Recognition)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/moe.html">MoE (Mixture of Experts)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/tts.html">TTS (Text-to-Speech)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/vla.html">Alpamayo-R1-10B (Vision-Language-Action)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/examples/experimental-server.html">Experimental High-Level Python API and Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
@@ -730,7 +373,7 @@ window.addEventListener("load", load);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software-design/python-export-pipeline.html">Python Export Pipeline (Legacy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
@@ -750,6 +393,13 @@ window.addEventListener("load", load);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../python_api.html">Python API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../cpp_api.html">C++ API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/action/index.html">Action Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/actionModelTypes.html">Action Model Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/actionUtils.html">Action Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/alpamayo1ActionRunner.html">Alpamayo1 Action Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/action/alpamayo1RunnerUtils.html">Alpamayo1 Runner Utils</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/builder/index.html">Builder Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/actionBuilder.html">Action Builder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/builder/audioBuilder.html">Audio Builder</a></li>
@@ -792,6 +442,7 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslNvfp4MoeRunner.html">Cute Dsl Nvfp4 Moe Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslSSDRunner.html">Cute Dsl Ssd Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/decoderXQARunner.html">Decoder XQA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/dequant.html">Dequant</a></li>
@@ -821,10 +472,12 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeMarlinIndicesKernels.html">Moe Marlin Indices Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeSigmoidGroupTopkKernels.html">Moe Sigmoid Group Topk Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/moeTopkSoftmaxKernels.html">Moe Topk Softmax Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/mtpStateScatterKernels.html">Mtp State Scatter Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4MoeTypes.html">Nvfp4 Moe Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4_dequant.html">Nvfp4 Dequant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/nvfp4_tensor.html">Nvfp4 Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/selectiveStateUpdate.html">Selective State Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/ssdVarlenMetadata.html">Ssd Varlen Metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/talkerMLPKernels.html">Talker Mlp Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/utilKernels.html">Util Kernels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/vectorizedTypes.html">Vectorized Types</a></li>
@@ -852,6 +505,7 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/int4MoePlugin.html">Int4 Moe Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/mambaPlugin.html">Mamba Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/nvfp4MoePlugin.html">Nvfp4 Moe Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/nvfp4MoePluginGeforce.html">Nvfp4 Moe Plugin Geforce</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/pluginUtils.html">Plugin Utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/plugins/vitAttentionPlugin.html">VIT Attention Plugin</a></li>
 </ul>
@@ -951,9 +605,19 @@ window.addEventListener("load", load);
                   
   <section class="tex2jax_ignore mathjax_ignore" id="customization-guide">
 <h1>Customization Guide<a class="headerlink" href="#customization-guide" title="Link to this heading">#</a></h1>
-<section id="recommended-checkpoint-based-loader">
-<h2>Recommended: Checkpoint-Based Loader<a class="headerlink" href="#recommended-checkpoint-based-loader" title="Link to this heading">#</a></h2>
-<p>New model enablement should target <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/</span></code> first. The older <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> customization points later in this page remain useful for legacy exports.</p>
+<p>New model and feature enablement should target the checkpoint-based workflow:
+<code class="docutils literal notranslate"><span class="pre">experimental/quantization</span></code> for checkpoint quantization and <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader</span></code>
+for ONNX export. This guide describes the main extension points used by that
+workflow.</p>
+<p>For user commands, see <a class="reference internal" href="../../user_guide/features/quantization.html"><span class="std std-doc">Quantization</span></a>
+and <a class="reference internal" href="../software-design/llm-loader.html"><span class="std std-doc">Checkpoint-Based Model Loader Design</span></a>.</p>
+<p>The deprecated <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/</span></code> export package remains available in 0.7.0 and 0.7.1 for
+compatibility, but new model and feature work should target the experimental
+workflow. The deprecated export package is scheduled for removal in 0.8.0 after
+full feature parity is available in <code class="docutils literal notranslate"><span class="pre">experimental/quantization</span></code> and
+<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader</span></code>.</p>
+<section id="export-customization-points">
+<h2>Export Customization Points<a class="headerlink" href="#export-customization-points" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Area</p></th>
@@ -972,602 +636,232 @@ window.addEventListener("load", load);
 </tr>
 <tr class="row-even"><td><p>Checkpoint parsing</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/config.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/</span></code></p></td>
-<td><p>Add model-specific config fields, tensor remapping, fused-weight splitting, or metadata handling.</p></td>
+<td><p>Add model-specific config fields, tensor remapping, fused-weight splitting, or quantization metadata handling.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Encoder export</p></td>
+<tr class="row-odd"><td><p>Weight loading</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/loader.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/repacking.py</span></code></p></td>
+<td><p>Load safetensors, remap checkpoint keys, and repack quantized tensors into the layout consumed by the exported graph.</p></td>
+</tr>
+<tr class="row-even"><td><p>Encoder export</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/export_encoder.py</span></code></p></td>
-<td><p>Register visual or audio encoder builders and config extraction rules.</p></td>
+<td><p>Register visual, audio, or action encoder builders and config extraction rules.</p></td>
 </tr>
-<tr class="row-even"><td><p>Export CLI/server</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/server/</span></code></p></td>
-<td><p>Add model-type classification for LLM-only, VLM, audio, TTS, or omni checkpoints.</p></td>
+<tr class="row-odd"><td><p>Component orchestration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code></p></td>
+<td><p>Add model-type classification for LLM-only, VLM, audio, TTS, Omni, VLA, EAGLE, or MTP checkpoints.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Custom ops</p></td>
+<tr class="row-even"><td><p>Custom ops</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/ops.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/dynamo_translations.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/onnx_custom_schemas.py</span></code></p></td>
-<td><p>Add torch stubs, ONNX translations, and schemas for new TensorRT plugin calls.</p></td>
+<td><p>Add torch stubs, ONNX translations, and schemas for TensorRT Edge-LLM custom ops.</p></td>
 </tr>
-<tr class="row-even"><td><p>Runtime/plugins</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cpp/plugins/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/runtime/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/multimodal/</span></code></p></td>
-<td><p>Add plugin/runtime support only when the exported graph or model I/O needs new runtime behavior.</p></td>
+<tr class="row-odd"><td><p>Runtime/plugins</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/plugins/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/runtime/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/multimodal/</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/action/</span></code></p></td>
+<td><p>Add runtime support only when the exported graph or model I/O needs new behavior.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Update the supported-models documentation and add focused export tests for each new model family. Keep checkpoint metadata, tensor key remapping, ONNX custom-op translations, and runtime sidecar requirements aligned with the <a class="reference internal" href="../software-design/llm-loader.html"><span class="std std-doc">Checkpoint-Based Model Loader Design</span></a>.</p>
+<p>Update <a class="reference internal" href="../../user_guide/getting_started/supported-models.html"><span class="std std-doc">Supported Models</span></a>
+and add focused export tests when adding a new family.</p>
 </section>
-<section id="customization-architecture">
-<h2>Customization Architecture<a class="headerlink" href="#customization-architecture" title="Link to this heading">#</a></h2>
-<p>TensorRT Edge-LLM follows a clear data flow from models through to inference, with customization points at each layer:</p>
-<pre  class="mermaid">
-        %%{init: {'theme':'neutral', 'themeVariables': {'primaryColor':'#76B900','primaryTextColor':'#fff','primaryBorderColor':'#5a8f00','lineColor':'#666','edgeLabelBackground':'#ffffff','labelTextColor':'#000','clusterBkg':'#ffffff','clusterBorder':'#999'}}}%%
-
-graph TB
-    subgraph MODELS [&quot;Models&quot;]
-        MODEL_ARCH[Model Architecture]
-        MODEL_WEIGHTS[Model Weights]
-    end
-
-    subgraph EXPORT [&quot;Python Export Pipeline&quot;]
-        QUANT[Quantization]
-        ONNX_EXPORT[ONNX Export]
-        CUSTOM_OPERATORS[Custom Operators]
-    end
-
-    subgraph ENGINE [&quot;Engine Builder&quot;]
-        BUILD_CONFIG[Build Configuration]
-        TRT_PLUGINS[TensorRT Plugins]
-    end
-
-    subgraph RUNTIME [&quot;C++ Runtime&quot;]
-        TOKENIZATION[Text Processing]
-        SAMPLING_CONFIG[Sampling Parameters]
-        RUNTIME_CONFIG[Runtime Configuration]
-        MULTIMODAL_RUNNER[Multimodal Runner]
-    end
-
-    subgraph APP [&quot;Application&quot;]
-        EXAMPLES[Examples]
-    end
-
-    MODEL_ARCH ~~~ MODEL_WEIGHTS
-
-    QUANT ~~~ ONNX_EXPORT
-    ONNX_EXPORT ~~~ CUSTOM_OPERATORS
-
-    BUILD_CONFIG ~~~ TRT_PLUGINS
-
-    TOKENIZATION ~~~ SAMPLING_CONFIG
-    SAMPLING_CONFIG ~~~ RUNTIME_CONFIG
-    RUNTIME_CONFIG ~~~ MULTIMODAL_RUNNER
-
-    MODELS --&gt; EXPORT
-    EXPORT --&gt; ENGINE
-    ENGINE --&gt; RUNTIME
-    RUNTIME --&gt; APP
-
-    classDef nvNode fill:#76B900,stroke:#5a8f00,stroke-width:1px,color:#fff
-    classDef layerBox fill:none,stroke:#76B900,stroke-width:2px
-
-    class MODEL_ARCH,MODEL_WEIGHTS,QUANT,ONNX_EXPORT,CUSTOM_OPERATORS,BUILD_CONFIG,TRT_PLUGINS,TOKENIZATION,SAMPLING_CONFIG,RUNTIME_CONFIG,MULTIMODAL_RUNNER,EXAMPLES nvNode
-    class MODELS,EXPORT,ENGINE,RUNTIME,APP layerBox
-    </pre><section id="customization-points-by-layer">
-<h3>Customization Points by Layer<a class="headerlink" href="#customization-points-by-layer" title="Link to this heading">#</a></h3>
+<section id="quantization-customization-points">
+<h2>Quantization Customization Points<a class="headerlink" href="#quantization-customization-points" title="Link to this heading">#</a></h2>
+<p>The standalone quantization package writes unified HuggingFace-style
+checkpoints. It does not export ONNX or build TensorRT engines.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Layer</p></th>
-<th class="head"><p>Component</p></th>
-<th class="head"><p>Customization Options</p></th>
+<tr class="row-odd"><th class="head"><p>Area</p></th>
+<th class="head"><p>Files</p></th>
+<th class="head"><p>What to update</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>Models</strong></p></td>
-<td><p>Model Architecture</p></td>
-<td><p><strong>Configuration:</strong> Model config JSON files. <strong>Inherit/Adapt:</strong> <code class="docutils literal notranslate"><span class="pre">EdgeLLMModel</span></code>, <code class="docutils literal notranslate"><span class="pre">EdgeLLMDecoderLayer</span></code> (<code class="docutils literal notranslate"><span class="pre">nn.Module</span></code>)</p></td>
+<tr class="row-even"><td><p>Quantization recipes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/quantization_configs.py</span></code></p></td>
+<td><p>Add ModelOpt recipe presets, exclusions, or component-specific overrides.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Models</strong></p></td>
-<td><p>Model Weights</p></td>
-<td><p><strong>Drop-in:</strong> Load fine-tuned HuggingFace models. <strong>Configuration:</strong> Specify model directory path</p></td>
+<tr class="row-odd"><td><p>Model loading and calibration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/quantize.py</span></code></p></td>
+<td><p>Add model loading fallbacks, calibration data handling, or pre-save checkpoint fixups.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Python Export</strong></p></td>
-<td><p>Quantization Strategy</p></td>
-<td><p><strong>Configuration:</strong> Choose FP16/FP8/INT4_AWQ/NVFP4/INT8_SQ, calibration settings. <strong>Inherit/Adapt:</strong> <code class="docutils literal notranslate"><span class="pre">modelopt.torch.quantization</span></code> classes. <strong>Note:</strong> GPTQ models are loaded as pre-quantized (not created via quantization)</p></td>
+<tr class="row-even"><td><p>EAGLE draft quantization</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/models/eagle3_draft.py</span></code></p></td>
+<td><p>Update draft-model calibration and checkpoint writing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Python Export</strong></p></td>
-<td><p>ONNX Export Logic</p></td>
-<td><p><strong>Inherit/Adapt:</strong> <code class="docutils literal notranslate"><span class="pre">export_llm_model()</span></code>, <code class="docutils literal notranslate"><span class="pre">visual_export()</span></code>, <code class="docutils literal notranslate"><span class="pre">export_draft_model()</span></code> functions. <strong>Configuration:</strong> Dynamic axes, opset version</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Python Export</strong></p></td>
-<td><p>Custom Operators</p></td>
-<td><p><strong>Registration:</strong> Custom operators via <code class="docutils literal notranslate"><span class="pre">&#64;torch.library.custom_op()</span></code> and <code class="docutils literal notranslate"><span class="pre">register_custom_op_symbolic()</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Engine Builder</strong></p></td>
-<td><p>Build Configuration</p></td>
-<td><p><strong>Configuration:</strong> Batch size, sequence length, precision, LoRA rank, EAGLE settings, VLM mode, image tokens. <strong>Inherit/Adapt:</strong> Setup optimization profiles for custom models</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Engine Builder</strong></p></td>
-<td><p>Custom Operations</p></td>
-<td><p><strong>Plugin:</strong> Implement TensorRT Plugin via <code class="docutils literal notranslate"><span class="pre">IPluginV3</span></code> layer. Examples: Custom attention, specialized kernels</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>C++ Runtime</strong></p></td>
-<td><p>Text Processing</p></td>
-<td><p><strong>Configuration:</strong> Load different tokenizer vocab files. <strong>Inherit/Adapt:</strong> <code class="docutils literal notranslate"><span class="pre">PreTokenizer</span></code>, <code class="docutils literal notranslate"><span class="pre">TokenEncoder</span></code> for custom preprocessing</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>C++ Runtime</strong></p></td>
-<td><p>Sampling Parameters</p></td>
-<td><p><strong>Configuration:</strong> Temperature, top-k, top-p values in input JSON. <strong>Inherit/Adapt:</strong> Extend <code class="docutils literal notranslate"><span class="pre">sampling.cu</span></code> for custom algorithms</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>C++ Runtime</strong></p></td>
-<td><p>Multimodal Runner</p></td>
-<td><p><strong>Inherit/Adapt:</strong> <code class="docutils literal notranslate"><span class="pre">MultimodalRunner</span></code> base class for new multimodal encoders</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>C++ Runtime</strong></p></td>
-<td><p>Runtime Behavior</p></td>
-<td><p><strong>Configuration:</strong> EAGLE parameters, warmup iterations, CUDA graphs, system prompt caching, profiling</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Application</strong></p></td>
-<td><p>Custom Applications</p></td>
-<td><p>Use the example applications as templates</p></td>
+<tr class="row-odd"><td><p>CLI surface</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/cli.py</span></code></p></td>
+<td><p>Expose a new supported option after the implementation and tests exist.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>Supported methods are documented in
+<a class="reference internal" href="../../user_guide/features/quantization.html"><span class="std std-doc">Quantization</span></a>. GPTQ checkpoints are
+loaded as pre-quantized checkpoints; this package does not create GPTQ models.</p>
 </section>
-<section id="customization-methods-summary">
-<h3>Customization Methods Summary<a class="headerlink" href="#customization-methods-summary" title="Link to this heading">#</a></h3>
+<section id="adding-a-text-model">
+<h2>Adding A Text Model<a class="headerlink" href="#adding-a-text-model" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Check whether the default <code class="docutils literal notranslate"><span class="pre">CausalLM</span></code> implementation can load the checkpoint.</p></li>
+<li><p>If the architecture needs custom behavior, add a model implementation under
+<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/&lt;family&gt;/</span></code>.</p></li>
+<li><p>Register the <code class="docutils literal notranslate"><span class="pre">model_type</span></code> in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/__init__.py</span></code>.</p></li>
+<li><p>Add any required config promotion, tensor-key remapping, or quantized-weight
+handling in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/config.py</span></code> and <code class="docutils literal notranslate"><span class="pre">checkpoint/</span></code>.</p></li>
+<li><p>Export with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">llm_loader.export_all_cli</span> <span class="pre">&lt;checkpoint&gt;</span> <span class="pre">&lt;output_dir&gt;</span></code>
+and verify <code class="docutils literal notranslate"><span class="pre">llm_build</span></code> plus <code class="docutils literal notranslate"><span class="pre">llm_inference</span></code>.</p></li>
+</ol>
+</section>
+<section id="adding-a-multimodal-or-action-component">
+<h2>Adding A Multimodal Or Action Component<a class="headerlink" href="#adding-a-multimodal-or-action-component" title="Link to this heading">#</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code> as the component dispatcher.
+Each exported component should have a stable subdirectory and a <code class="docutils literal notranslate"><span class="pre">config.json</span></code>
+that the C++ builder can consume.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Method</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Best For</p></th>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Typical output</p></th>
+<th class="head"><p>Builder</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>Inherit/Adapt</strong></p></td>
-<td><p>Extend base classes with custom implementations</p></td>
-<td><p>Model architectures, Multimodal runner, PreTokenizer</p></td>
+<tr class="row-even"><td><p>LLM thinker/base</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">llm/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/llm/llm_build</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Configuration</strong></p></td>
-<td><p>Modify behavior via config files and parameters</p></td>
-<td><p>Model configs, build settings, runtime parameters, LoRA</p></td>
+<tr class="row-odd"><td><p>Visual encoder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">visual/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/multimodal/visual_build</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Drop-in Replacement</strong></p></td>
-<td><p>Substitute entire components with same interface</p></td>
-<td><p>Fine-tuned model weights</p></td>
+<tr class="row-even"><td><p>Audio encoder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">audio/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/multimodal/audio_build</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Registration</strong></p></td>
-<td><p>Register custom components in existing systems</p></td>
-<td><p>ONNX custom operators, graph patterns</p></td>
+<tr class="row-odd"><td><p>TTS code predictor</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">code_predictor/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/llm/llm_build</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Plugin</strong></p></td>
-<td><p>Implement TensorRT plugins for custom operations</p></td>
-<td><p>Custom TensorRT layers, hardware-specific ops</p></td>
+<tr class="row-even"><td><p>Omni Code2Wav</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">code2wav/</span></code> or model-specific audio layout</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/multimodal/audio_build</span></code></p></td>
 </tr>
-</tbody>
-</table>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="layer-1-models">
-<h2>Layer 1: Models<a class="headerlink" href="#layer-1-models" title="Link to this heading">#</a></h2>
-<section id="model-architecture-customization">
-<h3>1. Model Architecture Customization<a class="headerlink" href="#model-architecture-customization" title="Link to this heading">#</a></h3>
-<p>The architecture layer provides base classes that wrap HuggingFace models and adapt them for TensorRT Edge-LLM’s optimized inference pipeline.</p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="../../_downloads/a9f5f242ab50af9ae1323da2479c36f9/llm_model.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMModel</span></code></span></a>: The core model class that wraps a HuggingFace model and replaces its decoder layers with optimized variants.</p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/e13238637af828027beffc4053807a17/layers.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMDecoderLayer</span></code></span></a>: Optimized decoder layer that wraps HuggingFace attention and MLP modules.</p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/e13238637af828027beffc4053807a17/layers.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">EdgeLLMAttention</span></code></span></a>: Multi-headed attention using the custom attention plugin.</p></li>
-</ul>
-<p>TensorRT Edge-LLM automatically detects and supports Llama-style and Qwen-style architectures:</p>
-<ul class="simple">
-<li><p><strong>Llama-style models</strong>: Use <code class="docutils literal notranslate"><span class="pre">LlamaAttention</span></code> and <code class="docutils literal notranslate"><span class="pre">LlamaMLP</span></code></p></li>
-<li><p><strong>Qwen-style models</strong>: Use <code class="docutils literal notranslate"><span class="pre">Qwen2Attention</span></code> and <code class="docutils literal notranslate"><span class="pre">Qwen2MLP</span></code></p></li>
-</ul>
-<p>For other architectures, you may need to extend <code class="docutils literal notranslate"><span class="pre">EdgeLLMAttention</span></code> to wrap your attention mechanism and modify <code class="docutils literal notranslate"><span class="pre">EdgeLLMDecoderLayer.__init__()</span></code> to handle your model type:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;your_model&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">model_type</span><span class="p">:</span>
-    <span class="n">attention_module</span> <span class="o">=</span> <span class="n">YourModelAttention</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span> <span class="o">=</span> <span class="n">YourModelMLP</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span> <span class="o">=</span> <span class="n">EdgeLLMAttention</span><span class="p">(</span><span class="n">attention_module</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="model-weights-customization">
-<h3>2. Model Weights Customization<a class="headerlink" href="#model-weights-customization" title="Link to this heading">#</a></h3>
-<p>TensorRT Edge-LLM supports <strong>drop-in replacement</strong> of model weights. Any fine-tuned HuggingFace model can be used.</p>
-<p><strong>Compatible Fine-Tuning Methods:</strong></p>
-<ul class="simple">
-<li><p>Full fine-tuning</p></li>
-<li><p><a class="reference internal" href="../../user_guide/features/lora.html"><span class="std std-doc">LoRA (Low-Rank Adaptation)</span></a></p></li>
-<li><p>PEFT adapters (merged)</p></li>
-<li><p>GPTQ pre-quantized models</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="layer-2-python-export-pipeline">
-<h2>Layer 2: Python Export Pipeline<a class="headerlink" href="#layer-2-python-export-pipeline" title="Link to this heading">#</a></h2>
-<section id="quantization-strategy-customization">
-<h3>1. Quantization Strategy Customization<a class="headerlink" href="#quantization-strategy-customization" title="Link to this heading">#</a></h3>
-<section id="quantization-configuration-customization">
-<h4>Quantization Configuration Customization<a class="headerlink" href="#quantization-configuration-customization" title="Link to this heading">#</a></h4>
-<p>The quantization system is built on <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer">NVIDIA’s Model Optimizer</a> and provides multiple quantization strategies.</p>
-<p><strong>Available Methods</strong> (Defined in <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization/llm_quantization.py</span></code>):</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Method</p></th>
-<th class="head"><p>Config</p></th>
-<th class="head"><p>Use Case</p></th>
-<th class="head"><p>Platform</p></th>
+<tr class="row-odd"><td><p>Alpamayo action expert</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">action/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/multimodal/action_build</span></code></p></td>
 </tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>FP16</strong></p></td>
-<td><p>N/A (default)</p></td>
-<td><p>Baseline accuracy</p></td>
-<td><p>All</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>FP8</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mtq.FP8_DEFAULT_CFG</span></code></p></td>
-<td><p>Balanced speed/accuracy</p></td>
-<td><p>SM89+ (Ada Lovelace+)</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>INT4 AWQ</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mtq.INT4_AWQ_CFG</span></code></p></td>
-<td><p>Maximum compression</p></td>
-<td><p>All</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>INT8 SmoothQuant</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mtq.INT8_SMOOTHQUANT_CFG</span></code></p></td>
-<td><p>Activation quantization</p></td>
-<td><p>All</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>NVFP4</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mtq.NVFP4_DEFAULT_CFG</span></code></p></td>
-<td><p>NVIDIA 4-bit FP</p></td>
-<td><p>SM100+ (Blackwell+)</p></td>
+<tr class="row-even"><td><p>MTP draft</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mtp_draft/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">examples/llm/llm_build</span> <span class="pre">--specDraft</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Custom Quantization Configuration:</strong></p>
-<p>You can customize quantization behavior by modifying the config dictionary. For details about the config dictionary, refer to <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt/torch/quantization/config.py">Quantization Formats</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.quantization.llm_quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_llm_quant_config</span>
-
-<span class="c1"># Get base config</span>
-<span class="n">quant_cfg</span> <span class="o">=</span> <span class="n">get_llm_quant_config</span><span class="p">(</span><span class="s2">&quot;fp8&quot;</span><span class="p">,</span> <span class="n">lm_head_quantization</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-
-<span class="c1"># Customize: Exclude specific layers from quantization</span>
-<span class="n">quant_cfg</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">][</span><span class="s2">&quot;*embed_tokens*&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-<span class="n">quant_cfg</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">][</span><span class="s2">&quot;*lm_head*&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-
-<span class="c1"># Customize: Change calibration settings</span>
-<span class="n">quant_cfg</span><span class="p">[</span><span class="s2">&quot;algorithm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span>  <span class="c1"># Use max calibration instead of entropy</span>
-</pre></div>
-</div>
-</section>
-<section id="calibration-data-customization">
-<h4>Calibration Data Customization<a class="headerlink" href="#calibration-data-customization" title="Link to this heading">#</a></h4>
-<p>The calibration process uses <code class="docutils literal notranslate"><span class="pre">cnn_dailymail</span></code> by default. You can customize with your own calibration dataset:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Dataset</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">CustomCalibDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Custom calibration dataset for domain-specific quantization.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">texts</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">texts</span> <span class="o">=</span> <span class="n">texts</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span> <span class="o">=</span> <span class="n">max_length</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">texts</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="n">encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">texts</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-            <span class="n">max_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_length</span><span class="p">,</span>
-            <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;max_length&quot;</span><span class="p">,</span>
-            <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="n">encoded</span><span class="p">[</span><span class="s2">&quot;input_ids&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># Load domain-specific texts (e.g., medical, legal)</span>
-<span class="n">domain_texts</span> <span class="o">=</span> <span class="n">load_domain_specific_corpus</span><span class="p">()</span>
-
-<span class="n">calib_dataset</span> <span class="o">=</span> <span class="n">CustomCalibDataset</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">domain_texts</span><span class="p">)</span>
-<span class="n">calib_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">calib_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Use custom calibration data for quantization</span>
-<span class="n">quantized_model</span> <span class="o">=</span> <span class="n">quantize_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_cfg</span><span class="p">,</span> <span class="n">calib_dataloader</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="onnx-export-logic-customization">
-<h3>2. ONNX Export Logic Customization<a class="headerlink" href="#onnx-export-logic-customization" title="Link to this heading">#</a></h3>
-<p><strong>Main Export Functions</strong> (Defined in <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/onnx_export/llm_export.py</span></code>):</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">export_llm_model()</span></code>: Export standard LLM or EAGLE base models</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">visual_export()</span></code>: Export visual encoder for VLMs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">export_draft_model()</span></code>: Export EAGLE3 draft models</p></li>
-</ul>
-<section id="llm-model-export">
-<h4>LLM Model Export<a class="headerlink" href="#llm-model-export" title="Link to this heading">#</a></h4>
-<p>The <a class="reference download internal" download="" href="../../_downloads/d0b01f33e8717d9566d320b816ce206a/llm_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">export_llm_model()</span></code></span></a> function handles LLM and EAGLE base model export. To add support for new model architectures, you may need to customize:</p>
-<ul class="simple">
-<li><p><strong>Inputs</strong>: Modify <a class="reference download internal" download="" href="../../_downloads/d0b01f33e8717d9566d320b816ce206a/llm_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">create_dummy_inputs()</span></code></span></a> to add model-specific inputs (e.g., <code class="docutils literal notranslate"><span class="pre">deepstack_visual_embeds</span></code> for Qwen3-VL)</p></li>
-<li><p><strong>Dynamic Axes</strong>: Update <a class="reference download internal" download="" href="../../_downloads/d0b01f33e8717d9566d320b816ce206a/llm_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">export_model_to_onnx()</span></code></span></a> to define dynamic dimensions for new inputs/outputs</p></li>
-<li><p><strong>Input/Output Names</strong>: Ensure ONNX input and output names align with the C++ runtime expectations</p></li>
-</ul>
-</section>
-<section id="multimodal-model-export">
-<h4>Multimodal Model Export<a class="headerlink" href="#multimodal-model-export" title="Link to this heading">#</a></h4>
-<p>The <a class="reference download internal" download="" href="../../_downloads/2d6b53febde90b30974ee555453ad2f0/visual_export.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">visual_export()</span></code></span></a> function exports the visual encoder of VLMs to ONNX. Supported models are defined in <a class="reference internal" href="#../../../../tensorrt_edgellm/visual_models"><span class="xref myst">visual_models</span></a>.</p>
-<p>HuggingFace visual models often contain ONNX-incompatible logic (flash attention, shape-dependent initialization, complex post-processing). To add a new multimodal encoder, you may need to extend the original class with a wrapper that:</p>
-<ul class="simple">
-<li><p><strong>Externalizes shape-dependent computations</strong>: Pass precomputed tensors (e.g., <code class="docutils literal notranslate"><span class="pre">rotary_pos_emb</span></code>, <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code>) as explicit inputs</p></li>
-<li><p><strong>Replaces unsupported operations</strong>: Use standard PyTorch ops instead of flash attention</p></li>
-<li><p><strong>Delegates complex preprocessing/postprocessing to C++ runtime</strong>: Handle operations like dynamic indexing at runtime</p></li>
-</ul>
-<p>See existing <a class="reference internal" href="#../../../../tensorrt_edgellm/visual_models"><span class="xref myst">visual_models</span></a> implementations for reference.</p>
-</section>
+<p>Keep preprocessing and runtime sidecars explicit. For example, Alpamayo adds
+trajectory tokens during runtime artifact writing and requires the action
+engine’s <code class="docutils literal notranslate"><span class="pre">max_kv_cache_capacity</span></code> to match the LLM engine build.</p>
 </section>
 <section id="custom-operators">
-<h3>3. Custom Operators<a class="headerlink" href="#custom-operators" title="Link to this heading">#</a></h3>
-<p>Custom operators extend PyTorch with operations that map to TensorRT plugins. TensorRT Edge-LLM includes several built-in custom operators:</p>
-<ul class="simple">
-<li><p><strong>Attention Plugin</strong> (<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/llm_models/layers/attention_plugin.py</span></code>)</p></li>
-<li><p><strong>INT4 GEMM Plugin</strong> (<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/llm_models/layers/int4_gemm_plugin.py</span></code>)</p></li>
-<li><p><strong>GatherND Plugin</strong> (<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/llm_models/layers/gather_nd.py</span></code>)</p></li>
-</ul>
-<p>You can define and register your own custom operators following the existing examples.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">custom_op</span><span class="p">(</span><span class="s2">&quot;trt::attention_plugin&quot;</span><span class="p">,</span> <span class="n">mutates_args</span><span class="o">=</span><span class="p">())</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">attention_plugin</span><span class="p">(</span>
-    <span class="n">qkv</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">past_key_value</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">context_lengths</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">rope_rotary_cos_sin</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">num_q_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">num_kv_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="c1"># ... more parameters ...</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Optimized attention with KV caching and RoPE.&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="c1"># Registration</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.llm_models.layers.attention_plugin</span><span class="w"> </span><span class="kn">import</span> \
-    <span class="n">register_attention_plugin_onnx_symbolic_functions</span>
-
-<span class="n">register_attention_plugin_onnx_symbolic_functions</span><span class="p">()</span>
-</pre></div>
-</div>
+<h2>Custom Operators<a class="headerlink" href="#custom-operators" title="Link to this heading">#</a></h2>
+<p>Custom operators are declared as <code class="docutils literal notranslate"><span class="pre">torch.library.custom_op</span></code> stubs in
+<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/ops.py</span></code>, translated in
+<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/dynamo_translations.py</span></code>, and registered as ONNX
+schemas in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/onnx_custom_schemas.py</span></code>.</p>
+<p>Use this path when a PyTorch expression must lower to a TensorRT Edge-LLM
+plugin, specialized runtime op, or fixed ONNX node pattern. Runtime support must
+exist before documenting a new custom op as supported.</p>
 </section>
-</section>
-<hr class="docutils" />
-<section id="layer-3-engine-builder">
-<h2>Layer 3: Engine Builder<a class="headerlink" href="#layer-3-engine-builder" title="Link to this heading">#</a></h2>
-<section id="llm-builder-customization">
-<h3>1. LLM Builder Customization<a class="headerlink" href="#llm-builder-customization" title="Link to this heading">#</a></h3>
-<p>The <a class="reference download internal" download="" href="../../_downloads/666fbe90434fafcd4d57f0b0590921ac/llmBuilder.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMBuilder</span></code></span></a> class builds TensorRT engines from ONNX models. The CLI tool <a class="reference download internal" download="" href="../../_downloads/1f20c62ae439d29bdbaecf5f6e93a09c/llm_build.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llm_build</span></code></span></a> provides a command-line interface:</p>
-<p>The builder automatically creates <strong>two optimization profiles</strong> for different inference phases:</p>
+<section id="runtime-customization">
+<h2>Runtime Customization<a class="headerlink" href="#runtime-customization" title="Link to this heading">#</a></h2>
+<p>The C++ runtime still owns engine build, tokenization, sampling, multimodal
+preprocessing, LoRA adapter loading, EAGLE/MTP execution, and action inference.
+Common extension points include:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Profile</p></th>
-<th class="head"><p>Phase</p></th>
-<th class="head"><p>Input Shape</p></th>
-<th class="head"><p>Purpose</p></th>
+<tr class="row-odd"><th class="head"><p>Area</p></th>
+<th class="head"><p>Files</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>Context (Prefill)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[batch,</span> <span class="pre">1..maxInputLen]</span></code></p></td>
-<td><p>Process initial prompts with variable length</p></td>
+<tr class="row-even"><td><p>LLM engine profiles</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/builder/llmBuilder.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">examples/llm/llm_build.cpp</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>Generation (Decode)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[batch,</span> <span class="pre">1]</span></code></p></td>
-<td><p>Autoregressive token generation</p></td>
+<tr class="row-odd"><td><p>Visual/audio/action builders</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/builder/</span></code>, <code class="docutils literal notranslate"><span class="pre">examples/multimodal/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Multimodal runners</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/multimodal/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Action runners</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/action/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Tokenization</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/tokenizer/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sampling</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/sampler/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Runtime orchestration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpp/runtime/</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>To support new model architectures, you need to extend the optimization profile setup methods in <a class="reference download internal" download="" href="../../_downloads/22ec8c31eb50ce2930ca80fabc68e9f2/llmBuilder.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llmBuilder.cpp</span></code></span></a>:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">setupCommonProfiles()</span></code>: Context lengths, RoPE embeddings, KV cache (shared by all models)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setupVanillaProfiles()</span></code>: Standard LLM input_ids and last_token_ids</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setupEagleProfiles()</span></code>: EAGLE-specific hidden states, attention mask, position IDs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setupVLMProfiles()</span></code>: Image embeddings for VLMs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setupLoraProfiles()</span></code>: LoRA weight matrices with dynamic rank</p></li>
-</ul>
-</section>
-<section id="multimodal-builder-customization">
-<h3>2. Multimodal Builder Customization<a class="headerlink" href="#multimodal-builder-customization" title="Link to this heading">#</a></h3>
-<p>The <a class="reference download internal" download="" href="../../_downloads/51808691ce40993a77b4778ebcdf2145/visualBuilder.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">VisualBuilder</span></code></span></a> class builds TensorRT engines for visual encoders. The CLI tool <a class="reference download internal" download="" href="../../_downloads/d891e0209400c403c135d1bdb174cd0f/visual_build.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">visual_build</span></code></span></a> provides a command-line interface:</p>
-<p>To support new visual encoders, you have two options:</p>
-<ol class="arabic simple">
-<li><p><strong>Extend VisualBuilder</strong>: Add a new profile setup method (e.g., <code class="docutils literal notranslate"><span class="pre">setupYourViTProfile()</span></code>) in <a class="reference download internal" download="" href="../../_downloads/c39eda127dcce16d3eeedf539f4d3bc2/visualBuilder.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">visualBuilder.cpp</span></code></span></a>. Define optimization profiles with input shapes calculated from <code class="docutils literal notranslate"><span class="pre">minImageTokens</span></code> and <code class="docutils literal notranslate"><span class="pre">maxImageTokens</span></code>.</p></li>
-<li><p><strong>Use trtexec</strong>: Build the engine directly with TensorRT’s command-line tool for simpler models.</p></li>
-</ol>
-</section>
-</section>
-<hr class="docutils" />
-<section id="layer-4-c-runtime">
-<h2>Layer 4: C++ Runtime<a class="headerlink" href="#layer-4-c-runtime" title="Link to this heading">#</a></h2>
-<section id="text-processing-and-tokenization">
-<h3>1. Text Processing and Tokenization<a class="headerlink" href="#text-processing-and-tokenization" title="Link to this heading">#</a></h3>
-<p>The <a class="reference download internal" download="" href="../../_downloads/e8365bcdd38657ed06da129136e274b0/tokenizer.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code></span></a> class provides text encoding/decoding with HuggingFace-compatible loading. It uses a modular architecture:</p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">PreTokenizer</span></code></strong> (<a class="reference download internal" download="" href="../../_downloads/dcade291aca922868e0d4712b3ab735d/preTokenizer.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">preTokenizer.h</span></code></span></a>): Regex-based text splitting before encoding</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">TokenEncoder</span></code></strong> (<a class="reference download internal" download="" href="../../_downloads/f947c1f439101ccc9b7f8e51ad6037a9/tokenEncoder.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">tokenEncoder.h</span></code></span></a>): BPE encoding algorithm with vocabulary management</p></li>
-</ul>
-<p>The tokenizer automatically loads from the engine directory (uses <code class="docutils literal notranslate"><span class="pre">tokenizer.json</span></code> and <code class="docutils literal notranslate"><span class="pre">tokenizer_config.json</span></code>). To support new tokenization schemes, extend <code class="docutils literal notranslate"><span class="pre">TokenEncoder</span></code> with additional algorithms (e.g., SentencePiece, WordPiece).</p>
-</section>
-<section id="sampling-parameters">
-<h3>2. Sampling Parameters<a class="headerlink" href="#sampling-parameters" title="Link to this heading">#</a></h3>
-<p>The <a class="reference download internal" download="" href="../../_downloads/a35e69d5e942477b6719800df658d8de/sampling.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">SamplingParams</span></code></span></a> structure controls token generation randomness. Supported parameters:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter</p></th>
-<th class="head"><p>Range</p></th>
-<th class="head"><p>Effect</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
-<td><p>0.0 - 2.0</p></td>
-<td><p><strong>0.0</strong>: Deterministic (greedy). <strong>1.0</strong>: Standard sampling. <strong>&gt;1.0</strong>: More random/creative</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">top_k</span></code></p></td>
-<td><p>0 - vocab_size</p></td>
-<td><p><strong>0</strong>: Disabled. <strong>1</strong>: Greedy. <strong>50</strong>: Sample from top 50 tokens</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">top_p</span></code></p></td>
-<td><p>0.0 - 1.0</p></td>
-<td><p><strong>1.0</strong>: Disabled. <strong>0.9</strong>: Nucleus sampling (top 90% prob mass)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>To add more sampling params (e.g., repetition_penalty, logits_bias) or custom sampling algorithms (e.g., beam search), extend the sampling functions in <a class="reference download internal" download="" href="../../_downloads/d8d2fa8498d9d4bc9ee55c2b5d5f0fd9/sampling.cu"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">sampling.cu</span></code></span></a>.</p>
-</section>
-<section id="multimodal-runner">
-<h3>3. Multimodal Runner<a class="headerlink" href="#multimodal-runner" title="Link to this heading">#</a></h3>
-<p>The <a class="reference download internal" download="" href="../../_downloads/6dfcef4ef1ad1125249cf5996b69156b/multimodalRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">MultimodalRunner</span></code></span></a> base class provides the interface for visual encoder processing in VLMs. The factory method <code class="docutils literal notranslate"><span class="pre">MultimodalRunner::create()</span></code> automatically instantiates the appropriate runner based on model type.</p>
-<p><strong>Existing Runners:</strong></p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="../../_downloads/f8dfd6f4e443357c6b0e0d877238ea47/qwenViTRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">QwenViTRunner</span></code></span></a>: Qwen2-VL, Qwen2.5-VL, Qwen3-VL</p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/c732ad0d562a2b218f383b1d0167c2e7/internViTRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">InternViTRunner</span></code></span></a>: InternVL3</p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/a3ae267b286e94033f0f823896112aa5/phi4mmViTRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">Phi4MMViTRunner</span></code></span></a>: Phi-4-multimodal</p></li>
-</ul>
-<p><strong>To add support for a new VLM</strong>, create a new runner class that inherits from <code class="docutils literal notranslate"><span class="pre">MultimodalRunner</span></code> and implements:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">validateAndFillConfig()</span></code>: Parse model config and extract dimensions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">allocateBuffer()</span></code>: Allocate input/output tensors and bind to TensorRT engine</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">preprocess()</span></code>: Handle image loading, preprocessing (resize, normalize), and RoPE computation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">infer()</span></code>: Execute the visual encoder TensorRT engine</p></li>
-</ol>
-<p>Then register the new runner in <code class="docutils literal notranslate"><span class="pre">MultimodalRunner::create()</span></code> factory method.</p>
-</section>
-<section id="runtime-features">
-<h3>4. Runtime Features<a class="headerlink" href="#runtime-features" title="Link to this heading">#</a></h3>
-<p>The <a class="reference download internal" download="" href="../../_downloads/780afa95ebb0b9dd50fa1270f6f4ae2f/llmInferenceRuntime.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code></span></a> provides high-level inference APIs with several optimization features:</p>
-<ul class="simple">
-<li><p><strong>CUDA Graph Capture</strong>: Reduces kernel launch overhead by capturing and replaying execution sequences via <code class="docutils literal notranslate"><span class="pre">captureDecodingCUDAGraph()</span></code></p></li>
-<li><p><strong>System Prompt Caching</strong>: Caches KV states for frequently-used system prompts via <code class="docutils literal notranslate"><span class="pre">genAndSaveSystemPromptKVCache()</span></code> to reduce first-token latency</p></li>
-<li><p><strong>LoRA Switching</strong>: Dynamically switches between LoRA adapters at runtime without engine rebuild</p></li>
-<li><p><strong>EAGLE3 Speculative Decoding</strong>: Accelerates generation using draft-then-verify approach via <a class="reference download internal" download="" href="../../_downloads/ad2bb30270c60e5447f1ccbafc1ce1d4/llmInferenceSpecDecodeRuntime.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llmInferenceSpecDecodeRuntime</span></code></span></a> with tree-based draft proposal and verification</p></li>
-</ul>
-<p>To extend runtime capabilities, modify <a class="reference download internal" download="" href="../../_downloads/98f9b1017309853fc8874ef54ec39292/llmEngineRunner.h"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMEngineRunner</span></code></span></a> for core execution logic or <a class="reference download internal" download="" href="../../_downloads/24bbd3df8afa70981bed8b6fa488f21b/llmInferenceSpecDecodeRuntime.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">LLMInferenceSpecDecodeRuntime</span></code></span></a> for high-level request handling.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="layer-5-application">
-<h2>Layer 5: Application<a class="headerlink" href="#layer-5-application" title="Link to this heading">#</a></h2>
-<p>The <a class="reference download internal" download="" href="../../_downloads/8b05bc5a77927729639d0ce3927d4c01/llm_inference.cpp"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">llm_inference</span></code></span></a> example provides a reference implementation for building custom applications.</p>
-<section id="building-custom-applications">
-<h3>Building Custom Applications<a class="headerlink" href="#building-custom-applications" title="Link to this heading">#</a></h3>
-<p>Use the example as a template and adapt for your use case:</p>
-<ul class="simple">
-<li><p><strong>Custom Input/Output Format</strong>: Parse your own request format and convert to <code class="docutils literal notranslate"><span class="pre">LLMGenerationRequest</span></code></p></li>
-<li><p><strong>Custom Multimedia Input</strong>: The example reads images from files; adapt for your source (video frames, network streams, memory buffers, camera feeds)</p></li>
-</ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// my_custom_app.cpp</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmInferenceRuntime.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tokenizer/tokenizer.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;common/trtUtils.h&quot;</span>
+<p>Prefer adding runtime behavior only after the exported ONNX contract and sidecar
+files are stable.</p>
+<section id="minimal-runtime-request">
+<h3>Minimal Runtime Request<a class="headerlink" href="#minimal-runtime-request" title="Link to this heading">#</a></h3>
+<p>Use the 0.7 runtime request structure when embedding TensorRT Edge-LLM in a C++
+application. Requests are batched as <code class="docutils literal notranslate"><span class="pre">request.requests</span></code>, each request contains
+chat-template messages, and generated text is returned in <code class="docutils literal notranslate"><span class="pre">response.outputTexts</span></code>.
+For text-only engines, pass an empty <code class="docutils literal notranslate"><span class="pre">multimodalEngineDir</span></code>; set it to the
+visual or audio engine directory for multimodal workflows.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmInferenceRuntime.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmRuntimeUtils.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 1. Parse command line arguments</span>
-<span class="w">    </span><span class="c1">// ... argument parsing ...</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cuda_runtime_api.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
 
-<span class="w">    </span><span class="c1">// 2. Initialize CUDA</span>
-<span class="w">    </span><span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
-<span class="w">    </span><span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">));</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// 3. Load plugin library</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pluginHandles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">loadEdgellmPluginLib</span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">engineDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/path/to/engine&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">multimodalEngineDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// empty string = LLM-only, no multimodal engines</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">{};</span>
 
-<span class="w">    </span><span class="c1">// 4. Create runtime</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">runtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">LLMInferenceRuntime</span><span class="o">::</span><span class="n">create</span><span class="p">(</span>
-<span class="w">        </span><span class="n">engineDir</span><span class="p">,</span>
-<span class="w">        </span><span class="n">multimodalEngineDir</span><span class="p">,</span><span class="w">  </span><span class="c1">// Empty string for text-only</span>
-<span class="w">        </span><span class="n">loraWeightsMap</span><span class="p">,</span>
-<span class="w">        </span><span class="n">stream</span>
-<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="n">runtime</span><span class="p">(</span>
+<span class="w">        </span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="n">multimodalEngineDir</span><span class="p">,</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// 5. Optional: Warmup and CUDA graph capture</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">warmupIterations</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Run warmup requests</span>
-<span class="w">        </span><span class="n">runtime</span><span class="o">-&gt;</span><span class="n">captureDecodingCUDAGraph</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+<span class="w">    </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0F</span><span class="p">;</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">topK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">topP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8F</span><span class="p">;</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">Message</span><span class="w"> </span><span class="n">userMsg</span><span class="p">;</span>
+<span class="w">    </span><span class="n">userMsg</span><span class="p">.</span><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">userMsg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span>
+<span class="w">        </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">Message</span><span class="o">::</span><span class="n">MessageContent</span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;What is the capital of France?&quot;</span><span class="p">});</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">messages</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">userMsg</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">)</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">outputTexts</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Generated: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">outputTexts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="c1">// 6. Process requests</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">inputs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
-<span class="w">        </span><span class="n">trt_edgellm</span><span class="o">::</span><span class="n">rt</span><span class="o">::</span><span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">// Fill request from input</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">userPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">prompt</span><span class="p">;</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">systemPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">systemPrompt</span><span class="p">;</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">temperature</span><span class="p">;</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">topK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">topK</span><span class="p">;</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">topP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">topP</span><span class="p">;</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">maxLength</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">// Handle request</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">runtime</span><span class="o">-&gt;</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&quot;Failed to handle request&quot;</span><span class="p">);</span>
-<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">// Process response</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Generated: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">generatedText</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// 7. Cleanup</span>
-<span class="w">    </span><span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span>
+<span class="w">    </span><span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="best-practices">
-<h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
-<p><strong>1. Error Handling:</strong></p>
-<ul class="simple">
-<li><p>Check return values from all API calls</p></li>
-<li><p>Use try-catch for exception-prone operations</p></li>
-<li><p>Log errors with context for debugging</p></li>
-</ul>
-<p><strong>2. Resource Management:</strong></p>
-<ul class="simple">
-<li><p>Create CUDA stream per thread or request</p></li>
-<li><p>Properly destroy streams and free GPU memory</p></li>
-<li><p>Use RAII patterns for automatic cleanup</p></li>
-</ul>
-<p><strong>3. Performance Optimization:</strong></p>
-<ul class="simple">
-<li><p>Warmup before benchmark measurements</p></li>
-<li><p>Capture CUDA graphs after warmup</p></li>
-<li><p>Cache system prompts when applicable</p></li>
-<li><p>Use appropriate batch sizes for your hardware</p></li>
-</ul>
-<p><strong>4. Testing:</strong></p>
-<ul class="simple">
-<li><p>Test with various input lengths</p></li>
-<li><p>Validate output quality against baseline</p></li>
-<li><p>Profile to identify bottlenecks</p></li>
-<li><p>Test edge cases (empty inputs, very long sequences)</p></li>
-</ul>
-<p><strong>5. Deployment:</strong></p>
-<ul class="simple">
-<li><p>Package required files (engine, tokenizer, plugins)</p></li>
-<li><p>Set environment variables (<code class="docutils literal notranslate"><span class="pre">EDGELLM_PLUGIN_PATH</span></code>)</p></li>
-<li><p>Document dependencies and system requirements</p></li>
-<li><p>Provide example inputs and expected outputs</p></li>
-</ul>
 </section>
 </section>
 </section>
@@ -1619,48 +913,15 @@ graph TB
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-checkpoint-based-loader">Recommended: Checkpoint-Based Loader</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-architecture">Customization Architecture</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-points-by-layer">Customization Points by Layer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-methods-summary">Customization Methods Summary</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-1-models">Layer 1: Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture-customization">1. Model Architecture Customization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-weights-customization">2. Model Weights Customization</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-2-python-export-pipeline">Layer 2: Python Export Pipeline</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-strategy-customization">1. Quantization Strategy Customization</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-configuration-customization">Quantization Configuration Customization</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-data-customization">Calibration Data Customization</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onnx-export-logic-customization">2. ONNX Export Logic Customization</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-model-export">LLM Model Export</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-model-export">Multimodal Model Export</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-operators">3. Custom Operators</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-3-engine-builder">Layer 3: Engine Builder</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-builder-customization">1. LLM Builder Customization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-builder-customization">2. Multimodal Builder Customization</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-c-runtime">Layer 4: C++ Runtime</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-processing-and-tokenization">1. Text Processing and Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-parameters">2. Sampling Parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-runner">3. Multimodal Runner</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-features">4. Runtime Features</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-5-application">Layer 5: Application</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-custom-applications">Building Custom Applications</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-customization-points">Export Customization Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-customization-points">Quantization Customization Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-text-model">Adding A Text Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-multimodal-or-action-component">Adding A Multimodal Or Action Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-operators">Custom Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-customization">Runtime Customization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-runtime-request">Minimal Runtime Request</a></li>
 </ul>
 </li>
 </ul>
@@ -1681,8 +942,8 @@ graph TB
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 
   <footer class="bd-footer">
@@ -1754,9 +1015,9 @@ graph TB
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on April 28, 2026.</p>
+  <p>Last updated on May 19, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/57824c1">57824c1</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
   
 </div></div>
       
