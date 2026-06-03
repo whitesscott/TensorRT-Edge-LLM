@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -38,10 +38,10 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -493,9 +493,9 @@ window.addEventListener("load", load);
 window.runMermaid = runMermaid;</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/experimental/server/engine';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -509,7 +509,7 @@ window.runMermaid = runMermaid;</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -640,11 +640,18 @@ window.runMermaid = runMermaid;</script>
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -741,11 +748,18 @@ window.runMermaid = runMermaid;</script>
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -800,13 +814,11 @@ window.runMermaid = runMermaid;</script>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -868,6 +880,7 @@ window.runMermaid = runMermaid;</script>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -948,17 +961,40 @@ window.runMermaid = runMermaid;</script>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1081,7 +1117,12 @@ window.runMermaid = runMermaid;</script>
 <span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.tool_calling</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">ToolConfig</span><span class="p">,</span> <span class="n">parse_assistant_output</span><span class="p">,</span>
+                           <span class="n">validate_tool_request</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.tool_chat_template</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">ToolChatTemplateFormatter</span><span class="p">,</span>
+                                 <span class="n">needs_tool_chat_template</span><span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;edgellm.server&quot;</span><span class="p">)</span>
 
@@ -1114,7 +1155,8 @@ window.runMermaid = runMermaid;</script>
     <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
     <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2048</span>
     <span class="n">enable_thinking</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">disable_spec_decode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+    <span class="n">disable_spec_decode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">stop</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span></div>
 
 
 
@@ -1126,7 +1168,9 @@ window.runMermaid = runMermaid;</script>
 
     <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="n">token_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-    <span class="n">finish_reason</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+    <span class="n">finish_reason</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tool_calls</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">reasoning</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
 
@@ -1272,16 +1316,15 @@ window.runMermaid = runMermaid;</script>
     <span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_llm_loader_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return path to the llm_loader package, adding it to sys.path.&quot;&quot;&quot;</span>
-    <span class="n">loader_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;llm_loader&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">loader_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;llm_loader not found at </span><span class="si">{</span><span class="n">loader_dir</span><span class="si">}</span><span class="s2">. &quot;</span>
-                           <span class="s2">&quot;Ensure experimental/llm_loader/ exists.&quot;</span><span class="p">)</span>
-    <span class="n">experimental_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">loader_dir</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">experimental_dir</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">experimental_dir</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">loader_dir</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_ensure_export_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure the installed checkpoint export package is importable.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt_edgellm</span>  <span class="c1"># noqa: F401</span>
+        <span class="k">return</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">project_root</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">project_root</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">project_root</span><span class="p">)</span>
 
 
 <span class="c1"># ---------------------------------------------------------------------------</span>
@@ -1327,7 +1370,6 @@ window.runMermaid = runMermaid;</script>
         <span class="n">max_input_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4096</span><span class="p">,</span>
         <span class="n">max_batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">max_kv_cache_capacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span>
-        <span class="n">use_trt_native_ops</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">eagle_engine_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="n">draft_top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
         <span class="n">draft_step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
@@ -1345,6 +1387,8 @@ window.runMermaid = runMermaid;</script>
         <span class="bp">self</span><span class="o">.</span><span class="n">_draft_top_k</span> <span class="o">=</span> <span class="n">draft_top_k</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_draft_step</span> <span class="o">=</span> <span class="n">draft_step</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_verify_tree_size</span> <span class="o">=</span> <span class="n">verify_tree_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tool_template_formatter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span>
+            <span class="n">ToolChatTemplateFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="n">engine_dir</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_init_from_engine</span><span class="p">(</span><span class="n">engine_dir</span><span class="p">,</span> <span class="n">visual_engine_dir</span><span class="p">)</span>
@@ -1355,7 +1399,6 @@ window.runMermaid = runMermaid;</script>
                 <span class="n">max_input_len</span><span class="o">=</span><span class="n">max_input_len</span><span class="p">,</span>
                 <span class="n">max_batch_size</span><span class="o">=</span><span class="n">max_batch_size</span><span class="p">,</span>
                 <span class="n">max_kv_cache_capacity</span><span class="o">=</span><span class="n">max_kv_cache_capacity</span><span class="p">,</span>
-                <span class="n">use_trt_native_ops</span><span class="o">=</span><span class="n">use_trt_native_ops</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_init_from_model</span><span class="p">(</span>
@@ -1363,7 +1406,6 @@ window.runMermaid = runMermaid;</script>
                 <span class="n">max_input_len</span><span class="o">=</span><span class="n">max_input_len</span><span class="p">,</span>
                 <span class="n">max_batch_size</span><span class="o">=</span><span class="n">max_batch_size</span><span class="p">,</span>
                 <span class="n">max_kv_cache_capacity</span><span class="o">=</span><span class="n">max_kv_cache_capacity</span><span class="p">,</span>
-                <span class="n">use_trt_native_ops</span><span class="o">=</span><span class="n">use_trt_native_ops</span><span class="p">,</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_runtime</span><span class="p">()</span></div>
@@ -1409,13 +1451,11 @@ window.runMermaid = runMermaid;</script>
         <span class="n">max_input_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">max_batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">max_kv_cache_capacity</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">use_trt_native_ops</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Build engine from ONNX directories (no export).&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_input_len</span> <span class="o">=</span> <span class="n">max_input_len</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_batch_size</span> <span class="o">=</span> <span class="n">max_batch_size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_kv_cache_capacity</span> <span class="o">=</span> <span class="n">max_kv_cache_capacity</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_use_trt_native_ops</span> <span class="o">=</span> <span class="n">use_trt_native_ops</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span> <span class="o">=</span> <span class="n">onnx_dir</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_visual_onnx_dir</span> <span class="o">=</span> <span class="n">visual_onnx_dir</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span> <span class="o">=</span> <span class="n">onnx_dir</span>
@@ -1452,13 +1492,11 @@ window.runMermaid = runMermaid;</script>
         <span class="n">max_input_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">max_batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">max_kv_cache_capacity</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">use_trt_native_ops</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Export ONNX + build engine from HuggingFace checkpoint.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_input_len</span> <span class="o">=</span> <span class="n">max_input_len</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_batch_size</span> <span class="o">=</span> <span class="n">max_batch_size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_kv_cache_capacity</span> <span class="o">=</span> <span class="n">max_kv_cache_capacity</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_use_trt_native_ops</span> <span class="o">=</span> <span class="n">use_trt_native_ops</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Resolving model: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span> <span class="o">=</span> <span class="n">_resolve_model_dir</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -1491,7 +1529,6 @@ window.runMermaid = runMermaid;</script>
             <span class="n">max_input_len</span><span class="o">=</span><span class="n">max_input_len</span><span class="p">,</span>
             <span class="n">max_batch_size</span><span class="o">=</span><span class="n">max_batch_size</span><span class="p">,</span>
             <span class="n">max_kv_cache_capacity</span><span class="o">=</span><span class="n">max_kv_cache_capacity</span><span class="p">,</span>
-            <span class="n">use_trt_native_ops</span><span class="o">=</span><span class="n">use_trt_native_ops</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_load_runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1531,12 +1568,12 @@ window.runMermaid = runMermaid;</script>
     <span class="c1"># ------------------------------------------------------------------</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_export_onnx</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Export the model checkpoint to ONNX via llm_loader.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Export the model checkpoint to ONNX via tensorrt_edgellm.&quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Exporting ONNX to </span><span class="si">%s</span><span class="s2"> ...&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">_llm_loader_dir</span><span class="p">()</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">llm_loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModel</span><span class="p">,</span> <span class="n">export_onnx</span>
+        <span class="n">_ensure_export_package</span><span class="p">()</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModel</span><span class="p">,</span> <span class="n">export_onnx</span>
 
         <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
         <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span><span class="p">,</span> <span class="s2">&quot;model.onnx&quot;</span><span class="p">)</span>
@@ -1544,8 +1581,8 @@ window.runMermaid = runMermaid;</script>
 
         <span class="c1"># Patch image_token_id for VLM models</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_vlm</span><span class="p">:</span>
-            <span class="n">_llm_loader_dir</span><span class="p">()</span>
-            <span class="kn">from</span><span class="w"> </span><span class="nn">llm_loader.export_all_cli</span><span class="w"> </span><span class="kn">import</span> <span class="n">_find_token_id</span>
+            <span class="n">_ensure_export_package</span><span class="p">()</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.scripts.export</span><span class="w"> </span><span class="kn">import</span> <span class="n">_find_token_id</span>
             <span class="n">image_token_id</span> <span class="o">=</span> <span class="n">_find_token_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span><span class="p">,</span> <span class="s2">&quot;&lt;|image_pad|&gt;&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">image_token_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">cfg_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span><span class="p">,</span> <span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
@@ -1563,7 +1600,7 @@ window.runMermaid = runMermaid;</script>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;ONNX export complete: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_export_visual_onnx</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Export the visual encoder to ONNX via llm_loader.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Export the visual encoder to ONNX via tensorrt_edgellm.&quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="s2">&quot;Exporting visual ONNX to </span><span class="si">%s</span><span class="s2"> ...&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_visual_onnx_dir</span><span class="p">,</span>
@@ -1572,9 +1609,10 @@ window.runMermaid = runMermaid;</script>
 
         <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
-        <span class="n">_llm_loader_dir</span><span class="p">()</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">llm_loader.export_all_cli</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">_export_visual</span><span class="p">,</span>
-                                               <span class="n">_load_all_weights</span><span class="p">,</span> <span class="n">_load_config</span><span class="p">)</span>
+        <span class="n">_ensure_export_package</span><span class="p">()</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">tensorrt_edgellm.scripts.export</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">_export_visual</span><span class="p">,</span>
+                                                     <span class="n">_load_all_weights</span><span class="p">,</span>
+                                                     <span class="n">_load_config</span><span class="p">)</span>
 
         <span class="n">config</span> <span class="o">=</span> <span class="n">_load_config</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span><span class="p">)</span>
         <span class="n">weights</span> <span class="o">=</span> <span class="n">_load_all_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span><span class="p">)</span>
@@ -1605,7 +1643,6 @@ window.runMermaid = runMermaid;</script>
         <span class="n">config</span><span class="o">.</span><span class="n">max_input_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_input_len</span>
         <span class="n">config</span><span class="o">.</span><span class="n">max_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_batch_size</span>
         <span class="n">config</span><span class="o">.</span><span class="n">max_kv_cache_capacity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_kv_cache_capacity</span>
-        <span class="n">config</span><span class="o">.</span><span class="n">use_trt_native_ops</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_trt_native_ops</span>
 
         <span class="n">builder</span> <span class="o">=</span> <span class="n">rt</span><span class="o">.</span><span class="n">LLMBuilder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine_dir</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">():</span>
@@ -1654,6 +1691,130 @@ window.runMermaid = runMermaid;</script>
             <span class="bp">self</span><span class="o">.</span><span class="n">_visual_engine_dir</span><span class="p">,</span>
         <span class="p">)</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tool_template_dirs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">dirs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine_dir</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_onnx_dir&quot;</span><span class="p">):</span>
+            <span class="n">dirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_onnx_dir</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dirs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_tool_template_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ToolChatTemplateFormatter</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tool_template_formatter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tool_template_formatter</span> <span class="o">=</span> <span class="n">ToolChatTemplateFormatter</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_tool_template_dirs</span><span class="p">())</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tool_template_formatter</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tool_choice_for_template</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">tool_config</span><span class="p">:</span> <span class="n">ToolConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="k">if</span> <span class="n">tool_config</span><span class="o">.</span><span class="n">forced_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">tool_config</span><span class="o">.</span><span class="n">forced_name</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">tool_config</span><span class="o">.</span><span class="n">tool_choice</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_prepare_messages_for_runtime</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">tools</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ToolConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">enable_thinking</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare messages for the C++ runtime.&quot;&quot;&quot;</span>
+        <span class="n">tool_config</span> <span class="o">=</span> <span class="n">tool_config</span> <span class="ow">or</span> <span class="n">validate_tool_request</span><span class="p">(</span>
+            <span class="n">messages</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">tool_choice</span><span class="p">)</span>
+        <span class="n">template_tools</span> <span class="o">=</span> <span class="p">(</span><span class="n">tool_config</span><span class="o">.</span><span class="n">tools</span>
+                          <span class="k">if</span> <span class="n">tool_config</span><span class="o">.</span><span class="n">tool_choice</span> <span class="o">!=</span> <span class="s2">&quot;none&quot;</span> <span class="k">else</span> <span class="p">[])</span>
+        <span class="n">image_buffers</span> <span class="o">=</span> <span class="n">_load_image_buffers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">needs_tool_chat_template</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">template_tools</span><span class="p">,</span>
+                                    <span class="n">tool_config</span><span class="o">.</span><span class="n">tool_choice</span><span class="p">):</span>
+            <span class="n">template_tool_choice</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">tool_config</span><span class="o">.</span><span class="n">tool_choice</span> <span class="o">!=</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+                <span class="n">template_tool_choice</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tool_choice_for_template</span><span class="p">(</span>
+                    <span class="n">tool_config</span><span class="p">)</span>
+            <span class="n">prompt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_tool_template_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">messages</span><span class="p">,</span>
+                <span class="n">tools</span><span class="o">=</span><span class="n">template_tools</span><span class="p">,</span>
+                <span class="n">tool_choice</span><span class="o">=</span><span class="n">template_tool_choice</span><span class="p">,</span>
+                <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">enable_thinking</span><span class="o">=</span><span class="n">enable_thinking</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">cpp_messages</span> <span class="o">=</span> <span class="n">_convert_messages_to_cpp</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span>
+                <span class="p">[{</span>
+                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
+                <span class="p">}],</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">cpp_messages</span><span class="p">,</span> <span class="n">image_buffers</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="n">cpp_messages</span> <span class="o">=</span> <span class="n">_convert_messages_to_cpp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cpp_messages</span><span class="p">,</span> <span class="n">image_buffers</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_generation_request</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">SamplingParams</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">tools</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ToolConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stream_channel</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">tool_config</span> <span class="o">=</span> <span class="n">tool_config</span> <span class="ow">or</span> <span class="n">validate_tool_request</span><span class="p">(</span>
+            <span class="n">messages</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">tool_choice</span><span class="p">)</span>
+        <span class="n">cpp_messages</span><span class="p">,</span> <span class="n">image_buffers</span><span class="p">,</span> <span class="n">apply_template</span><span class="p">,</span> <span class="n">add_prompt</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_messages_for_runtime</span><span class="p">(</span>
+                <span class="n">messages</span><span class="p">,</span>
+                <span class="n">tools</span><span class="o">=</span><span class="n">tool_config</span><span class="o">.</span><span class="n">tools</span><span class="p">,</span>
+                <span class="n">tool_choice</span><span class="o">=</span><span class="n">tool_config</span><span class="o">.</span><span class="n">tool_choice</span><span class="p">,</span>
+                <span class="n">tool_config</span><span class="o">=</span><span class="n">tool_config</span><span class="p">,</span>
+                <span class="n">enable_thinking</span><span class="o">=</span><span class="n">params</span><span class="o">.</span><span class="n">enable_thinking</span><span class="p">,</span>
+            <span class="p">))</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">LLMGenerationRequest</span><span class="p">()</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="n">cpp_messages</span><span class="p">)</span>
+        <span class="n">req</span><span class="o">.</span><span class="n">image_buffers</span> <span class="o">=</span> <span class="n">image_buffers</span>
+        <span class="n">req</span><span class="o">.</span><span class="n">stop_strings</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">stop</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="p">[</span><span class="n">req</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">stream_channel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">stream_channels</span> <span class="o">=</span> <span class="p">[</span><span class="n">stream_channel</span><span class="p">]</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">temperature</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">top_p</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">top_k</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">max_generate_length</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">max_tokens</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">apply_chat_template</span> <span class="o">=</span> <span class="n">apply_template</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">add_generation_prompt</span> <span class="o">=</span> <span class="n">add_prompt</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">enable_thinking</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">enable_thinking</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">disable_spec_decode</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">disable_spec_decode</span>
+        <span class="k">return</span> <span class="n">request</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_generation_output</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">token_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">finish_reason</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">tool_config</span><span class="p">:</span> <span class="n">ToolConfig</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CompletionOutput</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tool_config</span><span class="o">.</span><span class="n">parse_output</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">CompletionOutput</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+                                    <span class="n">token_ids</span><span class="o">=</span><span class="n">token_ids</span><span class="p">,</span>
+                                    <span class="n">finish_reason</span><span class="o">=</span><span class="n">finish_reason</span><span class="p">)</span>
+
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">parse_assistant_output</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tool_config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_dir</span><span class="p">)</span>
+        <span class="n">tool_calls</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="o">.</span><span class="n">to_openai</span><span class="p">()</span> <span class="k">for</span> <span class="n">call</span> <span class="ow">in</span> <span class="n">parsed</span><span class="o">.</span><span class="n">tool_calls</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">CompletionOutput</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+            <span class="n">token_ids</span><span class="o">=</span><span class="n">token_ids</span><span class="p">,</span>
+            <span class="n">finish_reason</span><span class="o">=</span><span class="s2">&quot;tool_calls&quot;</span> <span class="k">if</span> <span class="n">tool_calls</span> <span class="k">else</span> <span class="n">finish_reason</span><span class="p">,</span>
+            <span class="n">tool_calls</span><span class="o">=</span><span class="n">tool_calls</span><span class="p">,</span>
+            <span class="n">reasoning</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">reasoning</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
+
     <span class="c1"># ------------------------------------------------------------------</span>
     <span class="c1"># Inference API (vLLM-style)</span>
     <span class="c1"># ------------------------------------------------------------------</span>
@@ -1664,6 +1825,9 @@ window.runMermaid = runMermaid;</script>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">prompts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]],</span>
         <span class="n">sampling_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SamplingParams</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">tools</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">CompletionOutput</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate completions for the given prompts.</span>
 
@@ -1672,6 +1836,8 @@ window.runMermaid = runMermaid;</script>
 <span class="sd">                a list of OpenAI-style message lists.</span>
 <span class="sd">            sampling_params: Sampling configuration. Defaults to</span>
 <span class="sd">                ``SamplingParams()``.</span>
+<span class="sd">            tools: Optional OpenAI-compatible tool definitions.</span>
+<span class="sd">            tool_choice: Optional OpenAI-compatible tool choice.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            List of ``CompletionOutput`` objects, one per prompt.</span>
@@ -1691,29 +1857,22 @@ window.runMermaid = runMermaid;</script>
 
         <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">messages</span> <span class="ow">in</span> <span class="n">message_batches</span><span class="p">:</span>
-            <span class="n">cpp_messages</span> <span class="o">=</span> <span class="n">_convert_messages_to_cpp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
-            <span class="n">image_buffers</span> <span class="o">=</span> <span class="n">_load_image_buffers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
-            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">LLMGenerationRequest</span><span class="p">()</span>
-            <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="n">cpp_messages</span><span class="p">)</span>
-            <span class="n">req</span><span class="o">.</span><span class="n">image_buffers</span> <span class="o">=</span> <span class="n">image_buffers</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="p">[</span><span class="n">req</span><span class="p">]</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">temperature</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">top_p</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">top_k</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">max_generate_length</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">max_tokens</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">apply_chat_template</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">add_generation_prompt</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">enable_thinking</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">enable_thinking</span>
-            <span class="n">request</span><span class="o">.</span><span class="n">disable_spec_decode</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">disable_spec_decode</span>
+            <span class="n">tool_config</span> <span class="o">=</span> <span class="n">validate_tool_request</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">tool_choice</span><span class="p">)</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_generation_request</span><span class="p">(</span>
+                <span class="n">messages</span><span class="p">,</span>
+                <span class="n">params</span><span class="p">,</span>
+                <span class="n">tools</span><span class="o">=</span><span class="n">tool_config</span><span class="o">.</span><span class="n">tools</span><span class="p">,</span>
+                <span class="n">tool_choice</span><span class="o">=</span><span class="n">tool_config</span><span class="o">.</span><span class="n">tool_choice</span><span class="p">,</span>
+                <span class="n">tool_config</span><span class="o">=</span><span class="n">tool_config</span><span class="p">,</span>
+            <span class="p">)</span>
 
             <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_runtime</span><span class="o">.</span><span class="n">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
             <span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">output_texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">output_texts</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
             <span class="n">ids</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">output_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">output_ids</span> <span class="k">else</span> <span class="p">[]</span>
-            <span class="n">reason</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;length&quot;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="o">.</span><span class="n">max_tokens</span> <span class="k">else</span> <span class="s2">&quot;stop&quot;</span><span class="p">)</span>
+            <span class="n">reason</span> <span class="o">=</span> <span class="n">finish_reason_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">finish_reasons</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> \
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">finish_reasons</span> <span class="k">else</span> <span class="s2">&quot;stop&quot;</span>
             <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">CompletionOutput</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
-                                 <span class="n">token_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
-                                 <span class="n">finish_reason</span><span class="o">=</span><span class="n">reason</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parse_generation_output</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">reason</span><span class="p">,</span> <span class="n">tool_config</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">outputs</span></div>
 
@@ -1724,17 +1883,25 @@ window.runMermaid = runMermaid;</script>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
         <span class="n">sampling_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SamplingParams</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">tools</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CompletionOutput</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Single-turn chat completion (convenience wrapper).</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            messages: OpenAI-style message list.</span>
 <span class="sd">            sampling_params: Sampling configuration.</span>
+<span class="sd">            tools: Optional OpenAI-compatible tool definitions.</span>
+<span class="sd">            tool_choice: Optional OpenAI-compatible tool choice.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            A single ``CompletionOutput``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">([</span><span class="n">messages</span><span class="p">],</span> <span class="n">sampling_params</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">([</span><span class="n">messages</span><span class="p">],</span>
+                             <span class="n">sampling_params</span><span class="p">,</span>
+                             <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+                             <span class="n">tool_choice</span><span class="o">=</span><span class="n">tool_choice</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="LLM.generate_stream">
@@ -1743,6 +1910,9 @@ window.runMermaid = runMermaid;</script>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
         <span class="n">sampling_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SamplingParams</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">tools</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">StreamDelta</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stream generation deltas for a single message list.</span>
 
@@ -1751,32 +1921,17 @@ window.runMermaid = runMermaid;</script>
 <span class="sd">        tokens are produced.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">sampling_params</span> <span class="ow">or</span> <span class="n">SamplingParams</span><span class="p">()</span>
-        <span class="n">cpp_messages</span> <span class="o">=</span> <span class="n">_convert_messages_to_cpp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
-        <span class="n">image_buffers</span> <span class="o">=</span> <span class="n">_load_image_buffers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
 
         <span class="n">channel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">StreamChannel</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
         <span class="n">channel</span><span class="o">.</span><span class="n">set_skip_special_tokens</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">LLMGenerationRequest</span><span class="p">()</span>
-        <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="n">cpp_messages</span><span class="p">)</span>
-        <span class="n">req</span><span class="o">.</span><span class="n">image_buffers</span> <span class="o">=</span> <span class="n">image_buffers</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="p">[</span><span class="n">req</span><span class="p">]</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">stream_channels</span> <span class="o">=</span> <span class="p">[</span><span class="n">channel</span><span class="p">]</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">temperature</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">top_p</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">top_k</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">max_generate_length</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">max_tokens</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">apply_chat_template</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">add_generation_prompt</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">enable_thinking</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">enable_thinking</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">disable_spec_decode</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">disable_spec_decode</span>
-
-        <span class="n">_FINISH_REASON_MAP</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">END_ID</span><span class="p">:</span> <span class="s2">&quot;stop&quot;</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">LENGTH</span><span class="p">:</span> <span class="s2">&quot;length&quot;</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">CANCELLED</span><span class="p">:</span> <span class="s2">&quot;cancelled&quot;</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
-        <span class="p">}</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_generation_request</span><span class="p">(</span>
+            <span class="n">messages</span><span class="p">,</span>
+            <span class="n">params</span><span class="p">,</span>
+            <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+            <span class="n">tool_choice</span><span class="o">=</span><span class="n">tool_choice</span><span class="p">,</span>
+            <span class="n">stream_channel</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="n">error_holder</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 
@@ -1797,7 +1952,8 @@ window.runMermaid = runMermaid;</script>
                     <span class="k">if</span> <span class="n">channel</span><span class="o">.</span><span class="n">is_finished</span><span class="p">()</span> <span class="ow">or</span> <span class="n">channel</span><span class="o">.</span><span class="n">is_cancelled</span><span class="p">():</span>
                         <span class="k">break</span>
                     <span class="k">continue</span>
-                <span class="n">reason</span> <span class="o">=</span> <span class="n">_FINISH_REASON_MAP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+                <span class="n">reason</span> <span class="o">=</span> <span class="n">finish_reason_name</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rt</span><span class="p">,</span> <span class="n">chunk</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span> <span class="k">if</span> <span class="n">chunk</span><span class="o">.</span><span class="n">finished</span> <span class="k">else</span> <span class="kc">None</span>
                 <span class="k">yield</span> <span class="n">StreamDelta</span><span class="p">(</span>
                     <span class="n">text</span><span class="o">=</span><span class="n">chunk</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
                     <span class="n">token_ids</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">token_ids</span><span class="p">),</span>
@@ -1855,6 +2011,25 @@ window.runMermaid = runMermaid;</script>
 <span class="c1"># ---------------------------------------------------------------------------</span>
 <span class="c1"># Message conversion &amp; image loading</span>
 <span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">finish_reason_name</span><span class="p">(</span><span class="n">rt_module</span><span class="p">,</span> <span class="n">reason</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Map a C++ FinishReason enum value to its OpenAI-compatible string.</span>
+
+<span class="sd">    NOT_FINISHED maps to None — reaching this function with a non-terminal</span>
+<span class="sd">    reason indicates a bug; surfacing None instead of silently returning &quot;stop&quot;</span>
+<span class="sd">    makes it visible. The fallback &quot;stop&quot; catches truly-unknown enum values</span>
+<span class="sd">    (e.g. future C++ enum additions). STOP_WORDS and END_ID both map to &quot;stop&quot;</span>
+<span class="sd">    since OpenAI does not distinguish them.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">rt_module</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">NOT_FINISHED</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">rt_module</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">END_ID</span><span class="p">:</span> <span class="s2">&quot;stop&quot;</span><span class="p">,</span>
+        <span class="n">rt_module</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">LENGTH</span><span class="p">:</span> <span class="s2">&quot;length&quot;</span><span class="p">,</span>
+        <span class="n">rt_module</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">CANCELLED</span><span class="p">:</span> <span class="s2">&quot;cancelled&quot;</span><span class="p">,</span>
+        <span class="n">rt_module</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+        <span class="n">rt_module</span><span class="o">.</span><span class="n">FinishReason</span><span class="o">.</span><span class="n">STOP_WORDS</span><span class="p">:</span> <span class="s2">&quot;stop&quot;</span><span class="p">,</span>
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;stop&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_convert_messages_to_cpp</span><span class="p">(</span><span class="n">rt_module</span><span class="p">,</span> <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]):</span>
@@ -1943,8 +2118,8 @@ window.runMermaid = runMermaid;</script>
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -2016,9 +2191,9 @@ window.runMermaid = runMermaid;</script>
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

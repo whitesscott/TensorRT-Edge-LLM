@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/multimodal/multimodalRunner';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -616,7 +652,7 @@
 <span id="_CPPv3N11trt_edgellm2rt16MultimodalRunnerE"></span><span id="_CPPv2N11trt_edgellm2rt16MultimodalRunnerE"></span><span id="trt_edgellm::rt::MultimodalRunner"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1MultimodalRunner"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MultimodalRunner</span></span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunnerE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Base class for multimodal vision-language model runners. </p>
 <p>Provides interface for vision encoder processing in VLMs. Subclasses implement specific VLM architectures (Qwen-VL, InternVL, etc.). </p>
-<p>Subclassed by <a class="reference internal" href="internViTRunner.html#classtrt__edgellm_1_1rt_1_1InternViTRunner"><span class="std std-ref">trt_edgellm::rt::InternViTRunner</span></a>, <a class="reference internal" href="nemotronOmniViTRunner.html#classtrt__edgellm_1_1rt_1_1NemotronOmniViTRunner"><span class="std std-ref">trt_edgellm::rt::NemotronOmniViTRunner</span></a>, <a class="reference internal" href="phi4mmViTRunner.html#classtrt__edgellm_1_1rt_1_1Phi4MMViTRunner"><span class="std std-ref">trt_edgellm::rt::Phi4MMViTRunner</span></a>, <a class="reference internal" href="audioRunner.html#classtrt__edgellm_1_1rt_1_1Qwen3OmniAudioRunner"><span class="std std-ref">trt_edgellm::rt::Qwen3OmniAudioRunner</span></a>, <a class="reference internal" href="qwenViTRunner.html#classtrt__edgellm_1_1rt_1_1QwenViTRunner"><span class="std std-ref">trt_edgellm::rt::QwenViTRunner</span></a></p>
+<p>Subclassed by <a class="reference internal" href="internViTRunner.html#classtrt__edgellm_1_1rt_1_1InternViTRunner"><span class="std std-ref">trt_edgellm::rt::InternViTRunner</span></a>, <a class="reference internal" href="nemotronOmniAudioRunner.html#classtrt__edgellm_1_1rt_1_1NemotronOmniAudioRunner"><span class="std std-ref">trt_edgellm::rt::NemotronOmniAudioRunner</span></a>, <a class="reference internal" href="nemotronOmniViTRunner.html#classtrt__edgellm_1_1rt_1_1NemotronOmniViTRunner"><span class="std std-ref">trt_edgellm::rt::NemotronOmniViTRunner</span></a>, <a class="reference internal" href="phi4mmViTRunner.html#classtrt__edgellm_1_1rt_1_1Phi4MMViTRunner"><span class="std std-ref">trt_edgellm::rt::Phi4MMViTRunner</span></a>, <a class="reference internal" href="audioRunner.html#classtrt__edgellm_1_1rt_1_1Qwen3OmniAudioRunner"><span class="std std-ref">trt_edgellm::rt::Qwen3OmniAudioRunner</span></a>, <a class="reference internal" href="qwenViTRunner.html#classtrt__edgellm_1_1rt_1_1QwenViTRunner"><span class="std std-ref">trt_edgellm::rt::QwenViTRunner</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -686,19 +722,19 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb">
-<span id="_CPPv3N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb"></span><span id="_CPPv2N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb"></span><span id="trt_edgellm::rt::MultimodalRunner::preprocess__rt::LLMGenerationRequestCR.std::vector:std::vector:int32_t::R.tokenizer::TokenizerCP.rt::TensorR.cudaStream_t.b"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1MultimodalRunner_1adc5b7e8a4f9e26c411dae701c97cce24"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preprocess</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_tb">
+<span id="_CPPv3N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_tb"></span><span id="_CPPv2N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_tb"></span><span id="trt_edgellm::rt::MultimodalRunner::preprocess__rt::LLMGenerationRequestCR.std::vector:std::vector:int32_t::R.tokenizer::TokenizerCP.rt::OptionalOutputTensor.cudaStream_t.b"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1MultimodalRunner_1a72c47f38662adf874077b6ac2049bb00"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preprocess</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../runtime/llmRuntimeUtils.html#_CPPv4N11trt_edgellm2rt20LLMGenerationRequestE" title="trt_edgellm::rt::LLMGenerationRequest"><span class="n"><span class="pre">LLMGenerationRequest</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">request</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">batchedInputIds</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb" title="trt_edgellm::rt::MultimodalRunner::preprocess::tokenizer"><span class="n"><span class="pre">tokenizer</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Tokenizer</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">tokenizer</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ropeRotaryCosSinDevice</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_tb" title="trt_edgellm::rt::MultimodalRunner::preprocess::tokenizer"><span class="n"><span class="pre">tokenizer</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Tokenizer</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">tokenizer</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalOutputTensor</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mropeCosSinOut</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">imageOnly</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb" title="Link to this definition">#</a><br /></dt>
+<span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_tb" title="Link to this definition">#</a><br /></dt>
 <dd><p>Preprocess request with images and text. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -706,7 +742,7 @@
 <li><p><strong>request</strong> – Generation request with prompts and images </p></li>
 <li><p><strong>batchedInputIds</strong> – Output batched input token IDs </p></li>
 <li><p><strong>tokenizer</strong> – Tokenizer instance </p></li>
-<li><p><strong>ropeRotaryCosSinDevice</strong> – RoPE cache tensor (only used by image / language models) </p></li>
+<li><p><strong>mropeCosSinOut</strong> – Output MRope cos/sin cache. Required (<code class="docutils literal notranslate"><span class="pre">has_value()</span> <span class="pre">==</span> <span class="pre">true</span></code>) only for MRope-based multimodal runners (QwenViT, Qwen3OmniAudio), which write per-batch 3D position encodings into it. Pass <code class="docutils literal notranslate"><span class="pre">std::nullopt</span></code> when the base engine uses standard RoPE — runners with standard RoPE (InternViT, Phi4MMViT) do not read this parameter. </p></li>
 <li><p><strong>stream</strong> – CUDA stream </p></li>
 <li><p><strong>imageOnly</strong> – When true, only run image preprocessing (skip text tokenization and RoPE generation). Used for benchmarking where only the visual engine inputs need to be set up. </p></li>
 </ul>
@@ -718,17 +754,17 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"></span><span id="trt_edgellm::rt::MultimodalRunner::preprocessSystemPrompt__ssCR.tokenizer::TokenizerCP.rt::TensorR.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1MultimodalRunner_1a23777430d6125017700ecc1394658e09"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preprocessSystemPrompt</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_t"></span><span id="trt_edgellm::rt::MultimodalRunner::preprocessSystemPrompt__ssCR.tokenizer::TokenizerCP.rt::OptionalOutputTensor.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1rt_1_1MultimodalRunner_1a134b0ff706b4e309dfb91073b701d7a7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preprocessSystemPrompt</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">systemPrompt</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t" title="trt_edgellm::rt::MultimodalRunner::preprocessSystemPrompt::tokenizer"><span class="n"><span class="pre">tokenizer</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Tokenizer</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">tokenizer</span></span></em>,</dd>
-<dd><em class="sig-param"><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../common/tensor.html#_CPPv4N11trt_edgellm2rt6TensorE" title="trt_edgellm::rt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ropeRotaryCosSinDevice</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_t" title="trt_edgellm::rt::MultimodalRunner::preprocessSystemPrompt::tokenizer"><span class="n"><span class="pre">tokenizer</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Tokenizer</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">tokenizer</span></span></em>,</dd>
+<dd><em class="sig-param"><a class="reference internal" href="../action/alpamayo1RunnerUtils.html#_CPPv4N11trt_edgellm2rtE" title="trt_edgellm::rt"><span class="n"><span class="pre">rt</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">OptionalOutputTensor</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mropeCosSinOut</span></span></em>,</dd>
 <dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_t" title="Link to this definition">#</a><br /></dt>
 <dd><p>Used for KVCache saving where we need to conduct the tokenization of the system prompt and generate ND-Rope parameters for the system prompt. </p>
 <p>This function may be a no-op for some multimodal runners and only performs nontrivial work for some derived subclasses. </p>
 <dl class="field-list simple">
@@ -736,7 +772,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>systemPrompt</strong> – System prompt text </p></li>
 <li><p><strong>tokenizer</strong> – Tokenizer instance </p></li>
-<li><p><strong>ropeRotaryCosSinDevice</strong> – RoPE cache tensor </p></li>
+<li><p><strong>mropeCosSinOut</strong> – Output MRope cos/sin cache. Required only for MRope-based runners; otherwise pass <code class="docutils literal notranslate"><span class="pre">std::nullopt</span></code>. See <code class="docutils literal notranslate"><span class="pre">preprocess</span></code> for the full semantics. </p></li>
 <li><p><strong>stream</strong> – CUDA stream </p></li>
 </ul>
 </dd>
@@ -929,8 +965,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunnerD0Ev"><code class="docutils literal notranslate"><span class="pre">~MultimodalRunner()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm2rt16MultimodalRunner28getRequiredContextMemorySizeEv"><code class="docutils literal notranslate"><span class="pre">getRequiredContextMemorySize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner16setContextMemoryERN2rt6TensorE"><code class="docutils literal notranslate"><span class="pre">setContextMemory()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_tb"><code class="docutils literal notranslate"><span class="pre">preprocess()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerERN2rt6TensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">preprocessSystemPrompt()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner10preprocessERKN2rt20LLMGenerationRequestERNSt6vectorINSt6vectorI7int32_tEEEEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_tb"><code class="docutils literal notranslate"><span class="pre">preprocess()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner22preprocessSystemPromptERKNSt6stringEPKN9tokenizer9TokenizerEN2rt20OptionalOutputTensorE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">preprocessSystemPrompt()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner5inferE12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">infer()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner18getOutputEmbeddingEv"><code class="docutils literal notranslate"><span class="pre">getOutputEmbedding()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm2rt16MultimodalRunner20getDeepstackFeaturesEv"><code class="docutils literal notranslate"><span class="pre">getDeepstackFeatures()</span></code></a></li>
@@ -959,8 +995,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1032,9 +1068,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

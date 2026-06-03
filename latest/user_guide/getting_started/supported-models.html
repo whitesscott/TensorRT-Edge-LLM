@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/getting_started/supported-models';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -606,22 +642,24 @@
   <section class="tex2jax_ignore mathjax_ignore" id="supported-models">
 <h1>Supported Models<a class="headerlink" href="#supported-models" title="Link to this heading">#</a></h1>
 <blockquote>
-<div><p><strong>Code Location:</strong> <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/</span></code> (recommended export), <code class="docutils literal notranslate"><span class="pre">experimental/quantization/</span></code> (checkpoint quantization), <code class="docutils literal notranslate"><span class="pre">experimental/server/</span></code> (Python API/server), <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/</span></code> (legacy export), <code class="docutils literal notranslate"><span class="pre">cpp/</span></code> (runtime)</p>
-<p><strong>Pre-Quantized Checkpoints:</strong> When a supported pre-quantized checkpoint is available, the <a class="reference internal" href="../../developer_guide/software-design/llm-loader.html"><span class="std std-doc">checkpoint-based loader</span></a> can export it directly without a separate quantization step.</p>
+<div><p><strong>Code Location:</strong> <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/</span></code> (checkpoint export), <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization/</span></code> (checkpoint quantization), <code class="docutils literal notranslate"><span class="pre">experimental/server/</span></code> (Python API/server), <code class="docutils literal notranslate"><span class="pre">cpp/</span></code> (runtime)</p>
+<p><strong>Pre-Quantized Checkpoints:</strong> When a supported pre-quantized checkpoint is available, the <a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html"><span class="std std-doc">checkpoint exporter</span></a> can export it directly without a separate quantization step.</p>
 </div></blockquote>
 <section id="support-policy">
 <h2>Support Policy<a class="headerlink" href="#support-policy" title="Link to this heading">#</a></h2>
 <p>TensorRT Edge-LLM supports the checkpoint IDs listed below. Dense LLM families include official dense checkpoints below 30B parameters. Larger dense checkpoints and non-dense variants require case-by-case validation. MoE, multimodal, audio, TTS, omni, and EAGLE support is limited to the listed rows.</p>
 <p>The model coverage list is not comprehensive, and not every listed checkpoint has been fully verified on every supported platform and precision. If a listed model does not export, build, or run correctly, please report an issue with the checkpoint ID, precision, platform, and command line used.</p>
-<p>The model class names were checked against the installed <code class="docutils literal notranslate"><span class="pre">transformers==5.3.0</span></code> package and the upstream <a class="reference external" href="https://github.com/huggingface/transformers/tree/main/src/transformers/models">Transformers model source tree</a>. Checkpoint IDs are linked to their Hugging Face pages and grouped into original checkpoints and quantized checkpoints.</p>
+<p>The model class names were checked against the installed <code class="docutils literal notranslate"><span class="pre">transformers==5.9.0</span></code> package and the upstream <a class="reference external" href="https://github.com/huggingface/transformers/tree/main/src/transformers/models">Transformers model source tree</a>. Checkpoint IDs are linked to their Hugging Face pages and grouped into original checkpoints and quantized checkpoints.</p>
 </section>
 <section id="precision-notes">
 <h2>Precision Notes<a class="headerlink" href="#precision-notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Dense precision set: FP16/BF16 checkpoints, ModelOpt FP8/MXFP8/FP4/NVFP4/INT4 AWQ/INT8 SmoothQuant checkpoints, and INT4 GPTQ checkpoints. INT8 GPTQ is not supported.</p></li>
-<li><p>For FP16/BF16 source checkpoints, use the <a class="reference internal" href="../features/quantization.html"><span class="std std-doc">Quantization</span></a> script to create a unified quantized checkpoint for <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>, then export the generated checkpoint.</p></li>
-<li><p>FP8 KV cache is detected automatically from checkpoint metadata by <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> exports visual encoders in FP16. FP8 visual encoder export is available through the legacy <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> visual quantization/export tools.</p></li>
+<li><p>Jetson Orin supports FP16, INT8, and INT4 runtime precision in the supported JetPack configurations. Do not select FP8, MXFP8, FP4, or NVFP4 checkpoints for Orin.</p></li>
+<li><p>For INT4 engine builds on Jetson Orin devices with less system memory, such as Jetson Orin Nano, pass <code class="docutils literal notranslate"><span class="pre">--externalize-weights</span> <span class="pre">int4_ffn</span></code> for dense checkpoints or <code class="docutils literal notranslate"><span class="pre">--externalize-weights</span> <span class="pre">int4_ffn</span> <span class="pre">int4_moe</span></code> for MoE checkpoints to reduce engine build memory.</p></li>
+<li><p>For FP16/BF16 source checkpoints, use the <a class="reference internal" href="../features/quantization.html"><span class="std std-doc">Quantization</span></a> script to create a unified quantized checkpoint for <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code>, then export the generated checkpoint.</p></li>
+<li><p>FP8 KV cache is detected automatically from checkpoint metadata by <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-export</span></code> exports visual encoders. Use <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-quantize</span> <span class="pre">--visual_quantization</span> <span class="pre">fp8</span></code> before export when FP8 visual weights are required.</p></li>
 <li><p>MXFP8 and FP4/NVFP4 require Blackwell-class hardware for runtime execution.</p></li>
 </ul>
 </section>
@@ -633,7 +671,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -799,10 +837,6 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://huggingface.co/Qwen/Qwen3.6-27B">Qwen/Qwen3.6-27B</a></p></li>
 </ul>
-<p><strong>Quantized:</strong></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://huggingface.co/Qwen/Qwen3.6-27B-FP8">Qwen/Qwen3.6-27B-FP8</a></p></li>
-</ul>
 </details>
 <details>
 <summary><b>Nemotron Nano dense</b> checkpoints</summary>
@@ -827,7 +861,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -835,9 +869,14 @@
 <tr class="row-even"><td><p>Qwen3-MoE</p></td>
 <td><p><a class="reference external" href="https://github.com/huggingface/transformers/blob/main/src/transformers/models/qwen3_moe/modeling_qwen3_moe.py"><code class="docutils literal notranslate"><span class="pre">Qwen3MoeForCausalLM</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">qwen3_moe</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Qwen3MoeCausalLM</span></code></p></td>
-<td><p>INT4 only</p></td>
+<td><p>INT4, NVFP4</p></td>
 </tr>
-<tr class="row-odd"><td><p>Nemotron3-MoE</p></td>
+<tr class="row-odd"><td><p>Qwen3.5/3.6-MoE</p></td>
+<td><p><a class="reference external" href="https://github.com/huggingface/transformers/blob/main/src/transformers/models/qwen3_5_moe/modeling_qwen3_5_moe.py"><code class="docutils literal notranslate"><span class="pre">Qwen3_5MoeForConditionalGeneration</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">qwen3_5_moe</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Qwen3_5MoeCausalLM</span></code> + <code class="docutils literal notranslate"><span class="pre">Qwen3_5VLVisualModel</span></code></p></td>
+<td><p>INT4 GPTQ, NVFP4</p></td>
+</tr>
+<tr class="row-even"><td><p>Nemotron3-MoE</p></td>
 <td><p><a class="reference external" href="https://github.com/huggingface/transformers/blob/main/src/transformers/models/nemotron_h/modeling_nemotron_h.py"><code class="docutils literal notranslate"><span class="pre">NemotronHForCausalLM</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">nemotron_h</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">NemotronHCausalLM</span></code></p></td>
 <td><p>NVFP4 only</p></td>
@@ -845,10 +884,28 @@
 </tbody>
 </table>
 </div>
+<p>For NVFP4 MoE exports, the <code class="docutils literal notranslate"><span class="pre">--nvfp4-moe-backend</span></code> flag selects the plugin backend:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">thor</span></code> — uses <code class="docutils literal notranslate"><span class="pre">Nvfp4MoePlugin</span></code> (SM100/101/110, CuTe DSL kernels). Default when checkpoint config does not specify.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">geforce</span></code> — uses <code class="docutils literal notranslate"><span class="pre">NvFP4MoEPluginGeforce</span></code> (SM120/121).</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/path/to/Qwen3-MoE-NVFP4<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/tmp/qwen3_moe_onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--nvfp4-moe-backend<span class="w"> </span>thor
+</pre></div>
+</div>
 <details>
 <summary><b>Qwen3-MoE</b> checkpoints</summary>
 <ul class="simple">
 <li><p><a class="reference external" href="https://huggingface.co/Qwen/Qwen3-30B-A3B-GPTQ-Int4">Qwen/Qwen3-30B-A3B-GPTQ-Int4</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/nvidia/Qwen3-30B-A3B-NVFP4">nvidia/Qwen3-30B-A3B-NVFP4</a></p></li>
+</ul>
+</details>
+<details>
+<summary><b>Qwen3.5/3.6-MoE</b> checkpoints</summary>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/Qwen/Qwen3.5-35B-A3B-GPTQ-Int4">Qwen/Qwen3.5-35B-A3B-GPTQ-Int4</a></p></li>
 </ul>
 </details>
 <details>
@@ -865,7 +922,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -936,7 +993,7 @@
 </details>
 <details>
 <summary><b>Qwen3.5/3.6 VLM</b> — same checkpoints as Qwen3.5/3.6 text</summary>
-<p>Qwen3.5 and Qwen3.6 checkpoints are unified text+VLM models. The same checkpoints listed under <a class="reference internal" href="#dense-llm">Qwen3.5/3.6 text</a> are used; <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> selects the VLM path (<code class="docutils literal notranslate"><span class="pre">qwen3_5</span></code> handler) when visual inputs are provided.</p>
+<p>Qwen3.5 and Qwen3.6 checkpoints are unified text+VLM models. The same checkpoints listed under <a class="reference internal" href="#dense-llm">Qwen3.5/3.6 text</a> are used; <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> selects the VLM path (<code class="docutils literal notranslate"><span class="pre">qwen3_5</span></code> handler) when visual inputs are provided.</p>
 </details>
 <details>
 <summary><b>InternVL3 / InternVL3.5 HF format</b> checkpoints</summary>
@@ -976,7 +1033,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -1003,7 +1060,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -1031,7 +1088,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -1059,7 +1116,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Model Series</p></th>
 <th class="head"><p>Transformers Class</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> Handling</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> Handling</p></th>
 <th class="head"><p>Supported Precisions</p></th>
 </tr>
 </thead>
@@ -1084,7 +1141,7 @@
 </section>
 <section id="eagle3-draft-models">
 <h2>EAGLE3 Draft Models<a class="headerlink" href="#eagle3-draft-models" title="Link to this heading">#</a></h2>
-<p>EAGLE3 draft checkpoints are detected by <code class="docutils literal notranslate"><span class="pre">draft_vocab_size</span></code> in <code class="docutils literal notranslate"><span class="pre">config.json</span></code> and exported with <code class="docutils literal notranslate"><span class="pre">Eagle3DraftModel</span></code>. Draft checkpoints can be quantized with <code class="docutils literal notranslate"><span class="pre">experimental.quantization</span></code> using the same ModelOpt methods exposed by the draft quantization CLI: <code class="docutils literal notranslate"><span class="pre">fp8</span></code>, <code class="docutils literal notranslate"><span class="pre">int4_awq</span></code>, <code class="docutils literal notranslate"><span class="pre">nvfp4</span></code>, <code class="docutils literal notranslate"><span class="pre">mxfp8</span></code>, and <code class="docutils literal notranslate"><span class="pre">int8_sq</span></code> for the backbone; <code class="docutils literal notranslate"><span class="pre">fp8</span></code>, <code class="docutils literal notranslate"><span class="pre">int4_awq</span></code>, <code class="docutils literal notranslate"><span class="pre">nvfp4</span></code>, and <code class="docutils literal notranslate"><span class="pre">mxfp8</span></code> for the LM head; and <code class="docutils literal notranslate"><span class="pre">fp8</span></code> for KV cache.</p>
+<p>EAGLE3 draft checkpoints are detected by <code class="docutils literal notranslate"><span class="pre">draft_vocab_size</span></code> in <code class="docutils literal notranslate"><span class="pre">config.json</span></code> and exported with <code class="docutils literal notranslate"><span class="pre">Eagle3DraftModel</span></code>. Draft checkpoints can be quantized with <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-quantize</span></code> using the same ModelOpt methods exposed by the draft quantization CLI: <code class="docutils literal notranslate"><span class="pre">fp8</span></code>, <code class="docutils literal notranslate"><span class="pre">int4_awq</span></code>, <code class="docutils literal notranslate"><span class="pre">nvfp4</span></code>, <code class="docutils literal notranslate"><span class="pre">mxfp8</span></code>, and <code class="docutils literal notranslate"><span class="pre">int8_sq</span></code> for the backbone; <code class="docutils literal notranslate"><span class="pre">fp8</span></code>, <code class="docutils literal notranslate"><span class="pre">int4_awq</span></code>, <code class="docutils literal notranslate"><span class="pre">nvfp4</span></code>, and <code class="docutils literal notranslate"><span class="pre">mxfp8</span></code> for the LM head; and <code class="docutils literal notranslate"><span class="pre">fp8</span></code> for KV cache.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Draft checkpoint</p></th>
@@ -1203,8 +1260,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1276,9 +1333,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

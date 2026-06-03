@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/common/inputLimits';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -621,7 +657,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits20kInputLimitsLocationE">
-<span id="_CPPv3N11trt_edgellm6limits20kInputLimitsLocationE"></span><span id="_CPPv2N11trt_edgellm6limits20kInputLimitsLocationE"></span><span id="trt_edgellm::limits::kInputLimitsLocation__cCP"></span><span class="target" id="inputLimits_8h_1a80aadce20225702ce22eb7874307ffc0"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kInputLimitsLocation</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;cpp/common/inputLimits.h&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits20kInputLimitsLocationE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits20kInputLimitsLocationE"></span><span id="_CPPv2N11trt_edgellm6limits20kInputLimitsLocationE"></span><span id="trt_edgellm::limits::kInputLimitsLocation__cCP"></span><span class="target" id="inputLimits_8h_1a80aadce20225702ce22eb7874307ffc0"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">kInputLimitsLocation</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;cpp/common/inputLimits.h&quot;</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits20kInputLimitsLocationE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Centralized input limits for validation and resource protection. </p>
 </dd></dl>
 
@@ -633,23 +669,23 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE">
-<span id="_CPPv3N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE"></span><span id="_CPPv2N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE"></span><span id="trt_edgellm::limits::security::kReasonableMaxBatchSize__i"></span><span class="target" id="inputLimits_8h_1a65549c096eef4462ee31e1b9eac0a4be"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kReasonableMaxBatchSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">16</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE"></span><span id="_CPPv2N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE"></span><span id="trt_edgellm::limits::security::kReasonableMaxBatchSize__i"></span><span class="target" id="inputLimits_8h_1a65549c096eef4462ee31e1b9eac0a4be"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kReasonableMaxBatchSize</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">16</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security23kReasonableMaxBatchSizeE" title="Link to this definition">#</a><br /></dt>
 <dd><p>DoS-prevention and unsafe input rejection limits. </p>
 </dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE">
-<span id="_CPPv3N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE"></span><span id="trt_edgellm::limits::security::kMaxMessageContentSizeBytes__s"></span><span class="target" id="inputLimits_8h_1ad9f9db76b8792cb6483c5bf5f0d5c330"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxMessageContentSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">128</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE"></span><span id="trt_edgellm::limits::security::kMaxMessageContentSizeBytes__s"></span><span class="target" id="inputLimits_8h_1ad9f9db76b8792cb6483c5bf5f0d5c330"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxMessageContentSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">128</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security27kMaxMessageContentSizeBytesE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits8security22kMaxMessagesPerRequestE">
-<span id="_CPPv3N11trt_edgellm6limits8security22kMaxMessagesPerRequestE"></span><span id="_CPPv2N11trt_edgellm6limits8security22kMaxMessagesPerRequestE"></span><span id="trt_edgellm::limits::security::kMaxMessagesPerRequest__s"></span><span class="target" id="inputLimits_8h_1a1d73a65fb628e088ff9ac1b333a20ced"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxMessagesPerRequest</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security22kMaxMessagesPerRequestE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits8security22kMaxMessagesPerRequestE"></span><span id="_CPPv2N11trt_edgellm6limits8security22kMaxMessagesPerRequestE"></span><span id="trt_edgellm::limits::security::kMaxMessagesPerRequest__s"></span><span class="target" id="inputLimits_8h_1a1d73a65fb628e088ff9ac1b333a20ced"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxMessagesPerRequest</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security22kMaxMessagesPerRequestE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE">
-<span id="_CPPv3N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE"></span><span id="_CPPv2N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE"></span><span id="trt_edgellm::limits::security::kMaxContentItemsPerMessage__s"></span><span class="target" id="inputLimits_8h_1a0590b1195e3b9f20b33e2b19fc21192c"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxContentItemsPerMessage</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">18</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE"></span><span id="_CPPv2N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE"></span><span id="trt_edgellm::limits::security::kMaxContentItemsPerMessage__s"></span><span class="target" id="inputLimits_8h_1a0590b1195e3b9f20b33e2b19fc21192c"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxContentItemsPerMessage</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">18</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits8security26kMaxContentItemsPerMessageE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -662,23 +698,23 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE">
-<span id="_CPPv3N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kMaxConfigFileSizeBytes__s"></span><span class="target" id="inputLimits_8h_1af02b180ed6c2d22b59be478fead7b616"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxConfigFileSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">100</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kMaxConfigFileSizeBytes__s"></span><span class="target" id="inputLimits_8h_1af02b180ed6c2d22b59be478fead7b616"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxConfigFileSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">100</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer23kMaxConfigFileSizeBytesE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Tokenizer file size and text processing limits. </p>
 </dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE">
-<span id="_CPPv3N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kChatTemplateFileSizeBytes__s"></span><span class="target" id="inputLimits_8h_1aeef93a5d289d6e892c5d308a3cc2a741"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kChatTemplateFileSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kChatTemplateFileSizeBytes__s"></span><span class="target" id="inputLimits_8h_1aeef93a5d289d6e892c5d308a3cc2a741"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kChatTemplateFileSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer26kChatTemplateFileSizeBytesE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE">
-<span id="_CPPv3N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kMaxInputTextSizeBytes__s"></span><span class="target" id="inputLimits_8h_1a48d5e74c70d9d97203e5390420196cda"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxInputTextSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kMaxInputTextSizeBytes__s"></span><span class="target" id="inputLimits_8h_1a48d5e74c70d9d97203e5390420196cda"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxInputTextSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer22kMaxInputTextSizeBytesE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE">
-<span id="_CPPv3N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kMaxTokenPieceSizeBytes__s"></span><span class="target" id="inputLimits_8h_1aa0ffaef6cc7e782c0d14ba1b46727879"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxTokenPieceSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE"></span><span id="_CPPv2N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE"></span><span id="trt_edgellm::limits::tokenizer::kMaxTokenPieceSizeBytes__s"></span><span class="target" id="inputLimits_8h_1aa0ffaef6cc7e782c0d14ba1b46727879"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMaxTokenPieceSizeBytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="m"><span class="pre">1024</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm6limits9tokenizer23kMaxTokenPieceSizeBytesE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -778,8 +814,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -851,9 +887,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

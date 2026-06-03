@@ -17,6 +17,7 @@ API documentation for the kernels module.
    common
    contextFMHARunner
    conversion
+   cuteDslDecodeGemvRunner
    cuteDslFMHARunner
    cuteDslGDNRunner
    cuteDslGemmRunner

@@ -1,0 +1,18 @@
+Plugins Module
+==============
+
+API documentation for the plugins module.
+
+.. toctree::
+   :maxdepth: 1
+
+   attentionPlugin
+   causalConv1dPlugin
+   gatedDeltaNetPlugin
+   int4GroupwiseGemmPlugin
+   int4MoePlugin
+   mambaPlugin
+   nvfp4MoePlugin
+   nvfp4MoePluginGeforce
+   pluginUtils
+   vitAttentionPlugin

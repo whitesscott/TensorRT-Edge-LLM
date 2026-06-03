@@ -7,14 +7,37 @@ API documentation for the runtime module.
    :maxdepth: 1
 
    audioUtils
+   decoderRegistry
+   decodingInferenceContext
+   decodingStrategy
+   deepstackBinding
+   deploymentConfig
+   eagleDecoder
    eagleDraftEngineRunner
+   embeddingPreprocessor
+   engineExecutor
+   externalWeightManager
    hybridCacheManager
    imageUtils
+   inferenceDims
+   inferencePhase
    kvCacheManager
+   llmEngineConfig
    llmEngineRunner
    llmInferenceRuntime
-   llmInferenceSpecDecodeRuntime
    llmRuntimeUtils
+   loraManager
    mambaCacheManager
+   mtpDecoder
+   pipelineIO
    qwen3OmniTTSRuntime
+   registryBuilder
+   ropeCache
+   sharedResources
+   specDecodeUtils
+   stepPreparer
    streaming
+   systemPromptKVCache
+   tensorMap
+   tensorRegistry
+   vanillaDecoder

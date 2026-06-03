@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -494,9 +494,9 @@ window.addEventListener("load", load);
 window.runMermaid = runMermaid;</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/software-design/llm-inference-runtime';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -506,13 +506,13 @@ window.runMermaid = runMermaid;</script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="LLM Inference SpecDecode Runtime" href="llm-inference-specdecode-runtime.html" />
+    <link rel="next" title="LLM Streaming — Design" href="llm-streaming.html" />
     <link rel="prev" title="C++ Runtime Overview" href="cpp-runtime-overview.html" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -643,11 +643,18 @@ window.runMermaid = runMermaid;</script>
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -748,11 +755,18 @@ window.runMermaid = runMermaid;</script>
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -807,13 +821,11 @@ window.runMermaid = runMermaid;</script>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -875,6 +887,7 @@ window.runMermaid = runMermaid;</script>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -955,17 +968,40 @@ window.runMermaid = runMermaid;</script>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1043,42 +1079,76 @@ window.runMermaid = runMermaid;</script>
 <h1>LLM Inference Runtime<a class="headerlink" href="#llm-inference-runtime" title="Link to this heading">#</a></h1>
 <section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">#</a></h2>
-<p>The <strong>LLM Inference Runtime</strong> provides standard autoregressive generation for both text-only and multimodal (VLM) inference using a single <code class="docutils literal notranslate"><span class="pre">LLMEngineRunner</span></code>.</p>
+<p>The <strong>LLM Inference Runtime</strong> (<code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code>) is the unified runtime for all LLM inference in TensorRT Edge-LLM. It supports both standard autoregressive (vanilla) decoding and speculative decoding modes (EAGLE, MTP, etc.) through a pluggable <code class="docutils literal notranslate"><span class="pre">DecodingStrategy</span></code> layer. When constructed without a drafting config, it operates as a pure vanilla decoding runtime with zero draft-model memory overhead. When constructed with a <code class="docutils literal notranslate"><span class="pre">SpecDecodeDraftingConfig</span></code>, it additionally loads a draft model and enables speculative decoding strategies.</p>
 <pre  class="mermaid">
         %%{init: {'theme':'neutral', 'themeVariables': {'primaryColor':'#76B900','primaryTextColor':'#fff','primaryBorderColor':'#5a8f00','lineColor':'#666','edgeLabelBackground':'#ffffff','labelTextColor':'#000','clusterBkg':'#ffffff','clusterBorder':'#999'}}}%%
 graph TB
-    CLIENT1[Client Application]
-    STANDARD_RT[LLM Inference Runtime]
-    LLM_RUNNER1[LLM Engine Runner]
-    TOKENIZER1[Tokenizer]
-    MULTIMODAL1[Multimodal Runner]
-    KV_CACHE1[Linear KV Cache]
-    SAMPLING1[Sampling Kernels]
-    STANDARD_ENGINE[TRT Engine]
 
-    %% Connections
-    CLIENT1 --&gt;|handleRequest| STANDARD_RT
-    STANDARD_RT --&gt;|owns &amp; manages| LLM_RUNNER1
-    STANDARD_RT --&gt;|owns optional| MULTIMODAL1
-    STANDARD_RT --&gt;|owns| TOKENIZER1
-    STANDARD_RT --&gt;|calls| SAMPLING1
+CLIENT[Client Application]
+RT[LLM Inference Runtime]
+MULTIMODAL[Multimodal Runner]
+TOKENIZER[Tokenizer]
+DECODER_REG[Decoder Registry&lt;BR&gt;&amp; Decoding Strategies]
 
-    LLM_RUNNER1 --&gt;|owns &amp; manages| KV_CACHE1
-    LLM_RUNNER1 --&gt;|executes| STANDARD_ENGINE
+CLIENT --&gt;|handleRequest| RT
+RT --&gt;|owns| TOKENIZER
+RT --&gt;|owns optional| MULTIMODAL
+RT --&gt;|owns| DECODER_REG
 
-    MULTIMODAL1 --&gt;|provides embeddings| LLM_RUNNER1
-    TOKENIZER1 --&gt;|encode/decode| LLM_RUNNER1
+subgraph ENGINE_EXEC[Engine Execution]
+    BASE_EXEC[Engine Executor&lt;BR&gt;Base Model]
+    DRAFT_EXEC[Engine Executor&lt;BR&gt;Draft Model&lt;BR&gt;optional]
+end
 
-    %% Styling
-    classDef nvNode fill:#76B900,stroke:#5a8f00,stroke-width:1px,color:#fff
-    classDef greyNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
-    classDef darkNode fill:#ffffff,stroke:#999,stroke-width:1px,color:#333
-    classDef inputNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
+subgraph END_NODES[&quot; &quot;]
+    subgraph DRAFT_COMPONENTS[Draft Model — optional]
+        DRAFT_KV[Linear KV Cache]
+        DRAFT_ENGINE[TRT Engine]
+    end
 
-    class CLIENT1 inputNode
-    class STANDARD_RT,LLM_RUNNER1,TOKENIZER1,MULTIMODAL1,KV_CACHE1,SAMPLING1 nvNode
-    class STANDARD_ENGINE greyNode
-    </pre><section id="key-components">
+    subgraph COMMON_KERNELS[&quot;Common Kernels&quot;]
+    SPECKERNELS[Speculative Decode&lt;br&gt;Util Kernels]
+    SAMPLING[Sampling&lt;br&gt;Kernels]
+    end
+
+    subgraph BASE_COMPONENTS [Base Model]
+        BASE_KV[Linear KV Cache]
+        BASE_ENGINE[TRT Engine]
+    end
+end
+
+MULTIMODAL --&gt;|provides embeddings| ENGINE_EXEC
+TOKENIZER --&gt;|encode/decode| ENGINE_EXEC
+RT --&gt;|owns &amp; manages| ENGINE_EXEC
+RT --&gt;|calls| COMMON_KERNELS
+DECODER_REG --&gt;|selects strategy| ENGINE_EXEC
+
+BASE_EXEC --&gt;|owns &amp; manages| BASE_KV
+BASE_EXEC --&gt;|executes| BASE_ENGINE
+
+DRAFT_EXEC --&gt;|owns &amp; manages| DRAFT_KV
+DRAFT_EXEC --&gt;|executes| DRAFT_ENGINE
+
+DRAFT_EXEC -.-&gt;|candidate tokens| BASE_EXEC
+BASE_EXEC -.-&gt;|verification results| DRAFT_EXEC
+
+%% Styling
+classDef nvNode fill:#76B900,stroke:#5a8f00,stroke-width:1px,color:#fff
+classDef greyNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
+classDef darkNode fill:#ffffff,stroke:#999,stroke-width:1px,color:#333
+classDef inputNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
+classDef greenSubGraph fill:none,stroke:#76B900,stroke-width:1.5px
+classDef greySubGraph fill:none,stroke:#aaa,stroke-width:1.5px
+classDef invisibleSubGraph fill:transparent,stroke:transparent
+
+class CLIENT inputNode
+class RT,BASE_EXEC,DRAFT_EXEC,TOKENIZER,MULTIMODAL,DECODER_REG,DRAFT_KV,BASE_KV,SPECKERNELS,SAMPLING nvNode
+class DRAFT_ENGINE,BASE_ENGINE greyNode
+class ENGINE_EXEC greenSubGraph
+class DRAFT_COMPONENTS,BASE_COMPONENTS,COMMON_KERNELS greySubGraph
+class END_NODES invisibleSubGraph
+    </pre><hr class="docutils" />
+<section id="key-components">
 <h3>Key Components<a class="headerlink" href="#key-components" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1087,23 +1157,32 @@ graph TB
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>LLM Engine Runner</strong></p></td>
-<td><p>Executes TensorRT engines and manages dual-phase inference. Core engine execution component owned by LLM Inference Runtime (as <code class="docutils literal notranslate"><span class="pre">mLLMEngineRunner</span></code>). Uses a single TensorRT execution context that switches optimization profiles between prefill and generation phases. Manages its own Linear KV Cache instance, produces logits that are consumed by the runtime’s sampling calls, and provides CUDA graph optimization for reduced latency. Supports dynamic LoRA adapter switching. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/runtime/llmEngineRunner.{h,cpp}</span></code></p></td>
+<tr class="row-even"><td><p><strong>Engine Executor (Base)</strong></p></td>
+<td><p>Executes TensorRT engines and manages dual-phase inference for the base model. Core engine execution component owned by <code class="docutils literal notranslate"><span class="pre">LLMInferenceRuntime</span></code>. Uses a single TensorRT execution context that switches optimization profiles between prefill and generation phases. Manages its own Linear KV Cache instance, produces logits that are consumed by the runtime’s sampling calls. Supports dynamic LoRA adapter switching. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/runtime/exec/engineExecutor.{h,cpp}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Engine Executor (Draft — optional)</strong></p></td>
+<td><p>Specialized engine executor for draft models used in speculative decoding (e.g. EAGLE). Only instantiated when a <code class="docutils literal notranslate"><span class="pre">SpecDecodeDraftingConfig</span></code> is provided. Generates candidate token sequences that are verified by the base model. Maintains its own separate KV cache. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/runtime/exec/engineExecutor.{h,cpp}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Decoder Registry &amp; Decoding Strategies</strong></p></td>
+<td><p>Pluggable decoding strategy layer introduced by the runtime refactor. The <code class="docutils literal notranslate"><span class="pre">DecoderRegistry</span></code> selects the appropriate <code class="docutils literal notranslate"><span class="pre">DecodingStrategy</span></code> (Vanilla, EAGLE, MTP, etc.) based on the deployment config and per-request compatibility. Each strategy owns its decode-step logic, private resources, CUDA graph capture, and strategy-specific prompt cache. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/runtime/decoding/decoderRegistry.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp/runtime/decoding/decodingStrategy.h</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Tokenizer</strong></p></td>
-<td><p>HuggingFace-compatible text tokenization system. Converts between text and token IDs using Byte-Pair Encoding (BPE). The LLM Inference Runtime owns its own tokenizer instance. Supports various model vocabularies (GPT, Llama, Qwen) with configurable special tokens and preprocessing steps. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/tokenizer/tokenizer.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">preTokenizer.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">tokenEncoder.{h,cpp}</span></code></p></td>
+<td><p>HuggingFace-compatible text tokenization system. Converts between text and token IDs using Byte-Pair Encoding (BPE). Supports various model vocabularies (GPT, Llama, Qwen) with configurable special tokens and preprocessing steps. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/tokenizer/tokenizer.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">preTokenizer.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">tokenEncoder.{h,cpp}</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Multimodal Runner</strong></p></td>
-<td><p>Vision processing for multimodal models (VLMs). Processes image inputs through Vision Transformer models and generates vision embeddings. Supports Qwen-VL and InternVL architectures with dynamic image token generation. Integrates vision embeddings with text tokens for multimodal inference. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/multimodal/multimodalRunner.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">qwenViTRunner.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">internViTRunner.{h,cpp}</span></code></p></td>
+<td><p>Vision and audio processing for multimodal models (VLMs). Processes image/audio inputs through Vision/Audio Transformer models and generates embeddings. Supports Qwen-VL, InternVL, and Qwen-Audio architectures. Integrates multimodal embeddings with text tokens for multimodal inference. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/multimodal/multimodalRunner.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">qwenViTRunner.{h,cpp}</span></code>, <code class="docutils literal notranslate"><span class="pre">internViTRunner.{h,cpp}</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Linear KV Cache</strong></p></td>
-<td><p>Attention key-value cache management. The LLM Engine Runner maintains its own Linear KV Cache instance. Stores attention key-value pairs across inference steps for efficient autoregressive generation. Uses linear memory layout optimized for GPU access with support for batched processing and variable sequence lengths. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/runtime/linearKVCache.{h,cpp}</span></code></p></td>
+<td><p>Attention key-value cache management. Each engine executor maintains its own Linear KV Cache instance. Stores attention key-value pairs across inference steps for efficient autoregressive generation. Uses linear memory layout optimized for GPU access with support for batched processing and variable sequence lengths. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/runtime/linearKVCache.{h,cpp}</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Sampling Kernels</strong></p></td>
-<td><p>Token generation from model logits. Converts model output logits into probability distributions and samples the next token using configurable strategies (greedy, top-k, top-p, temperature). Called directly by the LLM Inference Runtime (not by engine runner) after engine execution produces logits. Operates on GPU for efficient batch processing. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/sampler/sampling.{cu,h}</span></code></p></td>
+<td><p>Token generation from model logits. Converts model output logits into probability distributions and samples the next token using configurable strategies (greedy, top-k, top-p, temperature). Called directly by the runtime (not by engine executors) after engine execution produces logits. Operates on GPU for efficient batch processing. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/sampler/sampling.{cu,h}</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>TRT Engine</strong></p></td>
-<td><p>TensorRT inference engine. Optimized TensorRT engine compiled from ONNX models. The LLM Inference Runtime uses a single engine loaded and executed by the LLM Engine Runner. Provides high-performance inference through TensorRT optimizations including kernel fusion, precision calibration, and memory optimization. <em>Files:</em> Built by <code class="docutils literal notranslate"><span class="pre">llm_build</span></code> (see Engine Builder section)</p></td>
+<tr class="row-odd"><td><p><strong>Speculative Decode Util Kernels</strong></p></td>
+<td><p>Speculative decoding utility kernels (only used when a draft model is present). Specialized CUDA kernels for tree-based speculative decoding operations (EAGLE). Handles tree construction, candidate token generation, verification logic, and accept/reject mechanisms for speculative tokens. <em>Files:</em> <code class="docutils literal notranslate"><span class="pre">cpp/kernels/speculative/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TRT Engines</strong></p></td>
+<td><p>TensorRT inference engines. In vanilla mode, a single base engine is used. In speculative decoding mode, dual engines (base + draft) are used. Optimized TensorRT engines compiled from ONNX models. Provides high-performance inference through TensorRT optimizations including kernel fusion, precision calibration, and memory optimization. <em>Files:</em> Built by <code class="docutils literal notranslate"><span class="pre">llm_build</span></code> (see Engine Builder section)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1112,7 +1191,9 @@ graph TB
 </section>
 <section id="inference-workflow">
 <h2>Inference Workflow<a class="headerlink" href="#inference-workflow" title="Link to this heading">#</a></h2>
-<p>The LLM Inference Runtime implements a dual-phase processing architecture optimized for autoregressive language model generation.</p>
+<section id="vanilla-decoding-no-draft-model">
+<h3>Vanilla Decoding (No Draft Model)<a class="headerlink" href="#vanilla-decoding-no-draft-model" title="Link to this heading">#</a></h3>
+<p>When constructed without a <code class="docutils literal notranslate"><span class="pre">SpecDecodeDraftingConfig</span></code>, the runtime performs standard autoregressive generation:</p>
 <pre  class="mermaid">
         %%{init: {'theme':'neutral', 'themeVariables': {'primaryColor':'#76B900','primaryTextColor':'#fff','primaryBorderColor':'#5a8f00','lineColor':'#666','edgeLabelBackground':'#ffffff','labelTextColor':'#000','clusterBkg':'#ffffff','clusterBorder':'#999'}}}%%
 graph LR
@@ -1166,33 +1247,185 @@ graph LR
     class OUTPUT_SEQUENCE darkNode
     class PHASE1,PHASE2 lightSubGraph
     class VIT_BOX optionalBox
-    </pre><section id="inference-phases">
-<h3>Inference Phases<a class="headerlink" href="#inference-phases" title="Link to this heading">#</a></h3>
-<p><strong>Phase 1: Prefill Processing</strong></p>
-<p>The prefill phase processes the entire input prompt in parallel to establish the initial inference state:</p>
+    </pre><p><strong>Phase 1: Prefill Processing</strong></p>
 <ul class="simple">
 <li><p><strong>Input Processing</strong>: Text is tokenized and padded to batch requirements</p></li>
-<li><p><strong>Multimodal Integration</strong>: For VLMs, vision embeddings are processed through ViT components and integrated with text embeddings</p></li>
+<li><p><strong>Multimodal Integration</strong>: For VLMs, vision/audio embeddings are processed and integrated with text embeddings</p></li>
 <li><p><strong>Parallel Execution</strong>: All prompt tokens are processed simultaneously through transformer layers</p></li>
 <li><p><strong>KV-Cache Generation</strong>: Key-value cache is populated for all prompt tokens</p></li>
 <li><p><strong>First Token Sampling</strong>: Initial generated token is sampled from output logits</p></li>
 </ul>
 <p><strong>Phase 2: Generation (Autoregressive Decode)</strong></p>
-<p>The generation phase operates autoregressively, processing one token at a time:</p>
 <ul class="simple">
 <li><p><strong>Sequential Processing</strong>: Each iteration processes the previously generated token</p></li>
 <li><p><strong>KV-Cache Reuse</strong>: Leverages accumulated key-value cache from previous steps</p></li>
-<li><p><strong>CUDA Graph Optimization</strong>: Optional CUDA graph capture reduces kernel launch overhead by 10-30%</p></li>
+<li><p><strong>CUDA Graph Optimization</strong>: Optional CUDA graph capture reduces kernel launch overhead</p></li>
 <li><p><strong>Sampling Strategies</strong>: Configurable token generation (greedy, top-k, top-p, temperature)</p></li>
 <li><p><strong>Stopping Criteria</strong>: Continues until EOS token, maximum length, or custom conditions</p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="eagle-speculative-decoding-with-draft-model">
+<h3>EAGLE Speculative Decoding (With Draft Model)<a class="headerlink" href="#eagle-speculative-decoding-with-draft-model" title="Link to this heading">#</a></h3>
+<p>When constructed with a <code class="docutils literal notranslate"><span class="pre">SpecDecodeDraftingConfig</span></code>, the runtime uses EAGLE tree-based speculative decoding for accelerated generation:</p>
+<p><strong>Phase 1: Prefill</strong></p>
+<pre  class="mermaid">
+        %%{init: {'theme':'neutral', 'themeVariables': {'primaryColor':'#76B900','primaryTextColor':'#fff','primaryBorderColor':'#5a8f00','lineColor':'#666','edgeLabelBackground':'#ffffff','labelTextColor':'#000','clusterBkg':'#ffffff','clusterBorder':'#999'}}}%%
+graph LR
+    INPUT_PROMPT(Input&lt;BR&gt;Prompt)
+    TOKENIZER(Tokenize)
+
+    subgraph VIT_BOX [&quot;Optional&quot;]
+        VIT_PROCESS(ViT&lt;br&gt;Processing)
+    end
+
+    BASE_PREFILL_ENGINE[Base Prefill&lt;BR&gt;**TRT Engine**]
+    BASE_KV_GEN(Generate Base&lt;BR&gt;KV-Cache, Logits &lt;BR&gt;&amp; Hidden States)
+    BASE_SAMPLE(Sample)
+    DRAFT_PREFILL_ENGINE[Draft Prefill&lt;BR&gt;**TRT Engine**]
+    DRAFT_KV_GEN(Generate Draft&lt;BR&gt;KV-Cache, Logits&lt;BR&gt;&amp; Hidden States)
+    PHASE2_START(Phase 2:&lt;BR&gt;Generation)
+
+    INPUT_PROMPT --&gt; TOKENIZER
+    TOKENIZER --&gt; VIT_PROCESS
+    VIT_PROCESS --&gt; BASE_PREFILL_ENGINE
+    BASE_PREFILL_ENGINE --&gt; BASE_KV_GEN
+    BASE_KV_GEN --&gt; BASE_SAMPLE
+    BASE_SAMPLE --&gt; DRAFT_PREFILL_ENGINE
+    DRAFT_PREFILL_ENGINE --&gt; DRAFT_KV_GEN
+    DRAFT_KV_GEN --&gt; PHASE2_START
+
+    classDef greyNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
+    classDef nvNode fill:#76B900,stroke:#5a8f00,stroke-width:1px,color:#fff
+    classDef nvLightNode fill:#b8d67e,stroke:#76B900,stroke-width:1px,color:#333
+    classDef inputNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
+    classDef optionalBox fill:none,stroke:#aaa,stroke-width:1px,stroke-dasharray:5 5
+
+    class PHASE2_START nvNode
+    class INPUT_PROMPT inputNode
+    class TOKENIZER,VIT_PROCESS,BASE_PREFILL_ENGINE,DRAFT_PREFILL_ENGINE,BASE_SAMPLE greyNode
+    class BASE_KV_GEN,DRAFT_KV_GEN nvLightNode
+    class VIT_BOX optionalBox
+    </pre><p><strong>Phase 2: Generation</strong></p>
+<pre  class="mermaid">
+        %%{init: {'theme':'neutral', 'themeVariables': {'primaryColor':'#76B900','primaryTextColor':'#fff','primaryBorderColor':'#5a8f00','lineColor':'#666','edgeLabelBackground':'#ffffff','labelTextColor':'#000','clusterBkg':'#ffffff','clusterBorder':'#999'}}}%%
+graph LR
+    PHASE1_INPUT(Phase 1:&lt;BR&gt;Prefill)
+    DRAFT_ACCEPT_ENGINE[Draft Accept Token&lt;BR&gt;**TRT Engine**]
+    DRAFT_KV_GEN2(Generate Draft&lt;BR&gt;KV-Cache, Logits&lt;BR&gt;&amp; Hidden States)
+
+    subgraph TREE_CONSTRUCTION [&quot;Draft Tree Construction&quot;]
+        DRAFT_PROPOSAL_ENGINE[Draft Batch Proposal&lt;BR&gt;**TRT Engine**]
+        SELECT_TOP_N(Select Top-N &lt;BR&gt;Tokens via Logits)
+        UPDATE_DRAFT_KV(Update Draft&lt;BR&gt;KV-Cache &amp; &lt;BR&gt;Hidden States)
+        TREE_ROUND_CHECK{Tree&lt;BR&gt;Done?}
+    end
+
+    BASE_VERIFY_ENGINE[Base Tree Verification&lt;BR&gt;**TRT Engine**]
+    EAGLE_ACCEPT(EAGLE Accept Algorithm&lt;BR&gt;Token Selection)
+    BUILD_KV_CACHE(Update Base Model&lt;BR&gt;KV Cache with &lt;BR&gt;Accepted Tokens)
+    STOP_CHECK{Stop?}
+    OUTPUT_SEQUENCE(Generated&lt;BR&gt;Sequence)
+
+    PHASE1_INPUT --&gt; DRAFT_KV_GEN2
+    DRAFT_ACCEPT_ENGINE --&gt; DRAFT_KV_GEN2
+    DRAFT_KV_GEN2 --&gt; DRAFT_PROPOSAL_ENGINE
+    DRAFT_PROPOSAL_ENGINE --&gt; SELECT_TOP_N
+    SELECT_TOP_N --&gt; UPDATE_DRAFT_KV
+    UPDATE_DRAFT_KV --&gt; TREE_ROUND_CHECK
+    TREE_ROUND_CHECK --&gt;|N| DRAFT_PROPOSAL_ENGINE
+    TREE_ROUND_CHECK --&gt;|Y| BASE_VERIFY_ENGINE
+    BASE_VERIFY_ENGINE --&gt; EAGLE_ACCEPT
+    EAGLE_ACCEPT --&gt; BUILD_KV_CACHE
+    BUILD_KV_CACHE --&gt; STOP_CHECK
+    STOP_CHECK --&gt;|N| DRAFT_ACCEPT_ENGINE
+    STOP_CHECK --&gt;|Y| OUTPUT_SEQUENCE
+
+    classDef greyNode fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333
+    classDef darkNode fill:#ffffff,stroke:#999,stroke-width:1px,color:#333
+    classDef nvNode fill:#76B900,stroke:#5a8f00,stroke-width:1px,color:#fff
+    classDef nvLightNode fill:#b8d67e,stroke:#76B900,stroke-width:1px,color:#333
+    classDef lightSubGraph fill:none,stroke:#aaa,stroke-width:1.5px
+
+    class PHASE1_INPUT nvNode
+    class TOKENIZER,TREE_ROUND_CHECK,STOP_CHECK,SELECT_TOP_N,DRAFT_ACCEPT_ENGINE,DRAFT_PROPOSAL_ENGINE,BASE_VERIFY_ENGINE greyNode
+    class DRAFT_KV_GEN2,UPDATE_DRAFT_KV,BUILD_KV_CACHE nvLightNode
+    class EAGLE_ACCEPT nvNode
+    class OUTPUT_SEQUENCE darkNode
+    class TREE_CONSTRUCTION lightSubGraph
+    </pre><p><strong>Phase 1: Base Model Prefill</strong></p>
+<p>EAGLE starts with only the base model prefill:</p>
+<ul class="simple">
+<li><p><strong>Base Model Prefill</strong>: Standard prefill using <code class="docutils literal notranslate"><span class="pre">EngineExecutor</span></code> to establish base model KV-cache</p></li>
+<li><p><strong>Hidden States Generation</strong>: Base model produces hidden states required for draft model</p></li>
+<li><p><strong>Single Prefill</strong>: Only base model is prefilled initially; draft model prefill happens later</p></li>
+<li><p><strong>Multimodal Integration</strong>: Vision/audio embeddings processed once and used by base model</p></li>
+</ul>
+<p><strong>Phase 2: EAGLE Speculation Loop</strong></p>
+<p>The generation phase uses iterative tree-based speculation with conditional draft prefill:</p>
+<ul class="simple">
+<li><p><strong>First Round Only</strong>: Draft model prefill using draft <code class="docutils literal notranslate"><span class="pre">EngineExecutor</span></code> with base model hidden states</p></li>
+<li><p><strong>Subsequent Rounds</strong>: Draft model accept token operation instead of full prefill</p></li>
+<li><p><strong>Draft Tree Construction</strong>: Draft model generates candidate token trees using top-k sampling from draft logits</p></li>
+<li><p><strong>Base Model Verification</strong>: Base model processes entire draft tree in parallel and generates logits for all tree positions</p></li>
+<li><p><strong>EAGLE Accept Algorithm</strong>:</p>
+<ul>
+<li><p>Base model’s top-1 predictions are <strong>always selected</strong> as final tokens</p></li>
+<li><p>Draft tree tokens are <strong>accepted only when they match</strong> base model predictions</p></li>
+<li><p>When draft tokens diverge from base predictions, remaining draft tokens are <strong>rejected</strong></p></li>
+<li><p>Process continues following the draft tree path as long as tokens match</p></li>
+</ul>
+</li>
+<li><p><strong>Token Generation Source</strong>: All final output tokens come from base model, draft model only provides speculative candidates</p></li>
+<li><p><strong>CUDA Graph Capture Support</strong>: Supports CUDA graph capture for draft proposal, draft accept-token, base verification, and base vanilla decode paths</p></li>
+<li><p><strong>Iterative Process</strong>: Continues until stop conditions or maximum generation length reached</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vanilla-vs-speculative-decoding-differences">
+<h3>Vanilla vs. Speculative Decoding Differences<a class="headerlink" href="#vanilla-vs-speculative-decoding-differences" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Vanilla Mode</p></th>
+<th class="head"><p>Speculative Decoding Mode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Engines</strong></p></td>
+<td><p>Single base engine</p></td>
+<td><p>Dual engines (base + draft)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Prefill</strong></p></td>
+<td><p>Base model only</p></td>
+<td><p>Base model first, draft model in first generation round</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Generation</strong></p></td>
+<td><p>Standard autoregressive, one token per step</p></td>
+<td><p>Tree-based speculation, multiple tokens per step</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>KV Cache</strong></p></td>
+<td><p>Single KV cache</p></td>
+<td><p>Separate KV caches for base and draft models</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>CUDA Graph</strong></p></td>
+<td><p>Vanilla decode path</p></td>
+<td><p>Draft proposal, draft accept-token, base verification, base vanilla decode</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dynamic Batching</strong></p></td>
+<td><p>Supported with eviction</p></td>
+<td><p>Supported with eviction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 <hr class="docutils" />
 <section id="usage-examples">
 <h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading">#</a></h2>
-<section id="standard-llm-inference">
-<h3>Standard LLM Inference<a class="headerlink" href="#standard-llm-inference" title="Link to this heading">#</a></h3>
+<section id="standard-llm-inference-vanilla">
+<h3>Standard LLM Inference (Vanilla)<a class="headerlink" href="#standard-llm-inference-vanilla" title="Link to this heading">#</a></h3>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmInferenceRuntime.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
 
@@ -1200,7 +1433,7 @@ graph LR
 <span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
 <span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">));</span>
 
-<span class="c1">// Initialize runtime (4 parameters: engineDir, multimodalEngineDir, loraWeightsMap, stream)</span>
+<span class="c1">// Initialize runtime — vanilla mode (no draft model)</span>
 <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">{};</span><span class="w"> </span><span class="c1">// Empty for no LoRA</span>
 <span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="n">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
 
@@ -1219,7 +1452,94 @@ graph LR
 <span class="c1">// Prepare response</span>
 <span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
 
-<span class="c1">// Execute inference (3 parameters: request, response, stream)</span>
+<span class="c1">// Execute inference</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Generated: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">outputTexts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Cleanup</span>
+<span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+<section id="eagle-speculative-decoding">
+<h3>EAGLE Speculative Decoding<a class="headerlink" href="#eagle-speculative-decoding" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmInferenceRuntime.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmRuntimeUtils.h&quot;</span>
+
+<span class="c1">// Initialize CUDA stream</span>
+<span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
+<span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">));</span>
+
+<span class="c1">// Configure EAGLE drafting parameters</span>
+<span class="n">SpecDecodeDraftingConfig</span><span class="w"> </span><span class="n">draftingConfig</span><span class="p">;</span>
+<span class="n">draftingConfig</span><span class="p">.</span><span class="n">draftingTopK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">draftingConfig</span><span class="p">.</span><span class="n">draftingStep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="n">draftingConfig</span><span class="p">.</span><span class="n">verifyTreeSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+
+<span class="c1">// Initialize runtime — speculative decoding mode</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">{};</span>
+<span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="n">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">,</span><span class="w"> </span><span class="n">draftingConfig</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
+
+<span class="c1">// Prepare request</span>
+<span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">rt</span><span class="o">::</span><span class="n">Message</span><span class="w"> </span><span class="n">userMsg</span><span class="p">;</span>
+<span class="n">userMsg</span><span class="p">.</span><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">;</span>
+<span class="n">userMsg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Explain quantum computing.&quot;</span><span class="p">});</span>
+<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">messages</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">userMsg</span><span class="p">));</span>
+<span class="n">request</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">topK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">topP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span>
+
+<span class="c1">// Prepare response</span>
+<span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
+
+<span class="c1">// Execute inference</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Generated: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">outputTexts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Cleanup</span>
+<span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+<section id="multimodal-vlm-inference">
+<h3>Multimodal VLM Inference<a class="headerlink" href="#multimodal-vlm-inference" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmInferenceRuntime.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/imageUtils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
+
+<span class="c1">// Initialize CUDA stream</span>
+<span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
+<span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">));</span>
+
+<span class="c1">// Initialize multimodal runtime</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">{};</span>
+<span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="nf">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="n">visualEngineDir</span><span class="p">,</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
+
+<span class="c1">// Prepare multimodal request</span>
+<span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Message</span><span class="w"> </span><span class="n">mmMsg</span><span class="p">;</span>
+<span class="n">mmMsg</span><span class="p">.</span><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">;</span>
+<span class="c1">// Content metadata in messages should align with the external buffers order.</span>
+<span class="n">mmMsg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="s">&quot;image&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/path/to/image.jpg&quot;</span><span class="p">});</span>
+<span class="n">mmMsg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;What&#39;s in this image?&quot;</span><span class="p">});</span>
+<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">messages</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mmMsg</span><span class="p">));</span>
+<span class="c1">// Image bytes are provided separately via imageBuffers.</span>
+<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">imageBuffers</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">imageUtils</span><span class="o">::</span><span class="n">loadImageFromFile</span><span class="p">(</span><span class="s">&quot;/path/to/image.jpg&quot;</span><span class="p">));</span>
+<span class="n">request</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">topK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">topP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span>
+
+<span class="c1">// Prepare response</span>
+<span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
+
+<span class="c1">// Execute inference</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Generated: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">outputTexts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1245,7 +1565,7 @@ graph LR
 <span class="p">};</span>
 <span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="n">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
 
-<span class="c1">// Prepare requests</span>
+<span class="c1">// Execute inference with different LoRA adapters</span>
 <span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">medicalRequest</span><span class="p">;</span>
 <span class="n">medicalRequest</span><span class="p">.</span><span class="n">requests</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">{</span>
@@ -1257,23 +1577,8 @@ graph LR
 <span class="n">medicalRequest</span><span class="p">.</span><span class="n">loraWeightsName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;medical&quot;</span><span class="p">;</span>
 <span class="n">medicalRequest</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
-<span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">legalRequest</span><span class="p">;</span>
-<span class="n">legalRequest</span><span class="p">.</span><span class="n">requests</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Message</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
-<span class="w">    </span><span class="n">msg</span><span class="p">.</span><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">msg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Legal question&quot;</span><span class="p">});</span>
-<span class="w">    </span><span class="n">legalRequest</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">messages</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
-<span class="p">}</span>
-<span class="n">legalRequest</span><span class="p">.</span><span class="n">loraWeightsName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;legal&quot;</span><span class="p">;</span>
-<span class="n">legalRequest</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-
-<span class="c1">// Execute inference with different LoRA adapters</span>
 <span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">medicalResponse</span><span class="p">;</span>
 <span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">medicalRequest</span><span class="p">,</span><span class="w"> </span><span class="n">medicalResponse</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
-
-<span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">legalResponse</span><span class="p">;</span>
-<span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">legalRequest</span><span class="p">,</span><span class="w"> </span><span class="n">legalResponse</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
 
 <span class="c1">// Disable LoRA (use empty string)</span>
 <span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">baseRequest</span><span class="p">;</span>
@@ -1289,49 +1594,6 @@ graph LR
 
 <span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">baseResponse</span><span class="p">;</span>
 <span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">baseRequest</span><span class="p">,</span><span class="w"> </span><span class="n">baseResponse</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
-
-<span class="c1">// Cleanup</span>
-<span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span>
-</pre></div>
-</div>
-</section>
-<section id="multimodal-vlm-inference">
-<h3>Multimodal VLM Inference<a class="headerlink" href="#multimodal-vlm-inference" title="Link to this heading">#</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/llmInferenceRuntime.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;runtime/imageUtils.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
-
-<span class="c1">// Initialize CUDA stream</span>
-<span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
-<span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">));</span>
-
-<span class="c1">// Initialize multimodal runtime (4 parameters: engineDir, multimodalEngineDir, loraWeightsMap, stream)</span>
-<span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">{};</span><span class="w"> </span><span class="c1">// Empty for no LoRA</span>
-<span class="n">LLMInferenceRuntime</span><span class="w"> </span><span class="nf">runtime</span><span class="p">(</span><span class="n">engineDir</span><span class="p">,</span><span class="w"> </span><span class="n">visualEngineDir</span><span class="p">,</span><span class="w"> </span><span class="n">loraWeightsMap</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">);</span>
-
-<span class="c1">// Prepare multimodal request</span>
-<span class="n">LLMGenerationRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
-<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">Message</span><span class="w"> </span><span class="n">mmMsg</span><span class="p">;</span>
-<span class="n">mmMsg</span><span class="p">.</span><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">;</span>
-<span class="c1">// Content metadata in messages should align with the external buffers order.</span>
-<span class="n">mmMsg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="s">&quot;image&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/path/to/image.jpg&quot;</span><span class="p">});</span>
-<span class="n">mmMsg</span><span class="p">.</span><span class="n">contents</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;What&#39;s in this image?&quot;</span><span class="p">});</span>
-<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">messages</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mmMsg</span><span class="p">));</span>
-<span class="c1">// Image bytes are provided separately via imageBuffers.</span>
-<span class="n">request</span><span class="p">.</span><span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">imageBuffers</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">imageUtils</span><span class="o">::</span><span class="n">loadImageFromFile</span><span class="p">(</span><span class="s">&quot;/path/to/image.jpg&quot;</span><span class="p">));</span>
-<span class="n">request</span><span class="p">.</span><span class="n">maxGenerateLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150</span><span class="p">;</span>
-<span class="n">request</span><span class="p">.</span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
-<span class="n">request</span><span class="p">.</span><span class="n">topK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
-<span class="n">request</span><span class="p">.</span><span class="n">topP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span>
-
-<span class="c1">// Prepare response</span>
-<span class="n">LLMGenerationResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
-
-<span class="c1">// Execute inference (3 parameters: request, response, stream)</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">runtime</span><span class="p">.</span><span class="n">handleRequest</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Generated: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">outputTexts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
 
 <span class="c1">// Cleanup</span>
 <span class="n">CUDA_CHECK</span><span class="p">(</span><span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span>
@@ -1361,11 +1623,11 @@ graph LR
       </div>
     </a>
     <a class="right-next"
-       href="llm-inference-specdecode-runtime.html"
+       href="llm-streaming.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LLM Inference SpecDecode Runtime</p>
+        <p class="prev-next-title">LLM Streaming — Design</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1395,13 +1657,16 @@ graph LR
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-workflow">Inference Workflow</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-phases">Inference Phases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vanilla-decoding-no-draft-model">Vanilla Decoding (No Draft Model)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eagle-speculative-decoding-with-draft-model">EAGLE Speculative Decoding (With Draft Model)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vanilla-vs-speculative-decoding-differences">Vanilla vs. Speculative Decoding Differences</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-examples">Usage Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-llm-inference">Standard LLM Inference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lora-adapter-switching">LoRA Adapter Switching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-llm-inference-vanilla">Standard LLM Inference (Vanilla)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eagle-speculative-decoding">EAGLE Speculative Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-vlm-inference">Multimodal VLM Inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lora-adapter-switching">LoRA Adapter Switching</a></li>
 </ul>
 </li>
 </ul>
@@ -1422,8 +1687,8 @@ graph LR
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1495,9 +1760,9 @@ graph LR
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

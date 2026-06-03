@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/features/lora';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -605,37 +641,34 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lora-low-rank-adaptation">
 <h1>LoRA (Low-Rank Adaptation)<a class="headerlink" href="#lora-low-rank-adaptation" title="Link to this heading">#</a></h1>
-<p>TensorRT Edge-LLM supports LoRA through the checkpoint-based <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> workflow.</p>
+<p>TensorRT Edge-LLM supports LoRA through the checkpoint-based <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> workflow.</p>
 <p>Use dynamic LoRA when you need to select adapters at runtime. Use static LoRA
 merge when the adapter is always required, such as the Phi-4-Multimodal
 <code class="docutils literal notranslate"><span class="pre">vision-lora</span></code> adapter.</p>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">EDGE_LLM_PATH</span><span class="o">=</span>/path/to/TensorRT-Edge-LLM
-<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$EDGE_LLM_PATH</span>:<span class="nv">$EDGE_LLM_PATH</span>/experimental:<span class="nv">$PYTHONPATH</span>
-</pre></div>
-</div>
-</section>
 <section id="dynamic-runtime-lora">
 <h2>Dynamic Runtime LoRA<a class="headerlink" href="#dynamic-runtime-lora" title="Link to this heading">#</a></h2>
 <p>This workflow exports the base checkpoint, inserts LoRA inputs into the ONNX
 graph, processes HuggingFace adapter weights, then builds an engine with a
 maximum adapter rank.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Export the base model with llm_loader</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># LoRA helper commands require the optional tools extra.</span>
+<span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
+pip3<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;.[tools]&quot;</span>
+
+<span class="c1"># Step 1: Export the base model with tensorrt_edgellm</span>
+tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>/path/to/base_model<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>/tmp/onnx_output
 
 <span class="c1"># Step 2: Insert LoRA support into the exported LLM graph</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.lora.insert_lora_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-insert-lora<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--onnx_dir<span class="w"> </span>/tmp/onnx_output/llm
 
 <span class="c1"># Step 3: Convert each adapter to the runtime sidecar format</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.lora.process_lora_weights_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-process-lora<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--input_dir<span class="w"> </span>/path/to/adapter1<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output_dir<span class="w"> </span>/tmp/onnx_output/llm/lora_weights/adapter1
 
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.lora.process_lora_weights_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-process-lora<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--input_dir<span class="w"> </span>/path/to/adapter2<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output_dir<span class="w"> </span>/tmp/onnx_output/llm/lora_weights/adapter2
 
@@ -657,27 +690,40 @@ python<span class="w"> </span>-m<span class="w"> </span>llm_loader.lora.process_
 <section id="static-lora-merge">
 <h2>Static LoRA Merge<a class="headerlink" href="#static-lora-merge" title="Link to this heading">#</a></h2>
 <p>Static merge permanently applies a LoRA adapter to the base HuggingFace
-checkpoint before optional quantization and ONNX export.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Merge LoRA into the base checkpoint</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.lora.merge_lora_cli<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--model_dir<span class="w"> </span>Phi-4-multimodal-instruct<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--lora_dir<span class="w"> </span>Phi-4-multimodal-instruct/vision-lora<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output_dir<span class="w"> </span>merged_model
+checkpoint before optional quantization and ONNX export. For Phi-4-Multimodal,
+merge the required <code class="docutils literal notranslate"><span class="pre">vision-lora</span></code> adapter before quantization and export; dynamic
+runtime LoRA is for adapters selected per request.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Static merge and optional quantization require the optional tools extra.</span>
+<span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
+pip3<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;.[tools]&quot;</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">WORKSPACE_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/tensorrt-edgellm-workspace
+<span class="nb">export</span><span class="w"> </span><span class="nv">MODEL_NAME</span><span class="o">=</span>Phi-4-multimodal-instruct
+<span class="nb">export</span><span class="w"> </span><span class="nv">MODEL_DIR</span><span class="o">=</span><span class="nv">$WORKSPACE_DIR</span>/<span class="nv">$MODEL_NAME</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HF_MODEL_DIR</span><span class="o">=</span><span class="nv">$MODEL_DIR</span>/hf
+
+<span class="c1"># Assumes $HF_MODEL_DIR is a local HuggingFace clone with Git LFS files pulled.</span>
+
+<span class="c1"># Step 1: Merge LoRA into the base checkpoint</span>
+tensorrt-edgellm-merge-lora<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model_dir<span class="w"> </span><span class="nv">$HF_MODEL_DIR</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--lora_dir<span class="w"> </span><span class="nv">$HF_MODEL_DIR</span>/vision-lora<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output_dir<span class="w"> </span><span class="nv">$MODEL_DIR</span>/merged
 
 <span class="c1"># Step 2: Optional quantization of the merged checkpoint</span>
-python<span class="w"> </span>-m<span class="w"> </span>experimental.quantization<span class="w"> </span>llm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--model_dir<span class="w"> </span>merged_model<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output_dir<span class="w"> </span>quantized_model<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-quantize<span class="w"> </span>llm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model_dir<span class="w"> </span><span class="nv">$MODEL_DIR</span>/merged<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output_dir<span class="w"> </span><span class="nv">$MODEL_DIR</span>/quantized<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--quantization<span class="w"> </span>nvfp4<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--lm_head_quantization<span class="w"> </span>nvfp4
 
-<span class="c1"># Step 3: Export the checkpoint with llm_loader</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>quantized_model<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>onnx_output
+<span class="c1"># Step 3: Export the checkpoint with tensorrt_edgellm</span>
+tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">$MODEL_DIR</span>/quantized<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">$MODEL_DIR</span>/onnx
 </pre></div>
 </div>
-<p>If you do not need weight quantization, export <code class="docutils literal notranslate"><span class="pre">merged_model</span></code> directly in step 3.</p>
+<p>If you do not need weight quantization, export <code class="docutils literal notranslate"><span class="pre">$MODEL_DIR/merged</span></code> directly in step 3.</p>
 </section>
 <section id="input-format">
 <h2>Input Format<a class="headerlink" href="#input-format" title="Link to this heading">#</a></h2>
@@ -709,9 +755,9 @@ omit <code class="docutils literal notranslate"><span class="pre">lora_name</spa
 </section>
 <section id="script-reference">
 <h2>Script Reference<a class="headerlink" href="#script-reference" title="Link to this heading">#</a></h2>
-<section id="llm-loader-lora-insert-lora-cli">
-<h3><code class="docutils literal notranslate"><span class="pre">llm_loader.lora.insert_lora_cli</span></code><a class="headerlink" href="#llm-loader-lora-insert-lora-cli" title="Link to this heading">#</a></h3>
-<p>Inserts LoRA patterns into an exported <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> ONNX model and creates
+<section id="tensorrt-edgellm-insert-lora">
+<h3><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-insert-lora</span></code><a class="headerlink" href="#tensorrt-edgellm-insert-lora" title="Link to this heading">#</a></h3>
+<p>Inserts LoRA patterns into an exported <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> ONNX model and creates
 <code class="docutils literal notranslate"><span class="pre">lora_model.onnx</span></code> in the same directory.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -729,8 +775,8 @@ omit <code class="docutils literal notranslate"><span class="pre">lora_name</spa
 </table>
 </div>
 </section>
-<section id="llm-loader-lora-process-lora-weights-cli">
-<h3><code class="docutils literal notranslate"><span class="pre">llm_loader.lora.process_lora_weights_cli</span></code><a class="headerlink" href="#llm-loader-lora-process-lora-weights-cli" title="Link to this heading">#</a></h3>
+<section id="tensorrt-edgellm-process-lora">
+<h3><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-process-lora</span></code><a class="headerlink" href="#tensorrt-edgellm-process-lora" title="Link to this heading">#</a></h3>
 <p>Processes HuggingFace LoRA adapter weights for runtime use.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -753,8 +799,8 @@ omit <code class="docutils literal notranslate"><span class="pre">lora_name</spa
 </div>
 <p>The output contains <code class="docutils literal notranslate"><span class="pre">processed_adapter_model.safetensors</span></code> and <code class="docutils literal notranslate"><span class="pre">config.json</span></code>.</p>
 </section>
-<section id="llm-loader-lora-merge-lora-cli">
-<h3><code class="docutils literal notranslate"><span class="pre">llm_loader.lora.merge_lora_cli</span></code><a class="headerlink" href="#llm-loader-lora-merge-lora-cli" title="Link to this heading">#</a></h3>
+<section id="tensorrt-edgellm-merge-lora">
+<h3><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-merge-lora</span></code><a class="headerlink" href="#tensorrt-edgellm-merge-lora" title="Link to this heading">#</a></h3>
 <p>Permanently merges LoRA weights into a base HuggingFace checkpoint.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -870,14 +916,13 @@ omit <code class="docutils literal notranslate"><span class="pre">lora_name</spa
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-runtime-lora">Dynamic Runtime LoRA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-lora-merge">Static LoRA Merge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-format">Input Format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-reference">Script Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-loader-lora-insert-lora-cli"><code class="docutils literal notranslate"><span class="pre">llm_loader.lora.insert_lora_cli</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-loader-lora-process-lora-weights-cli"><code class="docutils literal notranslate"><span class="pre">llm_loader.lora.process_lora_weights_cli</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-loader-lora-merge-lora-cli"><code class="docutils literal notranslate"><span class="pre">llm_loader.lora.merge_lora_cli</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt-edgellm-insert-lora"><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-insert-lora</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt-edgellm-process-lora"><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-process-lora</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt-edgellm-merge-lora"><code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-merge-lora</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-parameters">Build Parameters</a></li>
@@ -900,8 +945,8 @@ omit <code class="docutils literal notranslate"><span class="pre">lora_name</spa
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -973,9 +1018,9 @@ omit <code class="docutils literal notranslate"><span class="pre">lora_name</spa
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/performance/performance-benchmarks';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -70,13 +70,13 @@
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Checkpoint-Based Model Loader Design" href="../../developer_guide/software-design/llm-loader.html" />
+    <link rel="next" title="Checkpoint Exporter Design" href="../../developer_guide/software-design/checkpoint-export.html" />
     <link rel="prev" title="Chat Template Format" href="../format/chat-template-format.html" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -644,6 +680,9 @@
 <tr class="row-even"><td><p><strong>GPU memory</strong></p></td>
 <td><p>Peak GPU memory usage during inference (MB)</p></td>
 </tr>
+<tr class="row-odd"><td><p><strong>MTP</strong></p></td>
+<td><p>Multi-token prediction speculative decoding</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -683,13 +722,357 @@
 </section>
 </section>
 <hr class="docutils" />
+<section id="v0-7-1-results">
+<h2>v0.7.1 Results<a class="headerlink" href="#v0-7-1-results" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>SDK Version:</strong> TensorRT Edge-LLM 0.7.1  |  <strong>TensorRT:</strong> 10.13.3.9</p>
+</div></blockquote>
+<section id="llm-vanilla-decoding">
+<h3>LLM — Vanilla Decoding<a class="headerlink" href="#llm-vanilla-decoding" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Precision</p></th>
+<th class="head text-center"><p>Batch</p></th>
+<th class="head text-right"><p>Prefill (ms)</p></th>
+<th class="head text-center"><p>Prefill Tokens</p></th>
+<th class="head text-right"><p>Prefill (tok/s)</p></th>
+<th class="head text-right"><p>Generation (tok/s)</p></th>
+<th class="head text-right"><p>GPU Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qwen3-1.7B</p></td>
+<td><p>NVFP4</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>11.2</p></td>
+<td class="text-center"><p>370</p></td>
+<td class="text-right"><p>32,990</p></td>
+<td class="text-right"><p>173.2</p></td>
+<td class="text-right"><p>1,531</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3-1.7B</p></td>
+<td><p>NVFP4</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>132.5</p></td>
+<td class="text-center"><p>2,959</p></td>
+<td class="text-right"><p>22,324</p></td>
+<td class="text-right"><p>935.8</p></td>
+<td class="text-right"><p>1,475</p></td>
+</tr>
+<tr class="row-even"><td><p>Qwen3-30B-A3B-GPTQ-Int4</p></td>
+<td><p>INT4 GPTQ</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>133.2</p></td>
+<td class="text-center"><p>370</p></td>
+<td class="text-right"><p>2,777</p></td>
+<td class="text-right"><p>72.6</p></td>
+<td class="text-right"><p>15,916</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3-30B-A3B-GPTQ-Int4</p></td>
+<td><p>INT4 GPTQ</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>1,344.5</p></td>
+<td class="text-center"><p>2,959</p></td>
+<td class="text-right"><p>2,201</p></td>
+<td class="text-right"><p>215.9</p></td>
+<td class="text-right"><p>15,894</p></td>
+</tr>
+<tr class="row-even"><td><p>Nemotron-3-Nano-4B</p></td>
+<td><p>NVFP4</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>127.4</p></td>
+<td class="text-center"><p>383</p></td>
+<td class="text-right"><p>3,004</p></td>
+<td class="text-right"><p>64.7</p></td>
+<td class="text-right"><p>3,568</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nemotron-3-Nano-4B</p></td>
+<td><p>NVFP4</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>986.6</p></td>
+<td class="text-center"><p>3,062</p></td>
+<td class="text-right"><p>3,104</p></td>
+<td class="text-right"><p>312.9</p></td>
+<td class="text-right"><p>3,592</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="vision-language-model-vanilla-decoding">
+<h3>Vision Language Model — Vanilla Decoding<a class="headerlink" href="#vision-language-model-vanilla-decoding" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>LLM Prec</p></th>
+<th class="head"><p>ViT Prec</p></th>
+<th class="head text-center"><p>Batch</p></th>
+<th class="head text-right"><p>Prefill (ms)</p></th>
+<th class="head text-center"><p>Prefill Tokens</p></th>
+<th class="head text-right"><p>Prefill (tok/s)</p></th>
+<th class="head text-right"><p>ViT Time (ms)</p></th>
+<th class="head text-right"><p>ViT Tok/Run</p></th>
+<th class="head text-right"><p>ViT (tok/s)</p></th>
+<th class="head text-right"><p>Generation (tok/s)</p></th>
+<th class="head text-right"><p>GPU Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qwen2.5-VL-7B-Instruct</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>31.0</p></td>
+<td class="text-center"><p>376</p></td>
+<td class="text-right"><p>12,124</p></td>
+<td class="text-right"><p>27.8</p></td>
+<td class="text-right"><p>344</p></td>
+<td class="text-right"><p>12,392</p></td>
+<td class="text-right"><p>49.5</p></td>
+<td class="text-right"><p>5,224</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3.5-0.8B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>9.4</p></td>
+<td class="text-center"><p>287</p></td>
+<td class="text-right"><p>30,410</p></td>
+<td class="text-right"><p>4.3</p></td>
+<td class="text-right"><p>262</p></td>
+<td class="text-right"><p>60,606</p></td>
+<td class="text-right"><p>287.0</p></td>
+<td class="text-right"><p>1,192</p></td>
+</tr>
+<tr class="row-even"><td><p>Qwen3.5-2B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>12.7</p></td>
+<td class="text-center"><p>287</p></td>
+<td class="text-right"><p>22,550</p></td>
+<td class="text-right"><p>10.5</p></td>
+<td class="text-right"><p>262</p></td>
+<td class="text-right"><p>25,000</p></td>
+<td class="text-right"><p>164.4</p></td>
+<td class="text-right"><p>1,694</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3.5-27B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>103.3</p></td>
+<td class="text-center"><p>287</p></td>
+<td class="text-right"><p>2,775</p></td>
+<td class="text-right"><p>15.0</p></td>
+<td class="text-right"><p>262</p></td>
+<td class="text-right"><p>17,483</p></td>
+<td class="text-right"><p>16.1</p></td>
+<td class="text-right"><p>14,725</p></td>
+</tr>
+<tr class="row-even"><td><p>Nemotron-3-Nano-Omni-30B-A3B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>226.0</p></td>
+<td class="text-center"><p>1,663</p></td>
+<td class="text-right"><p>7,358</p></td>
+<td class="text-right"><p>121.3</p></td>
+<td class="text-right"><p>1,635</p></td>
+<td class="text-right"><p>13,477</p></td>
+<td class="text-right"><p>31.3</p></td>
+<td class="text-right"><p>20,327</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="llm-eagle-speculative-decoding">
+<h3>LLM — EAGLE Speculative Decoding<a class="headerlink" href="#llm-eagle-speculative-decoding" title="Link to this heading">#</a></h3>
+<section id="draft-models">
+<h4>Draft Models<a class="headerlink" href="#draft-models" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Base Model</p></th>
+<th class="head"><p>Draft Model</p></th>
+<th class="head"><p>Source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qwen3-1.7B</p></td>
+<td><p>Qwen3-1.7B_eagle3</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/AngelSlim/Qwen3-1.7B_eagle3">AngelSlim/Qwen3-1.7B_eagle3</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> Both base and draft models are quantized to NVFP4.</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Base Prec</p></th>
+<th class="head"><p>Draft Prec</p></th>
+<th class="head text-center"><p>Batch</p></th>
+<th class="head text-right"><p>Prefill (ms)</p></th>
+<th class="head text-center"><p>Prefill Tokens</p></th>
+<th class="head text-right"><p>Generation (tok/s)</p></th>
+<th class="head text-center"><p>Accept Rate</p></th>
+<th class="head text-right"><p>Speedup</p></th>
+<th class="head text-right"><p>GPU Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qwen3-1.7B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>12.2</p></td>
+<td class="text-center"><p>370</p></td>
+<td class="text-right"><p>339.0</p></td>
+<td class="text-center"><p>3.7</p></td>
+<td class="text-right"><p>1.96x</p></td>
+<td class="text-right"><p>1,534</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3-1.7B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>132.3</p></td>
+<td class="text-center"><p>2,959</p></td>
+<td class="text-right"><p>984.9</p></td>
+<td class="text-center"><p>3.7</p></td>
+<td class="text-right"><p>1.05x</p></td>
+<td class="text-right"><p>1,466</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="vision-language-model-mtp-speculative-decoding">
+<h3>Vision Language Model — MTP Speculative Decoding<a class="headerlink" href="#vision-language-model-mtp-speculative-decoding" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>Note:</strong> MTP uses the model’s built-in draft heads; no external draft checkpoint is required.
+<strong>Highlight:</strong> MTP is the main v0.7.1 performance improvement, increasing Qwen3.5 VLM BS=1 generation throughput by 1.21x to 2.12x over vanilla decoding.</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Base Prec</p></th>
+<th class="head"><p>Draft Prec</p></th>
+<th class="head"><p>ViT Prec</p></th>
+<th class="head text-center"><p>Batch</p></th>
+<th class="head text-right"><p>Prefill (ms)</p></th>
+<th class="head text-center"><p>Prefill Tokens</p></th>
+<th class="head text-right"><p>ViT Time (ms)</p></th>
+<th class="head text-right"><p>ViT Tok/Run</p></th>
+<th class="head text-right"><p>ViT (tok/s)</p></th>
+<th class="head text-right"><p>Generation (tok/s)</p></th>
+<th class="head text-center"><p>Accept Rate</p></th>
+<th class="head text-right"><p>GPU Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qwen3.5-0.8B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>9.2</p></td>
+<td class="text-center"><p>287</p></td>
+<td class="text-right"><p>4.2</p></td>
+<td class="text-right"><p>263</p></td>
+<td class="text-right"><p>62,500</p></td>
+<td class="text-right"><p>348.5</p></td>
+<td class="text-center"><p>2.1</p></td>
+<td class="text-right"><p>1,210</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3.5-0.8B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>69.0</p></td>
+<td class="text-center"><p>2,227</p></td>
+<td class="text-right"><p>27.6</p></td>
+<td class="text-right"><p>2,042</p></td>
+<td class="text-right"><p>74,074</p></td>
+<td class="text-right"><p>1,056.7</p></td>
+<td class="text-center"><p>2.2</p></td>
+<td class="text-right"><p>1,375</p></td>
+</tr>
+<tr class="row-even"><td><p>Qwen3.5-2B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>13.8</p></td>
+<td class="text-center"><p>287</p></td>
+<td class="text-right"><p>10.9</p></td>
+<td class="text-right"><p>262</p></td>
+<td class="text-right"><p>24,096</p></td>
+<td class="text-right"><p>236.9</p></td>
+<td class="text-center"><p>2.4</p></td>
+<td class="text-right"><p>1,662</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3.5-2B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>89.7</p></td>
+<td class="text-center"><p>2,227</p></td>
+<td class="text-right"><p>75.1</p></td>
+<td class="text-right"><p>2,040</p></td>
+<td class="text-right"><p>27,174</p></td>
+<td class="text-right"><p>787.2</p></td>
+<td class="text-center"><p>2.4</p></td>
+<td class="text-right"><p>1,647</p></td>
+</tr>
+<tr class="row-even"><td><p>Qwen3.5-27B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>111.1</p></td>
+<td class="text-center"><p>287</p></td>
+<td class="text-right"><p>14.4</p></td>
+<td class="text-right"><p>262</p></td>
+<td class="text-right"><p>18,215</p></td>
+<td class="text-right"><p>34.2</p></td>
+<td class="text-center"><p>2.8</p></td>
+<td class="text-right"><p>14,680</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qwen3.5-27B</p></td>
+<td><p>NVFP4</p></td>
+<td><p>NVFP4</p></td>
+<td><p>FP16</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-right"><p>811.0</p></td>
+<td class="text-center"><p>2,227</p></td>
+<td class="text-right"><p>108.2</p></td>
+<td class="text-right"><p>2,038</p></td>
+<td class="text-right"><p>18,832</p></td>
+<td class="text-right"><p>146.7</p></td>
+<td class="text-center"><p>2.8</p></td>
+<td class="text-right"><p>14,705</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
 <section id="v0-7-0-results">
 <h2>v0.7.0 Results<a class="headerlink" href="#v0-7-0-results" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><p><strong>SDK Version:</strong> TensorRT Edge-LLM 0.7.0  |  <strong>TensorRT:</strong> 10.13</p>
 </div></blockquote>
-<section id="llm-vanilla-decoding">
-<h3>LLM — Vanilla Decoding<a class="headerlink" href="#llm-vanilla-decoding" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>LLM — Vanilla Decoding<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -761,8 +1144,8 @@
 </table>
 </div>
 </section>
-<section id="vision-language-model-vanilla-decoding">
-<h3>Vision Language Model — Vanilla Decoding<a class="headerlink" href="#vision-language-model-vanilla-decoding" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Vision Language Model — Vanilla Decoding<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -816,10 +1199,10 @@
 </table>
 </div>
 </section>
-<section id="llm-eagle-speculative-decoding">
-<h3>LLM — EAGLE Speculative Decoding<a class="headerlink" href="#llm-eagle-speculative-decoding" title="Link to this heading">#</a></h3>
-<section id="draft-models">
-<h4>Draft Models<a class="headerlink" href="#draft-models" title="Link to this heading">#</a></h4>
+<section id="id3">
+<h3>LLM — EAGLE Speculative Decoding<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4>Draft Models<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Base Model</p></th>
@@ -884,8 +1267,8 @@
 <blockquote>
 <div><p><strong>SDK Version:</strong> TensorRT Edge-LLM 0.4.0  |  <strong>TensorRT:</strong> 10.13</p>
 </div></blockquote>
-<section id="id1">
-<h3>LLM — Vanilla Decoding<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>LLM — Vanilla Decoding<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -1030,8 +1413,8 @@
 </table>
 </div>
 </section>
-<section id="id2">
-<h3>Vision Language Model — Vanilla Decoding<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Vision Language Model — Vanilla Decoding<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -1142,10 +1525,10 @@
 <div><p><strong>Note:</strong> ViT time = per-token ViT latency x image tokens per run. FP8 ViT reduces visual encoder time by ~17% compared to FP16 with negligible impact on generation throughput.</p>
 </div></blockquote>
 </section>
-<section id="id3">
-<h3>LLM — EAGLE Speculative Decoding<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<section id="id4">
-<h4>Draft Models<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h3>LLM — EAGLE Speculative Decoding<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h4>Draft Models<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Base Model</p></th>
@@ -1272,8 +1655,8 @@
 </section>
 <section id="vision-language-model-eagle-speculative-decoding">
 <h3>Vision Language Model — EAGLE Speculative Decoding<a class="headerlink" href="#vision-language-model-eagle-speculative-decoding" title="Link to this heading">#</a></h3>
-<section id="id5">
-<h4>Draft Models<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<section id="id9">
+<h4>Draft Models<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Base Model</p></th>
@@ -1345,6 +1728,12 @@
 <hr class="docutils" />
 <section id="key-observations">
 <h2>Key Observations<a class="headerlink" href="#key-observations" title="Link to this heading">#</a></h2>
+<section id="v0-7-1">
+<h3>v0.7.1<a class="headerlink" href="#v0-7-1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>MTP speculative decoding:</strong> This is the v0.7.1 performance highlight. Qwen3.5 MTP improves BS=1 generation throughput by 1.21x for 0.8B, 1.44x for 2B, and 2.12x for 27B over vanilla decoding, with BS=8 throughput up to 1,056.7 tok/s for Qwen3.5-0.8B.</p></li>
+</ul>
+</section>
 <section id="v0-7-0">
 <h3>v0.7.0<a class="headerlink" href="#v0-7-0" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -1392,11 +1781,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="../../developer_guide/software-design/llm-loader.html"
+       href="../../developer_guide/software-design/checkpoint-export.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Checkpoint-Based Model Loader Design</p>
+        <p class="prev-next-title">Checkpoint Exporter Design</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1425,29 +1814,40 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-key">Precision Key</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-7-0-results">v0.7.0 Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-7-1-results">v0.7.1 Results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-vanilla-decoding">LLM — Vanilla Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vision-language-model-vanilla-decoding">Vision Language Model — Vanilla Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-eagle-speculative-decoding">LLM — EAGLE Speculative Decoding</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-models">Draft Models</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vision-language-model-mtp-speculative-decoding">Vision Language Model — MTP Speculative Decoding</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-4-0-results">v0.4.0 Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-7-0-results">v0.7.0 Results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">LLM — Vanilla Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Vision Language Model — Vanilla Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLM — EAGLE Speculative Decoding</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Draft Models</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-4-0-results">v0.4.0 Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">LLM — Vanilla Decoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Vision Language Model — Vanilla Decoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">LLM — EAGLE Speculative Decoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Draft Models</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vision-language-model-eagle-speculative-decoding">Vision Language Model — EAGLE Speculative Decoding</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Draft Models</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Draft Models</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-observations">Key Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-7-1">v0.7.1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-7-0">v0.7.0</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-4-0">v0.4.0</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general">General</a></li>
@@ -1471,8 +1871,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1544,9 +1944,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

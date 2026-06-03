@@ -1,0 +1,9 @@
+Registry Builder
+================
+
+.. doxygenfunction:: trt_edgellm::rt::buildRegistryForLLM
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::rt::buildRegistryForSpecDecodeDraft
+   :project: TensorRT Edge-LLM
+

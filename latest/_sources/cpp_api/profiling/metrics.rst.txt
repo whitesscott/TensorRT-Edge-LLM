@@ -21,7 +21,7 @@ Metrics
    :members:
    :undoc-members:
 
-.. doxygenclass:: trt_edgellm::metrics::EagleGenerationMetrics
+.. doxygenclass:: trt_edgellm::metrics::SpecDecodeGenerationMetrics
    :project: TensorRT Edge-LLM
    :members:
    :undoc-members:

@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/customization/customization-guide';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -606,16 +642,11 @@
   <section class="tex2jax_ignore mathjax_ignore" id="customization-guide">
 <h1>Customization Guide<a class="headerlink" href="#customization-guide" title="Link to this heading">#</a></h1>
 <p>New model and feature enablement should target the checkpoint-based workflow:
-<code class="docutils literal notranslate"><span class="pre">experimental/quantization</span></code> for checkpoint quantization and <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader</span></code>
+<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization</span></code> for checkpoint quantization and <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code>
 for ONNX export. This guide describes the main extension points used by that
 workflow.</p>
 <p>For user commands, see <a class="reference internal" href="../../user_guide/features/quantization.html"><span class="std std-doc">Quantization</span></a>
-and <a class="reference internal" href="../software-design/llm-loader.html"><span class="std std-doc">Checkpoint-Based Model Loader Design</span></a>.</p>
-<p>The deprecated <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/</span></code> export package remains available in 0.7.0 and 0.7.1 for
-compatibility, but new model and feature work should target the experimental
-workflow. The deprecated export package is scheduled for removal in 0.8.0 after
-full feature parity is available in <code class="docutils literal notranslate"><span class="pre">experimental/quantization</span></code> and
-<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader</span></code>.</p>
+and <a class="reference internal" href="../software-design/checkpoint-export.html"><span class="std std-doc">Checkpoint Exporter Design</span></a>.</p>
 <section id="export-customization-points">
 <h2>Export Customization Points<a class="headerlink" href="#export-customization-points" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -627,31 +658,31 @@ full feature parity is available in <code class="docutils literal notranslate"><
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Text model</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/&lt;family&gt;/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/models/&lt;family&gt;/</span></code></p></td>
 <td><p>Add a native <code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code> implementation when the default decoder is not enough. Keep parameter names aligned with the HuggingFace checkpoint.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Registration</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/__init__.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/__init__.py</span></code></p></td>
 <td><p>Register custom text classes with <code class="docutils literal notranslate"><span class="pre">register_model(&quot;&lt;model_type&gt;&quot;,</span> <span class="pre">ModelClass)</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Checkpoint parsing</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/config.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/config.py</span></code>, <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/checkpoint/</span></code></p></td>
 <td><p>Add model-specific config fields, tensor remapping, fused-weight splitting, or quantization metadata handling.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Weight loading</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/loader.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/checkpoint/repacking.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/checkpoint/loader.py</span></code>, <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/checkpoint/repacking.py</span></code></p></td>
 <td><p>Load safetensors, remap checkpoint keys, and repack quantized tensors into the layout consumed by the exported graph.</p></td>
 </tr>
 <tr class="row-even"><td><p>Encoder export</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/export_encoder.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/onnx/export_encoder.py</span></code></p></td>
 <td><p>Register visual, audio, or action encoder builders and config extraction rules.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Component orchestration</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/scripts/export.py</span></code></p></td>
 <td><p>Add model-type classification for LLM-only, VLM, audio, TTS, Omni, VLA, EAGLE, or MTP checkpoints.</p></td>
 </tr>
 <tr class="row-even"><td><p>Custom ops</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/ops.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/dynamo_translations.py</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/onnx_custom_schemas.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/models/ops.py</span></code>, <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/onnx/dynamo_translations.py</span></code>, <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/onnx/onnx_custom_schemas.py</span></code></p></td>
 <td><p>Add torch stubs, ONNX translations, and schemas for TensorRT Edge-LLM custom ops.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Runtime/plugins</p></td>
@@ -677,19 +708,19 @@ checkpoints. It does not export ONNX or build TensorRT engines.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Quantization recipes</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/quantization_configs.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization/quantization_configs.py</span></code></p></td>
 <td><p>Add ModelOpt recipe presets, exclusions, or component-specific overrides.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Model loading and calibration</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/quantize.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization/quantize.py</span></code></p></td>
 <td><p>Add model loading fallbacks, calibration data handling, or pre-save checkpoint fixups.</p></td>
 </tr>
 <tr class="row-even"><td><p>EAGLE draft quantization</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/models/eagle3_draft.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization/models/eagle3_draft.py</span></code></p></td>
 <td><p>Update draft-model calibration and checkpoint writing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>CLI surface</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">experimental/quantization/cli.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/quantization/cli.py</span></code></p></td>
 <td><p>Expose a new supported option after the implementation and tests exist.</p></td>
 </tr>
 </tbody>
@@ -704,17 +735,17 @@ loaded as pre-quantized checkpoints; this package does not create GPTQ models.</
 <ol class="arabic simple">
 <li><p>Check whether the default <code class="docutils literal notranslate"><span class="pre">CausalLM</span></code> implementation can load the checkpoint.</p></li>
 <li><p>If the architecture needs custom behavior, add a model implementation under
-<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/&lt;family&gt;/</span></code>.</p></li>
-<li><p>Register the <code class="docutils literal notranslate"><span class="pre">model_type</span></code> in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/__init__.py</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/models/&lt;family&gt;/</span></code>.</p></li>
+<li><p>Register the <code class="docutils literal notranslate"><span class="pre">model_type</span></code> in <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/__init__.py</span></code>.</p></li>
 <li><p>Add any required config promotion, tensor-key remapping, or quantized-weight
-handling in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/config.py</span></code> and <code class="docutils literal notranslate"><span class="pre">checkpoint/</span></code>.</p></li>
-<li><p>Export with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">llm_loader.export_all_cli</span> <span class="pre">&lt;checkpoint&gt;</span> <span class="pre">&lt;output_dir&gt;</span></code>
+handling in <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/config.py</span></code> and <code class="docutils literal notranslate"><span class="pre">checkpoint/</span></code>.</p></li>
+<li><p>Export with <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-export</span> <span class="pre">&lt;checkpoint&gt;</span> <span class="pre">&lt;output_dir&gt;</span></code>
 and verify <code class="docutils literal notranslate"><span class="pre">llm_build</span></code> plus <code class="docutils literal notranslate"><span class="pre">llm_inference</span></code>.</p></li>
 </ol>
 </section>
 <section id="adding-a-multimodal-or-action-component">
 <h2>Adding A Multimodal Or Action Component<a class="headerlink" href="#adding-a-multimodal-or-action-component" title="Link to this heading">#</a></h2>
-<p>Use <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/export_all_cli.py</span></code> as the component dispatcher.
+<p>Use <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/scripts/export.py</span></code> as the component dispatcher.
 Each exported component should have a stable subdirectory and a <code class="docutils literal notranslate"><span class="pre">config.json</span></code>
 that the C++ builder can consume.</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -763,9 +794,9 @@ engine’s <code class="docutils literal notranslate"><span class="pre">max_kv_c
 <section id="custom-operators">
 <h2>Custom Operators<a class="headerlink" href="#custom-operators" title="Link to this heading">#</a></h2>
 <p>Custom operators are declared as <code class="docutils literal notranslate"><span class="pre">torch.library.custom_op</span></code> stubs in
-<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/models/ops.py</span></code>, translated in
-<code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/dynamo_translations.py</span></code>, and registered as ONNX
-schemas in <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/onnx/onnx_custom_schemas.py</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/models/ops.py</span></code>, translated in
+<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/onnx/dynamo_translations.py</span></code>, and registered as ONNX
+schemas in <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/onnx/onnx_custom_schemas.py</span></code>.</p>
 <p>Use this path when a PyTorch expression must lower to a TensorRT Edge-LLM
 plugin, specialized runtime op, or fixed ONNX node pattern. Runtime support must
 exist before documenting a new custom op as supported.</p>
@@ -942,8 +973,8 @@ visual or audio engine directory for multimodal workflows.</p>
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1015,9 +1046,9 @@ visual or audio engine directory for multimodal workflows.</p>
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

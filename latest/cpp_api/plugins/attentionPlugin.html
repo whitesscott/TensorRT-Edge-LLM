@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cpp_api/plugins/attentionPlugin';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -613,290 +649,9 @@
 <h1>Attention Plugin<a class="headerlink" href="#attention-plugin" title="Link to this heading">#</a></h1>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPluginE">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPluginE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPluginE"></span><span id="trt_edgellm::plugins::AttentionPlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPlugin</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2DynamicExt</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPluginE" title="Link to this definition">#</a><br /></dt>
-<dd><p>TensorRT plugin for attention operations (context and decode) </p>
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPluginE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPluginE"></span><span id="trt_edgellm::plugins::AttentionPlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPlugin</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneCore</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneBuildV2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3OneRuntime</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPluginE" title="Link to this definition">#</a><br /></dt>
+<dd><p>TensorRT plugin for attention operations (V3 — IPluginV3). </p>
 <p>This plugin implements efficient attention mechanisms including context attention (prefill) and decode attention with KV cache support. </p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-ipluginv2dynamicext-methods">IPluginV2DynamicExt Methods</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin5cloneEv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin5cloneEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin5cloneEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::cloneC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a600eca2ef0c166efe48947443735a4d7"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2DynamicExt</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin5cloneEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Clone the plugin instance. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Pointer to cloned plugin </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getNbOutputsC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1acd22e36de94949d0534a589af59937f2"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNbOutputs</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get number of outputs. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of output tensors </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::getOutputDataType__int32_t.nvinfer1::DataTypeCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a907c3ab1bc1ed653bf45db56e85da1fb"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDataType</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputTypes</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get output data type. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – <strong>[in]</strong> Output index </p></li>
-<li><p><strong>inputTypes</strong> – <strong>[in]</strong> Array of input data types </p></li>
-<li><p><strong>nbInputs</strong> – <strong>[in]</strong> Number of inputs </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Output data type </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="trt_edgellm::plugins::AttentionPlugin::getOutputDimensions__int32_t.nvinfer1::DimsExprsCP.int32_t.nvinfer1::IExprBuilderR"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a036d1ee6192468504d4eeaaf98a82183"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDimensions</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">outputIndex</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IExprBuilder</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">exprBuilder</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get output dimensions. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>outputIndex</strong> – <strong>[in]</strong> Output tensor index </p></li>
-<li><p><strong>inputs</strong> – <strong>[in]</strong> Input tensor dimensions </p></li>
-<li><p><strong>nbInputs</strong> – <strong>[in]</strong> Number of inputs </p></li>
-<li><p><strong>exprBuilder</strong> – <strong>[in]</strong> Expression builder for dimension calculations </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Output tensor dimensions </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::supportsFormatCombination__int32_t.nvinfer1::PluginTensorDescCP.int32_t.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a30ded63f86ce5d205c4b6da706ccd4e5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supportsFormatCombination</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pos</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inOut</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Check if format combination is supported. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pos</strong> – <strong>[in]</strong> Position in the input/output tensor list </p></li>
-<li><p><strong>inOut</strong> – <strong>[in]</strong> Array of input and output tensor descriptors </p></li>
-<li><p><strong>nbInputs</strong> – <strong>[in]</strong> Number of inputs </p></li>
-<li><p><strong>nbOutputs</strong> – <strong>[in]</strong> Number of outputs </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if format combination is supported </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::configurePlugin__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a914316883a5f8f166f65df7a6ca54024"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configurePlugin</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Configure the plugin with input and output tensors. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>in</strong> – <strong>[in]</strong> Input tensor descriptors </p></li>
-<li><p><strong>nbInputs</strong> – <strong>[in]</strong> Number of inputs </p></li>
-<li><p><strong>out</strong> – <strong>[in]</strong> Output tensor descriptors </p></li>
-<li><p><strong>nbOutputs</strong> – <strong>[in]</strong> Number of outputs </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::getWorkspaceSize__nvinfer1::PluginTensorDescCP.int32_t.nvinfer1::PluginTensorDescCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1ab449a5f7432eb83f4dc85a4283a2f879"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWorkspaceSize</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get workspace size required by the plugin. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inputs</strong> – <strong>[in]</strong> Input tensor descriptors </p></li>
-<li><p><strong>nbInputs</strong> – <strong>[in]</strong> Number of inputs </p></li>
-<li><p><strong>outputs</strong> – <strong>[in]</strong> Output tensor descriptors </p></li>
-<li><p><strong>nbOutputs</strong> – <strong>[in]</strong> Number of outputs </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Workspace size in bytes </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::enqueue__nvinfer1::PluginTensorDescCP.nvinfer1::PluginTensorDescCP.voidCPCP.voidPCP.voidP.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1afa2a5163adb430b9fdfa77fce37bada8"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enqueue</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputDesc</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputDesc</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">workspace</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Execute the plugin. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inputDesc</strong> – <strong>[in]</strong> Input tensor descriptors </p></li>
-<li><p><strong>outputDesc</strong> – <strong>[in]</strong> Output tensor descriptors </p></li>
-<li><p><strong>inputs</strong> – <strong>[in]</strong> Input tensor data pointers </p></li>
-<li><p><strong>outputs</strong> – <strong>[out]</strong> Output tensor data pointers </p></li>
-<li><p><strong>workspace</strong> – <strong>[in]</strong> Workspace memory pointer </p></li>
-<li><p><strong>stream</strong> – <strong>[in]</strong> CUDA stream for execution </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 on success, non-zero on failure </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin20getSerializationSizeEv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin20getSerializationSizeEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin20getSerializationSizeEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getSerializationSizeC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1ad9d193a84a964afaffc83cfacbd4b43f"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getSerializationSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin20getSerializationSizeEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get serialization size. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Size in bytes required for serialization </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin9serializeEPv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin9serializeEPv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin9serializeEPv"></span><span id="trt_edgellm::plugins::AttentionPlugin::serialize__voidPC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1aa35d0fa41addcdc8fa5ecf7b1e7496e3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serialize</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin9serializeEPv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Serialize the plugin. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>buffer</strong> – <strong>[out]</strong> Buffer to write serialized data </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin13getPluginTypeEv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin13getPluginTypeEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin13getPluginTypeEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getPluginTypeC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1acef6068fc573a20226ee99d571b2a285"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin13getPluginTypeEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin type. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin type string </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a4c74c9a4c509496bf593715abbc2029a"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin namespace. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin namespace string </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::AttentionPlugin::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1aef33a735d8c498cabcc8b16bdf463bc2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
-<dd><p>Set plugin namespace. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pluginNamespace</strong> – <strong>[in]</strong> Namespace to set </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv">
-<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a90c02de696e1801b88eaf113e71b4d51"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin version. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin version string </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin10initializeEv">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin10initializeEv"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin10initializeEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::initialize"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a5db4dafa87e18a029cbb5576f0d26dda"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin10initializeEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Initialize the plugin. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>0 on success, non-zero on failure </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin9terminateEv">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin9terminateEv"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin9terminateEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::terminate"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1aab59933bbd0ee2fcbaa543079fd63b00"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">terminate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin9terminateEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Terminate the plugin and release resources. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin7destroyEv">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin7destroyEv"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin7destroyEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::destroy"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a62897f78a03dcf794d19c1c83f146ff3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">destroy</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin7destroyEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Destroy the plugin instance. </p>
-</dd></dl>
-
-</div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -933,33 +688,21 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKNSt4byteE6size_t">
-<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKNSt4byteE6size_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKNSt4byteE6size_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::AttentionPlugin__ssCR.std::byteCP.s"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a6633bfa53c269081cfa55924a4c101eb"></span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPlugin</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"></span><span id="trt_edgellm::plugins::AttentionPlugin::AttentionPlugin__ssCR.nvinfer1::PluginFieldCollectionCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a9339e551dc0f848e89a8af7b7679cfe5"></span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPlugin</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">byte</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span></em></dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKNSt4byteE6size_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Constructor for deserialization. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <strong>[in]</strong> Plugin instance name </p></li>
-<li><p><strong>data</strong> – <strong>[in]</strong> Serialized plugin data </p></li>
-<li><p><strong>length</strong> – <strong>[in]</strong> Length of serialized data </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv">
 <span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::AttentionPlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a25d99dc0689644a8db803256779cfb63"></span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPlugin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Force to distinguish different instances of the plugin. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERK15AttentionPlugin">
@@ -971,12 +714,182 @@
 <span id="_CPPv3N11trt_edgellm7plugins15AttentionPluginD0Ev"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPluginD0Ev"></span><span id="trt_edgellm::plugins::AttentionPlugin::~AttentionPlugin"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1aeb9e85fc542b6ae602452f5227d99182"></span><span class="sig-name descname"><span class="n"><span class="pre">~AttentionPlugin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPluginD0Ev" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"></span><span id="trt_edgellm::plugins::AttentionPlugin::getCapabilityInterface__nvinfer1::PluginCapabilityType"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1aa5e1db74474ebb574cff903522997060"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCapability</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getCapabilityInterface</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginCapabilityType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin5cloneEv">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin5cloneEv"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin5cloneEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::clone"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a352a795056f0e5f1d2eed66722fb1c3b"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin5cloneEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin13getPluginNameEv">
+<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin13getPluginNameEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin13getPluginNameEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getPluginNameC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a00c84c6aec6c1d7a00ed04bf579fd331"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin13getPluginNameEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv">
+<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a90c02de696e1801b88eaf113e71b4d51"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv">
+<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a4c74c9a4c509496bf593715abbc2029a"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv">
+<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getNbOutputsC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1acd22e36de94949d0534a589af59937f2"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNbOutputs</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t">
+<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::getOutputDataTypes__nvinfer1::DataTypeP.int32_t.nvinfer1::DataTypeCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a27b7133db8d563dc0353307a70bf669d"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputDataTypes</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputTypes</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataType</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputTypes</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"></span><span id="trt_edgellm::plugins::AttentionPlugin::getOutputShapes__nvinfer1::DimsExprsCP.int32_t.nvinfer1::DimsExprsCP.int32_t.nvinfer1::DimsExprsP.int32_t.nvinfer1::IExprBuilderR"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1afa720b9c02170241a15f1eca2fbb2849"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOutputShapes</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">shapeInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbShapeInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DimsExprs</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IExprBuilder</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">exprBuilder</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::supportsFormatCombination__int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a50b2a6c8ac8b3d77ac7cfecf6755b70d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supportsFormatCombination</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inOut</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::configurePlugin__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1ab89f181d9990261efa68dd263c53f807"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configurePlugin</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t">
+<span id="_CPPv3NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="_CPPv2NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::getWorkspaceSize__nvinfer1::DynamicPluginTensorDescCP.int32_t.nvinfer1::DynamicPluginTensorDescCP.int32_tC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1ac83f179db6f433e08043548739eb5ea0"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWorkspaceSize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DynamicPluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15getAliasedInputE7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15getAliasedInputE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15getAliasedInputE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::getAliasedInput__int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1afdb5ea6fa7c37ef357a0d3d0b2670d0f"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getAliasedInput</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">outputIndex</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15getAliasedInputE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::enqueue__nvinfer1::PluginTensorDescCP.nvinfer1::PluginTensorDescCP.voidCPCP.voidPCP.voidP.cudaStream_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1afa2a5163adb430b9fdfa77fce37bada8"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enqueue</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputDesc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputDesc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">inputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">workspace</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">cudaStream_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"></span><span id="trt_edgellm::plugins::AttentionPlugin::onShapeChange__nvinfer1::PluginTensorDescCP.int32_t.nvinfer1::PluginTensorDescCP.int32_t"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a29e7528ee5a5abef1c0cc94bd63ec616"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onShapeChange</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">in</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbInputs</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginTensorDesc</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nbOutputs</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"></span><span id="trt_edgellm::plugins::AttentionPlugin::attachToContext__nvinfer1::IPluginResourceContextP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1ab69dee39f6277d4c6d5278bab14b4d97"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">attachToContext</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginResourceContext</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span></em></dd>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin20getFieldsToSerializeEv">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin20getFieldsToSerializeEv"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin20getFieldsToSerializeEv"></span><span id="trt_edgellm::plugins::AttentionPlugin::getFieldsToSerialize"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1a509fc46888a4a88a9ef491a74c94d310"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldsToSerialize</span></span></span><span class="sig-paren">(</span>
+
+<dl>
+</dl>
+
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin20getFieldsToSerializeEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc">
+<span id="_CPPv3N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::AttentionPlugin::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPlugin_1aef33a735d8c498cabcc8b16bdf463bc2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
 </div>
 </dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreatorE">
-<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreatorE"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreatorE"></span><span id="trt_edgellm::plugins::AttentionPluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPluginCreator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCreator</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreatorE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreatorE"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreatorE"></span><span id="trt_edgellm::plugins::AttentionPluginCreator"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AttentionPluginCreator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginCreatorV3One</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreatorE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Factory class for creating <a class="reference internal" href="#classtrt__edgellm_1_1plugins_1_1AttentionPlugin"><span class="std std-ref">AttentionPlugin</span></a> instances. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
@@ -993,112 +906,45 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator13getPluginNameEv">
 <span id="_CPPv3NK11trt_edgellm7plugins22AttentionPluginCreator13getPluginNameEv"></span><span id="_CPPv2NK11trt_edgellm7plugins22AttentionPluginCreator13getPluginNameEv"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::getPluginNameC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1ad18c97cdaa7bf49c513b30095bb47a40"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator13getPluginNameEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin name. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin name string </p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv">
+<span id="_CPPv3NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a1066217e8063710121650aea8ec9646b"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv">
-<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::getFieldNames"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a94d6873ce8ec1e12a3e5a0a924ca4b51"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldNames</span></span></span><span class="sig-paren">(</span>
+<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::getFieldNames"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1ae7cfa16774f2ca2a0356b891eeee93b0"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFieldNames</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 </dl>
 
 <span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin field collection. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Pointer to plugin field collection containing all plugin fields </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc">
-<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1ad30cd1aeaf3987064d33ae2c746a0173"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
-<dd><p>Set plugin namespace. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pluginNamespace</strong> – <strong>[in]</strong> Namespace to set </p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator18getPluginNamespaceEv">
 <span id="_CPPv3NK11trt_edgellm7plugins22AttentionPluginCreator18getPluginNamespaceEv"></span><span id="_CPPv2NK11trt_edgellm7plugins22AttentionPluginCreator18getPluginNamespaceEv"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::getPluginNamespaceC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a0c8bca07bbc5531dab83f9a0922906a6"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginNamespace</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator18getPluginNamespaceEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin namespace. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin namespace string </p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv">
-<span id="_CPPv3NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv"></span><span id="_CPPv2NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::getPluginVersionC"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a1066217e8063710121650aea8ec9646b"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPluginVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv" title="Link to this definition">#</a><br /></dt>
-<dd><p>Get plugin version. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plugin version string </p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc">
+<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::setPluginNamespace__cCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1ad30cd1aeaf3987064d33ae2c746a0173"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPluginNamespace</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pluginNamespace</span></span></em><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE">
-<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::createPlugin__cCP.nvinfer1::PluginFieldCollectionCP"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a41e1f5d37d178a07a7ff63cab033393d"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">createPlugin</span></span></span><span class="sig-paren">(</span>
+<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE">
+<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::createPlugin__cCP.nvinfer1::PluginFieldCollectionCP.nvinfer1::TensorRTPhase"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a953a42b67b49f399148d7f145f71166a"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV3</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">createPlugin</span></span></span><span class="sig-paren">(</span>
 
 <dl>
 <dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em></dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PluginFieldCollection</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">fc</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">TensorRTPhase</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">phase</span></span></em></dd>
 </dl>
 
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Create a new plugin instance. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <strong>[in]</strong> Plugin instance name </p></li>
-<li><p><strong>fc</strong> – <strong>[in]</strong> Plugin field collection containing configuration parameters </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pointer to created plugin instance </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator17deserializePluginEPKcPKv6size_t">
-<span id="_CPPv3N11trt_edgellm7plugins22AttentionPluginCreator17deserializePluginEPKcPKv6size_t"></span><span id="_CPPv2N11trt_edgellm7plugins22AttentionPluginCreator17deserializePluginEPKcPKv6size_t"></span><span id="trt_edgellm::plugins::AttentionPluginCreator::deserializePlugin__cCP.voidCP.s"></span><span class="target" id="classtrt__edgellm_1_1plugins_1_1AttentionPluginCreator_1a8a7fafbed5e1c3394dae0797206c1a47"></span><span class="n"><span class="pre">nvinfer1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IPluginV2</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">deserializePlugin</span></span></span><span class="sig-paren">(</span>
-
-<dl>
-<dd><em class="sig-param"><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">serialData</span></span></em>,</dd>
-<dd><em class="sig-param"><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">serialLength</span></span></em></dd>
-</dl>
-
-<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator17deserializePluginEPKcPKv6size_t" title="Link to this definition">#</a><br /></dt>
-<dd><p>Deserialize a plugin instance from data. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <strong>[in]</strong> Plugin instance name </p></li>
-<li><p><strong>serialData</strong> – <strong>[in]</strong> Serialized plugin data </p></li>
-<li><p><strong>serialLength</strong> – <strong>[in]</strong> Length of serialized data in bytes </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pointer to deserialized plugin instance </p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
 
 </div>
 </dd></dl>
@@ -1155,40 +1001,39 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPluginE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::plugins::AttentionPlugin</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin5cloneEv"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv"><code class="docutils literal notranslate"><span class="pre">getNbOutputs()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin17getOutputDataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"><code class="docutils literal notranslate"><span class="pre">getOutputDataType()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin19getOutputDimensionsE7int32_tPKN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"><code class="docutils literal notranslate"><span class="pre">getOutputDimensions()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t7int32_t"><code class="docutils literal notranslate"><span class="pre">supportsFormatCombination()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">configurePlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">getWorkspaceSize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin20getSerializationSizeEv"><code class="docutils literal notranslate"><span class="pre">getSerializationSize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin9serializeEPv"><code class="docutils literal notranslate"><span class="pre">serialize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin13getPluginTypeEv"><code class="docutils literal notranslate"><span class="pre">getPluginType()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin10initializeEv"><code class="docutils literal notranslate"><span class="pre">initialize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin9terminateEv"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin7destroyEv"><code class="docutils literal notranslate"><span class="pre">destroy()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringE7int32_t7int32_t7int32_t7int32_t7int32_t7int32_tRKNSt6vectorIfEE"><code class="docutils literal notranslate"><span class="pre">AttentionPlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKNSt4byteE6size_t"><code class="docutils literal notranslate"><span class="pre">AttentionPlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERKNSt6stringEPKN8nvinfer121PluginFieldCollectionE"><code class="docutils literal notranslate"><span class="pre">AttentionPlugin()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginEv"><code class="docutils literal notranslate"><span class="pre">AttentionPlugin()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15AttentionPluginERK15AttentionPlugin"><code class="docutils literal notranslate"><span class="pre">AttentionPlugin()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPluginD0Ev"><code class="docutils literal notranslate"><span class="pre">~AttentionPlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin22getCapabilityInterfaceEN8nvinfer120PluginCapabilityTypeE"><code class="docutils literal notranslate"><span class="pre">getCapabilityInterface()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin5cloneEv"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin13getPluginNameEv"><code class="docutils literal notranslate"><span class="pre">getPluginName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin12getNbOutputsEv"><code class="docutils literal notranslate"><span class="pre">getNbOutputs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin18getOutputDataTypesEPN8nvinfer18DataTypeE7int32_tPKN8nvinfer18DataTypeE7int32_t"><code class="docutils literal notranslate"><span class="pre">getOutputDataTypes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15getOutputShapesEPKN8nvinfer19DimsExprsE7int32_tPKN8nvinfer19DimsExprsE7int32_tPN8nvinfer19DimsExprsE7int32_tRN8nvinfer112IExprBuilderE"><code class="docutils literal notranslate"><span class="pre">getOutputShapes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin25supportsFormatCombinationE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t7int32_t"><code class="docutils literal notranslate"><span class="pre">supportsFormatCombination()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15configurePluginEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">configurePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins15AttentionPlugin16getWorkspaceSizeEPKN8nvinfer123DynamicPluginTensorDescE7int32_tPKN8nvinfer123DynamicPluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">getWorkspaceSize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15getAliasedInputE7int32_t"><code class="docutils literal notranslate"><span class="pre">getAliasedInput()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin7enqueueEPKN8nvinfer116PluginTensorDescEPKN8nvinfer116PluginTensorDescEPPCKvPPCvPv12cudaStream_t"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin13onShapeChangeEPKN8nvinfer116PluginTensorDescE7int32_tPKN8nvinfer116PluginTensorDescE7int32_t"><code class="docutils literal notranslate"><span class="pre">onShapeChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin15attachToContextEPN8nvinfer122IPluginResourceContextE"><code class="docutils literal notranslate"><span class="pre">attachToContext()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin20getFieldsToSerializeEv"><code class="docutils literal notranslate"><span class="pre">getFieldsToSerialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins15AttentionPlugin18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreatorE"><code class="docutils literal notranslate"><span class="pre">trt_edgellm::plugins::AttentionPluginCreator</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator22AttentionPluginCreatorEv"><code class="docutils literal notranslate"><span class="pre">AttentionPluginCreator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreatorD0Ev"><code class="docutils literal notranslate"><span class="pre">~AttentionPluginCreator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator13getPluginNameEv"><code class="docutils literal notranslate"><span class="pre">getPluginName()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv"><code class="docutils literal notranslate"><span class="pre">getFieldNames()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator16getPluginVersionEv"><code class="docutils literal notranslate"><span class="pre">getPluginVersion()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionE"><code class="docutils literal notranslate"><span class="pre">createPlugin()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator17deserializePluginEPKcPKv6size_t"><code class="docutils literal notranslate"><span class="pre">deserializePlugin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator13getFieldNamesEv"><code class="docutils literal notranslate"><span class="pre">getFieldNames()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK11trt_edgellm7plugins22AttentionPluginCreator18getPluginNamespaceEv"><code class="docutils literal notranslate"><span class="pre">getPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator18setPluginNamespaceEPKc"><code class="docutils literal notranslate"><span class="pre">setPluginNamespace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N11trt_edgellm7plugins22AttentionPluginCreator12createPluginEPKcPKN8nvinfer121PluginFieldCollectionEN8nvinfer113TensorRTPhaseE"><code class="docutils literal notranslate"><span class="pre">createPlugin()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1209,8 +1054,8 @@
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1282,9 +1127,9 @@
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

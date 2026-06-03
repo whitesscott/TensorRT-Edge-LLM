@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/getting_started/quick-start-guide';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -614,27 +650,35 @@
 <section id="recommended-high-level-api-or-server">
 <h2>Recommended: High-Level API or Server<a class="headerlink" href="#recommended-high-level-api-or-server" title="Link to this heading">#</a></h2>
 <p>For Jetson Thor and x86 development, use the high-level Python API or the OpenAI-compatible server. Build the project once with Python bindings enabled, then let the high-level Python API export, build, load, and run the model from a HuggingFace checkpoint.</p>
+<p>Install the server dependencies before configuring CMake with Python bindings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-server.txt
+</pre></div>
+</div>
 <p>For x86 development:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/TensorRT-Edge-LLM
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
 
 mkdir<span class="w"> </span>-p<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DTRT_PACKAGE_DIR<span class="o">=</span><span class="nv">$TRT_PACKAGE_DIR</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DCUDA_CTK_VERSION<span class="o">=</span>&lt;YOUR_CUDA_VERSION&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DBUILD_PYTHON_BINDINGS<span class="o">=</span>ON
 make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
 <span class="nb">cd</span><span class="w"> </span>..
 </pre></div>
 </div>
-<p>For Jetson Thor, follow the CMake pattern used by CI and enable CuTe DSL prebuilt kernels:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/TensorRT-Edge-LLM
+<p>For Jetson Thor on JetPack 7.2, follow the CMake pattern used by CI and enable
+CuTe DSL prebuilt kernels. For JetPack 7.0/7.1, use
+<code class="docutils literal notranslate"><span class="pre">-DCUDA_CTK_VERSION=13.0</span></code> instead.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
 
 mkdir<span class="w"> </span>-p<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">13</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">13</span>.2<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-thor<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL<span class="w"> </span><span class="se">\</span>
@@ -644,9 +688,7 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 </pre></div>
 </div>
 <p>After either build:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PWD</span>:<span class="nv">$PWD</span>/experimental:<span class="nv">$PYTHONPATH</span>
-
-pip<span class="w"> </span>install<span class="w"> </span>pybind11<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PWD</span>:<span class="nv">$PYTHONPATH</span>
 </pre></div>
 </div>
 <p>Run a prompt with the high-level Python API:</p>
@@ -683,9 +725,9 @@ pip<span class="w"> </span>install<span class="w"> </span>pybind11<span class="w
 <section id="part-1-export-on-x86-host">
 <h3>Part 1: Export on x86 Host<a class="headerlink" href="#part-1-export-on-x86-host" title="Link to this heading">#</a></h3>
 <p>This part runs on a standard x86 host with an NVIDIA GPU. <strong>DriveOS users:</strong> this process does not need to run in DriveOS Docker; use your regular x86 development machine.</p>
-<section id="recommended-checkpoint-based-loader">
-<h4>Recommended: Checkpoint-Based Loader<a class="headerlink" href="#recommended-checkpoint-based-loader" title="Link to this heading">#</a></h4>
-<p>The checkpoint-based loader (<code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>) is the recommended export path. It reads FP16/BF16 and pre-quantized HuggingFace checkpoints directly and exports to ONNX in a single command. If you need to create a quantized checkpoint from an FP16/BF16 source model, install the standalone quantization requirements from the Installation Guide, run <code class="docutils literal notranslate"><span class="pre">experimental.quantization</span></code>, and then export the generated checkpoint with <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>.</p>
+<section id="recommended-checkpoint-exporter">
+<h4>Recommended: Checkpoint Exporter<a class="headerlink" href="#recommended-checkpoint-exporter" title="Link to this heading">#</a></h4>
+<p>The checkpoint exporter (<code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code>) is the recommended export path. It reads FP16/BF16 and pre-quantized HuggingFace checkpoints directly and exports to ONNX in a single command. If you need to create a quantized checkpoint from an FP16/BF16 source model, install the standalone quantization requirements from the Installation Guide, run <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-quantize</span></code>, and then export the generated checkpoint with <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code>.</p>
 <p>Let’s use <a class="reference external" href="https://huggingface.co/Qwen/Qwen3-0.6B">Qwen3-0.6B</a> as a lightweight example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up workspace directory</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">WORKSPACE_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/tensorrt-edgellm-workspace
@@ -694,38 +736,44 @@ mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$WORKSPA
 <span class="nb">cd</span><span class="w"> </span><span class="nv">$WORKSPACE_DIR</span>
 
 <span class="c1"># Set PYTHONPATH to include the quantization package and loader</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/path/to/TensorRT-Edge-LLM:/path/to/TensorRT-Edge-LLM/experimental:<span class="nv">$PYTHONPATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/path/to/TensorRT-Edge-LLM:<span class="nv">$PYTHONPATH</span>
 
 <span class="c1"># Export FP16 model to ONNX</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>Qwen/Qwen3-0.6B<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="nv">$MODEL_NAME</span>/onnx
 
 <span class="c1"># Or quantize an FP16/BF16 model first, then export the quantized checkpoint</span>
-python<span class="w"> </span>-m<span class="w"> </span>experimental.quantization<span class="w"> </span>llm<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-quantize<span class="w"> </span>llm<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--model_dir<span class="w"> </span>Qwen/Qwen3-0.6B<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--output_dir<span class="w"> </span><span class="nv">$MODEL_NAME</span>/quantized<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>nvfp4<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--lm_head_quantization<span class="w"> </span>nvfp4
 
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="nv">$MODEL_NAME</span>/quantized<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="nv">$MODEL_NAME</span>/onnx
 
 <span class="c1"># Or export a pre-quantized NVFP4 checkpoint (no separate quantization step)</span>
 <span class="c1"># See https://huggingface.co/nvidia/Qwen3-8B-NVFP4</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/path/to/nvidia/Qwen3-8B-NVFP4<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>Qwen3-8B-NVFP4/onnx
 
 <span class="c1"># Or export a pre-quantized INT4-AWQ checkpoint</span>
 <span class="c1"># See https://huggingface.co/Qwen/Qwen3-4B-AWQ</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span><span class="se">\</span>
+tensorrt-edgellm-export<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/path/to/Qwen/Qwen3-4B-AWQ<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>Qwen3-4B-AWQ/onnx
+<span class="w">    </span>Qwen3-4B-AWQ/onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--externalize-weights<span class="w"> </span>int4_ffn
 </pre></div>
 </div>
 <p>For pre-quantized checkpoints (FP8, INT4 AWQ/GPTQ, NVFP4), simply point the loader at the quantized checkpoint directory. For quantization options, FP8 KV cache, FP8 embedding, LoRA, and vocabulary reduction, see <a class="reference internal" href="../features/quantization.html"><span class="std std-doc">Quantization</span></a>, <a class="reference internal" href="../features/FP8KV.html"><span class="std std-doc">FP8 KV Cache</span></a>, <a class="reference internal" href="../features/fp8-embedding.html"><span class="std std-doc">FP8 Embedding</span></a>, <a class="reference internal" href="../features/lora.html"><span class="std std-doc">LoRA</span></a>, and <a class="reference internal" href="../features/reduce-vocab.html"><span class="std std-doc">Vocabulary Reduction</span></a>.</p>
+<p>For INT4 engine builds on Jetson Orin devices with less system memory, such as
+Jetson Orin Nano, externalized weights are recommended to reduce engine build
+memory. Use
+<code class="docutils literal notranslate"><span class="pre">--externalize-weights</span> <span class="pre">int4_ffn</span></code> for dense INT4 checkpoints and
+<code class="docutils literal notranslate"><span class="pre">--externalize-weights</span> <span class="pre">int4_ffn</span> <span class="pre">int4_moe</span></code> for INT4 MoE checkpoints.</p>
 </section>
 <section id="transfer-to-device">
 <h4>Transfer to Device<a class="headerlink" href="#transfer-to-device" title="Link to this heading">#</a></h4>
@@ -748,7 +796,7 @@ scp<span class="w"> </span>-r<span class="w"> </span><span class="nv">$MODEL_NAM
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up workspace directory</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">WORKSPACE_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/tensorrt-edgellm-workspace
 <span class="nb">export</span><span class="w"> </span><span class="nv">MODEL_NAME</span><span class="o">=</span>Qwen3-0.6B
-<span class="nb">cd</span><span class="w"> </span>~/TensorRT-Edge-LLM
+<span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
 
 <span class="c1"># Build engine</span>
 ./build/examples/llm/llm_build<span class="w"> </span><span class="se">\</span>
@@ -786,10 +834,10 @@ scp<span class="w"> </span>-r<span class="w"> </span><span class="nv">$MODEL_NAM
 </pre></div>
 </div>
 <blockquote>
-<div><p><strong>Tip:</strong> You can also use example input files from <code class="docutils literal notranslate"><span class="pre">~/TensorRT-Edge-LLM/tests/test_cases/</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">llm_basic.json</span></code>) instead of creating your own.</p>
+<div><p><strong>Tip:</strong> You can also use example input files from <code class="docutils literal notranslate"><span class="pre">/path/to/TensorRT-Edge-LLM/tests/test_cases/</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">llm_basic.json</span></code>) instead of creating your own.</p>
 </div></blockquote>
 <p>Run inference:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/TensorRT-Edge-LLM
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/TensorRT-Edge-LLM
 
 ./build/examples/llm/llm_inference<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--engineDir<span class="w"> </span><span class="nv">$WORKSPACE_DIR</span>/<span class="nv">$MODEL_NAME</span>/engines<span class="w"> </span><span class="se">\</span>
@@ -843,12 +891,12 @@ cat<span class="w"> </span><span class="nv">$WORKSPACE_DIR</span>/output.json
 <li><p><strong><a class="reference internal" href="../examples/speculative-decoding.html"><span class="std std-doc">Speculative Decoding</span></a></strong> - Speculative decoding for LLM and VLM</p></li>
 <li><p><strong><a class="reference internal" href="../examples/phi4.html"><span class="std std-doc">Phi-4-Multimodal</span></a></strong> - Phi-4 Multimodal</p></li>
 <li><p><strong><a class="reference internal" href="../examples/asr.html"><span class="std std-doc">ASR</span></a></strong> - Automatic speech recognition</p></li>
-<li><p><strong><a class="reference internal" href="../examples/moe.html"><span class="std std-doc">MoE</span></a></strong> - Mixture of Experts models (CPU-only export, Qwen3-30B-A3B-GPTQ-Int4)</p></li>
+<li><p><strong><a class="reference internal" href="../examples/moe.html"><span class="std std-doc">MoE</span></a></strong> - Mixture of Experts models (CPU-only export, Qwen3-30B-A3B-GPTQ-Int4/NVFP4)</p></li>
 <li><p><strong><a class="reference internal" href="../examples/tts.html"><span class="std std-doc">TTS</span></a></strong> - Text-to-speech synthesis</p></li>
 <li><p><strong><a class="reference internal" href="../examples/vla.html"><span class="std std-doc">Alpamayo-R1-10B</span></a></strong> - Vision-language-action inference with trajectory prediction</p></li>
 </ul>
-<p><strong>Checkpoint-Based Loader:</strong> For detailed documentation on the recommended export pipeline, pre-quantized checkpoint support, and migration from the deprecated tools, see <a class="reference internal" href="../../developer_guide/software-design/llm-loader.html"><span class="std std-doc">Checkpoint-Based Model Loader</span></a>.</p>
-<p><strong>Quantization:</strong> To create quantized checkpoints for <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>, see <a class="reference internal" href="../features/quantization.html"><span class="std std-doc">Quantization</span></a>.</p>
+<p><strong>Checkpoint Exporter:</strong> For detailed documentation on the export pipeline and pre-quantized checkpoint support, see <a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html"><span class="std std-doc">Checkpoint Exporter</span></a>.</p>
+<p><strong>Quantization:</strong> To create quantized checkpoints for <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code>, see <a class="reference internal" href="../features/quantization.html"><span class="std std-doc">Quantization</span></a>.</p>
 <p><strong>Experimental Python API and Server:</strong> To use the vLLM-style high-level Python API or an OpenAI-compatible chat server, see <a class="reference internal" href="../examples/experimental-server.html"><span class="std std-doc">Experimental High-Level Python API and Server</span></a>.</p>
 <p><strong>Input Format:</strong> Our format matches closely with the OpenAI API format. See <a class="reference internal" href="../format/input-format.html"><span class="std std-doc">Input Format Guide</span></a> for detailed specifications. Example input files are available in <code class="docutils literal notranslate"><span class="pre">tests/test_cases/</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">llm_basic.json</span></code>, <code class="docutils literal notranslate"><span class="pre">vlm_basic.json</span></code>).</p>
 </section>
@@ -906,7 +954,7 @@ cat<span class="w"> </span><span class="nv">$WORKSPACE_DIR</span>/output.json
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-high-level-api-or-server">Recommended: High-Level API or Server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-export-and-c-runtime-path">Manual Export and C++ Runtime Path</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-export-on-x86-host">Part 1: Export on x86 Host</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-checkpoint-based-loader">Recommended: Checkpoint-Based Loader</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-checkpoint-exporter">Recommended: Checkpoint Exporter</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-to-device">Transfer to Device</a></li>
 </ul>
 </li>
@@ -937,8 +985,8 @@ cat<span class="w"> </span><span class="nv">$WORKSPACE_DIR</span>/output.json
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1010,9 +1058,9 @@ cat<span class="w"> </span><span class="nv">$WORKSPACE_DIR</span>/output.json
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

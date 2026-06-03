@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e02be394" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
 
 
 
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/getting_started/installation';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.18.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = './_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.7.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.8.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -76,7 +76,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.7.1" />
+  <meta name="docsearch:version" content="0.8.0" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -312,11 +319,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -371,13 +385,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Design</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-loader.html">Checkpoint-Based Model Loader Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/experimental-quantization.html">Experimental Quantization Package Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/python-export-pipeline.html">Python Export Pipeline (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/checkpoint-export.html">Checkpoint Exporter Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/quantization-design.html">Quantization Package Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/engine-builder.html">Engine Builder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/cpp-runtime-overview.html">C++ Runtime Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-runtime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-inference-specdecode-runtime.html">LLM Inference SpecDecode Runtime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/software-design/llm-streaming.html">LLM Streaming — Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Customization</span></p>
@@ -439,6 +451,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/common.html">Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/contextFMHARunner.html">Context FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/conversion.html">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslDecodeGemvRunner.html">Cute Dsl Decode Gemv Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslFMHARunner.html">Cute Dsl FMHA Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGDNRunner.html">Cute Dsl Gdn Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/kernels/cuteDslGemmRunner.html">Cute Dsl GEMM Runner</a></li>
@@ -519,17 +532,40 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/runtime/index.html">Runtime Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/audioUtils.html">Audio Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decoderRegistry.html">Decoder Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingInferenceContext.html">Decoding Inference Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/decodingStrategy.html">Decoding Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deepstackBinding.html">Deepstack Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/deploymentConfig.html">Deployment Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDecoder.html">EAGLE Decoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/eagleDraftEngineRunner.html">EAGLE Draft Engine Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/embeddingPreprocessor.html">Embedding Preprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/engineExecutor.html">Engine Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/externalWeightManager.html">External Weight Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/hybridCacheManager.html">Hybrid Cache Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/imageUtils.html">Image Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferenceDims.html">Inference Dims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/inferencePhase.html">Inference Phase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/kvCacheManager.html">KV Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineConfig.html">LLM Engine Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmEngineRunner.html">LLM Engine Runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceRuntime.html">LLM Inference Runtime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmInferenceSpecDecodeRuntime.html">LLM Inference Spec Decode Runtime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/llmRuntimeUtils.html">LLM Runtime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/loraManager.html">Lora Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mambaCacheManager.html">Mamba Cache Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/mtpDecoder.html">Mtp Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/pipelineIO.html">Pipeline Io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/qwen3OmniTTSRuntime.html">Qwen3 Omni Tts Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/registryBuilder.html">Registry Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/ropeCache.html">Rope Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/sharedResources.html">Shared Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/specDecodeUtils.html">Spec Decode Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/stepPreparer.html">Step Preparer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/streaming.html">Streaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/systemPromptKVCache.html">System Prompt KV Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorMap.html">Tensor Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/tensorRegistry.html">Tensor Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/runtime/vanillaDecoder.html">Vanilla Decoder</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp_api/sampler/index.html">Sampler Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -607,13 +643,13 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <p>TensorRT Edge-LLM has two separate components that need to be installed on different systems:</p>
 <ol class="arabic simple">
-<li><p><strong>Experimental Quantization and <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code></strong> (runs on x86 host with GPU)</p></li>
+<li><p><strong>Quantization and <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code></strong> (runs on x86 host with GPU)</p></li>
 <li><p><strong>C++ Runtime</strong> (Jetson Thor, NVIDIA DRIVE / DriveOS, or optional x86 developer build)</p></li>
 </ol>
 <hr class="docutils" />
-<section id="part-1-experimental-quantization-and-llm-loader-x86-host-with-gpu">
-<h2>Part 1: Experimental Quantization and <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> (x86 Host with GPU)<a class="headerlink" href="#part-1-experimental-quantization-and-llm-loader-x86-host-with-gpu" title="Link to this heading">#</a></h2>
-<p>The experimental quantization package and <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> convert and quantize models. This must run on an x86 Linux system with an NVIDIA GPU.</p>
+<section id="part-1-quantization-and-tensorrt-edgellm-x86-host-with-gpu">
+<h2>Part 1: Quantization and <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> (x86 Host with GPU)<a class="headerlink" href="#part-1-quantization-and-tensorrt-edgellm-x86-host-with-gpu" title="Link to this heading">#</a></h2>
+<p>The quantization package and <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> convert and quantize models. This must run on an x86 Linux system with an NVIDIA GPU.</p>
 <section id="system-requirements">
 <h3>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -688,52 +724,51 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <span class="nb">source</span><span class="w"> </span>venv/bin/activate
 </pre></div>
 </div>
-<p>Install the base and checkpoint-based loader dependencies. Add the standalone
-quantization dependencies only when you run <code class="docutils literal notranslate"><span class="pre">experimental.quantization</span></code>. Do not
-install the repository as a pip package for this workflow; the examples run
-directly from the checkout through <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required for llm_loader export, high-level API, and server workflows</span>
+<p>Install the base checkpoint export dependencies. Optional tool dependencies stay
+out of the base environment so export-only and server images do not pull
+quantization, audio, and LoRA-merge packages unnecessarily.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required for checkpoint export</span>
 pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>experimental/llm_loader/requirements.txt
 
-<span class="c1"># Required only when running experimental.quantization</span>
-pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>experimental/quantization/requirements.txt
+<span class="c1"># Required for quantization, LoRA merge, vocabulary reduction, audio preprocessing,</span>
+<span class="c1"># and tokenizer helpers</span>
+pip3<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;.[tools]&quot;</span>
+
+<span class="c1"># Required only for the experimental high-level Python API and server</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-server.txt
 </pre></div>
 </div>
-<p>This installs all required Python dependencies including:</p>
+<p>The base install includes:</p>
 <ul class="simple">
 <li><p>PyTorch</p></li>
 <li><p>Transformers</p></li>
-<li><p>NVIDIA Model Optimizer</p></li>
 <li><p>ONNX</p></li>
 <li><p>ONNX Script and ONNX GraphSurgeon</p></li>
-<li><p>And all other required dependencies</p></li>
 </ul>
+<p>The optional <code class="docutils literal notranslate"><span class="pre">tools</span></code> extra adds NVIDIA Model Optimizer, calibration datasets,
+audio preprocessing dependencies, LoRA merge dependencies, and tokenizer helpers.
+The server requirements file adds FastAPI, Uvicorn, and pybind11 for the
+experimental high-level Python API and OpenAI-compatible server.</p>
 <blockquote>
-<div><p><strong>Note:</strong> For specific version requirements, please refer to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader/requirements.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">experimental/quantization/requirements.txt</span></code>, and <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
+<div><p><strong>Note:</strong> Accuracy evaluation dependencies live under <code class="docutils literal notranslate"><span class="pre">examples/accuracy/requirements.txt</span></code>.</p>
 </div></blockquote>
-<p><strong>3. Configure and Verify the Experimental Export Workflow</strong></p>
+<p><strong>3. Configure and Verify the Checkpoint Export Workflow</strong></p>
 <p>Use the virtual environment created in Step 2 for this checkout. Do not mix
 packages from older release branches into the same environment.</p>
-<p>The recommended export path is <code class="docutils literal notranslate"><span class="pre">experimental.quantization</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>.
+<p>The recommended export path is <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-quantize</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-export</span></code>.
 Use the quantization package only when you need to create a unified quantized
 checkpoint from an FP16/BF16 source checkpoint before export. Pre-quantized
-HuggingFace checkpoints can be exported directly with <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>.</p>
+HuggingFace checkpoints can be exported directly with <code class="docutils literal notranslate"><span class="pre">tensorrt-edgellm-export</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">EDGE_LLM_PATH</span><span class="o">=</span>/path/to/TensorRT-Edge-LLM
-<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$EDGE_LLM_PATH</span>:<span class="nv">$EDGE_LLM_PATH</span>/experimental:<span class="nv">$PYTHONPATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$EDGE_LLM_PATH</span>:<span class="nv">$PYTHONPATH</span>
 
 <span class="c1"># Verify the recommended quantization, export, LoRA, and vocabulary tools</span>
-python<span class="w"> </span>-m<span class="w"> </span>experimental.quantization<span class="w"> </span>--help
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span>--help
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.lora.merge_lora_cli<span class="w"> </span>--help
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.vocab_reduction<span class="w"> </span>--help
+tensorrt-edgellm-quantize<span class="w"> </span>--help
+tensorrt-edgellm-export<span class="w"> </span>--help
+tensorrt-edgellm-merge-lora<span class="w"> </span>--help
+tensorrt-edgellm-reduce-vocab<span class="w"> </span>--help
 </pre></div>
 </div>
-<p>The deprecated <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm/</span></code> export package remains available in 0.7.1 for
-compatibility and for components that are not yet fully covered by
-<code class="docutils literal notranslate"><span class="pre">llm_loader</span></code>. It will be removed in 0.8.0 after the
-<code class="docutils literal notranslate"><span class="pre">experimental/quantization</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">experimental/llm_loader</span></code> workflow reaches full
-feature parity for all models and features.</p>
 <p><strong>4. Configure HuggingFace Access (Optional)</strong></p>
 <p>Some models on HuggingFace require you to accept terms before downloading. This is <strong>not required</strong> for the quick start example (Qwen3-0.6B).</p>
 <p><strong>Models that require HuggingFace login:</strong></p>
@@ -755,22 +790,64 @@ hf<span class="w"> </span>auth<span class="w"> </span>login
 <blockquote>
 <div><p><strong>For the quick start guide:</strong> You can skip this step and proceed to verification.</p>
 </div></blockquote>
-<p><strong>You’re done with export pipeline setup!</strong> You can now quantize and export models with the experimental workflow. The ONNX files will be transferred to the Edge device for runtime deployment.</p>
+<p><strong>You’re done with export pipeline setup!</strong> You can now quantize and export models with the checkpoint-based workflow. The ONNX files will be transferred to the Edge device for runtime deployment.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="part-2-c-runtime-edge-device">
 <h2>Part 2: C++ Runtime (Edge Device)<a class="headerlink" href="#part-2-c-runtime-edge-device" title="Link to this heading">#</a></h2>
-<p>The C++ runtime builds and executes models on the target. <strong>Jetson Thor:</strong> follow the steps below on the device and use <code class="docutils literal notranslate"><span class="pre">EMBEDDED_TARGET=jetson-thor</span></code>. <strong>NVIDIA DRIVE / DriveOS:</strong> run the same flow inside the DriveOS SDK Docker image with <strong><code class="docutils literal notranslate"><span class="pre">EMBEDDED_TARGET=auto-thor</span></code></strong>, then copy <strong><code class="docutils literal notranslate"><span class="pre">build/</span></code></strong> to the DRIVE system. <strong>x86:</strong> optional local build using the <strong>Alternative</strong> <code class="docutils literal notranslate"><span class="pre">cmake</span></code> block (no toolchain).</p>
+<p>The C++ runtime builds TensorRT engines and runs inference on the target. Start
+from the platform row that matches the device or SDK image.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Platform</p></th>
+<th class="head text-left"><p>Software Release</p></th>
+<th class="head text-left"><p><code class="docutils literal notranslate"><span class="pre">CUDA_CTK_VERSION</span></code></p></th>
+<th class="head text-left"><p>Build Location</p></th>
+<th class="head text-left"><p>Precision Support</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Jetson Thor</p></td>
+<td class="text-left"><p>JetPack 7.0/7.1</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">13.0</span></code></p></td>
+<td class="text-left"><p>Jetson device</p></td>
+<td class="text-left"><p>See <a class="reference internal" href="supported-models.html"><span class="std std-doc">Supported Models</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Jetson Thor</p></td>
+<td class="text-left"><p>JetPack 7.2</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">13.2</span></code></p></td>
+<td class="text-left"><p>Jetson device</p></td>
+<td class="text-left"><p>See <a class="reference internal" href="supported-models.html"><span class="std std-doc">Supported Models</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>DRIVE Thor</p></td>
+<td class="text-left"><p>DriveOS 7.2</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">13.2</span></code></p></td>
+<td class="text-left"><p>DriveOS SDK Docker image, then copy <code class="docutils literal notranslate"><span class="pre">build/</span></code> to the DRIVE system</p></td>
+<td class="text-left"><p>See <a class="reference internal" href="supported-models.html"><span class="std std-doc">Supported Models</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Jetson Orin</p></td>
+<td class="text-left"><p>JetPack 7.2</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">13.2</span></code></p></td>
+<td class="text-left"><p>Jetson device</p></td>
+<td class="text-left"><p>FP16, INT8, and INT4</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Jetson Orin</p></td>
+<td class="text-left"><p>JetPack 6.2+</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">12.6</span></code></p></td>
+<td class="text-left"><p>Jetson device</p></td>
+<td class="text-left"><p>FP16, INT8, and INT4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jetson Orin does not support FP8, MXFP8, FP4, or NVFP4 runtime precision in
+this release. Use FP16, INT8, or INT4 checkpoints for Orin.</p>
 <section id="id1">
 <h3>System Requirements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p><strong>Target Platform:</strong></p>
 <ul class="simple">
-<li><p>NVIDIA Jetson Thor</p></li>
-<li><p>JetPack 7.1</p></li>
-<li><p>CUDA 13.x (included in JetPack)</p></li>
-<li><p>TensorRT 10.x+ (included in JetPack)</p></li>
-<li><p>Disk Space: ~20-50GB for ONNX files and TensorRT engines</p></li>
+<li><p>CUDA and TensorRT from the target JetPack or DriveOS SDK release</p></li>
+<li><p>Disk space: ~20-50GB for ONNX files and TensorRT engines</p></li>
 </ul>
 </section>
 <section id="build-instructions">
@@ -784,44 +861,103 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </pre></div>
 </div>
 <p><strong>2. Verify CUDA and TensorRT Installation</strong></p>
-<p>After JetPack is installed, TensorRT should be installed in /usr</p>
+<p>After JetPack is installed, or inside the DriveOS SDK Docker image, TensorRT
+should be installed in <code class="docutils literal notranslate"><span class="pre">/usr</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check CUDA version</span>
-nvcc<span class="w"> </span>--version<span class="w">  </span><span class="c1"># Should show CUDA 13.x</span>
+nvcc<span class="w"> </span>--version<span class="w">  </span><span class="c1"># Should match the CUDA_CTK_VERSION for your platform below</span>
 
 <span class="c1"># Check TensorRT version</span>
 dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>tensorrt<span class="w">  </span><span class="c1"># Should show TensorRT 10.x+</span>
 </pre></div>
 </div>
 <p><strong>3. Clone Repository (on Edge device)</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone to home directory (used in all examples)</span>
-<span class="nb">cd</span><span class="w"> </span>~
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone to your chosen source directory</span>
+<span class="nb">cd</span><span class="w"> </span>/path/to/parent-directory
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/NVIDIA/TensorRT-Edge-LLM.git
 <span class="nb">cd</span><span class="w"> </span>TensorRT-Edge-LLM
 git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
 </pre></div>
 </div>
 <p><strong>4. Configure Build</strong></p>
-<p>On your Jetson Thor device, configure the build with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build
+<p>Use the CMake command for your platform. All commands enable CuTe DSL kernels
+because Qwen3.5 and several other model paths require them.</p>
+<p><strong>JetPack 7.0/7.1 Thor</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 
 cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-thor
+<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-thor<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">13</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
 </pre></div>
 </div>
-<p><strong>NVIDIA DRIVE / DriveOS:</strong> The <code class="docutils literal notranslate"><span class="pre">cmake</span></code> line is the same except <strong><code class="docutils literal notranslate"><span class="pre">EMBEDDED_TARGET=auto-thor</span></code></strong>.</p>
+<p><strong>JetPack 7.2 Thor</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-thor<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">13</span>.2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
+</pre></div>
+</div>
+<p><strong>DriveOS 7.2 Thor</strong></p>
+<p>Run this inside the DriveOS SDK Docker image, then copy <code class="docutils literal notranslate"><span class="pre">build/</span></code> to the DRIVE
+system.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>auto-thor<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">13</span>.2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
+</pre></div>
+</div>
+<p><strong>JetPack 7.2 Orin</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-orin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">13</span>.2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
+</pre></div>
+</div>
+<p><strong>JetPack 6.2+ Orin</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-orin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span><span class="m">12</span>.6<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
+</pre></div>
+</div>
 <p><strong>Alternative: Building on x86 GPU Systems (Optional for Developers)</strong></p>
 <p>If you want to build and test on an x86 workstation with NVIDIA GPU (for development purposes before deploying to Edge devices), you can use this configuration instead:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 
 cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr/local/TensorRT-10.x.x<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span>&lt;YOUR_CUDA_VERSION&gt;
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span>&lt;YOUR_CUDA_VERSION&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
 </pre></div>
 </div>
 <blockquote>
@@ -845,12 +981,12 @@ cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <td class="text-left"><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">EMBEDDED_TARGET</span></code></p></td>
-<td class="text-left"><p><strong>Required for Edge devices</strong>: <code class="docutils literal notranslate"><span class="pre">jetson-thor</span></code> (Jetson) or <code class="docutils literal notranslate"><span class="pre">auto-thor</span></code> (DRIVE / DriveOS). <strong>Not needed for GPU builds</strong></p></td>
+<td class="text-left"><p><strong>Required for Edge devices</strong>: <code class="docutils literal notranslate"><span class="pre">jetson-thor</span></code> (Jetson Thor), <code class="docutils literal notranslate"><span class="pre">auto-thor</span></code> (DRIVE Thor / DriveOS), or <code class="docutils literal notranslate"><span class="pre">jetson-orin</span></code> (Jetson Orin). <strong>Not needed for GPU builds</strong></p></td>
 <td class="text-left"><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">CUDA_CTK_VERSION</span></code></p></td>
-<td class="text-left"><p>CUDA Toolkit version (such as 13.0). Important for matching target platform.</p></td>
-<td class="text-left"><p>13.0</p></td>
+<td class="text-left"><p>CUDA Toolkit version. Use the platform command above to select <code class="docutils literal notranslate"><span class="pre">13.2</span></code>, <code class="docutils literal notranslate"><span class="pre">13.0</span></code>, or <code class="docutils literal notranslate"><span class="pre">12.6</span></code>.</p></td>
+<td class="text-left"><p>target default</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">BUILD_UNIT_TESTS</span></code></p></td>
 <td class="text-left"><p>Build unit tests</p></td>
@@ -861,18 +997,21 @@ cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <td class="text-left"><p>OFF</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ENABLE_CUTE_DSL</span></code></p></td>
-<td class="text-left"><p>Enable prebuilt CuTe DSL kernels: <code class="docutils literal notranslate"><span class="pre">OFF</span></code> (default), <code class="docutils literal notranslate"><span class="pre">ALL</span></code>, or a group list such as <code class="docutils literal notranslate"><span class="pre">gdn</span></code>, <code class="docutils literal notranslate"><span class="pre">fmha</span></code>, <code class="docutils literal notranslate"><span class="pre">gemm</span></code>, or <code class="docutils literal notranslate"><span class="pre">ssd</span></code></p></td>
+<td class="text-left"><p>Enable prebuilt CuTe DSL kernels: <code class="docutils literal notranslate"><span class="pre">OFF</span></code>, <code class="docutils literal notranslate"><span class="pre">ALL</span></code>, or a group list such as <code class="docutils literal notranslate"><span class="pre">gdn</span></code>, <code class="docutils literal notranslate"><span class="pre">fmha</span></code>, <code class="docutils literal notranslate"><span class="pre">gemm</span></code>, or <code class="docutils literal notranslate"><span class="pre">ssd</span></code>. Set this to <code class="docutils literal notranslate"><span class="pre">ALL</span></code> for customer builds.</p></td>
 <td class="text-left"><p>OFF</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">CUTE_DSL_ARTIFACT_TAG</span></code></p></td>
-<td class="text-left"><p>Optional artifact tag under <code class="docutils literal notranslate"><span class="pre">cpp/kernels/cuteDSLArtifact/&lt;arch&gt;/</span></code>, for example <code class="docutils literal notranslate"><span class="pre">sm_110</span></code> or <code class="docutils literal notranslate"><span class="pre">sm_121</span></code>. Required when multiple local artifact tags exist for the same CPU architecture.</p></td>
+<td class="text-left"><p>Optional artifact tag under <code class="docutils literal notranslate"><span class="pre">cpp/kernels/cuteDSLArtifact/&lt;arch&gt;/</span></code>, for example <code class="docutils literal notranslate"><span class="pre">sm_87</span></code>, <code class="docutils literal notranslate"><span class="pre">sm_110</span></code>, or <code class="docutils literal notranslate"><span class="pre">sm_121</span></code>. Required when multiple local artifact tags exist for the same CPU architecture.</p></td>
 <td class="text-left"><p>auto</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Building with CuTe DSL Kernels (Optional)</strong></p>
-<p>CuTe DSL binaries are prebuilt and shipped with the repository. Add <code class="docutils literal notranslate"><span class="pre">-DENABLE_CUTE_DSL=ALL</span></code> (or a group selection such as <code class="docutils literal notranslate"><span class="pre">gdn</span></code>, <code class="docutils literal notranslate"><span class="pre">fmha</span></code>, <code class="docutils literal notranslate"><span class="pre">gemm</span></code>, or <code class="docutils literal notranslate"><span class="pre">ssd</span></code>) to the CMake configure command when a model or kernel path needs them. Qwen3.5 GDN requires <code class="docutils literal notranslate"><span class="pre">-DENABLE_CUTE_DSL=gdn</span></code> or <code class="docutils literal notranslate"><span class="pre">-DENABLE_CUTE_DSL=ALL</span></code>.</p>
+<p><strong>CuTe DSL Kernel Artifacts</strong></p>
+<p>CuTe DSL binaries are prebuilt and shipped with the repository. The platform
+commands above pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_CUTE_DSL=ALL</span></code> because Qwen3.5 and several other
+model paths require them. If you select groups manually, Qwen3.5 GDN requires
+<code class="docutils literal notranslate"><span class="pre">-DENABLE_CUTE_DSL=gdn</span></code> or <code class="docutils literal notranslate"><span class="pre">-DENABLE_CUTE_DSL=ALL</span></code>.</p>
 <p>If you have multiple local artifact tags for the same CPU architecture, also
 pass <code class="docutils literal notranslate"><span class="pre">-DCUTE_DSL_ARTIFACT_TAG=&lt;tag&gt;</span></code>.</p>
 <blockquote>
@@ -904,18 +1043,19 @@ pass <code class="docutils literal notranslate"><span class="pre">-DCUTE_DSL_ART
 <h3>Common Installation Issues<a class="headerlink" href="#common-installation-issues" title="Link to this heading">#</a></h3>
 <p><strong>Issue: Python module import errors</strong></p>
 <p>Solution: Ensure the virtual environment is activated and <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> points to
-both the repository root and <code class="docutils literal notranslate"><span class="pre">experimental/</span></code>:</p>
+the repository root:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
 <span class="nb">export</span><span class="w"> </span><span class="nv">EDGE_LLM_PATH</span><span class="o">=</span>/path/to/TensorRT-Edge-LLM
-<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$EDGE_LLM_PATH</span>:<span class="nv">$EDGE_LLM_PATH</span>/experimental:<span class="nv">$PYTHONPATH</span>
-python<span class="w"> </span>-m<span class="w"> </span>llm_loader.export_all_cli<span class="w"> </span>--help
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$EDGE_LLM_PATH</span>:<span class="nv">$PYTHONPATH</span>
+tensorrt-edgellm-export<span class="w"> </span>--help
 </pre></div>
 </div>
 <p><strong>Issue: <code class="docutils literal notranslate"><span class="pre">nvcc:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code></strong></p>
-<p>Solution: Ensure JetPack 7.1 is properly installed with CUDA support:</p>
+<p>Solution: Ensure the target JetPack release or DriveOS SDK Docker image is
+installed with CUDA support:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify CUDA installation</span>
 nvcc<span class="w"> </span>--version
-<span class="c1"># Should show CUDA 13.x</span>
+<span class="c1"># Should match the CUDA_CTK_VERSION used for CMake</span>
 </pre></div>
 </div>
 <p><strong>Issue: <code class="docutils literal notranslate"><span class="pre">TensorRT</span> <span class="pre">not</span> <span class="pre">found</span></code> during CMake</strong></p>
@@ -923,7 +1063,9 @@ nvcc<span class="w"> </span>--version
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DTRT_PACKAGE_DIR<span class="o">=</span>/usr/local/TensorRT-10.x.x<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>cmake/aarch64_linux_toolchain.cmake<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>jetson-thor
+<span class="w">    </span>-DEMBEDDED_TARGET<span class="o">=</span>&lt;jetson-thor<span class="p">|</span>auto-thor<span class="p">|</span>jetson-orin&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DCUDA_CTK_VERSION<span class="o">=</span>&lt;target<span class="w"> </span>CUDA<span class="w"> </span>version&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-DENABLE_CUTE_DSL<span class="o">=</span>ALL
 </pre></div>
 </div>
 <p><strong>Issue: Thread issue during C++ build</strong></p>
@@ -944,7 +1086,7 @@ nvcc<span class="w"> </span>--version
 </section>
 <section id="uninstalling">
 <h2>Uninstalling<a class="headerlink" href="#uninstalling" title="Link to this heading">#</a></h2>
-<p><strong>Experimental Quantization and <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> (x86 Host):</strong></p>
+<p><strong>Quantization and <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> (x86 Host):</strong></p>
 <ul class="simple">
 <li><p>Deactivate and remove virtual environment: <code class="docutils literal notranslate"><span class="pre">deactivate</span> <span class="pre">&amp;&amp;</span> <span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">venv</span></code></p></li>
 <li><p>Remove repository (optional): <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">TensorRT-Edge-LLM</span></code></p></li>
@@ -1006,7 +1148,7 @@ nvcc<span class="w"> </span>--version
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-experimental-quantization-and-llm-loader-x86-host-with-gpu">Part 1: Experimental Quantization and <code class="docutils literal notranslate"><span class="pre">llm_loader</span></code> (x86 Host with GPU)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-quantization-and-tensorrt-edgellm-x86-host-with-gpu">Part 1: Quantization and <code class="docutils literal notranslate"><span class="pre">tensorrt_edgellm</span></code> (x86 Host with GPU)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System Requirements</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-requirements">Memory Requirements</a></li>
 </ul>
@@ -1044,8 +1186,8 @@ nvcc<span class="w"> </span>--version
   
 
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
 
 
   <footer class="bd-footer">
@@ -1117,9 +1259,9 @@ nvcc<span class="w"> </span>--version
         <div class="footer-item">
 <div class="extra_footer">
   
-  <p>Last updated on May 19, 2026.</p>
+  <p>Last updated on June 02, 2026.</p>
   
-  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/3e40456">3e40456</a>.</p>
+  <p>This page is generated by TensorRT-Edge-LLM commit <a href="https://github.com/NVIDIA/TensorRT-Edge-LLM/tree/1df0e01">1df0e01</a>.</p>
   
 </div></div>
       

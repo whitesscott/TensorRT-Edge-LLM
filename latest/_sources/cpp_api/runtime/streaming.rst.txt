@@ -16,6 +16,11 @@ Streaming
    :members:
    :undoc-members:
 
+.. doxygenstruct:: trt_edgellm::rt::StopMatchOutcome
+   :project: TensorRT Edge-LLM
+   :members:
+   :undoc-members:
+
 .. doxygenstruct:: trt_edgellm::rt::SlotStreamState
    :project: TensorRT Edge-LLM
    :members:
@@ -27,7 +32,16 @@ Streaming
 .. doxygenfunction:: trt_edgellm::rt::validateStreamingSubmission
    :project: TensorRT Edge-LLM
 
+.. doxygenfunction:: trt_edgellm::rt::finishReasonName
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::rt::applyStopStringMatch
+   :project: TensorRT Edge-LLM
+
 .. doxygenfunction:: trt_edgellm::rt::applyCancellationToFinishStates
+   :project: TensorRT Edge-LLM
+
+.. doxygenfunction:: trt_edgellm::rt::decodePerSlot
    :project: TensorRT Edge-LLM
 
 .. doxygenfunction:: trt_edgellm::rt::emitChunks
