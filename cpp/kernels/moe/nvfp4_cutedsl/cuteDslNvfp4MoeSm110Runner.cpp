@@ -36,9 +36,9 @@
 namespace trt_edgellm
 {
 
-nvfp4_moe_sm110_fc1_relu2_n128_Kernel_Module_t CuteDslNvfp4MoeSm110Runner::sFC1Relu2N128 = {};
-nvfp4_moe_sm110_fc1_swiglu_n128_Kernel_Module_t CuteDslNvfp4MoeSm110Runner::sFC1SwiGLUN128 = {};
-nvfp4_moe_sm110_fc2_n128_fp16_Kernel_Module_t CuteDslNvfp4MoeSm110Runner::sFC2N128Fp16 = {};
+nvfp4_moe_fc1_relu2_n128_fp16_Kernel_Module_t CuteDslNvfp4MoeSm110Runner::sFC1Relu2N128 = {};
+nvfp4_moe_fc1_swiglu_n128_fp16_Kernel_Module_t CuteDslNvfp4MoeSm110Runner::sFC1SwiGLUN128 = {};
+nvfp4_moe_fc2_n128_fp16_Kernel_Module_t CuteDslNvfp4MoeSm110Runner::sFC2N128Fp16 = {};
 bool CuteDslNvfp4MoeSm110Runner::sLoaded = false;
 std::mutex CuteDslNvfp4MoeSm110Runner::sLoadMutex;
 
@@ -185,9 +185,9 @@ bool CuteDslNvfp4MoeSm110Runner::loadKernelModules()
     }
     try
     {
-        nvfp4_moe_sm110_fc1_relu2_n128_Kernel_Module_Load(&sFC1Relu2N128);
-        nvfp4_moe_sm110_fc1_swiglu_n128_Kernel_Module_Load(&sFC1SwiGLUN128);
-        nvfp4_moe_sm110_fc2_n128_fp16_Kernel_Module_Load(&sFC2N128Fp16);
+        nvfp4_moe_fc1_relu2_n128_fp16_Kernel_Module_Load(&sFC1Relu2N128);
+        nvfp4_moe_fc1_swiglu_n128_fp16_Kernel_Module_Load(&sFC1SwiGLUN128);
+        nvfp4_moe_fc2_n128_fp16_Kernel_Module_Load(&sFC2N128Fp16);
         sLoaded = true;
         LOG_DEBUG("CuTe DSL SM100/101/110 NVFP4 MoE modules loaded (FC1 relu2/swiglu n128 + FC2 n128 fp16)");
         return true;
@@ -206,9 +206,9 @@ void CuteDslNvfp4MoeSm110Runner::unloadKernelModules()
     {
         return;
     }
-    nvfp4_moe_sm110_fc1_relu2_n128_Kernel_Module_Unload(&sFC1Relu2N128);
-    nvfp4_moe_sm110_fc1_swiglu_n128_Kernel_Module_Unload(&sFC1SwiGLUN128);
-    nvfp4_moe_sm110_fc2_n128_fp16_Kernel_Module_Unload(&sFC2N128Fp16);
+    nvfp4_moe_fc1_relu2_n128_fp16_Kernel_Module_Unload(&sFC1Relu2N128);
+    nvfp4_moe_fc1_swiglu_n128_fp16_Kernel_Module_Unload(&sFC1SwiGLUN128);
+    nvfp4_moe_fc2_n128_fp16_Kernel_Module_Unload(&sFC2N128Fp16);
     sLoaded = false;
 }
 
@@ -301,21 +301,17 @@ int32_t CuteDslNvfp4MoeSm110Runner::run(CuteDslNvfp4MoeSm110Params const& params
 
     if (params.activationType == kACT_RELU2)
     {
-        ret = cute_dsl_nvfp4_moe_sm110_fc1_relu2_n128_wrapper(&sFC1Relu2N128, inputFP4,
-            const_cast<void*>(params.fc1QWeights), inputSF, const_cast<void*>(params.fc1BlocksScale), fc1FP4, fc1SF,
+        ret = cute_dsl_nvfp4_moe_fc1_relu2_n128_fp16_wrapper(&sFC1Relu2N128, inputFP4,
+            const_cast<void*>(params.fc1QWeights), inputSF, const_cast<void*>(params.fc1BlocksScale), fc1FP4,
             const_cast<void*>(static_cast<void const*>(params.fc1Alpha)),
-            const_cast<void*>(static_cast<void const*>(params.inputGlobalScale)),
-            const_cast<void*>(static_cast<void const*>(params.downInputScale)), tileGroup, tileLimit,
-            permutedToExpanded, numTiles, origM, m, n1, h, e, stream);
+            tileGroup, tileLimit, numTiles, origM, m, n1, h, e, stream);
     }
     else if (params.activationType == kACT_SWIGLU)
     {
-        ret = cute_dsl_nvfp4_moe_sm110_fc1_swiglu_n128_wrapper(&sFC1SwiGLUN128, inputFP4,
-            const_cast<void*>(params.fc1QWeights), inputSF, const_cast<void*>(params.fc1BlocksScale), fc1FP4, fc1SF,
+        ret = cute_dsl_nvfp4_moe_fc1_swiglu_n128_fp16_wrapper(&sFC1SwiGLUN128, inputFP4,
+            const_cast<void*>(params.fc1QWeights), inputSF, const_cast<void*>(params.fc1BlocksScale), fc1FP4,
             const_cast<void*>(static_cast<void const*>(params.fc1Alpha)),
-            const_cast<void*>(static_cast<void const*>(params.inputGlobalScale)),
-            const_cast<void*>(static_cast<void const*>(params.downInputScale)), tileGroup, tileLimit,
-            permutedToExpanded, numTiles, origM, m, n1, h, e, stream);
+            tileGroup, tileLimit, numTiles, origM, m, n1, h, e, stream);
     }
     else
     {
@@ -333,11 +329,11 @@ int32_t CuteDslNvfp4MoeSm110Runner::run(CuteDslNvfp4MoeSm110Params const& params
         = static_cast<size_t>(params.numTokens) * static_cast<size_t>(params.hiddenSize) * sizeof(__half);
     CUDA_CHECK(cudaMemsetAsync(params.output, 0, outputBytes, stream));
 
-    ret = cute_dsl_nvfp4_moe_sm110_fc2_n128_fp16_wrapper(&sFC2N128Fp16, fc1FP4, const_cast<void*>(params.fc2QWeights),
+    ret = cute_dsl_nvfp4_moe_fc2_n128_fp16_wrapper(&sFC2N128Fp16, fc1FP4, const_cast<void*>(params.fc2QWeights),
         fc1SF, const_cast<void*>(params.fc2BlocksScale), params.output,
         const_cast<void*>(static_cast<void const*>(params.fc2Alpha)),
-        const_cast<void*>(static_cast<void const*>(params.downInputScale)), tileGroup, tileLimit, permutedToExpanded,
-        numTiles, const_cast<void*>(static_cast<void const*>(params.topkWeights)), m, h, params.moeInterSize, e,
+        tileGroup, tileLimit, permutedToExpanded, numTiles,
+        const_cast<void*>(static_cast<void const*>(params.topkWeights)), m, h, params.moeInterSize, e,
         params.numTokens, params.topK, stream);
     if (ret != 0)
     {
